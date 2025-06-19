@@ -1,0 +1,13 @@
+.svg_figure_top {
+    background-image: url("../../images/svg/wave-haikei-top.svg");
+    background-repeat: no-repeat;
+    background-size: cover; // Ou 'contain' selon ce que tu veux
+    // Ajoute d'autres propriétés comme nécessaire
+    width: 100%;
+    height: 20em;
+}
+
+.svg_figure_bottom {
+    background-image: url("../../images/svg/wave-haikei-bottom.svg");
+    background-repeat: no-repeat;
+}

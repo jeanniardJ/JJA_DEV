@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{'blog.title'|trans({}, 'blog')}} | {{ article.title }}{% endblock %}
+{% block stylesheets %}
+    {{parent()}}
+    {{ encore_entry_link_tags('blog') }}
+{% endblock %}
+{% block body %}
+    <section id="articles">
+        <div class="container-fluid p-0">
+            <div class="container">
+                <div class="row">
+                    <article class="col-12 col-md-12 my-5 border rounded p-4">
+                        <h3 class="text-center mb-4 text-primary">{{ article.title }}</h3>
+                        {{ article.article|raw }}
+                        <a class="btn btn-primary float-end"
+                           href="{{ path('jjadev_blog') }}">{{ 'blog.rollback'|trans({}, 'blog') }}</a>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

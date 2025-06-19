@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <title>
+        {% block title %}{{ nom_site }}{% endblock %}
+    </title>
+    {% block stylesheets %}
+    {{ encore_entry_link_tags('appCss') }}
+    {% endblock %}
+
+    {% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</head>
+
+<body class="maintenance">
+{% block body %}{% endblock %}
+</body>
+
+</html>

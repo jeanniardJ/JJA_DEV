@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+{% block title %}{{ parent() }} - Accueil{% endblock %}
+{% set menuActive = 'home' %}
+{% set breadCrumbs = [
+    {'name': 'admin.title'|trans({}, 'admin'), 'url': 'app_adm_accueil'},
+] %}
+{% block body %}
+    <div class="d-flex flex-wrap flex-md-row flex-sm-column gap-3">
+        {{ render(controller('App\\Controller\\UserAdminController::userBlock')) }}
+        {{ render(controller('App\\Controller\\ContactAdminController::contactsBloc')) }}
+    </div>
+{% endblock %}

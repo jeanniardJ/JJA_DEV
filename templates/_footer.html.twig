@@ -1,0 +1,106 @@
+<footer class="bg-dark text-white py-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-md-3 mb-3">
+                <h4>Information du site</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <a href="{{ path('app_sitemap_index') }}" title="Aller à la page 'Plan du site'">Plan du
+                            site</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="{{ path('app_legalnotice_index') }}" title="Aller à la page 'Mentions Légales'">Mentions
+                            légales</a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="{{ path('app_privacypolicy_index') }}"
+                           title="Aller à la page 'Politique de confidentialité'">Politique de confidentialité</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-6 col-md-3 mb-3">
+                <h4>Navigation</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="{{ path('app_home') }}" title="Retour à l\'accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item mb-2"><a href="{{ url('app_home') ~ '#services' }}"
+                                                 title="Aller à la section 'Services'">Services</a></li>
+                    <li class="nav-item mb-2"><a href="{{ path('app_home') ~ '#contact' }}"
+                                                 title='Aller à la section "Contact"'>Contact</a></li>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="{{ path('app_adm_accueil') }}"
+                           title="Aller à l'espace d'administration">Administration</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-5 offset-md-1 mb-3">
+                <h4>Contact</h4>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2">
+                        <i class="bi bi-house me-1"></i> Conliège 39570, Jura, France
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="mailto:{{ global.propriety.email }}" title="Mail de contact">
+                            <i class="bi bi-envelope-at-fill me-1"></i> {{ global.propriety.email }}
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <a href="tel:+33646872307" title="Appeler le numéro 06 46 87 23 07">
+                            <i class="bi bi-telephone me-1"></i> 06 46 87 23 07
+                        </a>
+                    </li>
+                    <li class="nav-item mb-2">
+                        <i class="bi bi-clock me-1"></i> du lundi au vendredi de 9h à 17h30
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="d-flex flex-row border-top justify-content-between py-4 my-4 ">
+            <p class="align-self-center">&copy; {{ "now"|date('Y') }} {{ name_develop }} - Tous droits réservés</p>
+            <ul class="list-unstyled d-flex">
+                {% for key, social in global.social %}
+                    {% if social is not null %}
+                        <li class="fs-3">
+                            {% if key == 'TwitterUrl' %}
+                                <a href="{{ social }}" aria-label="Twitter"
+                                   title="Page Twitter de l'entreprise">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                            {% endif %}
+                            {% if key == 'LinkedinUrl' %}
+                                <a href="{{ social }}" aria-label="Linkedin">
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                            {% endif %}
+                            {% if key == 'FacebookUrl' %}
+                                <a href="{{ social }}" aria-label="Facebook"
+                                   title="Page Facebook de l'entreprise">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                            {% endif %}
+                            {% if key == 'InstagramUrl' %}
+                                <a href="{{ social }}" aria-label="Instagram"
+                                   title="Page Instagram de l'entreprise">
+                                    <i class="bi bi-instagram"></i>
+                                </a>
+                            {% endif %}
+                            {% if key == 'YoutubeUrl' %}
+                                <a href="{{ social }}" aria-label="Youtube"
+                                   title="Page Youtube de l'entreprise">
+                                    <i class="bi bi-youtube"></i>
+                                </a>
+                            {% endif %}
+                            {% if key == 'WhatsappPhone' %}
+                                <a href="{{ social }}" aria-label="Whatsapp"
+                                   title="Page Whatsapp de l'entreprise">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                            {% endif %}
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</footer>

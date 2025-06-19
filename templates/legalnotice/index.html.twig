@@ -1,0 +1,54 @@
+{% extends "legalnotice/_settings.html.twig" %}
+{% trans_default_domain('legalnotice') %}
+{% block body %}
+	<section id="legalnotice">
+		<div class="container">
+			<div id="legalnotice-bg" class="shadow p-3">
+				<div class="section-title d-flex justify-content-center">
+					<h2 class="text-center pt-5">Mentions légales</h2>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-lg-8">
+						<h2>MENTIONS LÉGALES</h2>
+						<p>
+							<strong>Editeur du site internet :</strong>
+						</p>
+						<p>
+							<strong>Nom :</strong>
+							JJA DEV</p>
+						<p>
+							<strong>Adresse :</strong>
+							34 rue neuve, 39570 Conliège</p>
+						<p>
+							<strong>Email :</strong>
+							contact@jja-dev.fr</p>
+						<p>
+							<strong>Téléphone :</strong>
+							06 46 87 23 07</p>
+						<p>
+							<strong>Directeur de la publication :</strong>
+							Jonathan Jeanniard</p>
+
+						<p>
+							<strong>Hébergement :</strong>
+						</p>
+						<p>
+							<strong>Nom :</strong>
+							OVH</p>
+						<p>
+							<strong>Adresse :</strong>
+							2 rue Kellermann, 59100 Roubaix</p>
+						<p>
+							<strong>Numéro de téléphone :</strong>
+							1007</p>
+						<p>
+							<strong>Données personnelles :</strong>
+							Les données personnelles collectées sur ce site internet sont utilisées uniquement dans le cadre de la relation commerciale avec nos clients et ne sont en aucun cas transmises à des tiers. Pour plus d'informations, veuillez consulter notre
+							<a href="{{ path('app_privacypolicy_index') }}">politique de confidentialité</a>.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

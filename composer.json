@@ -1,0 +1,214 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "homepage": "https://jja-dev.fr",
+    "name": "jja-dev/cms",
+    "description": "CMS for JJADEV",
+    "repositories": [],
+    "require": {
+        "php": ">=8.2",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "doctrine/doctrine-bundle": "^2.10",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.19",
+        "elao/consent-bundle": "dev-master",
+        "gedmo/doctrine-extensions": "^3.13",
+        "guzzlehttp/guzzle": "^7.8",
+        "guzzlehttp/psr7": "^2.6",
+        "knplabs/doctrine-behaviors": "^2.6",
+        "knplabs/github-api": "^3.14",
+        "knplabs/knp-menu-bundle": "^3.2",
+        "knpuniversity/oauth2-client-bundle": "^2.15",
+        "league/oauth2-github": "^3.1",
+        "league/oauth2-linkedin": "^5.1",
+        "liip/imagine-bundle": "^2.12",
+        "mlocati/ip-lib": "^1.18",
+        "nelmio/cors-bundle": "^2.4",
+        "nelmio/security-bundle": "^3.4",
+        "openai-php/client": "^0.3.5",
+        "php-http/curl-client": "^2.3",
+        "php-http/message": "^1.16",
+        "phpdocumentor/reflection-docblock": "^5.3",
+        "phpstan/phpdoc-parser": "^1.24",
+        "presta/sitemap-bundle": "^3.3",
+        "stof/doctrine-extensions-bundle": "^1.8",
+        "symfony-cmf/routing": "^3.0",
+        "symfony-cmf/routing-bundle": "^3.0",
+        "symfony/asset": "6.4.*|7.0.*",
+        "symfony/console": "6.4.*|7.0.*",
+        "symfony/doctrine-messenger": "6.4.*|7.0.*",
+        "symfony/dotenv": "6.4.*|7.0.*",
+        "symfony/expression-language": "6.4.*|7.0.*",
+        "symfony/flex": "^2",
+        "symfony/form": "6.4.*|7.0.*",
+        "symfony/framework-bundle": "6.4.*|7.0.*",
+        "symfony/http-client": "6.4.*|7.0.*",
+        "symfony/http-foundation": "6.4.*|7.0.*",
+        "symfony/intl": "6.4.*|7.0.*",
+        "symfony/mailer": "6.4.*|7.0.*",
+        "symfony/messenger": "6.4.*|7.0.*",
+        "symfony/mime": "6.4.*|7.0.*",
+        "symfony/monolog-bundle": "^3.0",
+        "symfony/notifier": "6.4.*|7.0.*",
+        "symfony/process": "6.4.*|7.0.*",
+        "symfony/property-access": "6.4.*|7.0.*",
+        "symfony/property-info": "6.4.*|7.0.*",
+        "symfony/requirements-checker": "^2.0",
+        "symfony/runtime": "6.4.*",
+        "symfony/security-bundle": "6.4.*|7.0.*",
+        "symfony/security-csrf": "6.4.*|7.0.*",
+        "symfony/serializer": "6.4.*|7.0.*",
+        "symfony/stimulus-bundle": "^2.12",
+        "symfony/string": "6.4.*|7.0.*",
+        "symfony/translation": "6.4.*",
+        "symfony/twig-bundle": "6.4.*|7.0.*",
+        "symfony/ux-autocomplete": "^2.12",
+        "symfony/ux-chartjs": "^2.14",
+        "symfony/ux-live-component": "^2.13",
+        "symfony/ux-react": "^2.12",
+        "symfony/ux-twig-component": "^2.12",
+        "symfony/ux-typed": "^2.12",
+        "symfony/validator": "6.4.*|7.0.*",
+        "symfony/web-link": "6.4.*|7.0.*",
+        "symfony/webpack-encore-bundle": "^2.1",
+        "symfony/yaml": "6.4.*|7.0.*",
+        "symfonycasts/reset-password-bundle": "^1.18",
+        "symfonycasts/verify-email-bundle": "^1.14",
+        "twig/cssinliner-extra": "^3.7",
+        "twig/extra-bundle": "^3.7",
+        "twig/inky-extra": "^3.7",
+        "twig/string-extra": "^3.7",
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^2.3"
+    },
+    "config": {
+        "allow-plugins": {
+            "php-http/discovery": true,
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "symfony/thanks": true
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*"
+    },
+    "require-dev": {
+        "dama/doctrine-test-bundle": "^7.2",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
+        "fakerphp/faker": "^1.23",
+        "liip/test-fixtures-bundle": "^2.6",
+        "phpstan/phpstan": "^1.11",
+        "phpstan/phpstan-doctrine": "^1.4",
+        "phpstan/phpstan-symfony": "^1.4",
+        "phpunit/phpunit": "^9.5",
+        "symfony/browser-kit": "6.4.*|7.0.*",
+        "symfony/css-selector": "6.4.*|7.0.*",
+        "symfony/debug-bundle": "6.4.*|7.0.*",
+        "symfony/maker-bundle": "^1.52",
+        "symfony/phpunit-bridge": "^7.0",
+        "symfony/stopwatch": "6.4.*|7.0.*",
+        "symfony/thanks": "^1.2",
+        "symfony/web-profiler-bundle": "6.4.*|7.0.*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "requirements-checker": "script"
+        },
+        "install-prod": [
+            "composer dump-env dev",
+            "composer install",
+            "php bin/console doctrine:database:create",
+            "@up-db",
+            "composer dump-env prod",
+            "composer install --optimize-autoloader"
+        ],
+        "update-prod": [
+            "composer update",
+            "@up-db"
+        ],
+        "install-dev": [
+            "composer dump-env dev",
+            "composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist",
+            "php bin/console doctrine:database:create -qn",
+            "@up-db",
+            "composer dump-env dev",
+            "composer install --optimize-autoloader"
+        ],
+        "update-dev": [
+            "composer update",
+            "@up-db"
+        ],
+        "test": [
+            "composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist",
+            "@composer dump-env dev",
+            "php bin/console cache:clear",
+            "php bin/console doctrine:database:create -qn",
+            "php bin/console doctrine:schema:create -qn",
+            "php bin/phpunit tests --stop-on-failure"
+        ],
+        "test-github-actions": [
+            "composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist",
+            "@composer dump-env dev",
+            "php bin/console cache:clear",
+            "php bin/console doctrine:database:create -qn",
+            "php bin/console doctrine:schema:create -qn",
+            "php bin/phpunit tests --stop-on-failure"
+        ],
+        "test-github-phpunit": [
+            "composer install --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist",
+            "@composer dump-env dev",
+            "php bin/console cache:clear",
+            "php bin/console doctrine:database:create -qn",
+            "php bin/console doctrine:schema:create -qn",
+            "php bin/phpunit tests --stop-on-failure"
+        ],
+        "up-db": [
+            "php bin/console make:migration -qn",
+            "php bin/console doctrine:migrations:migrate -qn"
+        ],
+        "pre-install-cmd": [
+            "@composer_global"
+        ],
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "pre-update-cmd": [],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "composer_global": [
+            ""
+        ]
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": true,
+            "require": "6.4.*"
+        }
+    }
+}

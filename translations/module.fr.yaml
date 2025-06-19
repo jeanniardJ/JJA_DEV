@@ -1,0 +1,50 @@
+admin:
+    module:
+        id: ID
+        title: Modules
+        home: Accueil des modules
+        description: Gestion des modules
+        descsModule: Description
+        idGithub: ID Github
+        name: Nom
+        isInstall: Installé
+        createdAt: Créé le
+        updateAt: Modifié le
+        actions: Actions
+        back_to_list: Retour à la liste des modules
+        list: Liste des modules
+        install: Installer
+        update: Mettre à jour
+        uninstall: Désinstaller
+        show: Module
+        url: Url
+        enable: Activer un module
+        disable: Désactiver un module
+        install_success: Le module a été installé avec succès
+        install_error: Une erreur est survenue lors de l'installation du module
+        uninstall_success: Le module a été désinstallé avec succès
+        uninstall_error: Une erreur est survenue lors de la désinstallation du module
+        enable_success: Le module a été activé avec succès
+        enable_error: Une erreur est survenue lors de l'activation du module
+        disable_success: Le module a été désactivé avec succès
+        disable_error: Une erreur est survenue lors de la désactivation du module
+        no_module: Aucun module n'est installé
+        no_module_install: Aucun module n'est installé
+        no_module_enable: Aucun module n'est activé
+        no_module_disable: Aucun module n'est désactivé
+        no_module_uninstall: Aucun module n'est désinstallé
+        no_module_found: Aucun module trouvé
+        no_module_install_found: Aucun module installé trouvé
+        no_module_enable_found: Aucun module activé trouvé
+        no_module_disable_found: Aucun module désactivé trouvé
+        no_module_uninstall_found: Aucun module désinstallé trouvé
+        no_module_installable: Aucun module installable
+        no_module_uninstallable: Aucun module désinstallable
+        no_module_enableable: Aucun module activable
+        no_module_disableable: Aucun module désactivable
+        no_module_installable_found: Aucun module installable trouvé
+        no_module_uninstallable_found: Aucun module désinstallable trouvé
+        no_module_enableable_found: Aucun module activable trouvé
+        no_module_disableable_found: Aucun module désactivable trouvé
+        params:
+            title: Gestion des modules

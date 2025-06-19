@@ -1,0 +1,89 @@
+{
+  "entrypoints": {
+    "app": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_bootstrap_dist_js_bootstrap_esm_js.js",
+        "/build/vendors-node_modules_popperjs_core_lib_index_js-node_modules_symfony_stimulus-bridge_dist_ind-0b536d.js",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-vendor_sy-4f8c26.js",
+        "/build/app.js"
+      ],
+      "css": [
+        "/build/vendors-node_modules_popperjs_core_lib_index_js-node_modules_symfony_stimulus-bridge_dist_ind-0b536d.css",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-vendor_sy-4f8c26.css"
+      ]
+    },
+    "admin": {
+      "js": [
+        "/build/runtime.js",
+        "/build/vendors-node_modules_popperjs_core_lib_index_js-node_modules_symfony_stimulus-bridge_dist_ind-0b536d.js",
+        "/build/vendors-node_modules_react-dom_index_js.js",
+        "/build/vendors-node_modules_bootstrap_dist_js_bootstrap_bundle_min_js-node_modules_bootstrap_js_src_-cef498.js",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-vendor_sy-4f8c26.js",
+        "/build/admin.js"
+      ],
+      "css": [
+        "/build/vendors-node_modules_popperjs_core_lib_index_js-node_modules_symfony_stimulus-bridge_dist_ind-0b536d.css",
+        "/build/vendors-node_modules_bootstrap_dist_js_bootstrap_bundle_min_js-node_modules_bootstrap_js_src_-cef498.css",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-vendor_sy-4f8c26.css",
+        "/build/admin.css"
+      ]
+    },
+    "appCss": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/appCss.css"
+      ]
+    },
+    "home": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/home.css"
+      ]
+    },
+    "legalnotice": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/legalnotice.css"
+      ]
+    },
+    "privatepolicy": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/privatepolicy.css"
+      ]
+    },
+    "sitemap": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/sitemap.css"
+      ]
+    },
+    "blog": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/blog.css"
+      ]
+    },
+    "contact": {
+      "js": [
+        "/build/runtime.js"
+      ],
+      "css": [
+        "/build/contact.css"
+      ]
+    }
+  }
+}

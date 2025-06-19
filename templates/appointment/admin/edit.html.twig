@@ -1,0 +1,21 @@
+{% extends './admin/base.html.twig' %}
+
+{% block title %}{{parent()}} - {{ 'appointment.edit'|trans({}, 'calendar') }}{% endblock %}
+{% set menuActive = 'appoitment' %}
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1>Edit Appointment</h1>
+
+                    {{ include('appointment/admin/_form.html.twig', {'button_label': 'Update'}) }}
+
+                    <a href="{{ path('app_appointment_admin_index') }}">{{ 'return'|trans() }}</a>
+
+                    {{ include('appointment/admin/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

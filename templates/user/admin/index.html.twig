@@ -1,0 +1,21 @@
+{% extends 'user/admin/_body.html.twig' %}
+{% trans_default_domain 'user' %}
+{% block content %}
+<div class="card-body">
+    <table class="table" data-toggle="table"
+            data-url="{{ path('app_user_adm_index_json') }}" 
+            data-side-pagination="server" 
+            data-pagination="true"
+            data-search="true" data-locale="fr-FR">
+        <thead>
+            <tr>
+                <th data-field="id">#</th>
+                <th data-field="username" data-sortable="true">{{ 'admin.username'|trans() }}</th>
+                <th data-field="email" data-sortable="true">{{ 'admin.mail'|trans() }}</th>
+                <th data-field="isVerified" data-sortable="true">{{ 'admin.IsVerified'|trans() }}</th>
+                <th data-field="actions">{{ 'admin.actions'|trans() }}</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+{% endblock %}

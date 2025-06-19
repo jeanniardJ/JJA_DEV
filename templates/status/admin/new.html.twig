@@ -1,0 +1,11 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain "admin" %}
+{% block title %}New Status{% endblock %}
+{% set menuActive = "prospect" %}
+{% block body %}
+    <h1>Create new Status</h1>
+
+    {{ include('status/admin/_form.html.twig') }}
+
+    <a href="{{ path('app_status_adm_index') }}">back to list</a>
+{% endblock %}

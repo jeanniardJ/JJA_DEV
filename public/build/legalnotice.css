@@ -1,0 +1,41 @@
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/@symfony/webpack-encore/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].oneOf[1].use[2]!./node_modules/resolve-url-loader/index.js??ruleSet[1].rules[4].oneOf[1].use[3]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].oneOf[1].use[4]!./assets/styles/pages/_legalnotice.scss ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+#legalnotice {
+  background-color: #e3e3e3;
+  padding: 80px 0;
+}
+#legalnotice #legalnotice-bg {
+  background-color: #fff;
+  border-radius: 5px;
+}
+#legalnotice .section-title {
+  margin-bottom: 1em;
+}
+#legalnotice .section-title h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 3px solid #B84F00;
+}
+#legalnotice .container {
+  position: relative;
+  z-index: 1;
+}
+#legalnotice p {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 30px;
+  position: relative;
+}
+#legalnotice a {
+  color: #007bff;
+  transition: color 0.3s ease;
+}
+#legalnotice a:hover {
+  text-decoration: none;
+  color: #B84F00;
+}
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibGVnYWxub3RpY2UuY3NzIiwibWFwcGluZ3MiOiI7OztBQUVBO0VBQ0kseUJDU2M7RURSZDtBQURKO0FBR0k7RUFDSTtFQUNBO0FBRFI7QUFJSTtFQUNJO0FBRlI7QUFJUTtFQUNJO0VBQ0E7RUFDQTtFQUNBO0FBRlo7QUFNSTtFQUNJO0VBQ0E7QUFKUjtBQU9JO0VBQ0k7RUFDQTtFQUNBO0VBQ0E7RUFDQTtBQUxSO0FBUUk7RUFDSTtFQUNBO0FBTlI7QUFPUTtFQUNJO0VBQ0EsY0NqQ0g7QUQ0QlQsQyIsInNvdXJjZXMiOlsid2VicGFjazovL2pqYS1kZXYvLi9hc3NldHMvc3R5bGVzL3BhZ2VzL19sZWdhbG5vdGljZS5zY3NzIiwid2VicGFjazovL2pqYS1kZXYvLi9hc3NldHMvc3R5bGVzL2Jhc2UvX3ZhcmlhYmxlcy5zY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIkBpbXBvcnQgJy4uL2Jhc2UvdmFyaWFibGVzJztcclxuXHJcbiNsZWdhbG5vdGljZSB7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiAkY29sb3ItYmctbGF5b3V0O1xyXG4gICAgcGFkZGluZzogODBweCAwO1xyXG5cclxuICAgICNsZWdhbG5vdGljZS1iZyB7XHJcbiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogI2ZmZjtcclxuICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7XHJcbiAgICB9XHJcblxyXG4gICAgLnNlY3Rpb24tdGl0bGUge1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDFlbTtcclxuXHJcbiAgICAgICAgaDIge1xyXG4gICAgICAgICAgICBmb250LXNpemU6IDIuNXJlbTtcclxuICAgICAgICAgICAgZm9udC13ZWlnaHQ6IDcwMDtcclxuICAgICAgICAgICAgY29sb3I6ICMzMzM7XHJcbiAgICAgICAgICAgIGJvcmRlci1ib3R0b206IDNweCBzb2xpZCAkb3JhbmdlO1xyXG4gICAgICAgIH1cclxuICAgIH1cclxuXHJcbiAgICAuY29udGFpbmVyIHtcclxuICAgICAgICBwb3NpdGlvbjogcmVsYXRpdmU7XHJcbiAgICAgICAgei1pbmRleDogMTtcclxuICAgIH1cclxuXHJcbiAgICBwIHtcclxuICAgICAgICBmb250LXNpemU6IDEuMXJlbTtcclxuICAgICAgICBjb2xvcjogIzU1NTtcclxuICAgICAgICBsaW5lLWhlaWdodDogMS44O1xyXG4gICAgICAgIG1hcmdpbi1ib3R0b206IDMwcHg7XHJcbiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlO1xyXG4gICAgfVxyXG5cclxuICAgIGEge1xyXG4gICAgICAgIGNvbG9yOiAjMDA3YmZmO1xyXG4gICAgICAgIHRyYW5zaXRpb246IGNvbG9yIDAuM3MgZWFzZTtcclxuICAgICAgICAmOmhvdmVyIHtcclxuICAgICAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lO1xyXG4gICAgICAgICAgICBjb2xvcjogJG9yYW5nZTtcclxuICAgICAgICB9XHJcbiAgICB9XHJcbn1cclxuIiwiLy8gUmVzcG9uc2l2ZSBTaXplc1xyXG4kc21hbGwtc2NyZWVuOiA1NzZweDtcclxuJG1lZGl1bS1zY3JlZW46IDc2OHB4O1xyXG4kbGFyZ2Utc2NyZWVuOiA5OTJweDtcclxuJGV4dHJhLWxhcmdlLXNjcmVlbjogMTIwMHB4O1xyXG5cclxuJHdoaXRlOiAjRkZGO1xyXG4kb3JhbmdlOiAjQjg0RjAwO1xyXG4kb3JhbmdlLWJpczogI0I4NEYwMDsgLy8gI0ZGODAwMFxyXG4kYmxhY2s6ICMwMDA7XHJcbiRkYXJrOiAjMjEyNTI5O1xyXG5cclxuJGNvbG9yLWJnLWxheW91dDogI2UzZTNlMztcclxuJGNvbG9yLWJnLWRhcms6ICMxYTFhMWE7XHJcbiRjb2xvci1iZy1saWdodDogI2Y1ZjVmNTtcclxuJGNvbG9yLWJnLWxpZ2h0ZXI6ICNmOWY5Zjk7XHJcblxyXG4kcHVycGxlOiAjNmY0YThlO1xyXG4kcHVycGxlLWxpZ2h0OiAjOGU2ZmFhO1xyXG4kcHVycGxlLWRhcms6ICM0YTNhNWY7XHJcbiJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==*/

@@ -1,0 +1,122 @@
+/*!
+ * Copyright (c) 2023. Tous droits réservés.
+ * Aucun élément de ce site web ne peut être reproduit, affiché, modifié ou distribué sans la permission écrite préalable du titulaire du droit d'auteur.
+ * Ce site web, son contenu et tous les produits créés par JJA DEV sont protégés par les lois sur les droits d'auteur et la propriété intellectuelle. Tous les droits sont réservés à JJA DEV.
+ *
+ * L'utilisation non autorisée de tout élément de ce site, y compris, mais sans s'y limiter, le texte, les images, les dessins, les graphiques, les logos et les marques de commerce, peut constituer une violation des lois sur le droit d'auteur, des lois sur les marques de commerce ou d'autres lois applicables et peut entraîner des poursuites judiciaires.
+ *
+ * Pour obtenir la permission d'utiliser du contenu de ce site, veuillez contacter JJA DEV.
+ *
+ * Merci de votre compréhension et de votre respect envers notre travail créatif et nos droits de propriété intellectuelle.
+ */
+
+/* Services section */
+#services {
+    background-color: $color-bg-layout;
+
+    .section-title,
+    #contact .section-title {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 2rem;
+        text-align: center;
+        color: $orange-bis;
+    }
+
+    .card {
+        height: 19em;
+        border: none;
+        background: $white;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        perspective: 1000px;
+        margin-bottom: 2rem;
+
+        .card-icon-forme i {
+            font-size: 25px;
+            color: $white;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+
+            .card-text {
+                margin-top: 10px;
+                font-size: 16px;
+                color: #666;
+            }
+
+            h4.card-title {
+                font-size: 24px !important;
+                font-weight: 600;
+                color: #333;
+                margin-bottom: 0.5rem;
+                display: inline-block;
+            }
+
+            p {
+                font-size: 16px;
+                color: #666;
+            }
+
+            span {
+                &.badge {
+                    &.text-bg-primary {
+                        background: linear-gradient(180deg, $purple, $purple-dark) !important;
+                    }
+                }
+            }
+        }
+
+        .card-content {
+            display: flex;
+            justify-content: center;
+            border-bottom: 2px solid $orange;
+            padding-bottom: 0.5rem;
+            margin-bottom: 0.5rem;
+
+            .card-title {
+                font-size: 24px !important;
+                color: #333;
+                margin: 0;
+            }
+        }
+    }
+
+    .card:hover {
+        transform: translateY(-5px) rotateX(10deg) rotateY(5deg);
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+
+        .card-icon {
+            margin-right: 10px;
+        }
+
+        .card-icon i {
+            transform: scale(1.2);
+        }
+
+        .card-body h3 {
+            color: $orange-bis;
+        }
+
+        .card-icon-forme {
+            background-color: #2a7db7;
+
+            i {
+                font-size: 30px;
+                color: $white;
+            }
+        }
+    }
+
+    .card-icon-forme {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $orange;
+    }
+}

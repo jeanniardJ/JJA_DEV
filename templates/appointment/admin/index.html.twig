@@ -1,0 +1,20 @@
+{% extends 'appointment/admin/_settings.html.twig' %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-3">
+        <div class="card card-primary shadow">
+            <div class="card-body">
+                <a href="{{ path('app_recurring_event_admin_index') }}" class="btn btn-primary">
+                    <i class="fas fa-calendar-alt"></i> {{ 'recurring.add'|trans({}, 'calendar') }}
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="card card-primary shadow">
+            <div class="card-body" {{ react_component('Calendar', {'path': path('app_appointment_admin_api_index')}) }}></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

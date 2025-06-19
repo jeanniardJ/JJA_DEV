@@ -1,0 +1,27 @@
+{% extends 'service/_settings.html.twig' %}
+{% trans_default_domain 'service' %}
+{% block body %}
+    <section id="service">
+        <div class="container my-5">
+            <h3 class="section-title text-center">{{ 'service.title'|trans }}</h3>
+            <div class="d-flex flex-column gap-3">
+                {% for service in template.services %}
+                    <div class="card">
+                        <div class="card-body h-100">
+                            <div class="card-content">
+                                <h4 class="card-title position-relative">
+                                    {{ service.title }}
+                                </h4>
+                                <div class="card-text h-100">
+                                    <p>
+                                        {{ service.description }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

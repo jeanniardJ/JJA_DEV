@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'privacypolicy' %}
+{% block title %}{{ 'privacyPolicy.title'|trans }}{% endblock %}
+{% block description_page %}Consultez notre politique de confidentialité pour comprendre comment nous collectons, utilisons et protégeons vos données personnelles. Notre engagement envers la protection de votre vie privée est notre priorité. Découvrez vos droits et comment vous pouvez les exercer.{% endblock %}
+{% block stylesheets %}
+    {{parent()}}
+    {{ encore_entry_link_tags('privatepolicy') }}
+{% endblock %}

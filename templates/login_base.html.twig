@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ absolute_url(asset(global.site.logo)) }}">
+    <title>{{ global.site.name }} | {{ 'login.title'|trans({}, 'login') }}</title>
+    <meta name="robots" content="noindex, nofollow">
+    {{ include('_head.html.twig') }}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('appCss') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+<body>
+    <!-- Barre de navigation -->
+    {{ include('nav.html.twig') }}
+
+    <!-- Section principale -->
+
+    <main class="my-5 pt-3">
+        {% block body %}
+        {% endblock %}
+    </main>
+    {{ include('_footer.html.twig') }}
+    {{ include('_layouts/_messagesPopup.html.twig') }}
+
+</body>

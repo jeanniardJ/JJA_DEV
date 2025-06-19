@@ -1,0 +1,16 @@
+{% extends 'login_base.html.twig' %}
+{% trans_default_domain 'login' %}
+{% block title %}{{ 'register.title'|trans }}{% endblock %}
+
+{% block body %}
+    <section class="vh-100">
+        <div class="container-fluid d-flex justify-content-center align-items-center h-100">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    {{ form(form) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+

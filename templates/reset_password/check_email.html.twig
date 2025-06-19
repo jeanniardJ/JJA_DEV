@@ -1,0 +1,23 @@
+{% trans_default_domain 'login' %}
+{% extends './base.html.twig' %}
+
+{% block title %}{{ 'resetPass.title'|trans }}{% endblock %}
+
+{% block body %}
+    <section class="vh-100">
+        <div class="container-fluid d-flex justify-content-center align-items-center h-100">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <p>
+                        {{ 'resetPass.message_1'|trans }}
+                        {{ 'resetPass.message_2'|trans }} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData,
+                            'ResetPasswordBundle') }}.
+                    </p>
+                    <p>{{ 'resetPass.message_3'|trans }} <a
+                                href="{{ path('app_forgot_password_request') }}">{{ 'resetPass.message_4'|trans }}</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

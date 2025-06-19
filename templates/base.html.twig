@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+{% set title_page %}{% block title %}{{ global.site.title }}{% endblock %}
+{% endset %}
+{% set someAsLdJson %}
+    {% for social in global.social %}"{{ social }}"{% if not loop.last %},{% endif %}{% endfor %}
+{% endset %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ absolute_url(asset(global.site.logo)) }}">
+    <title>{{ global.site.name }} | {{title_page}}</title>
+    <meta name="title" content="{{ global.site.name }} | {{title_page}}">
+    <meta name="description" content="{% block description_page %}{{ global.site.description }}{% endblock %}">
+    <meta name="robots" content="index, follow">
+    {{ include('_head.html.twig') }}
+    {{ jsonLd()|raw }}
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('appCss') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+
+    <link rel="preload" href="{{ asset('build/images/about.jpg') | imagine_filter('my_thumb_webp') }}" as="image">
+    <link rel="preload" href="{{ asset('build/images/code.jpg') | imagine_filter('code_webp') }}" as="image">
+</head>
+
+<body class="d-flex flex-column">
+<!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm }}" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header id="first-info">
+    <!-- Barre de navigation -->
+    {{ include('nav.html.twig') }}
+    <div class="svg_figure_bottom"></div>
+    <section id="bg-overlay">
+        <div class="container">
+            <div class="pt-5">
+                <div class="content rounded-3 shadow-lg mt-5 p-3 col col-md-7">
+                    <h1>{{template.presentation.title}}</h1>
+                    <p class="fs-5 fw-medium lh-base">
+                        <span {{ stimulus_controller('symfony/ux-typed', { strings:
+                            [ template.presentation.description ], loop: true, 
+                            showCursor: true, cursorChar: '✨' , typeSpeed: 100, backSpeed: 20, 
+                            startDelay: 100, contentType: 'html'} ) }}>Loading ...</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</header>
+<!-- Section principale -->
+<main>
+    {% block body %}{% endblock %}
+</main>
+{{ include('_footer.html.twig') }}
+{{ include('_layouts/_messagesPopup.html.twig') }}
+</body>
+</html>

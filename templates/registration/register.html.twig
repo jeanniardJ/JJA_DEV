@@ -1,0 +1,44 @@
+{% trans_default_domain 'login' %}
+{% extends 'login_base.html.twig' %}
+
+{% block title %}{{ 'register.title'|trans }}{% endblock %}
+
+{% block body %}
+    <section class="vh-100">
+        <div class="container-fluid d-flex justify-content-center align-items-center h-100">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    {% for flashError in app.flashes('verify_email_error') %}
+                        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                    {% endfor %}
+
+                    <h1>{{ 'register.title-page'|trans }}</h1>
+
+                    {{ form_start(registrationForm) }}
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.username) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.email) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.plainPassword.first) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.plainPassword.second) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(registrationForm.agreeTerms) }}
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <button type="submit" class="btn btn-primary">{{ 'register.button'|trans }}</button>
+                        <a class="btn btn-secondary ms-3" href="{{ path('app_home') }}">
+                            {{ 'return.home'|trans }} <i class="fas fa-undo"></i>
+                        </a>
+                    </div>
+                    {{ form_end(registrationForm) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

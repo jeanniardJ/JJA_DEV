@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+{{ 'legalNotice.title'|trans }}
+{% endblock %}
+{% block description_page %}
+Consultez notre avis légal pour comprendre les termes et conditions régissant l'utilisation de notre site. Découvrez nos droits de propriété intellectuelle et nos dispositions en matière de responsabilité. Votre utilisation de notre site implique votre accord avec ces termes.
+{% endblock %}
+{% block stylesheets %}
+	{{parent()}}
+	{{ encore_entry_link_tags('legalnotice') }}
+{% endblock %}

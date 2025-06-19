@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://jja-dev.fr/contact/</loc>
+		<lastmod>2024-04-01T18:30:57+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://jja-dev.fr/</loc>
+		<lastmod>2024-04-01T18:30:57+00:00</lastmod>
+		<changefreq>daily</changefreq>
+		<priority>1.0</priority>
+	</url>
+	<url>
+		<loc>https://jja-dev.fr/legalnotice</loc>
+		<lastmod>2024-04-01T18:30:57+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://jja-dev.fr/privatepolicy</loc>
+		<lastmod>2024-04-01T18:30:57+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.7</priority>
+	</url>
+	<url>
+		<loc>https://jja-dev.fr/sitemap</loc>
+		<lastmod>2024-04-01T18:30:57+00:00</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.7</priority>
+	</url>
+</urlset>

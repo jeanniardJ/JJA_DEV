@@ -1,0 +1,17 @@
+{% trans_default_domain 'Contact' %}
+<div {{ attributes }}>
+    {{ form_start(form, {'attr': {'class': 'p-5 bg-white shadow rounded mb-5', 'novalidate': true, 'data-action': 'live#action:prevent', 'data-live-action-param': 'saveContact'}}) }}
+
+        {{ form_errors(form) }}
+        {{ form_row(form.name, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+        {{ form_row(form.email, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+
+        {{ form_row(form.phone, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+        {{ form_row(form.objet, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+        {{ form_row(form.sujet, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+        {{ form_rest(form) }}
+        <div class="text-center">
+            <button class="btn btn-primary mt-3 {{ this.hasValidationErrors ? 'disabled' : '' }}">{{ button_label|default('Envoyer') }}</button>
+        </div>
+    {{ form_end(form) }}
+</div>

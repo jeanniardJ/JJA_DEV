@@ -1,0 +1,22 @@
+admin:
+    user: "Utilisateur(s)"
+    username: "Nom d'utilisateur"
+    mail: "E-mail"
+    IsVerified: "Compte vérifié"
+    roles: "Permissions de l'utilisateur"
+    actions: "Action(s)"
+    show: "Voir"
+    edit: "Éditer"
+    Yes: "Oui"
+    No: "Non"
+    Id: "Identifiant"
+    BackToListUser: "Retour à la liste"
+    delete:
+        user: "Supprimer"
+        success: "La suppression de l'utilisateur a été effectuée"
+        noexist: "L'utilisateur n'existe pas ou plus"
+    update:
+        success: "L'utilisateur a été mis à jour"
+    edited:
+        user: "Modification de l'utilisateur"
+    updated: 'Mettre à jour'

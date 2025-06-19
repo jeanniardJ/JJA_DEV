@@ -1,0 +1,32 @@
+/**
+ * Ce fichier est le point d'entrée principal de votre application SCSS.
+ * Il importe les variables de base à utiliser dans tout le projet.
+ * 
+ * base : Ce dossier contient les fichiers SCSS pour les styles de base de votre application, tels que les variables, les mixins et les fonctions. components : Ce dossier contient les fichiers SCSS pour les styles des composants réutilisables de votre application, tels que les boutons, les cartes, les modales, etc
+ * layouts : Ce dossier contient les fichiers SCSS pour les styles des mises en page spécifiques de votre application, tels que l'en-tête, le pied de page, les barres latérales, etc.
+ * pages : Ce dossier contient les fichiers SCSS pour les styles des pages spécifiques de votre application, tels que la page d'accueil, la page de contact, la page de blog, etc.
+ * utils : Ce dossier contient les fichiers SCSS pour les utilitaires et les classes d'assistance, tels que les classes de grille, les classes de typographie, etc.
+ */
+@import "~bootstrap/scss/bootstrap";
+
+@import "~bootstrap-icons/font/bootstrap-icons";
+
+@import "base/variables";
+
+@import "components/navigation";
+@import "components/buttons";
+@import "components/bubbles";
+@import "components/figures";
+@import "components/forms";
+@import "components/logos";
+
+@import "layouts/header";
+@import "layouts/main";
+@import "layouts/footer";
+
+@import "pages/maintenance";
+
+@import "base/base";
+
+//2,4,8,16,32,64,128,256,512,1024,2048
+// 2px = 0.125em, 4px = 0.25em, 8px = 0.5em, 16px = 1em, 32px = 2em, 64px = 4em, 128px = 8em, 256px = 16em, 512px = 32em, 1024px = 64em, 2048px = 128em

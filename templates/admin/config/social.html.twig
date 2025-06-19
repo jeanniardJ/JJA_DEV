@@ -1,0 +1,13 @@
+{% extends 'admin/config/_body.html.twig' %}
+{% block title %}
+    {{ parent() }} - {{ 'admin.settings.social'|trans({}, 'admin') }}
+{% endblock %}
+{% set navTabActive = 'social' %}
+{% block tabContent %}
+    <div class="tab-pane fade show active" id="social" role="tabpanel" aria-labelledby="social-tab">
+        {{ form_start(formSocial) }}
+        {{ form_widget(formSocial) }}
+        {{ form_rest(formSocial) }}
+        {{ form_end(formSocial) }}
+    </div>
+{% endblock %}

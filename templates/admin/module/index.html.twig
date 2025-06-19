@@ -1,0 +1,19 @@
+{% extends 'admin/module/_body.html.twig' %}
+{% trans_default_domain('module') %}
+{% block content %}
+<div class="card-body">
+    <table data-toggle="table" data-url="{{ path('app_admin_module_index_json') }}" data-side-pagination="server" data-pagination="true" data-locale="fr-FR" data-show-refresh="true" data-page-list="[10]">
+        <thead>
+            <tr>
+                <th data-field="id">#</th>
+                <th data-field="idGithub">{{'admin.module.idGithub'|trans()}}</th>
+                <th data-field="name">{{ 'admin.module.name'|trans() }}</th>
+                <th data-field="isInstall">{{ 'admin.module.isInstall'|trans() }}</th>
+                <th data-field="createdAtMdl">{{ 'admin.module.createdAt'|trans() }}</th>
+                <th data-field="updatedAt">{{ 'admin.module.updateAt'|trans() }}</th>
+                <th data-field="actions">{{ 'admin.module.actions'|trans() }}</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute
+    schemes: [https]
+
+presta_sitemap:
+    resource: '@PrestaSitemapBundle/config/routing.yml'

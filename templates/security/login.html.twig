@@ -1,0 +1,70 @@
+{% trans_default_domain 'login' %}
+{% extends 'login_base.html.twig' %}
+{% block title %}{{ 'login.title'|trans }}{% endblock %}
+
+{% block body %}
+    <section class="vh-100">
+        <div class="container-fluid d-flex justify-content-center align-items-center h-100">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <div class="row justify-content-center align-items-center h-100">
+                        <div class="col-md-9 col-lg-6 col-xl-5">
+                            <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png"
+                                 class="img-fluid" alt="Sample image">
+                        </div>
+                        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+                            <form method="post">
+                                {% if error %}
+                                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}
+                                    </div>
+                                {% endif %}
+
+                                {% if app.user %}
+                                    <div class="mb-3">
+                                        You are logged in as {{ app.user.email }}, <a
+                                                href="{{ path('app_logout') }}">Logout</a>
+                                    </div>
+                                {% endif %}
+
+                                <h1 class="h3 mb-3 font-weight-normal">{{ 'login.second-title'|trans }}</h1>
+                                <div class="form-outline mb-4">
+                                    <input type="text" value="{{ last_username }}" name="email" id="inputEmail"
+                                           class="form-control form-control-lg" autocomplete="email"
+                                           placeholder="{{ 'login.email-placeholder'|trans }}" required autofocus>
+                                </div>
+                                <div class="form-outline mb-3">
+                                    <input type="password" name="password" id="inputPassword"
+                                           class="form-control form-control-lg" autocomplete="current-password"
+                                           placeholder="{{ 'login.password-placeholder'|trans }}" required>
+                                </div>
+
+                                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="checkbox mb-0">
+                                        <label>
+                                            <input type="checkbox" name="_remember_me"> {{ 'login.remember'|trans }}
+                                        </label>
+                                    </div>
+                                    <a href="{{ path('app_forgot_password_request') }}"
+                                       class="text-body">{{ 'login.password-forgot'|trans }}</a>
+                                </div>
+
+                                <div class="text-center text-lg-start mt-4 pt-2">
+                                    <button class="btn btn-lg btn-primary"
+                                            type="submit">{{ 'login.button'|trans }}</button>
+                                </div>
+
+                            </form>
+                            {# <hr class="my-4">
+                            <p class="fw-bold mt-2 pt-1 mb-0">{{ "login.compte"|trans }} <a
+                                        href="{{ path('app_register') }}"
+                                        class="link-danger">
+                                    {{ "login.compte-btn"|trans }}</a></p> #}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

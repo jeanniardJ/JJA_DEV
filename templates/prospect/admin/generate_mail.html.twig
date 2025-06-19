@@ -1,0 +1,32 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain 'admin' %}
+{% block title %}
+{% endblock %}
+{% set menuActive = 'prospect' %}
+
+{% block body %}
+    {{ form(form) }}
+{% endblock %}
+
+
+{#
+{% block javascripts %}
+    {{ parent() }}
+    <script defer="defer">
+        window.onload = function () {
+            document.getElementById('prospect_maile_generatePrompt').addEventListener('click', function () {
+                fetch('{{ path('generate_prompt') }}', {
+                    method: 'POST',
+                    body: JSON.stringify({prompt: 'Some prompt text'}),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('content-field').value = data.response;
+                    });
+            });
+        }
+    </script>
+{% endblock %} #}

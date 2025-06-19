@@ -1,0 +1,31 @@
+@import "../base/variables";
+
+#articles {
+    background-color: $color-bg-layout;
+
+    h3 {
+        margin-bottom: 10px;
+        color: #4a148c !important;
+
+        a {
+            color: #4a148c !important;
+        }
+    }
+
+    p {
+        margin-top: 10px;
+        color: #333;
+    }
+
+    article {
+        margin: 0;
+        padding: 20px;
+        background-color: $white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    article:hover {
+        transform: scale(1.05);
+    }
+}

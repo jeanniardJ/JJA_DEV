@@ -1,0 +1,89 @@
+admin:
+    title: 'Administration'
+    home: 'Accueil'
+    return:
+        site: 'Retour au site'
+    dashboard:
+        title: 'Tableau de bord'
+        welcome: "Bienvenue sur le tableau de bord de l'administration"
+    users:
+        title: 'Utilisateurs'
+        welcome: 'Bienvenue sur la page des utilisateurs'
+    settings:
+        title: 'Paramètres'
+        welcome: 'Bienvenue sur la page des paramètres'
+        general: 'Configuration générale'
+        propriete: 'Propriétés'
+        social: 'Réseaux sociaux'
+        seo: 'SEO'
+        analyse: 'Analytique'
+    module:
+        title: 'Modules'
+    template:
+        title: 'Parametres du template'
+config:
+    submit: 'Enregistrer'
+    general:
+        siteName: 'Nom du site'
+        siteTitle: 'Titre du site'
+        siteDescription: 'Description du site'
+        siteKeywords: 'Mots-clés du site'
+        siteAuthor: 'Auteur du site'
+        siteLogo: 'Logo du site'
+        siteFavicon: 'Favicon du site'
+        siteUrl: 'URL du site'
+
+    propriety:
+        title: 'Propriétés'
+        welcome: 'Bienvenue sur la page des propriétés'
+        name: "Nom de l'entreprise ou du propriétaire"
+        address: 'Adresse'
+        city: 'Ville'
+        zipCode: 'Code postal'
+        country: 'Pays'
+        phone: 'Téléphone'
+        email: 'Email'
+        siret: 'SIRET'
+        coordinates: 'Coordonnées Postales'
+        placeholder:
+            name: "Nom du propriétaire ou nom de l'entreprise"
+            address: 'Adresse du propriétaire'
+            city: 'Ville du propriétaire'
+            zipCode: 'Code postal du propriétaire'
+            country: 'Pays du propriétaire'
+            phone: 'Téléphone du propriétaire'
+            email: 'Email du propriétaire'
+            siret: 'Numéro de SIRET du propriétaire'
+    social:
+        title: 'Réseaux sociaux'
+        welcome: 'Bienvenue sur la page des réseaux sociaux'
+        facebook: 'Facebook'
+        twitter: 'Twitter'
+        linkedin: 'LinkedIn'
+        youtube: 'YouTube'
+        instagram: 'Instagram'
+        whatsapp: 'WhatsApp'
+        placeholder:
+            facebook: 'URL de la page Facebook'
+            twitter: 'URL du compte Twitter'
+            linkedin: 'URL du compte LinkedIn'
+            google: 'URL du compte Google+'
+            youtube: 'URL de la chaîne YouTube'
+            instagram: 'URL du compte Instagram'
+            pinterest: 'URL du compte Pinterest'
+    analyse:
+        title: 'Analytique'
+        welcome: "Bienvenue sur la page de l'analytique"
+        googleId: 'ID Google Analytics'
+        facebookPixel: 'ID Facebook Pixel'
+        instagramId: 'ID Instagram'
+        linkedinId: 'ID LinkedIn'
+        youtubeId: 'ID YouTube'
+        whatsapp: 'Numéro WhatsApp'
+        placeholder:
+            googleId: 'UA-123456789'
+            facebookPixel: 'ID Facebook Pixel'
+            instagramId: 'ID Instagram'
+            linkedinId: 'ID LinkedIn'
+            youtubeId: 'ID YouTube'
+            whatsapp: 'Numéro WhatsApp'

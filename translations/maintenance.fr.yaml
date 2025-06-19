@@ -1,0 +1,10 @@
+maintenance:
+    closed:
+        title: 'Site fermé'
+        message: 'Le site est actuellement fermé.'
+    maintenance:
+        title: 'Maintenance'
+        message: 'Le site est actuellement en maintenance.'
+    construction:
+        title: 'En construction'
+        message: 'Le site est actuellement en construction.'

@@ -1,0 +1,28 @@
+{% extends "sitemap/_settings.html.twig" %}
+{% trans_default_domain('sitemap') %}
+{% block body %}
+    <section id="sitemap">
+        <div class="container">
+            <div id="sitemap-bg" class="shadow">
+                <div class="section-title d-flex justify-content-center">
+                    <h2 class="text-center pt-5">
+                        Plan du site
+                        <br>
+                    </h2>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 mb-5">
+                        <ul>
+                            <li><a href="{{path('app_home')}}">Accueil</a></li>
+                            <li><a href="{{path('jjadev_blog')}}">Blog</a></li>
+                            <li><a href="{{path('app_contact')}}">Contact</a></li>
+                            <li><a href="{{path('app_sitemap_index')}}">Plan du site</a></li>
+                            <li><a href="{{path('app_legalnotice_index')}}">Mentions légales</a></li>
+                            <li><a href="{{path('app_privacypolicy_index')}}">Politique de confidentialité</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

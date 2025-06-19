@@ -1,0 +1,74 @@
+# =============================================================================
+# DOCKER COMPOSE - JJA_DEV (WINDOWS DEVELOPMENT)
+# =============================================================================
+# Configuration Docker pour environnement de développement Windows
+# 
+# IMPORTANT: Seule la base de données MySQL tourne en Docker
+# PHP, npm et Symfony CLI sont installés localement sur Windows
+#
+# USAGE:
+#   docker-compose up -d database    # Démarrer MySQL uniquement
+#   docker-compose up -d             # Démarrer avec profil par défaut
+#   docker-compose ps                # Vérifier les services
+#   docker-compose logs database     # Logs MySQL
+# =============================================================================
+
+services:
+    database:
+        profiles:
+            - 'jja_dev'
+        image: mysql:8.0
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+            MYSQL_DATABASE: 'JJA_DEV'
+            MYSQL_USER: 'JJA_DEV'
+            MYSQL_PASSWORD: 'PASSWORD'
+        volumes:
+            - database_data:/var/lib/mysql
+        ports:
+            # Port MySQL exposé sur localhost Windows pour connexion PHP locale
+            # PHP local se connecte via 127.0.0.1:3306
+            - '3306:3306'
+    
+    # =============================================================================
+    # SERVICE PHP DÉSACTIVÉ - DÉVELOPPEMENT WINDOWS
+    # =============================================================================
+    # En développement Windows, PHP est installé localement pour de meilleures
+    # performances. Décommentez et adaptez si vous préférez PHP en Docker.
+    #
+    # Pour utiliser PHP local Windows :
+    #   symfony serve                    # Serveur développement
+    #   symfony console ...              # Commandes Symfony
+    #   php -S localhost:8000 -t public # Serveur PHP basique
+    # =============================================================================
+    
+    # php:
+    #     image: php:8.2-apache
+    #     ports:
+    #         - '80:80'
+    #         - '443:443'
+    #     volumes:
+    #         - .:/var/www/html
+    #     environment:
+    #         XDEBUG_MODE: 'debug'
+    #         XDEBUG_CONFIG: 'client_host=host.docker.internal'
+    #         PHP_IDE_CONFIG: 'serverName=JJA_DEV'
+    #         APACHE_DOCUMENT_ROOT: '/var/www/html/public'
+    #     depends_on:
+    #         - database
+    #     build:
+    #         context: .
+    #         dockerfile: Dockerfile
+
+    mailer:
+        profiles:
+            - 'jja_dev'
+        image: schickling/mailcatcher
+        ports:
+            - '1025:1025'
+            - '1080:1080'
+
+volumes:
+    ###> doctrine/doctrine-bundle ###
+    database_data:
+    ###< doctrine/doctrine-bundle ###

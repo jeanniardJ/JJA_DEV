@@ -1,0 +1,47 @@
+{% extends './base.html.twig' %}
+{% block ldjson_header %}
+{{ parent() }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "JJADEV Blog",
+    "url": "{{ path('jjadev_blog') }}",
+    "description": "JJADEV Blog",
+    "publisher": {
+        "@type": "Organization",
+        "name": "JJADEV",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('images/logo.png') }}"
+        }
+    }
+}
+</script>
+{% endblock %}
+{% block title %}{{'blog.title'|trans({}, 'blog')}}{% endblock %}
+{% block stylesheets %}
+    {{parent()}}
+    {{ encore_entry_link_tags('blog') }}
+{% endblock %}
+{% block body %}
+    <section id="articles">
+        <div class="container">
+            <div class="row g-3">
+                {% for article in articles %}
+                    <div class="col-12 col-md-6 p-1">
+                        <article class="my-5 border rounded p-4 shadow">
+                            <h3 class="text-center mb-3">
+                                <a href="{{ path('jjadev_blog_view', {slug: article.slug}) }}">{{ article.title }}</a>
+                            </h3>
+                            <p class="card-text mb-3">{{ (article.article|slice(0, 250) ~ (article.article|length > 250 ? '...' : ''))|raw }}</p>
+                            <a class="btn btn-primary btn-sm"
+                               href="{{ path('jjadev_blog_view', {slug: article.slug}) }}">{{ 'blog.read_more'|trans({}, 'blog') }}</a>
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

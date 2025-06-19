@@ -1,0 +1,18 @@
+# Our preferred languages
+Preferred-Languages: fr, en
+
+# Notre adresse de contact pour les problèmes de sécurité
+Contact: mailto:support@jja-dev.fr
+
+# Notre politique de sécurité
+Policy: https://jja-dev.fr/privatepolicy
+
+Acknowledgments: https://jja-dev.fr/hall-of-fame
+
+# Vérification
+# Ce fichier peut être utilisé pour vérifier l'identité de ce domaine. Il est situé à security.txt
+Canonical: https://jja-dev.fr/.well-known/security.txt
+
+Encryption: https://jja-dev.fr/pgp-key.txt
+
+Expires: 2050-12-31T20:00:00.000Z

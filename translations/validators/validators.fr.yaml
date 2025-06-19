@@ -1,0 +1,4 @@
+config:
+    general:
+        invalid:
+            url: "L'adresse du site n'est pas valide {{ value }}, exemple : 'www.exemple.com' ou 'exemple.com'"

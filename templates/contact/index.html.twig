@@ -1,0 +1,75 @@
+{% extends "contact/_settings.html.twig" %}
+{% trans_default_domain('contact') %}
+
+{% block body %}
+<section id="contact">
+    <div class="container">
+        <div id="contact-bg">
+            <div class="section-title d-flex justify-content-center">
+                <h2 class="text-center pt-5 text-wrap">Contactez-moi pour vos projets</h2>
+            </div>
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                <div class="col">
+                    {{ form_start(form, {'attr': {'class': 'p-5 bg-white shadow rounded mb-5 needs-validation',
+                    'novalidate': 'novalidate'}}) }}
+
+                    {{ form_errors(form) }}
+                    {{ form_row(form.name, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+                    {{ form_row(form.email, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+
+                    {{ form_row(form.phone, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+                    {{ form_row(form.objet, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+                    {{ form_row(form.sujet, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
+                    {{ form_rest(form) }}
+                    <div class="text-center">
+                        <button class="btn btn-primary mt-3">{{ button_label|default('Envoyer') }}</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+                <div class="col-md-4 col">
+                    <div class="card border-0 shadow mb-5">
+                        <div class="card-body">
+                            <p class="card-text fs-5">
+                                <strong>Téléphone:</strong> <a href="tel:{{ global.propriety.phone }}">{{ global.propriety.phone|slice(0, 2) ~ '.' ~ global.propriety.phone|slice(2, 2) ~ '.' ~ global.propriety.phone|slice(4, 2) ~ '.' ~ global.propriety.phone|slice(6, 2) ~ '.' ~ global.propriety.phone|slice(8, 2) }}</a>
+                            </p>
+                            <p class="card-text fs-5">
+                                <strong>Email:</strong> <a href="mailto:{{ global.propriety.email }}">{{ global.propriety.email }}</a>
+                            </p>
+                            <p class="card-text fs-5">
+                                <strong class="">Horaires:</strong>
+                                <ol class="fs-5">
+                                    <li><span>Lundi</span> : 9h - 12h / 14h - 17h30</li>
+                                    <li><span>Mardi</span> : 9h - 12h / 14h - 17h30</li>
+                                    <li><span>Mercredi</span> : 9h - 12h / 14h - 17h30</li>
+                                    <li><span>Jeudi</span> : 9h - 12h / 14h - 17h30</li>
+                                    <li><span>Vendredi</span> : 9h - 12h / 14h - 17h30</li>
+                                </ol>
+                            </p>
+                            <p class="card-text fs-5">
+                                <strong>Réseaux sociaux:</strong>
+                                <br>
+                                {% for key, social in global.social %}
+                                    {% if social is not null %}
+                                        {% if key == 'FacebookUrl' %}
+                                            <a class="me-3" href="{{ social }}" aria-label="Facebook" title="Page Facebook de l'entreprise">
+                                                <i class="bi bi-facebook fs-1"></i>
+                                            </a>
+                                        {% endif %}
+                                        {% if key == 'WhatsappPhone' %}
+                                            <a href="{{ social }}" aria-label="Whatsapp" title="Page Whatsapp de l'entreprise">
+                                                <i class="bi bi-whatsapp fs-1"></i>
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

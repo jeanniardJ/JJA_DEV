@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain "admin" %}
+{% block title %}Edit Prospect{% endblock %}
+{% set menuActive = "prospect" %}
+{% block body %}
+    <h1>Edit Prospect</h1>
+
+    {{ include('prospect/admin/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_prospect_adm_index') }}">back to list</a>
+
+    {{ include('prospect/admin/_delete_form.html.twig') }}
+{% endblock %}

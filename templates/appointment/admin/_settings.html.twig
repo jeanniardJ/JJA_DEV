@@ -1,0 +1,8 @@
+{% extends 'admin/base.html.twig' %}
+{% set menuActive = 'modules' %}
+{% set subMenuActive = 'calendar' %}
+{% block title %}{{parent()}} - {{'appointment.title'|trans({}, 'calendar')}} {% endblock %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{{ path('app_adm_accueil') }}">{{'admin.title'|trans({}, 'admin')}}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{'appointment.title'|trans({}, 'calendar')}}</li>
+{% endblock %}

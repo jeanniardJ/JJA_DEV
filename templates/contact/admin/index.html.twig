@@ -1,0 +1,41 @@
+{% extends 'contact/admin/_body.html.twig' %}
+{% trans_default_domain 'contact' %}
+{% block content %}
+    <div class="card-body">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>{{ 'admin.name'|trans }}</th>
+                <th>{{ 'admin.email'|trans }}</th>
+                <th>{{ 'admin.phone'|trans }}</th>
+                <th>{{ 'admin.action'|trans }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.id }}</td>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.email }}</td>
+                    <td>{{ contact.phone }}</td>
+                    <td>
+                        <a class="shadow-sm btn btn-info btn-sm text-white"
+                           href="{{ path('app_contact_adm_show', {'id': contact.id}) }}"><i
+                                    class="bi bi-eye-fill"></i> {{ 'admin.show'|trans }}</a>
+
+                        <a class="shadow-sm btn btn-secondary btn-sm text-white"
+                           href="{{ path('app_prospect_adm_import_contact', {'id': contact.id}) }}"><i
+                                    class="bi bi-eye-fill"></i> {{ 'admin.import'|trans }}</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td class="text-center" colspan="5">{{ 'dataNotFound'|trans }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+//mobile first approach
+
+.navbar {
+    #jjadev_logo {
+        a {
+            text-decoration: none;
+            span {
+                font-weight: 700;
+                color: $white;
+            }
+        }
+    }
+
+    .navbar-toggler {
+        background-color: $white;
+
+        border: solid 1px $white;
+        border-radius: 5px;
+
+        span {
+            color: $white;
+        }
+
+        &:hover {
+            background-color: $purple;
+            color: $white;
+            border-color: $purple-dark;
+        }
+    }
+}

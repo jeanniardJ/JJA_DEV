@@ -1,0 +1,15 @@
+# .symfony.local.yaml
+# The Symfony Local Server configuration file
+http:
+    xdebug: true
+    # xdebug: false
+    use_gzip: true # Toggle GZIP compression
+
+workers:
+    docker_compose_up:
+        cmd: ["docker-compose", "-p", "jjadev_dev", "--profile", "jjadev_dev", "up", "-d", "--build"]
+
+    npm_encore_watch:
+        cmd: ["npx", "encore", "dev", "--watch"]
+
+    messenger_consume_async: ~

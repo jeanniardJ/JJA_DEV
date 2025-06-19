@@ -1,0 +1,10 @@
+presta_sitemap:
+    defaults:
+        priority: 1
+        changefreq: daily
+        lastmod: now
+    alternate:
+        enabled: true
+        default_locale: 'fr'
+        locales: [ 'en', 'fr' ]
+        i18n: symfony
