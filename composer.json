@@ -122,7 +122,7 @@
         "phpstan/phpstan-symfony": "^1.4",
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "6.4.*|7.0.*",
-        "symfony/css-selector": "6.4.*|7.0.*",
+        "symfony/css-selector": "^7.3.0",
         "symfony/debug-bundle": "6.4.*|7.0.*",
         "symfony/maker-bundle": "^1.52",
         "symfony/phpunit-bridge": "^7.0",
