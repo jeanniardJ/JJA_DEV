@@ -177,17 +177,18 @@ class ProspectAdminController extends AbstractController
         return $this->render('prospect/admin/generate_mail.html.twig', [
             'form' => $form
         ]);
-    }    #[Route('/generate-prompt', name: 'generate_prompt')]
+    }
+    #[Route('/generate-prompt', name: 'generate_prompt')]
     public function generatePrompt(Request $request): Response
     {
         $yourApiKey = getenv('OPENAI_API_KEY');
         if (!$yourApiKey) {
             return new JsonResponse(['error' => 'OpenAI API key not configured'], 500);
         }
-        
+
         $orgId = getenv('OPENAI_ORG_ID');
         $client = OpenAI::client($yourApiKey, $orgId);
-        
+
         $result = $client->completions()->create([
             'model' => 'gpt-3.5-turbo-instruct',
             'prompt' => 'PHP is',
