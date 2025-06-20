@@ -59,7 +59,7 @@
         "workbox-webpack-plugin": "^7.0.0"
     },
     "license": "UNLICENSED",
-    "private": true,
+    "private": false,
     "scripts": {
         "dev-server": "encore dev-server",
         "dev": "encore dev --profile",

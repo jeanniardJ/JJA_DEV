@@ -4,10 +4,6 @@ applyTo: 'JJA_DEV/**'
 
 # Déploiement OVH JJA_DEV
 
-## Repository
-
-**URL** : https://github.com/jeanniardJ/JJA_DEV.git
-
 ## Architecture de Déploiement
 
 ### Environnements

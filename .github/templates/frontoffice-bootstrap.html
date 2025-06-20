@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900&family=Space+Grotesk:wght@400;500;700"
+            rel="stylesheet"
+        />
+
+        <title>JJA DEV - Laboratoire de développement CRM</title>
+        <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+        <!-- Bootstrap 5.x CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+        <style>
+            :root {
+                --jja-bg-dark: #10231e;
+                --jja-bg-card: #18342d;
+                --jja-border: #22493f;
+                --jja-border-light: #31685a;
+                --jja-text-muted: #90cbbc;
+                --jja-accent: #0bdaa6;
+                --jja-accent-dark: #08b892;
+            }
+
+            body {
+                font-family: "Space Grotesk", "Noto Sans", sans-serif;
+                background-color: var(--jja-bg-dark);
+                color: white;
+                min-height: 100vh;
+                overflow-x: hidden;
+            }
+
+            .bg-jja-dark {
+                background-color: var(--jja-bg-dark) !important;
+            }
+
+            .bg-jja-card {
+                background-color: var(--jja-bg-card) !important;
+            }
+
+            .border-jja {
+                border-color: var(--jja-border) !important;
+            }
+
+            .border-jja-light {
+                border-color: var(--jja-border-light) !important;
+            }
+
+            .text-jja-muted {
+                color: var(--jja-text-muted) !important;
+            }
+
+            .text-jja-accent {
+                color: var(--jja-accent) !important;
+            }
+
+            /* Header */
+            .navbar-jja {
+                border-bottom: 1px solid var(--jja-border);
+                padding: 0.75rem 2.5rem;
+            }
+
+            .navbar-brand-jja {
+                font-size: 1.125rem;
+                font-weight: 700;
+                letter-spacing: -0.015em;
+            }
+
+            .navbar-nav-jja .nav-link {
+                color: white;
+                font-size: 0.875rem;
+                font-weight: 500;
+                margin: 0 1.125rem;
+            }
+
+            .btn-github {
+                background-color: var(--jja-border);
+                color: white;
+                border: none;
+                border-radius: 0.75rem;
+                padding: 0.5rem 0.625rem;
+                font-size: 0.875rem;
+                font-weight: 700;
+                letter-spacing: 0.015em;
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .btn-github:hover {
+                background-color: var(--jja-accent);
+                color: var(--jja-bg-dark);
+            }
+
+            /* Main content */
+            .main-container {
+                padding: 0 10rem;
+                padding-top: 1.25rem;
+                padding-bottom: 1.25rem;
+            }
+
+            .layout-content {
+                max-width: 960px;
+            }
+
+            /* Hero section */
+            .hero-avatar {
+                width: 8rem;
+                height: 8rem;
+                border-radius: 50%;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+
+            .hero-title {
+                font-size: 1.375rem;
+                font-weight: 700;
+                letter-spacing: -0.015em;
+            }
+
+            /* Section titles */
+            .section-title {
+                font-size: 1.375rem;
+                font-weight: 700;
+                letter-spacing: -0.015em;
+                padding: 1.25rem 1rem 0.75rem 1rem;
+            }
+
+            .section-content {
+                padding: 0.25rem 1rem 0.75rem 1rem;
+            }
+
+            /* Stack tabs */
+            .stack-tabs {
+                border-bottom: 1px solid var(--jja-border-light);
+                padding: 0 1rem;
+                gap: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .stack-tab {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                border-bottom: 3px solid transparent;
+                color: var(--jja-text-muted);
+                text-decoration: none;
+                padding: 1rem 0;
+                font-size: 0.875rem;
+                font-weight: 700;
+                letter-spacing: 0.015em;
+            }
+
+            .stack-tab.active {
+                border-bottom-color: var(--jja-accent);
+                color: white;
+            }
+
+            /* Cards */
+            .stack-card {
+                background-color: var(--jja-bg-card);
+                border: 1px solid var(--jja-border-light);
+                border-radius: 0.5rem;
+                padding: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .module-card {
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+                padding-bottom: 0.75rem;
+            }
+
+            .module-image {
+                width: 100%;
+                aspect-ratio: 1;
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius: 0.75rem;
+            }
+
+            /* Timeline */
+            .timeline-container {
+                display: grid;
+                grid-template-columns: 40px 1fr;
+                gap: 0.5rem;
+                padding: 0 1rem;
+            }
+
+            .timeline-icon-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.25rem;
+                padding-top: 0.75rem;
+            }
+
+            .timeline-line {
+                width: 1.5px;
+                background-color: var(--jja-border-light);
+                height: 0.5rem;
+                flex-grow: 1;
+            }
+
+            .timeline-content {
+                display: flex;
+                flex-direction: column;
+                padding: 0.75rem 0;
+            }
+
+            /* Commit cards */
+            .commit-card {
+                background-color: var(--jja-bg-dark);
+                padding: 1rem;
+                display: flex;
+                gap: 1rem;
+            }
+
+            .commit-icon {
+                background-color: var(--jja-border);
+                border-radius: 0.5rem;
+                width: 3rem;
+                height: 3rem;
+                flex-shrink: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Responsive */
+            @media (max-width: 1200px) {
+                .main-container {
+                    padding: 0 2rem;
+                    padding-top: 1.25rem;
+                    padding-bottom: 1.25rem;
+                }
+            }
+
+            @media (max-width: 768px) {
+                .main-container {
+                    padding: 0 1rem;
+                    padding-top: 1.25rem;
+                    padding-bottom: 1.25rem;
+                }
+
+                .navbar-jja {
+                    padding: 0.75rem 1rem;
+                }
+
+                .stack-tabs {
+                    gap: 1rem;
+                    flex-wrap: wrap;
+                }
+
+                .hero-section {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                .hero-avatar {
+                    align-self: center;
+                    margin-bottom: 1rem;
+                }
+            }
+
+            @media (min-width: 520px) {
+                .hero-section {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+            }
+
+            /* Grid utilities */
+            .grid-auto-fit {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+                gap: 0.75rem;
+                padding: 1rem;
+            }
+        </style>
+    </head>
+    <body class="bg-jja-dark">
+        <!-- Header -->
+        <header class="navbar-jja">
+            <div class="d-flex align-items-center justify-content-between w-100">
+                <!-- Brand -->
+                <div class="d-flex align-items-center gap-3 text-white">
+                    <div style="width: 1rem; height: 1rem">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z"
+                                fill="currentColor"
+                            ></path>
+                        </svg>
+                    </div>
+                    <h2 class="navbar-brand-jja mb-0">JJA DEV</h2>
+                </div>
+
+                <!-- Navigation -->
+                <div class="d-flex flex-grow-1 justify-content-end gap-4">
+                    <div class="navbar-nav-jja d-flex align-items-center">
+                        <a class="nav-link" href="#accueil">Accueil</a>
+                        <a class="nav-link" href="#apropos">À propos</a>
+                        <a class="nav-link" href="#github">GitHub</a>
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </div>
+                    <button class="btn-github">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20px"
+                            height="20px"
+                            fill="currentColor"
+                            viewBox="0 0 256 256"
+                        >
+                            <path
+                                d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
+                            ></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-container d-flex justify-content-center">
+            <div class="layout-content d-flex flex-column w-100">
+                <!-- Hero Section -->
+                <section id="accueil" class="p-4">
+                    <div class="hero-section d-flex w-100 gap-3">
+                        <div class="d-flex gap-3 flex-fill">
+                            <div
+                                class="hero-avatar"
+                                style="
+                                    background-image: url('https://via.placeholder.com/128x128/0bdaa6/212529?text=JJA');
+                                "
+                            ></div>
+                            <div class="d-flex flex-column justify-content-center">
+                                <p class="hero-title text-white mb-2">Bienvenue sur JJA DEV</p>
+                                <p class="text-jja-muted mb-0">
+                                    Un laboratoire de développement personnel et un environnement CRM expérimental.
+                                    Explorez mes projets, expériences et perspectives en développement logiciel.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Philosophie -->
+                <section id="apropos">
+                    <h2 class="section-title text-white">Philosophie</h2>
+                    <p class="section-content text-white">
+                        Chez JJA DEV, je crois en l'apprentissage continu, l'expérimentation et le dépassement des
+                        limites de ce qui est possible en développement logiciel. Ce laboratoire est un espace pour
+                        explorer de nouvelles technologies, construire des solutions innovantes et partager des
+                        connaissances avec la communauté.
+                    </p>
+                </section>
+
+                <!-- Stack -->
+                <section>
+                    <h2 class="section-title text-white">Stack</h2>
+                    <div class="stack-tabs d-flex">
+                        <a href="#backend" class="stack-tab active" data-bs-toggle="tab">Backend</a>
+                        <a href="#frontend" class="stack-tab" data-bs-toggle="tab">Frontend</a>
+                        <a href="#devops" class="stack-tab" data-bs-toggle="tab">DevOps</a>
+                        <a href="#security" class="stack-tab" data-bs-toggle="tab">Sécurité</a>
+                        <a href="#tools" class="stack-tab" data-bs-toggle="tab">Outils</a>
+                    </div>
+
+                    <!-- Stack Content -->
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="backend">
+                            <div class="grid-auto-fit">
+                                <div class="stack-card">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24px"
+                                        height="24px"
+                                        fill="currentColor"
+                                        viewBox="0 0 256 256"
+                                    >
+                                        <path
+                                            d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"
+                                        ></path>
+                                    </svg>
+                                    <h5 class="text-white mb-0 fw-bold">Bases de données</h5>
+                                </div>
+                                <div class="stack-card">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24px"
+                                        height="24px"
+                                        fill="currentColor"
+                                        viewBox="0 0 256 256"
+                                    >
+                                        <path
+                                            d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"
+                                        ></path>
+                                    </svg>
+                                    <h5 class="text-white mb-0 fw-bold">Frameworks côté serveur</h5>
+                                </div>
+                                <div class="stack-card">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="24px"
+                                        height="24px"
+                                        fill="currentColor"
+                                        viewBox="0 0 256 256"
+                                    >
+                                        <path
+                                            d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"
+                                        ></path>
+                                    </svg>
+                                    <h5 class="text-white mb-0 fw-bold">Langages</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Modules -->
+                <section>
+                    <h2 class="section-title text-white">Modules</h2>
+                    <div class="grid-auto-fit">
+                        <div class="module-card">
+                            <div class="module-image bg-jja-card d-flex align-items-center justify-content-center">
+                                <i class="fas fa-file-invoice fa-3x text-jja-accent"></i>
+                            </div>
+                            <div>
+                                <p class="text-white fw-medium mb-1">Bundle Devis & Factures</p>
+                                <p class="text-jja-muted small mb-0">
+                                    Gestion complète des devis et factures avec génération PDF.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="module-card">
+                            <div class="module-image bg-jja-card d-flex align-items-center justify-content-center">
+                                <i class="fas fa-user-tie fa-3x text-jja-accent"></i>
+                            </div>
+                            <div>
+                                <p class="text-white fw-medium mb-1">Bundle Prospects</p>
+                                <p class="text-jja-muted small mb-0">Pipeline commercial avec scoring automatique.</p>
+                            </div>
+                        </div>
+                        <div class="module-card">
+                            <div class="module-image bg-jja-card d-flex align-items-center justify-content-center">
+                                <i class="fas fa-calendar-alt fa-3x text-jja-accent"></i>
+                            </div>
+                            <div>
+                                <p class="text-white fw-medium mb-1">Bundle Rendez-vous</p>
+                                <p class="text-jja-muted small mb-0">Calendrier intégré avec booking en ligne.</p>
+                            </div>
+                        </div>
+                        <div class="module-card">
+                            <div class="module-image bg-jja-card d-flex align-items-center justify-content-center">
+                                <i class="fas fa-chart-line fa-3x text-jja-accent"></i>
+                            </div>
+                            <div>
+                                <p class="text-white fw-medium mb-1">Analytics CRM</p>
+                                <p class="text-jja-muted small mb-0">
+                                    Reporting et analytics pour optimiser les ventes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Feuille de route -->
+                <section>
+                    <h2 class="section-title text-white">Feuille de route</h2>
+                    <div class="timeline-container">
+                        <!-- Timeline Item 1 -->
+                        <div class="timeline-icon-container">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24px"
+                                height="24px"
+                                fill="currentColor"
+                                viewBox="0 0 256 256"
+                            >
+                                <path
+                                    d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"
+                                ></path>
+                            </svg>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="text-white fw-medium mb-1">T3 2024: Bundle Devis & Factures</p>
+                            <p class="text-jja-muted mb-0">
+                                Développement du module de facturation avec génération PDF.
+                            </p>
+                        </div>
+
+                        <!-- Timeline Item 2 -->
+                        <div class="timeline-icon-container">
+                            <div class="timeline-line"></div>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24px"
+                                height="24px"
+                                fill="currentColor"
+                                viewBox="0 0 256 256"
+                            >
+                                <path
+                                    d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"
+                                ></path>
+                            </svg>
+                            <div class="timeline-line"></div>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="text-white fw-medium mb-1">T4 2024: Bundle Prospects</p>
+                            <p class="text-jja-muted mb-0">
+                                Intégration du pipeline commercial avec scoring automatique.
+                            </p>
+                        </div>
+
+                        <!-- Timeline Item 3 -->
+                        <div class="timeline-icon-container">
+                            <div class="timeline-line"></div>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24px"
+                                height="24px"
+                                fill="currentColor"
+                                viewBox="0 0 256 256"
+                            >
+                                <path
+                                    d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="timeline-content">
+                            <p class="text-white fw-medium mb-1">T1 2025: Bundle Rendez-vous</p>
+                            <p class="text-jja-muted mb-0">
+                                Déploiement du système de calendrier intégré avec booking.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Commits GitHub -->
+                <section id="github">
+                    <h2 class="section-title text-white">Derniers commits GitHub</h2>
+                    <div class="commit-card">
+                        <div class="commit-icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24px"
+                                height="24px"
+                                fill="currentColor"
+                                viewBox="0 0 256 256"
+                            >
+                                <path
+                                    d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58a43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center flex-fill">
+                            <p class="text-white fw-medium mb-1">feat: implémenter l'authentification utilisateur</p>
+                            <p class="text-jja-muted small mb-1">Il y a 2 jours</p>
+                            <p class="text-jja-muted small mb-0">
+                                Ajout d'une nouvelle fonctionnalité au module d'authentification utilisateur
+                            </p>
+                        </div>
+                    </div>
+                    <div class="commit-card">
+                        <div class="commit-icon">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24px"
+                                height="24px"
+                                fill="currentColor"
+                                viewBox="0 0 256 256"
+                            >
+                                <path
+                                    d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58a43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <div class="d-flex flex-column justify-content-center flex-fill">
+                            <p class="text-white fw-medium mb-1">fix: résoudre le problème de traitement des données</p>
+                            <p class="text-jja-muted small mb-1">Il y a 5 jours</p>
+                            <p class="text-jja-muted small mb-0">
+                                Correction d'un bug dans le script de traitement des données
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact CTA -->
+                <section id="contact" class="py-4">
+                    <div class="bg-jja-card border border-jja-light rounded p-5 text-center">
+                        <h3 class="text-white mb-3">Intéressé par le projet ?</h3>
+                        <p class="text-jja-muted mb-4">
+                            Découvrez le code source, contribuez au développement ou suivez l'évolution du projet.
+                        </p>
+                        <div class="d-flex gap-3 justify-content-center flex-wrap">
+                            <a href="https://github.com/JJA-DEV" class="btn btn-success" target="_blank">
+                                <i class="fab fa-github me-1"></i>
+                                Voir sur GitHub
+                            </a>
+                            <a href="#" class="btn btn-outline-light">
+                                <i class="fas fa-book me-1"></i>
+                                Documentation
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            // Tab functionality
+            document.querySelectorAll(".stack-tab").forEach((tab) => {
+                tab.addEventListener("click", function (e) {
+                    e.preventDefault();
+
+                    // Remove active class from all tabs
+                    document.querySelectorAll(".stack-tab").forEach((t) => t.classList.remove("active"));
+
+                    // Add active class to clicked tab
+                    this.classList.add("active");
+
+                    // Hide all tab content
+                    document.querySelectorAll(".tab-pane").forEach((pane) => {
+                        pane.classList.remove("show", "active");
+                    });
+
+                    // Show target tab content
+                    const target = document.querySelector(this.getAttribute("href"));
+                    if (target) {
+                        target.classList.add("show", "active");
+                    }
+                });
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute("href"));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>

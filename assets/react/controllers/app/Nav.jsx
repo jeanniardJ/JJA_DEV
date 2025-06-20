@@ -1,58 +1,63 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from "react";
+import PropTypes from "prop-types";
 
-export default function(props) {
-    const [isScrolled, setIsScrolled] = useState(false)
-    const [show, setShow] = useState(false)
-    
+/**
+ * Navigation component for JJA DEV
+ * Handles scroll state and mobile menu toggle using React state management
+ */
+const Nav = ({ link_home, logo }) => {
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+    // Optimized scroll handler with useCallback
+    const handleScroll = useCallback(() => {
+        const scrolled = window.scrollY > 5;
+        setIsScrolled(scrolled);
+    }, []);
+
+    // Handle mobile menu toggle
+    const handleMobileMenuToggle = useCallback(() => {
+        setIsMobileMenuOpen((prev) => !prev);
+    }, []);
+
+    // Close mobile menu when clicking outside or on links
+    const handleLinkClick = useCallback(() => {
+        setIsMobileMenuOpen(false);
+    }, []);
+
     useEffect(() => {
-        const onScroll = () => {
-            if (window.scrollY > 5) {
-                setIsScrolled(true)
-            } else {
-                setIsScrolled(false)
-            }
-        }
-        
-        // Ajoute l'écouteur d'événement lors du montage du composant
-        window.addEventListener('scroll', onScroll)
-        
-        const navbar = document.querySelector('.navbar-toggler')
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.attributeName === 'aria-expanded') {
-                    const isExpanded =
-                        navbar.getAttribute('aria-expanded') === 'true'
-                    setShow(isExpanded)
-                }
-            })
-        })
-        
-        observer.observe(navbar, { attributes: true })
-        
-        // Nettoie l'écouteur lors du démontage du composant
+        // Add scroll event listener
+        window.addEventListener("scroll", handleScroll, { passive: true });
+
+        // Cleanup on unmount
         return () => {
-            window.removeEventListener('scroll', onScroll),
-                observer.disconnect()
-        }
-    }, [])
-    
-    // Ajoute 'bg-dark' de Bootstrap si isScrolled est true ou si le menu est affiché
-    const menuClassName = `navbar navbar-expand-lg fixed-top ${
-        isScrolled || show ? ' bg-dark' : ''
-    }`
-    
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [handleScroll]);
+
+    // Generate navbar classes based on state
+    const navbarClasses = [
+        "navbar",
+        "navbar-expand-lg",
+        "fixed-top",
+        "navbar-custom",
+        (isScrolled || isMobileMenuOpen) && "scrolled",
+    ]
+        .filter(Boolean)
+        .join(" ");
     return (
-        <nav className={`${menuClassName}`}>
+        <nav className={navbarClasses}>
             <div className="container">
                 <div id="jjadev_logo">
                     <a
                         className="navbar-brand d-flex align-items-center"
-                        href={props.link_home}
+                        href={link_home}
                         title="JJA DEV - Création de sites web et applications mobiles dans le Jura"
+                        onClick={handleLinkClick}
                     >
                         <img
-                            src={props.logo}
-                            srcSet={props.logo}
+                            src={logo}
+                            srcSet={logo}
                             width={40}
                             height={40}
                             alt="Logo de l'entreprise"
@@ -61,28 +66,30 @@ export default function(props) {
                         <span className="ms-3">JJA DEV</span>
                     </a>
                 </div>
+
                 <button
                     className="navbar-toggler"
                     type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
+                    onClick={handleMobileMenuToggle}
                     aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
+                    aria-expanded={isMobileMenuOpen}
+                    aria-label="Basculer la navigation"
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
+
                 <div
-                    className="collapse navbar-collapse justify-content-end"
+                    className={`collapse navbar-collapse justify-content-end ${isMobileMenuOpen ? "show" : ""}`}
                     id="navbarNav"
                 >
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav me-auto">
                         <li className="nav-item">
                             <a
                                 className="nav-link"
                                 aria-current="page"
-                                href={props.link_home}
-                                title="Retour à l\'accueil"
+                                href={link_home}
+                                title="Retour à l'accueil"
+                                onClick={handleLinkClick}
                             >
                                 Accueil
                             </a>
@@ -90,45 +97,81 @@ export default function(props) {
                         <li className="nav-item">
                             <a
                                 className="nav-link"
-                                href={props.link_home + '#services'}
-                                title='Aller à la section "Services"'
+                                href={`${link_home}#about`}
+                                title="En savoir plus sur JJA DEV"
+                                onClick={handleLinkClick}
                             >
-                                Services
+                                À propos
                             </a>
                         </li>
                         <li className="nav-item">
                             <a
                                 className="nav-link"
-                                href={props.link_home + '#contact'}
-                                title='Aller à la section "Contact"'
+                                href="https://github.com/jerome-jutteau"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                title="Voir mes projets sur GitHub"
+                                onClick={handleLinkClick}
+                            >
+                                Github
+                            </a>
+                        </li>
+                        <li className="nav-item">
+                            <a
+                                className="nav-link"
+                                href={`${link_home}#contact`}
+                                title="Me contacter"
+                                onClick={handleLinkClick}
                             >
                                 Contact
                             </a>
                         </li>
-                        <li className="nav-item">
-                            <a
-                                className="nav-link"
-                                href={props.link_blog}
-                                title="Aller sur le blog"
-                            >
-                                Blog
-                            </a>
-                        </li>
                     </ul>
-                    <ul className="navbar-nav ml-auto">
-                        <li className="nav-item">
+
+                    <ul className="navbar-nav ms-auto">
+                        <li className="nav-item dropdown">
                             <a
-                                className="nav-link"
-                                href="https://www.facebook.com/jjadevweb"
-                                aria-label="Lien vers la page facebook de l'entreprise"
-                                title="Aller sur la page facebook de l'entreprise"
+                                className="nav-link dropdown-toggle"
+                                href="#"
+                                id="crmDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                                title="Accès CRM"
                             >
-                                <i className="bi bi-facebook"></i>
+                                <i className="fas fa-user-circle" aria-hidden="true"></i>
+                                <span className="visually-hidden">Menu utilisateur</span>
                             </a>
+                            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="crmDropdown">
+                                <li>
+                                    <a className="dropdown-item" href="/admin">
+                                        Se connecter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a className="dropdown-item" href="/admin/logout">
+                                        Se déconnecter
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-    )
-}
+    );
+};
+
+// PropTypes for type checking
+Nav.propTypes = {
+    link_home: PropTypes.string.isRequired,
+    logo: PropTypes.string.isRequired,
+};
+
+// Default props
+Nav.defaultProps = {
+    link_home: "/",
+    logo: "/build/images/logo_jjadev.png",
+};
+
+export default Nav;

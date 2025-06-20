@@ -1,23 +1,8 @@
-# =============================================================================
-# DOCKER COMPOSE - JJA_DEV (WINDOWS DEVELOPMENT)
-# =============================================================================
-# Configuration Docker pour environnement de développement Windows
-# 
-# IMPORTANT: Seule la base de données MySQL tourne en Docker
-# PHP, npm et Symfony CLI sont installés localement sur Windows
-#
-# USAGE:
-#   docker-compose up -d database    # Démarrer MySQL uniquement
-#   docker-compose up -d             # Démarrer avec profil par défaut
-#   docker-compose ps                # Vérifier les services
-#   docker-compose logs database     # Logs MySQL
-# =============================================================================
-
 services:
     database:
         profiles:
             - 'jja_dev'
-        image: mysql:8.0
+        image: mysql
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
             MYSQL_DATABASE: 'JJA_DEV'
@@ -26,22 +11,11 @@ services:
         volumes:
             - database_data:/var/lib/mysql
         ports:
-            # Port MySQL exposé sur localhost Windows pour connexion PHP locale
-            # PHP local se connecte via 127.0.0.1:3306
+            # To allow the host machine to access the ports below, modify the lines below.
+            # For example, to allow the host to connect to port 3306 on the container, you would change
+            # "3306" to "3306:3306". Where the first port is exposed to the host and the second is the container port.
+            # See https://docs.docker.com/compose/compose-file/compose-file-v3/#ports for more information.
             - '3306:3306'
-    
-    # =============================================================================
-    # SERVICE PHP DÉSACTIVÉ - DÉVELOPPEMENT WINDOWS
-    # =============================================================================
-    # En développement Windows, PHP est installé localement pour de meilleures
-    # performances. Décommentez et adaptez si vous préférez PHP en Docker.
-    #
-    # Pour utiliser PHP local Windows :
-    #   symfony serve                    # Serveur développement
-    #   symfony console ...              # Commandes Symfony
-    #   php -S localhost:8000 -t public # Serveur PHP basique
-    # =============================================================================
-    
     # php:
     #     image: php:8.2-apache
     #     ports:
@@ -59,7 +33,6 @@ services:
     #     build:
     #         context: .
     #         dockerfile: Dockerfile
-
     mailer:
         profiles:
             - 'jja_dev'
@@ -67,8 +40,7 @@ services:
         ports:
             - '1025:1025'
             - '1080:1080'
-
 volumes:
     ###> doctrine/doctrine-bundle ###
     database_data:
-    ###< doctrine/doctrine-bundle ###
+###< doctrine/doctrine-bundle ###

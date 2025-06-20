@@ -13,26 +13,26 @@
  *
  * Thank you for your understanding and respect for our creative work and intellectual property rights.
  */
-const Encore = require('@symfony/webpack-encore')
-const { css } = require('jquery')
-const path = require('path')
-const { rule } = require('postcss/lib/postcss')
+const Encore = require("@symfony/webpack-encore");
+const { css } = require("jquery");
+const path = require("path");
+const { rule } = require("postcss/lib/postcss");
 
-const { GenerateSW } = require('workbox-webpack-plugin')
+const { GenerateSW } = require("workbox-webpack-plugin");
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
 if (!Encore.isRuntimeEnvironmentConfigured()) {
-    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev')
+    Encore.configureRuntimeEnvironment(process.env.NODE_ENV || "dev");
 }
 
 Encore
     // directory where compiled assets will be stored
-    .setOutputPath('public/build')
+    .setOutputPath("public/build")
     // public path used by the web server to access the output path
-    .setPublicPath('/build')
+    .setPublicPath("/build")
     // only needed for CDN's or subdirectory deploy
-    .setManifestKeyPrefix('build')
+    .setManifestKeyPrefix("build")
 
     /*
      * ENTRY CONFIG
@@ -40,20 +40,21 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', './assets/app.js')
-    .addEntry('admin', './assets/admin.js')
+    .addEntry("app", "./assets/app.js")
+    .addEntry("admin", "./assets/admin.js")
+    .addEntry("frontoffice", "./assets/frontoffice.js")
 
-    .addStyleEntry('appCss', './assets/styles/app.scss')
-    .addStyleEntry('home', './assets/styles/pages/_home.scss')
-    .addStyleEntry('legalnotice', './assets/styles/pages/_legalnotice.scss')
-    .addStyleEntry('privatepolicy', './assets/styles/pages/_privatepolicy.scss')
-    .addStyleEntry('sitemap', './assets/styles/pages/_sitemap.scss')
-    .addStyleEntry('blog', './assets/styles/pages/_blog.scss')
-    .addStyleEntry('contact', './assets/styles/pages/_contact.scss')
+    //.addStyleEntry("appCss", "./assets/styles/app.scss")
+    .addStyleEntry("home", "./assets/styles/pages/_home.scss")
+    .addStyleEntry("legalnotice", "./assets/styles/pages/_legalnotice.scss")
+    .addStyleEntry("privatepolicy", "./assets/styles/pages/_privatepolicy.scss")
+    .addStyleEntry("sitemap", "./assets/styles/pages/_sitemap.scss")
+    .addStyleEntry("blog", "./assets/styles/pages/_blog.scss")
+    .addStyleEntry("contact", "./assets/styles/pages/_contact.scss")
 
     .copyFiles({
-        from: './assets/images',
-        to: 'images/[path][name].[ext]',
+        from: "./assets/images",
+        to: "images/[path][name].[ext]",
         pattern: /\.(png|jpg|jpeg|svg)$/,
     })
 
@@ -62,11 +63,11 @@ Encore
 
     // will require an extra script tag for runtime.js
     .configureSplitChunks((splitChunks) => {
-        splitChunks.minSize = 0 // Taille minimale pour l'inclusion directe en base64
+        splitChunks.minSize = 0; // Taille minimale pour l'inclusion directe en base64
     })
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
-    .enableStimulusBridge('./assets/controllers.json')
+    .enableStimulusBridge("./assets/controllers.json")
 
     // will require an extra script tag for runtime.js
     // but, you probably want this, unless you're building a single-page app
@@ -93,59 +94,59 @@ Encore
 
     // enables and configure @babel/preset-env polyfills
     .configureBabelPresetEnv((config) => {
-        config.useBuiltIns = 'usage'
-        config.corejs = 3
+        config.useBuiltIns = "usage";
+        config.corejs = 3;
     })
 
     // enables Sass/SCSS support
     .enableSassLoader((options) => {
         if (!Encore.isProduction()) {
-            return
+            return;
         }
 
         return (options = {
             sassOptions: {
-                outputStyle: 'compressed',
+                outputStyle: "compressed",
             },
-        })
+        });
     })
 
     .enablePostCssLoader((options) => {
         if (!Encore.isProduction()) {
-            return
+            return;
         }
 
         return (options = {
             postcssOptions: {
                 plugins: [
-                    require('postcss-preset-env')({
+                    require("postcss-preset-env")({
                         stage: 0, // Permet d'utiliser les fonctionnalités de la dernière version de CSS
                         features: {
-                            'nesting-rules': true, // Permet d'utiliser les règles imbriquées
+                            "nesting-rules": true, // Permet d'utiliser les règles imbriquées
                         },
                     }),
-                    require('@fullhuman/postcss-purgecss')({
+                    require("@fullhuman/postcss-purgecss")({
                         content: [
-                            './templates/**/*.html.twig',
-                            './assets/**/*.js',
-                            './assets/**/*.jsx',
-                            './node_modules/bootstrap-table/src/**/*.js',
+                            "./templates/**/*.html.twig",
+                            "./assets/**/*.js",
+                            "./assets/**/*.jsx",
+                            "./node_modules/bootstrap-table/src/**/*.js",
                         ],
-                        css: ['./assets/**/*.scss', './assets/**/*.css'],
+                        css: ["./assets/**/*.scss", "./assets/**/*.css"],
                         safelist: {
                             standard: [/^is-/, /^has-/, /^js-/, /^fa-/, /^bi-/, /^text-bg-/, /^col-/],
                             skippedContentGlobs: [
-                                '**/node_modules/**',
-                                '**/vendor/**',
-                                '**/public/**',
-                                '**/components/**',
+                                "**/node_modules/**",
+                                "**/vendor/**",
+                                "**/public/**",
+                                "**/components/**",
                             ],
                         },
                     }),
-                    require('autoprefixer'),
+                    require("autoprefixer"),
                 ],
             },
-        })
+        });
     })
 
     // enables CSS minification
@@ -154,7 +155,7 @@ Encore
             parallel: 4,
             minimizerOptions: {
                 preset: [
-                    'advanced',
+                    "advanced",
                     {
                         discardComments: {
                             removeAll: true,
@@ -166,7 +167,7 @@ Encore
                 ],
             },
             test: /\.(css|scss|sass)$/,
-        }
+        };
     })
 
     // uncomment if you use TypeScript
@@ -183,13 +184,13 @@ Encore
     .autoProvidejQuery()
 
     .configureImageRule({
-        type: 'asset',
+        type: "asset",
         maxSize: 4 * 1024, // Taille maximale pour l'inclusion directe en base64
         enabled: !Encore.isProduction(),
     })
 
     .configureFontRule({
-        type: 'asset',
+        type: "asset",
         maxSize: 4 * 1024, // Taille maximale pour l'inclusion directe en base64
     })
 
@@ -205,7 +206,7 @@ Encore
             },
             extractComments: true,
             parallel: 4,
-        })
+        });
     })
 
     .addPlugin(
@@ -214,7 +215,7 @@ Encore
             clientsClaim: true,
             skipWaiting: true,
             maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
-            cacheId: 'jja-dev-cache-v1',
+            cacheId: "jja-dev-cache-v1",
             exclude: [
                 /\.map$/,
                 /robots\.txt$/,
@@ -227,9 +228,9 @@ Encore
             runtimeCaching: [
                 {
                     urlPattern: /\.(?:js|css|png|webp|jpg|svg)$/,
-                    handler: 'StaleWhileRevalidate',
+                    handler: "StaleWhileRevalidate",
                     options: {
-                        cacheName: 'assets-cache',
+                        cacheName: "assets-cache",
                         expiration: {
                             maxEntries: 100,
                             maxAgeSeconds: 60 * 60 * 24 * 7,
@@ -238,9 +239,9 @@ Encore
                 },
             ],
         })
-    )
+    );
 
 // export the final configuration
-module.exports = Encore.getWebpackConfig()
+module.exports = Encore.getWebpackConfig();
 
 // Path: postcss.config.js

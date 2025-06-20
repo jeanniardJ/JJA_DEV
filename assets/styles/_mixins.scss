@@ -1,0 +1,95 @@
+// Mixin pour l'effet glassmorphism
+@mixin jja-glassmorphism($opacity: 0.9) {
+    background: rgba($jja-white, $opacity);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba($jja-white, 0.2);
+}
+
+// Mixin pour les variantes de boutons
+@mixin jja-button-variant($bg-color, $text-color, $hover-bg: null) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: none;
+
+    &:hover {
+        @if $hover-bg {
+            background-color: $hover-bg;
+        } @else {
+            background-color: darken($bg-color, 10%);
+        }
+        color: $text-color;
+        border: none;
+    }
+
+    &:focus,
+    &:active {
+        background-color: darken($bg-color, 15%);
+        color: $text-color;
+        border: none;
+        box-shadow: 0 0 0 0.2rem rgba($bg-color, 0.25);
+    }
+}
+
+// Mixin pour les titres de section
+@mixin jja-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: $jja-dark-primary;
+    margin-bottom: 1rem;
+    text-align: center;
+
+    @include media-breakpoint-down(md) {
+        font-size: 2rem;
+    }
+}
+
+// Mixin pour les sous-titres de section
+@mixin jja-section-subtitle {
+    font-size: 1.2rem;
+    color: $jja-gray-medium;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+// Mixin pour les transitions d'entrée
+@mixin jja-fade-in($direction: "up", $duration: 0.6s, $delay: 0s) {
+    opacity: 0;
+    animation: fadeIn#{capitalize($direction)} $duration ease-out $delay both;
+}
+
+// Mixin pour les grilles responsives
+@mixin jja-grid($columns: 1, $gap: 1.5rem) {
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: $gap;
+
+    @include media-breakpoint-down(md) {
+        grid-template-columns: 1fr;
+    }
+}
+
+// Mixin pour les cartes avec effet hover
+@mixin jja-card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba($jja-dark-primary, 0.15);
+    }
+}
+
+// Mixin pour centrer les éléments
+@mixin jja-center($direction: "both") {
+    display: flex;
+
+    @if $direction == "both" {
+        align-items: center;
+        justify-content: center;
+    } @else if $direction == "horizontal" {
+        justify-content: center;
+    } @else if $direction == "vertical" {
+        align-items: center;
+    }
+}

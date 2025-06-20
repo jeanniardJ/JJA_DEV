@@ -17,10 +17,11 @@ class Role
 
     #[ORM\Column(length: 255)]
     private ?string $name = null;
+
     #[ORM\Column(length: 255)]
     private ?string $secondName = null;
 
-    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'roleEntities')]
+    #[ORM\ManyToMany(targetEntity: user::class, mappedBy: 'roleEntities')]
     private Collection $users;
 
     public function __construct()
@@ -76,4 +77,5 @@ class Role
 
         return $this;
     }
+
 }

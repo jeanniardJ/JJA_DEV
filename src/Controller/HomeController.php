@@ -38,6 +38,6 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home', options: ['sitemap' => true])]
     public function index(Request $request): Response
     {
-        return $this->render('home/index.html.twig');
+        return $this->render('home/frontoffice.html.twig');
     }
 }

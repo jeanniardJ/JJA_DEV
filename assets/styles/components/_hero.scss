@@ -1,0 +1,141 @@
+// Hero Section Component - Méthodologie BEM
+// Block: hero
+
+.hero {
+    // Block base
+    background: $jja-gradient-hero;
+    color: $jja-white;
+    padding: 8rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+    margin-top: 76px; // Compensation pour la navbar fixe
+
+    // Elements
+    &__overlay {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.05"><polygon points="0,0 1000,100 1000,0"/></svg>');
+            background-size: cover;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="white"></path></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+    }
+    &__title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+        animation: fadeInUp 1s ease-out;
+
+        // Media query Bootstrap md breakpoint (768px)
+        @media (max-width: 767.98px) {
+            font-size: 2.5rem;
+        } // Modifier pour dégradé
+        &--gradient {
+            background: linear-gradient(135deg, $jja-teal-light, $jja-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out 0.2s both;
+
+        // Media query Bootstrap md breakpoint (768px)
+        @media (max-width: 767.98px) {
+            font-size: 1.1rem;
+        }
+    }
+
+    &__buttons {
+        animation: fadeInUp 1s ease-out 0.4s both;
+        .btn {
+            margin: 0.5rem;
+            padding: 0.875rem 2rem;
+            font-weight: 600;
+            border-radius: $jja-border-radius;
+            transition: $jja-transition-base;
+        }
+    }
+    &__btn {
+        // Element: bouton principal hero
+        background: linear-gradient(135deg, $jja-teal-light 0%, $jja-teal-primary 100%);
+        color: $jja-white;
+        border: none;
+        padding: 0.875rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: $jja-border-radius;
+        box-shadow: 0 4px 15px rgba($jja-teal-light, 0.3);
+        animation: fadeInUp 1s ease-out 0.4s both;
+
+        &:hover {
+            background: linear-gradient(135deg, $jja-teal-primary 0%, $jja-dark-tertiary 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba($jja-teal-light, 0.4);
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.25rem rgba($jja-teal-light, 0.25);
+        }
+
+        // Modifier pour bouton secondaire
+        &--secondary {
+            background: rgba($jja-white, 0.95);
+            color: $jja-teal-primary;
+
+            &:hover {
+                background: $jja-white;
+                transform: translateY(-2px);
+                box-shadow: $jja-shadow-lg;
+            }
+        } // Modifier pour bouton outline
+        &--outline {
+            background: transparent;
+            border: 2px solid rgba($jja-white, 0.8);
+            color: $jja-white;
+
+            &:hover {
+                background: rgba($jja-white, 0.1);
+                border-color: $jja-white;
+                transform: translateY(-2px);
+            }
+        }
+    }
+}
+
+// Animations pour le hero
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

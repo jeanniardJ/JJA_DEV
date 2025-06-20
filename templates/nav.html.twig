@@ -1,3 +1,113 @@
-<div {{ react_component('Nav', {'link_home': path('app_home'), 'logo' :
-    asset('build/images/logo_jjadev.png') | imagine_filter('logo_webp', {"thumbnail": {"size": [60, 60] }})}) }}>
-</div>
+<nav class="navbar navbar-expand-lg fixed-top navbar-custom" 
+     data-controller="navbar" 
+     data-navbar-target="navbar"
+     data-navbar-scrolled-class="scrolled"
+     data-navbar-scroll-threshold-value="5">
+    <div class="container">
+        <div id="jjadev_logo">
+            <a
+                class="navbar-brand d-flex align-items-center"
+                href="{{ path('app_home') }}"
+                title="JJA DEV - Création de sites web et applications mobiles dans le Jura"
+                data-action="click->navbar#linkClick"
+            >
+                <img
+                    src="{{ asset('build/images/logo_jjadev.png') | imagine_filter('logo_webp', {"thumbnail": {"size": [60, 60] }}) }}"
+                    width="40"
+                    height="40"
+                    alt="Logo de l'entreprise"
+                    title="JJA DEV - Création de sites web et applications mobiles"
+                />
+                <span class="ms-3">JJA DEV</span>
+            </a>
+        </div>
+        
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-navbar-target="toggler"
+            data-action="click->navbar#toggleMobileMenu"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Basculer la navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+          <div 
+            class="collapse navbar-collapse" 
+            id="navbarNav"
+            data-navbar-target="collapse"
+        >
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        aria-current="page"
+                        href="{{ path('app_home') }}"
+                        title="Retour à l'accueil"
+                        data-action="click->navbar#linkClick"
+                    >
+                        Accueil
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="{{ path('app_home') }}#about"
+                        title="En savoir plus sur JJA DEV"
+                        data-action="click->navbar#linkClick"
+                    >
+                        À propos
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="https://github.com/jerome-jutteau"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        title="Voir mes projets sur GitHub"
+                        data-action="click->navbar#linkClick"
+                    >
+                        Github
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a 
+                        class="nav-link" 
+                        href="{{ path('app_home') }}#contact" 
+                        title="Me contacter"
+                        data-action="click->navbar#linkClick"
+                    >
+                        Contact
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a
+                        class="nav-link dropdown-toggle"
+                        href="#"
+                        id="crmDropdown"
+                        role="button"
+                        data-action="click->navbar#toggleUserDropdown"
+                        aria-expanded="false"
+                        title="Accès CRM"
+                    >
+                        <i class="fas fa-user-circle" aria-hidden="true"></i>
+                        <span class="visually-hidden">Menu utilisateur</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="crmDropdown">
+                        <li>
+                            <a class="dropdown-item" href="/admin">
+                                Se connecter
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/admin/logout">
+                                Se déconnecter
+                            </a>
+                        </li>
+                    </ul>
+                </li>            </ul>
+        </div>
+    </div>
+</nav>

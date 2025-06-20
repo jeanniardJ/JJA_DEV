@@ -17,16 +17,17 @@
                            title="Aller à la page 'Politique de confidentialité'">Politique de confidentialité</a>
                     </li>
                 </ul>
-            </div>
-            <div class="col-6 col-md-3 mb-3">
+            </div>            <div class="col-6 col-md-3 mb-3">
                 <h4>Navigation</h4>
                 <ul class="nav flex-column">
                     <li class="nav-item mb-2"><a href="{{ path('app_home') }}" title="Retour à l\'accueil">Accueil</a>
                     </li>
-                    <li class="nav-item mb-2"><a href="{{ url('app_home') ~ '#services' }}"
-                                                 title="Aller à la section 'Services'">Services</a></li>
-                    <li class="nav-item mb-2"><a href="{{ path('app_home') ~ '#contact' }}"
-                                                 title='Aller à la section "Contact"'>Contact</a></li>
+                    <li class="nav-item mb-2"><a href="{{ url('app_home') ~ '#about' }}"
+                                                 title="Aller à la section 'À propos'">À propos</a></li>
+                    <li class="nav-item mb-2"><a href="https://github.com/JJA-DEV" target="_blank"
+                                                 title='Voir mes projets GitHub'>GitHub</a></li>
+                    <li class="nav-item mb-2"><a href="{{ path('app_contact') }}"
+                                                 title='Aller à la page Contact'>Contact</a></li>
                     </li>
                     <li class="nav-item mb-2">
                         <a href="{{ path('app_adm_accueil') }}"

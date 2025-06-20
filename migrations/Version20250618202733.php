@@ -8,20 +8,19 @@ use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;
 
 /**
- * Migration d'initialisation JJA_DEV CMS
- * Création de toutes les tables de base héritées de CMS_SF
+ * Auto-generated Migration: Please modify to your needs!
  */
 final class Version20250618202733 extends AbstractMigration
 {
-  public function getDescription(): string
-  {
-    return 'Initialisation complète du CMS JJA_DEV avec toutes les tables de base';
-  }
+    public function getDescription(): string
+    {
+        return '';
+    }
 
-  public function up(Schema $schema): void
-  {
-    // this up() migration is auto-generated, please modify it to your needs
-    $this->addSql(<<<'SQL'
+    public function up(Schema $schema): void
+    {
+        // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql(<<<'SQL'
             CREATE TABLE appointments (
               id INT AUTO_INCREMENT NOT NULL,
               user_email VARCHAR(255) NOT NULL,
@@ -42,7 +41,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE config_template (
               id INT AUTO_INCREMENT NOT NULL,
               name VARCHAR(255) NOT NULL,
@@ -50,7 +49,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE contact (
               id INT AUTO_INCREMENT NOT NULL,
               name VARCHAR(255) NOT NULL,
@@ -62,7 +61,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE email_exchange (
               id INT AUTO_INCREMENT NOT NULL,
               sent_at DATETIME NOT NULL,
@@ -74,7 +73,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE interaction_history (
               id INT AUTO_INCREMENT NOT NULL,
               prospect_id INT NOT NULL,
@@ -85,7 +84,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE module (
               id INT AUTO_INCREMENT NOT NULL,
               id_github INT NOT NULL,
@@ -98,7 +97,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE note (
               id INT AUTO_INCREMENT NOT NULL,
               prospect_id INT DEFAULT NULL,
@@ -110,7 +109,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE page (
               id INT AUTO_INCREMENT NOT NULL,
               route_id INT NOT NULL,
@@ -126,7 +125,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE prospect (
               id INT AUTO_INCREMENT NOT NULL,
               status_id INT NOT NULL,
@@ -143,7 +142,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE recurring_event (
               id INT AUTO_INCREMENT NOT NULL,
               name VARCHAR(255) NOT NULL,
@@ -154,7 +153,7 @@ final class Version20250618202733 extends AbstractMigration
             days_of_week LONGTEXT DEFAULT NULL COMMENT '(DC2Type:simple_array)',
             PRIMARY KEY(id))DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE reminder (
               id INT AUTO_INCREMENT NOT NULL,
               prospect_id INT NOT NULL,
@@ -166,7 +165,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE reset_password_request (
               id INT AUTO_INCREMENT NOT NULL,
               user_id INT NOT NULL,
@@ -178,7 +177,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE role (
               id INT AUTO_INCREMENT NOT NULL,
               name VARCHAR(255) NOT NULL,
@@ -186,7 +185,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE route (
               id INT AUTO_INCREMENT NOT NULL,
               page_id INT NOT NULL,
@@ -195,7 +194,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE status (
               id INT AUTO_INCREMENT NOT NULL,
               name VARCHAR(255) NOT NULL,
@@ -203,7 +202,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE user (
               id INT AUTO_INCREMENT NOT NULL,
               username VARCHAR(180) NOT NULL,
@@ -216,7 +215,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE user_roles (
               user_id INT NOT NULL,
               role_id INT NOT NULL,
@@ -225,7 +224,7 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(user_id, role_id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE TABLE messenger_messages (
               id BIGINT AUTO_INCREMENT NOT NULL,
               body LONGTEXT NOT NULL,
@@ -240,157 +239,157 @@ final class Version20250618202733 extends AbstractMigration
               PRIMARY KEY(id)
             ) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               interaction_history
             ADD
               CONSTRAINT FK_47FC472AD182060A FOREIGN KEY (prospect_id) REFERENCES prospect (id)
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               note
             ADD
               CONSTRAINT FK_CFBDFA14D182060A FOREIGN KEY (prospect_id) REFERENCES prospect (id)
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               page
             ADD
               CONSTRAINT FK_140AB62034ECB4E6 FOREIGN KEY (route_id) REFERENCES route (id)
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               prospect
             ADD
               CONSTRAINT FK_C9CE8C7D6BF700BD FOREIGN KEY (status_id) REFERENCES status (id)
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               prospect
             ADD
               CONSTRAINT FK_C9CE8C7D26ED0855 FOREIGN KEY (note_id) REFERENCES note (id)
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               reminder
             ADD
               CONSTRAINT FK_40374F40D182060A FOREIGN KEY (prospect_id) REFERENCES prospect (id)
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               reset_password_request
             ADD
               CONSTRAINT FK_7CE748AA76ED395 FOREIGN KEY (user_id) REFERENCES user (id)
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE route ADD CONSTRAINT FK_2C42079C4663E4 FOREIGN KEY (page_id) REFERENCES page (id)
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               user_roles
             ADD
               CONSTRAINT FK_54FCD59FA76ED395 FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE
               user_roles
             ADD
               CONSTRAINT FK_54FCD59FD60322AC FOREIGN KEY (role_id) REFERENCES role (id) ON DELETE CASCADE
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP INDEX name ON config
         SQL);
-  }
+    }
 
-  public function down(Schema $schema): void
-  {
-    // this down() migration is auto-generated, please modify it to your needs
-    $this->addSql(<<<'SQL'
+    public function down(Schema $schema): void
+    {
+        // this down() migration is auto-generated, please modify it to your needs
+        $this->addSql(<<<'SQL'
             ALTER TABLE interaction_history DROP FOREIGN KEY FK_47FC472AD182060A
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE note DROP FOREIGN KEY FK_CFBDFA14D182060A
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE page DROP FOREIGN KEY FK_140AB62034ECB4E6
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE prospect DROP FOREIGN KEY FK_C9CE8C7D6BF700BD
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE prospect DROP FOREIGN KEY FK_C9CE8C7D26ED0855
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE reminder DROP FOREIGN KEY FK_40374F40D182060A
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE reset_password_request DROP FOREIGN KEY FK_7CE748AA76ED395
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE route DROP FOREIGN KEY FK_2C42079C4663E4
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE user_roles DROP FOREIGN KEY FK_54FCD59FA76ED395
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             ALTER TABLE user_roles DROP FOREIGN KEY FK_54FCD59FD60322AC
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE appointments
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE config_template
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE contact
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE email_exchange
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE interaction_history
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE module
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE note
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE page
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE prospect
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE recurring_event
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE reminder
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE reset_password_request
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE role
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE route
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE status
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE user
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE user_roles
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             DROP TABLE messenger_messages
         SQL);
-    $this->addSql(<<<'SQL'
+        $this->addSql(<<<'SQL'
             CREATE UNIQUE INDEX name ON config (name)
         SQL);
-  }
+    }
 }

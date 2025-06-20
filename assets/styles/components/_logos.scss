@@ -1,3 +1,37 @@
-#jjadev_logo img {
-    border-radius: 50%;
+// Logos Component - Méthodologie BEM
+// Block: logo
+
+// Logo JJA DEV - Style rond SANS bordure
+#jjadev_logo img,
+.logo {
+    border-radius: 50% !important;
+    border: none !important;
+    transition: all 0.3s ease;
+    object-fit: cover;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba($jja-teal-light, 0.5);
+    }
+}
+
+// Modifier pour différentes tailles
+.logo {
+    // Element: logo petit
+    &--small {
+        width: 30px !important;
+        height: 30px !important;
+    }
+
+    // Element: logo moyen (défaut navbar)
+    &--medium {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+    // Element: logo grand
+    &--large {
+        width: 60px !important;
+        height: 60px !important;
+    }
 }

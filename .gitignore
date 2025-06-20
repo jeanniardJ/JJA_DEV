@@ -2,8 +2,6 @@
 /.env.local
 /.env.local.php
 /.env.*.local
-# Protect .env files with secrets
-.env
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/

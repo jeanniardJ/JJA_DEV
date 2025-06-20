@@ -2,23 +2,22 @@
 applyTo: 'JJA_DEV/**'
 ---
 
-# Environnement Docker JJA_DEV (Windows)
+# Environnement Docker JJA_DEV
 
-## Configuration Héritée pour Windows
+## Configuration Héritée
 
-L'environnement de développement JJA_DEV sur Windows utilise :
+L'environnement de développement JJA_DEV utilise :
 
-- **MySQL** : Via Docker Desktop (base de données uniquement)
-- **PHP/Symfony** : Installation locale Windows (Symfony CLI)
-- **npm** : Installation locale Windows (Node.js)
-- **Configuration** : `docker-compose.yaml` pour MySQL uniquement
-- **Terminal** : PowerShell (recommandé)
+-   **MySQL** : Via Docker (base de données uniquement)
+-   **PHP/Symfony** : Installation locale Windows
+-   **npm** : Installation locale Windows
+-   **Configuration** : `docker-compose.yaml` pour MySQL uniquement
 
 ## Commandes Essentielles
 
-### Démarrage MySQL (Docker Desktop Windows)
+### Démarrage MySQL (Docker)
 
-```powershell
+```bash
 # Démarrage automatique (service par défaut)
 docker-compose up -d
 
@@ -32,10 +31,10 @@ docker-compose ps
 docker-compose logs database
 ```
 
-### Gestion Base de Données (Windows)
+### Gestion Base de Données
 
-```powershell
-# Exécution migrations (Symfony CLI local Windows)
+```bash
+# Exécution migrations (Symfony CLI local)
 symfony console doctrine:migrations:migrate
 
 # Génération nouvelle migration
@@ -47,13 +46,13 @@ symfony console doctrine:fixtures:load
 
 ### Développement Local (PHP/npm Windows)
 
-```powershell
-# Serveur Symfony local (Windows)
+```bash
+# Serveur Symfony local
 symfony serve
 # ou en arrière-plan
 symfony serve -d
 
-# Cache clear (Windows)
+# Cache clear
 symfony console cache:clear
 
 # Assets build (npm local Windows)
@@ -66,10 +65,10 @@ npm run dev
 # Build production
 npm run prod
 
-# Tests PHPUnit (Symfony CLI local Windows)
+# Tests PHPUnit (Symfony CLI local)
 symfony console phpunit
 
-# Analyse qualité code (Windows)
+# Analyse qualité code
 vendor/bin/phpstan analyse
 vendor/bin/phpcs src/
 ```

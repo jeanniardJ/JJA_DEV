@@ -8,47 +8,18 @@ applyTo: '**'
 
 JJA DEV est un système CRM complet basé sur Symfony 6.4 héritant de CMS_SF :
 
-- **Architecture** : Héritage de CMS_SF (template de base)
-- **Front Office** : Interface publique visiteurs (Bootstrap 5.x)
-- **Back Office** : Système de gestion laboratoire (Bootstrap + React)
-- **Bundle Devis & Factures** : Bundle Symfony réutilisable
-- **Frontend** : Bootstrap 5.x + Symfony UX React + Stimulus
-- **Environnement Dev** : MySQL Docker + PHP/npm local Windows
-- **Production** : OVH via CI/CD GitHub + Webhooks (branche main/master)
-
-## Environnements de Développement et Production
-
-### Environnement de Développement (Windows)
-
-- **OS** : Windows 10/11
-- **PHP** : Installation locale Windows (Symfony CLI recommandé)
-- **npm/Node.js** : Installation locale Windows
-- **Composer** : Installation locale Windows
-- **Docker** : Docker Desktop pour MySQL uniquement
-- **IDE** : VS Code avec extensions PHP/Symfony recommandées
-- **Terminal** : PowerShell (par défaut)
-
-### Environnement de Production (Linux)
-
-- **OS** : Serveurs Linux (OVH)
-- **PHP** : PHP-FPM + Apache/Nginx
-- **MySQL** : Service natif Linux
-- **npm** : Build assets en CI/CD
-- **Déploiement** : GitHub Actions → OVH
-
-### Outils Requis
-
-- **Symfony CLI** : `symfony.exe` dans le PATH
-- **Docker Desktop** : Pour service MySQL
-- **Git** : Avec configuration SSH/HTTPS
-- **PowerShell** : Terminal par défaut
-- **Extensions VS Code** : PHP Intelephense, Symfony Support
+-   **Architecture** : Héritage de CMS_SF (template de base)
+-   **Front Office** : Interface publique visiteurs (Bootstrap 5.x)
+-   **Back Office** : Système de gestion laboratoire (Bootstrap + React)
+-   **Bundle Devis & Factures** : Bundle Symfony réutilisable
+-   **Frontend** : Bootstrap 5.x + Symfony UX React + Stimulus
+-   **Environnement Dev** : MySQL Docker + PHP/npm local Windows
+-   **Production** : OVH via CI/CD GitHub + Webhooks (branche main/master)
 
 ## Architecture du Projet
 
 ### Relation CMS_SF → JJA_DEV
 
--   **Repository** : https://github.com/jeanniardJ/JJA_DEV.git
 -   JJA_DEV est une copie/fork de CMS_SF
 -   Utilisation du système d'authentification CMS_SF
 -   Conservation de la structure BackOffice/FrontOffice
@@ -61,7 +32,6 @@ JJA DEV est un système CRM complet basé sur Symfony 6.4 héritant de CMS_SF :
 -   [Standards Symfony](./base/symfony-standards.instructions.md)
 -   [Authentification & Sécurité](./base/security-authentication.instructions.md)
 -   [Workflow de Développement](./development/branch-workflow.instructions.md)
--   [Migration Repository](./development/repository-migration.md)
 -   [Stratégie de Tests](./development/testing-strategy.instructions.md)
 -   [Déploiement OVH](./deployment/ovh-deployment.instructions.md)
 -   [Développement CRM](./features/crm-development.instructions.md)

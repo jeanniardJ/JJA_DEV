@@ -177,17 +177,13 @@ class ProspectAdminController extends AbstractController
             'form' => $form
         ]);
     }
+
     #[Route('/generate-prompt', name: 'generate_prompt')]
     public function generatePrompt(Request $request): Response
     {
         $yourApiKey = getenv('OPENAI_API_KEY');
-        $yourOrgId = getenv('OPENAI_ORG_ID');
-
-        if (!$yourApiKey) {
-            throw new \Exception('OPENAI_API_KEY environment variable is required');
-        }
-
-        $client = OpenAI::client($yourApiKey, $yourOrgId);
+        var_dump($yourApiKey);
+        $client = OpenAI::client('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', 'org-DEcHbRB9i3pGD9fcs6O2ZdtD');
         var_dump($client);
         $result = $client->completions()->create([
             'model' => 'gpt-3.5-turbo-instruct',

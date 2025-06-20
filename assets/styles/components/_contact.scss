@@ -1,0 +1,251 @@
+// Contact Section Component - Méthodologie BEM
+// Block: contact
+
+.contact {
+    // Block base
+    padding: $jja-section-padding 0;
+
+    // Elements
+    &__title {
+        @include jja-section-title;
+    }
+
+    &__subtitle {
+        @include jja-section-subtitle;
+    }
+
+    &__info {
+        margin-bottom: 2rem;
+    }
+
+    &__item {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+        border-radius: $jja-border-radius-lg;
+        transition: $jja-transition-base;
+        margin-bottom: 1rem;
+
+        &:hover {
+            background-color: rgba($jja-teal-light, 0.1);
+            transform: translateX(5px);
+        }
+    }
+
+    &__icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, $jja-teal-light, $jja-teal-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        flex-shrink: 0;
+
+        i {
+            color: $jja-white;
+            font-size: 1.2rem;
+        }
+    }
+
+    &__details {
+        h6 {
+            color: $jja-text-primary;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        a {
+            color: $jja-text-secondary;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $jja-teal-primary;
+            }
+        }
+    }
+
+    &__form {
+        .form-label {
+            color: $jja-text-primary;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            border: 2px solid $jja-gray-light;
+            border-radius: $jja-border-radius-lg;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            transition: $jja-transition-base;
+
+            &:focus {
+                border-color: $jja-teal-primary;
+                box-shadow: 0 0 0 0.2rem rgba($jja-teal-light, 0.25);
+            }
+
+            &.is-valid {
+                border-color: #28a745;
+
+                &:focus {
+                    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+                }
+            }
+
+            &.is-invalid {
+                border-color: #dc3545;
+
+                &:focus {
+                    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+                }
+            }
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+    }
+
+    &__btn {
+        @include jja-button-variant($jja-teal-primary, $jja-white);
+        padding: 0.875rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: $jja-border-radius;
+        width: 100%;
+
+        @include media-breakpoint-up(md) {
+            width: auto;
+        }
+    }
+}
+
+// Availability note
+.availability {
+    // Block
+    &__note {
+        .alert-info {
+            background-color: rgba($jja-teal-light, 0.1);
+            border: 1px solid rgba($jja-teal-light, 0.3);
+            color: $jja-text-primary;
+            border-radius: $jja-border-radius-lg;
+
+            .fas {
+                color: $jja-teal-primary;
+            }
+        }
+    }
+}
+
+// Social links
+.social {
+    // Block
+    &__links {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin-top: 2rem;
+
+        @include media-breakpoint-down(sm) {
+            justify-content: center;
+        }
+    }
+
+    &__link {
+        width: 45px;
+        height: 45px;
+        background: linear-gradient(135deg, $jja-teal-light, $jja-teal-primary);
+        color: $jja-white;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        transition: $jja-transition-base;
+
+        &:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: $jja-shadow-lg;
+            color: $jja-white;
+        }
+
+        i {
+            font-size: 1.1rem;
+        }
+    }
+}
+
+// CTA Section
+.cta {
+    // Block base
+    background: linear-gradient(135deg, $jja-teal-light 0%, #d97706 100%);
+    color: $jja-white;
+    position: relative;
+    overflow: hidden;
+    padding: $jja-section-padding 0;
+
+    // Elements
+    &__overlay {
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" fill="rgba(255,255,255,0.1)"></path></svg>');
+            background-size: cover;
+            background-repeat: no-repeat;
+            transform: rotate(180deg);
+            top: -2px;
+        }
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+    }
+
+    &__title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+
+        @include media-breakpoint-down(md) {
+            font-size: 2rem;
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+    }
+
+    &__btn {
+        background-color: $jja-white;
+        color: $jja-teal-primary;
+        border: 2px solid $jja-white;
+        padding: 0.875rem 2rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        border-radius: $jja-border-radius;
+        transition: $jja-transition-base;
+
+        &:hover {
+            background-color: transparent;
+            color: $jja-white;
+            border-color: $jja-white;
+            transform: translateY(-2px);
+            box-shadow: $jja-shadow-lg;
+        }
+
+        &:focus {
+            box-shadow: 0 0 0 0.25rem rgba($jja-white, 0.25);
+        }
+    }
+}

@@ -2,74 +2,136 @@
 {% trans_default_domain('contact') %}
 
 {% block body %}
-<section id="contact">
+<section id="contact" class="section-padding">
     <div class="container">
-        <div id="contact-bg">
-            <div class="section-title d-flex justify-content-center">
-                <h2 class="text-center pt-5 text-wrap">Contactez-moi pour vos projets</h2>
-            </div>
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
-                <div class="col">
-                    {{ form_start(form, {'attr': {'class': 'p-5 bg-white shadow rounded mb-5 needs-validation',
-                    'novalidate': 'novalidate'}}) }}
-
-                    {{ form_errors(form) }}
-                    {{ form_row(form.name, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
-                    {{ form_row(form.email, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
-
-                    {{ form_row(form.phone, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
-                    {{ form_row(form.objet, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
-                    {{ form_row(form.sujet, {'label_attr': {'class': 'font-weight-bold text-muted'} }) }}
-                    {{ form_rest(form) }}
-                    <div class="text-center">
-                        <button class="btn btn-primary mt-3">{{ button_label|default('Envoyer') }}</button>
-                    </div>
-                    {{ form_end(form) }}
+        <div class="row justify-content-center">            <div class="col-lg-8">
+                <div class="section-title text-center mb-5">
+                    <h2 class="text-primary-custom">Contactez-moi</h2>
+                    <p class="section-subtitle text-secondary-custom">
+                        Une question sur mes projets ou souhaitez-vous collaborer ? N'hésitez pas à me contacter !
+                    </p>
                 </div>
-                <div class="col-md-4 col">
-                    <div class="card border-0 shadow mb-5">
-                        <div class="card-body">
-                            <p class="card-text fs-5">
-                                <strong>Téléphone:</strong> <a href="tel:{{ global.propriety.phone }}">{{ global.propriety.phone|slice(0, 2) ~ '.' ~ global.propriety.phone|slice(2, 2) ~ '.' ~ global.propriety.phone|slice(4, 2) ~ '.' ~ global.propriety.phone|slice(6, 2) ~ '.' ~ global.propriety.phone|slice(8, 2) }}</a>
-                            </p>
-                            <p class="card-text fs-5">
-                                <strong>Email:</strong> <a href="mailto:{{ global.propriety.email }}">{{ global.propriety.email }}</a>
-                            </p>
-                            <p class="card-text fs-5">
-                                <strong class="">Horaires:</strong>
-                                <ol class="fs-5">
-                                    <li><span>Lundi</span> : 9h - 12h / 14h - 17h30</li>
-                                    <li><span>Mardi</span> : 9h - 12h / 14h - 17h30</li>
-                                    <li><span>Mercredi</span> : 9h - 12h / 14h - 17h30</li>
-                                    <li><span>Jeudi</span> : 9h - 12h / 14h - 17h30</li>
-                                    <li><span>Vendredi</span> : 9h - 12h / 14h - 17h30</li>
-                                </ol>
-                            </p>
-                            <p class="card-text fs-5">
-                                <strong>Réseaux sociaux:</strong>
-                                <br>
+            </div>
+        </div>
+        
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <div class="card card-custom">
+                    <div class="card-body p-5">
+                        {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+
+                        {{ form_errors(form) }}
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                {{ form_row(form.name, {'label_attr': {'class': 'form-label fw-bold text-dark-custom'} }) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.email, {'label_attr': {'class': 'form-label fw-bold text-dark-custom'} }) }}
+                            </div>
+                        </div>
+                        
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                {{ form_row(form.phone, {'label_attr': {'class': 'form-label fw-bold text-dark-custom'} }) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.objet, {'label_attr': {'class': 'form-label fw-bold text-dark-custom'} }) }}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            {{ form_row(form.sujet, {'label_attr': {'class': 'form-label fw-bold text-dark-custom'} }) }}
+                        </div>
+                        
+                        {{ form_rest(form) }}
+                        
+                        <div class="text-center">
+                            <button class="btn btn-primary-custom btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>{{ button_label|default('Envoyer le message') }}
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">                <div class="card card-custom">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-4 text-primary-custom">Informations de contact</h4>
+                        
+                        <div class="contact-info mb-4">
+                            <div class="contact-item mb-3">
+                                <div class="contact-icon text-primary-custom">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 text-dark-custom">Email</h6>
+                                    <a href="mailto:{{ global.propriety.email }}" class="text-muted">
+                                        {{ global.propriety.email }}
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            {% if global.propriety.phone %}
+                            <div class="contact-item mb-3">
+                                <div class="contact-icon text-primary-custom">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 text-dark-custom">Téléphone</h6>
+                                    <a href="tel:{{ global.propriety.phone }}" class="text-muted">
+                                        {{ global.propriety.phone|slice(0, 2) ~ '.' ~ global.propriety.phone|slice(2, 2) ~ '.' ~ global.propriety.phone|slice(4, 2) ~ '.' ~ global.propriety.phone|slice(6, 2) ~ '.' ~ global.propriety.phone|slice(8, 2) }}
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            
+                            <div class="contact-item mb-3">
+                                <div class="contact-icon text-accent-custom">
+                                    <i class="fab fa-github"></i>
+                                </div>
+                                <div>
+                                    <h6 class="mb-1 text-dark-custom">GitHub</h6>
+                                    <a href="https://github.com/JJA-DEV" target="_blank" class="text-muted">
+                                        JJA-DEV
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="availability-note">
+                            <div class="alert alert-info">
+                                <i class="fas fa-info-circle me-2"></i>
+                                <small>Je réponds généralement sous 24-48h. Pour les projets urgents, n'hésitez pas à le préciser dans votre message.</small>
+                            </div>
+                        </div>
+                        
+                        {% if global.social is defined and global.social is not empty %}
+                        <div class="social-links">
+                            <h6 class="mb-3">Réseaux sociaux</h6>
+                            <div class="d-flex gap-3">
                                 {% for key, social in global.social %}
                                     {% if social is not null %}
                                         {% if key == 'FacebookUrl' %}
-                                            <a class="me-3" href="{{ social }}" aria-label="Facebook" title="Page Facebook de l'entreprise">
-                                                <i class="bi bi-facebook fs-1"></i>
+                                            <a href="{{ social }}" class="social-link" aria-label="Facebook" title="Page Facebook" target="_blank">
+                                                <i class="fab fa-facebook-f"></i>
                                             </a>
                                         {% endif %}
                                         {% if key == 'WhatsappPhone' %}
-                                            <a href="{{ social }}" aria-label="Whatsapp" title="Page Whatsapp de l'entreprise">
-                                                <i class="bi bi-whatsapp fs-1"></i>
+                                            <a href="{{ social }}" class="social-link" aria-label="WhatsApp" title="WhatsApp" target="_blank">
+                                                <i class="fab fa-whatsapp"></i>
                                             </a>
                                         {% endif %}
                                     {% endif %}
                                 {% endfor %}
-                            </p>
+                            </div>
                         </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
-
 {% endblock %}
