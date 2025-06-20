@@ -116,7 +116,7 @@
         "dama/doctrine-test-bundle": "^7.2",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "fakerphp/faker": "^1.23",
-        "liip/test-fixtures-bundle": "^2.6",
+        "liip/test-fixtures-bundle": "^3.4",
         "phpstan/phpstan": "^1.11",
         "phpstan/phpstan-doctrine": "^1.4",
         "phpstan/phpstan-symfony": "^1.4",
