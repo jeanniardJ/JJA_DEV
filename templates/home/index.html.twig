@@ -1,0 +1,679 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+{{ encore_entry_link_tags('home') }}
+{% endblock %}
+
+{% block body %}
+<!-- Section À propos -->
+<section id="about" class="py-5 bg-light-custom mt-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-4 col-md-5 text-center">
+                <div class="avatar-container mb-4">
+                    <img src="{{ asset('images/avatar.jpg') }}" alt="Avatar JJA DEV"
+                        class="img-fluid rounded-circle shadow-lg"
+                        style="width: 250px; height: 250px; object-fit: cover; border: 4px solid var(--bs-primary);">
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-7">
+                <div class="bio-content">
+                    <h2 class="display-5 fw-bold text-white mb-4">Bienvenue sur JJA DEV</h2>
+                    <p class="lead text-white mb-4">
+                        Un laboratoire de développement personnel et un environnement CRM expérimental.
+                        Explorez mes projets, expériences et perspectives en développement logiciel.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row align-items-center g-4 mt-5">
+            <div class="col-md-12">
+                <h3 class="fw-bold text-white mb-3">Philosophy</h3>
+                <p class="text-white mb-0">
+                    Chez JJA DEV, je crois en l'apprentissage continu, l'expérimentation et le dépassement
+                    des limites de ce qui est possible en développement logiciel. Ce laboratoire est un espace
+                    pour explorer de nouvelles technologies, construire des solutions innovantes et partager
+                    des connaissances avec la communauté.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Section Stack -->
+<section id="stack" class="py-5">
+    <div class="container">
+        <div class="text-left mb-5">
+            <h3 class="fw-bold text-white mb-3">Stack</h3>
+        </div><!-- Onglets de navigation -->
+        <ul class="nav nav-tabs mb-5" id="stackTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active fw-bold" id="backend-tab" data-bs-toggle="tab" data-bs-target="#backend"
+                    href="#" role="tab" aria-controls="backend" aria-selected="true">
+                    <i class="fas fa-server me-2"></i>Backend
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link fw-bold" id="frontend-tab" data-bs-toggle="tab" data-bs-target="#frontend" href="#"
+                    role="tab" aria-controls="frontend" aria-selected="false">
+                    <i class="fas fa-paint-brush me-2"></i>Frontend
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link fw-bold" id="devops-tab" data-bs-toggle="tab" data-bs-target="#devops" href="#"
+                    role="tab" aria-controls="devops" aria-selected="false">
+                    <i class="fas fa-cogs me-2"></i>DevOps
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link fw-bold" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" href="#"
+                    role="tab" aria-controls="security" aria-selected="false">
+                    <i class="fas fa-shield-alt me-2"></i>Sécurité
+                </a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link fw-bold" id="tools-tab" data-bs-toggle="tab" data-bs-target="#tools" href="#"
+                    role="tab" aria-controls="tools" aria-selected="false">
+                    <i class="fas fa-tools me-2"></i>Outils
+                </a>
+            </li>
+        </ul>
+
+        <!-- Contenu des onglets -->
+        <div class="tab-content" id="stackTabsContent">
+            <!-- Onglet Backend -->
+            <div class="tab-pane fade show active" id="backend" role="tabpanel" aria-labelledby="backend-tab">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-php fa-3x text-primary mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-php text-primary me-2"></i>PHP</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-cube fa-3x text-success mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-cube text-success me-2"></i>Symfony</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-database fa-3x text-info mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-database text-info me-2"></i>MySQL</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-wordpress fa-3x text-primary mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-wordpress text-primary me-2"></i>WordPress</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet Frontend -->
+            <div class="tab-pane fade" id="frontend" role="tabpanel" aria-labelledby="frontend-tab">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-js-square fa-3x text-warning mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-js-square text-warning me-2"></i>JavaScript</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-react fa-3x text-info mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-react text-info me-2"></i>React</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-bootstrap fa-3x text-purple mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-bootstrap text-purple me-2"></i>Bootstrap</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-sass fa-3x text-danger mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-sass text-danger me-2"></i>SASS</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet DevOps -->
+            <div class="tab-pane fade" id="devops" role="tabpanel" aria-labelledby="devops-tab">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-docker fa-3x text-primary mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-docker text-primary me-2"></i>Docker</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-git-alt fa-3x text-dark mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-git-alt text-dark me-2"></i>Git</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-github fa-3x text-dark mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-github text-dark me-2"></i>GitHub Actions
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-cloud fa-3x text-info mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-cloud text-info me-2"></i>OVH Cloud</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet Sécurité -->
+            <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-key fa-3x text-warning mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-key text-warning me-2"></i>JWT</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-lock fa-3x text-success mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-lock text-success me-2"></i>HTTPS/SSL</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-user-shield fa-3x text-primary mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-user-shield text-primary me-2"></i>OAuth</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-shield-virus fa-3x text-danger mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-shield-virus text-danger me-2"></i>CSRF Protection
+                                </h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Onglet Outils -->
+            <div class="tab-pane fade" id="tools" role="tabpanel" aria-labelledby="tools-tab">
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-code text-primary me-2"></i>VS Code</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-figma fa-3x text-purple mb-3"></i>
+                                <h5 class="fw-bold"><i class="fab fa-figma text-purple me-2"></i>Figma</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-bug fa-3x text-danger mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-bug text-danger me-2"></i>PHPUnit</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-rocket fa-3x text-success mb-3"></i>
+                                <h5 class="fw-bold"><i class="fas fa-rocket text-success me-2"></i>Composer</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Modules -->
+<section id="modules" class="py-5 bg-dark-custom">
+    <div class="container">
+        <div class="text-left mb-5">
+            <h3 class="fw-bold text-white mb-3">Modules</h3>
+            <p class="lead text-light">
+                Découvrez mes différents modules et outils de développement
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="card module-card text-center">
+                    <div class="card-body">
+                        <div class="module-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Symfony Projects</h5>
+                        <p class="text-muted">
+                            Collection de projets Symfony avec CRM, CMS et solutions e-commerce
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="card module-card text-center">
+                    <div class="card-body">
+                        <div class="module-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Security Scans</h5>
+                        <p class="text-muted">
+                            Outils d'analyse et de sécurisation des applications web
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="card module-card text-center">
+                    <div class="card-body">
+                        <div class="module-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Automation Scripts</h5>
+                        <p class="text-muted">
+                            Scripts d'automatisation pour le déploiement et la maintenance
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="card module-card text-center">
+                    <div class="card-body">
+                        <div class="module-icon">
+                            <i class="fas fa-file-code"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">Technical Notes</h5>
+                        <p class="text-muted">
+                            Documentation technique et guides de bonnes pratiques
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Roadmap -->
+<section id="roadmap" class="py-5 bg-light-custom">
+    <div class="container">
+        <div class="text-left mb-5">
+            <h3 class="fw-bold text-white mb-3">Roadmap</h3>
+            <p class="lead">
+                Suivez l'évolution de mes projets et les prochaines fonctionnalités
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="roadmap-container">
+                    <!-- Ticket 1 -->
+                    <div class="roadmap-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h6 class="fw-bold mb-0">Implémentation du module CRM avancé</h6>
+                            <span class="roadmap-status status-in-progress">En cours</span>
+                        </div>
+                        <p class="mb-2">
+                            Développement d'un système CRM complet avec gestion des prospects, devis et facturation.
+                        </p>
+                        <small class="text-muted">
+                            <i class="fas fa-calendar me-1"></i>Prévu pour Q1 2025
+                        </small>
+                    </div>
+
+                    <!-- Ticket 2 -->
+                    <div class="roadmap-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h6 class="fw-bold mb-0">Migration vers Symfony 7.0</h6>
+                            <span class="roadmap-status status-open">Planifié</span>
+                        </div>
+                        <p class="mb-2">
+                            Mise à jour de tous les projets vers la dernière version LTS de Symfony.
+                        </p>
+                        <small class="text-muted">
+                            <i class="fas fa-calendar me-1"></i>Prévu pour Q2 2025
+                        </small>
+                    </div>
+
+                    <!-- Ticket 3 -->
+                    <div class="roadmap-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h6 class="fw-bold mb-0">API REST complète pour le CMS</h6>
+                            <span class="roadmap-status status-open">Planifié</span>
+                        </div>
+                        <p class="mb-2">
+                            Création d'une API REST complète pour l'administration et la gestion de contenu.
+                        </p>
+                        <small class="text-muted">
+                            <i class="fas fa-calendar me-1"></i>Prévu pour Q3 2025
+                        </small>
+                    </div>
+
+                    <!-- Ticket 4 (visible après scroll) -->
+                    <div class="roadmap-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h6 class="fw-bold mb-0">Interface React pour l'administration</h6>
+                            <span class="roadmap-status status-open">Planifié</span>
+                        </div>
+                        <p class="mb-2">
+                            Développement d'une interface React moderne pour l'administration des projets.
+                        </p>
+                        <small class="text-muted">
+                            <i class="fas fa-calendar me-1"></i>Prévu pour Q4 2025
+                        </small>
+                    </div>
+
+                    <!-- Ticket 5 (visible après scroll) -->
+                    <div class="roadmap-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <h6 class="fw-bold mb-0">Optimisation performance et cache</h6>
+                            <span class="roadmap-status status-closed">Terminé</span>
+                        </div>
+                        <p class="mb-2">
+                            Implémentation de systèmes de cache avancés et optimisation des performances.
+                        </p>
+                        <small class="text-muted">
+                            <i class="fas fa-calendar me-1"></i>Terminé en décembre 2024
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Latest GitHub Commits -->
+<section id="github-commits" class="py-5 bg-dark-custom">
+    <div class="container">
+        <div class="text-left mb-5">
+            <h3 class="fw-bold text-white mb-3">Latest GitHub Commits</h3>
+            <p class="lead text-light">
+                Mes dernières contributions et mises à jour de code
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="commits-container">
+                    <!-- Commit 1 -->
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">feat(crm): add customer management with advanced filtering</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 2 heures
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Implémentation du système de gestion client avec filtres avancés et pagination.
+                                </p>
+                            </div>
+                            <span class="commit-hash">a7b2c3d</span>
+                        </div>
+                    </div>
+
+                    <!-- Commit 2 -->
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">fix(auth): resolve session timeout issue</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 5 heures
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Correction du problème de timeout de session dans l'administration.
+                                </p>
+                            </div>
+                            <span class="commit-hash">e4f5g6h</span>
+                        </div>
+                    </div>
+
+                    <!-- Commit 3 -->
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">style(frontend): update home page design with new color palette
+                                </h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 1 jour
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Mise à jour du design de la page d'accueil avec la nouvelle palette de couleurs.
+                                </p>
+                            </div>
+                            <span class="commit-hash">i7j8k9l</span>
+                        </div>
+                    </div>
+
+                    <!-- Commits supplémentaires (visibles après scroll) -->
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">docs(api): update API documentation with new endpoints</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 2 jours
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Mise à jour de la documentation API avec les nouveaux endpoints CRM.
+                                </p>
+                            </div>
+                            <span class="commit-hash">m0n1o2p</span>
+                        </div>
+                    </div>
+
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">test(services): add unit tests for customer service</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 3 jours
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Ajout des tests unitaires pour le service de gestion des clients.
+                                </p>
+                            </div>
+                            <span class="commit-hash">q3r4s5t</span>
+                        </div>
+                    </div>
+
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">refactor(database): optimize customer queries</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 4 jours
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Optimisation des requêtes de base de données pour la gestion des clients.
+                                </p>
+                            </div>
+                            <span class="commit-hash">u6v7w8x</span>
+                        </div>
+                    </div>
+
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">feat(security): implement two-factor authentication</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 5 jours
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Implémentation de l'authentification à deux facteurs pour renforcer la sécurité.
+                                </p>
+                            </div>
+                            <span class="commit-hash">y9z0a1b</span>
+                        </div>
+                    </div>
+
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">perf(cache): implement Redis caching for better performance
+                                </h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 6 jours
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Implémentation du cache Redis pour améliorer les performances de l'application.
+                                </p>
+                            </div>
+                            <span class="commit-hash">c2d3e4f</span>
+                        </div>
+                    </div>
+
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">fix(ui): resolve responsive issues on mobile devices</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 1 semaine
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Correction des problèmes de responsive design sur les appareils mobiles.
+                                </p>
+                            </div>
+                            <span class="commit-hash">g5h6i7j</span>
+                        </div>
+                    </div>
+
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">chore(deps): update Symfony to latest LTS version</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>Il y a 1 semaine
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    Mise à jour de Symfony vers la dernière version LTS avec toutes les dépendances.
+                                </p>
+                            </div>
+                            <span class="commit-hash">k8l9m0n</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Call-to-Action Contact -->
+<section id="contact" class="py-5 bg-primary-custom text-white">
+    <div class="container">
+        <div class="row justify-content-center text-center">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold mb-4">Restons en contact</h2>
+                <p class="lead mb-5">
+                    Vous avez une question ou souhaitez collaborer sur un projet ?
+                </p>
+
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                    <a href="{{ path('app_contact') }}" class="btn btn-light-custom btn-lg">
+                        <i class="fas fa-envelope me-2"></i>Me contacter
+                    </a>
+                    <a href="https://github.com/JJA-DEV" target="_blank" class="btn btn-outline-light-custom btn-lg">
+                        <i class="fab fa-github me-2"></i>GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

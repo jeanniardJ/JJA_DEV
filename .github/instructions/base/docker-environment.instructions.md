@@ -61,9 +61,19 @@ npm run watch
 
 # Build développement avec Webpack Encore
 npm run dev
+# IMPORTANT: Vider le cache Symfony après chaque build d'assets
+symfony console cache:clear
+
+# Build en mode watch (développement continu)
+npm run watch
+# Note: Le cache doit être vidé manuellement après modifications
 
 # Build production
 npm run prod
+symfony console cache:clear
+
+# Workflow complet de développement
+npm run dev && symfony console cache:clear
 
 # Tests PHPUnit (Symfony CLI local)
 symfony console phpunit

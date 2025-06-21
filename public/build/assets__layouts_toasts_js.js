@@ -1,0 +1,33 @@
+"use strict";
+(self["webpackChunkjja_dev"] = self["webpackChunkjja_dev"] || []).push([["assets__layouts_toasts_js"],{
+
+/***/ "./assets/_layouts/toasts.js":
+/*!***********************************!*\
+  !*** ./assets/_layouts/toasts.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.esm.js");
+/*
+ * Copyright (c) 2023. Tous droits réservés.
+ * Aucun élément de ce site web ne peut être reproduit, affiché, modifié ou distribué sans la permission écrite préalable du titulaire du droit d'auteur.
+ * Ce site web, son contenu et tous les produits créés par JJA DEV sont protégés par les lois sur les droits d'auteur et la propriété intellectuelle. Tous les droits sont réservés à JJA DEV.
+ *
+ * L'utilisation non autorisée de tout élément de ce site, y compris, mais sans s'y limiter, le texte, les images, les dessins, les graphiques, les logos et les marques de commerce, peut constituer une violation des lois sur le droit d'auteur, des lois sur les marques de commerce ou d'autres lois applicables et peut entraîner des poursuites judiciaires.
+ *
+ * Pour obtenir la permission d'utiliser du contenu de ce site, veuillez contacter JJA DEV.
+ *
+ * Merci de votre compréhension et de votre respect envers notre travail créatif et nos droits de propriété intellectuelle.
+ */
+
+var toastLiveId = document.getElementById('toast');
+if (toastLiveId) {
+  var toastBootstrap = bootstrap__WEBPACK_IMPORTED_MODULE_0__.Toast.getOrCreateInstance(toastLiveId);
+  toastBootstrap.show();
+}
+
+/***/ })
+
+}]);
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYXNzZXRzX19sYXlvdXRzX3RvYXN0c19qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7OztBQUFBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDZ0M7QUFFaEMsSUFBSUMsV0FBVyxHQUFHQyxRQUFRLENBQUNDLGNBQWMsQ0FBQyxPQUFPLENBQUM7QUFFbEQsSUFBSUYsV0FBVyxFQUFFO0VBQ2IsSUFBTUcsY0FBYyxHQUFHSiw0Q0FBSyxDQUFDSyxtQkFBbUIsQ0FBQ0osV0FBVyxDQUFDO0VBQzdERyxjQUFjLENBQUNFLElBQUksQ0FBQyxDQUFDO0FBQ3pCIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vamphLWRldi8uL2Fzc2V0cy9fbGF5b3V0cy90b2FzdHMuanMiXSwic291cmNlc0NvbnRlbnQiOlsiLypcclxuICogQ29weXJpZ2h0IChjKSAyMDIzLiBUb3VzIGRyb2l0cyByw6lzZXJ2w6lzLlxyXG4gKiBBdWN1biDDqWzDqW1lbnQgZGUgY2Ugc2l0ZSB3ZWIgbmUgcGV1dCDDqnRyZSByZXByb2R1aXQsIGFmZmljaMOpLCBtb2RpZmnDqSBvdSBkaXN0cmlidcOpIHNhbnMgbGEgcGVybWlzc2lvbiDDqWNyaXRlIHByw6lhbGFibGUgZHUgdGl0dWxhaXJlIGR1IGRyb2l0IGQnYXV0ZXVyLlxyXG4gKiBDZSBzaXRlIHdlYiwgc29uIGNvbnRlbnUgZXQgdG91cyBsZXMgcHJvZHVpdHMgY3LDqcOpcyBwYXIgSkpBIERFViBzb250IHByb3TDqWfDqXMgcGFyIGxlcyBsb2lzIHN1ciBsZXMgZHJvaXRzIGQnYXV0ZXVyIGV0IGxhIHByb3ByacOpdMOpIGludGVsbGVjdHVlbGxlLiBUb3VzIGxlcyBkcm9pdHMgc29udCByw6lzZXJ2w6lzIMOgIEpKQSBERVYuXHJcbiAqXHJcbiAqIEwndXRpbGlzYXRpb24gbm9uIGF1dG9yaXPDqWUgZGUgdG91dCDDqWzDqW1lbnQgZGUgY2Ugc2l0ZSwgeSBjb21wcmlzLCBtYWlzIHNhbnMgcyd5IGxpbWl0ZXIsIGxlIHRleHRlLCBsZXMgaW1hZ2VzLCBsZXMgZGVzc2lucywgbGVzIGdyYXBoaXF1ZXMsIGxlcyBsb2dvcyBldCBsZXMgbWFycXVlcyBkZSBjb21tZXJjZSwgcGV1dCBjb25zdGl0dWVyIHVuZSB2aW9sYXRpb24gZGVzIGxvaXMgc3VyIGxlIGRyb2l0IGQnYXV0ZXVyLCBkZXMgbG9pcyBzdXIgbGVzIG1hcnF1ZXMgZGUgY29tbWVyY2Ugb3UgZCdhdXRyZXMgbG9pcyBhcHBsaWNhYmxlcyBldCBwZXV0IGVudHJhw65uZXIgZGVzIHBvdXJzdWl0ZXMganVkaWNpYWlyZXMuXHJcbiAqXHJcbiAqIFBvdXIgb2J0ZW5pciBsYSBwZXJtaXNzaW9uIGQndXRpbGlzZXIgZHUgY29udGVudSBkZSBjZSBzaXRlLCB2ZXVpbGxleiBjb250YWN0ZXIgSkpBIERFVi5cclxuICpcclxuICogTWVyY2kgZGUgdm90cmUgY29tcHLDqWhlbnNpb24gZXQgZGUgdm90cmUgcmVzcGVjdCBlbnZlcnMgbm90cmUgdHJhdmFpbCBjcsOpYXRpZiBldCBub3MgZHJvaXRzIGRlIHByb3ByacOpdMOpIGludGVsbGVjdHVlbGxlLlxyXG4gKi9cclxuaW1wb3J0IHtUb2FzdH0gZnJvbSBcImJvb3RzdHJhcFwiO1xyXG5cclxubGV0IHRvYXN0TGl2ZUlkID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RvYXN0Jyk7XHJcblxyXG5pZiAodG9hc3RMaXZlSWQpIHtcclxuICAgIGNvbnN0IHRvYXN0Qm9vdHN0cmFwID0gVG9hc3QuZ2V0T3JDcmVhdGVJbnN0YW5jZSh0b2FzdExpdmVJZCk7XHJcbiAgICB0b2FzdEJvb3RzdHJhcC5zaG93KCk7XHJcbn1cclxuIl0sIm5hbWVzIjpbIlRvYXN0IiwidG9hc3RMaXZlSWQiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIiwidG9hc3RCb290c3RyYXAiLCJnZXRPckNyZWF0ZUluc3RhbmNlIiwic2hvdyJdLCJzb3VyY2VSb290IjoiIn0=

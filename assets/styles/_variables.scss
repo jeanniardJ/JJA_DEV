@@ -2,6 +2,14 @@
 // Importé AVANT Bootstrap pour surcharger les valeurs par défaut
 
 // ===========================
+// NOTE IMPORTANTE: TOUJOURS UTILISER REM/EM POUR LES TAILLES
+// ===========================
+// Toujours privilégier les unités rem/em pour les tailles de police,
+// espacements, marges et paddings afin d'assurer l'accessibilité
+// et la cohérence responsive du design. Éviter les pixels (px) sauf
+// pour les bordures et ombres où la précision est critique.
+
+// ===========================
 // PALETTE DE COULEURS JJA_DEV
 // ===========================
 
@@ -105,7 +113,8 @@ $btn-font-weight: 600 !default;
 
 // Variables de cards
 $card-border-radius: $jja-border-radius-lg !default;
-$card-border-color: $jja-gray-light !default;
+$card-border-color: $jja-teal-primary !default;
+$card-bg: $jja-dark-tertiary !default;
 $card-box-shadow: $jja-shadow-sm !default;
 
 // Variables de form
@@ -141,6 +150,9 @@ $theme-colors: (
     "jja-primary": $jja-teal-primary,
     "jja-secondary": $jja-teal-light,
     "jja-dark": $jja-dark-primary,
+    "light-custom": $jja-gray-light,
+    "dark-custom": $jja-dark-primary,
+    "primary-custom": $jja-teal-primary,
 ) !default;
 
 // ===========================

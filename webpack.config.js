@@ -33,7 +33,6 @@ Encore
     .setPublicPath("/build")
     // only needed for CDN's or subdirectory deploy
     .setManifestKeyPrefix("build")
-
     /*
      * ENTRY CONFIG
      *
@@ -42,9 +41,8 @@ Encore
      */
     .addEntry("app", "./assets/app.js")
     .addEntry("admin", "./assets/admin.js")
-    .addEntry("frontoffice", "./assets/frontoffice.js")
 
-    //.addStyleEntry("appCss", "./assets/styles/app.scss")
+    // Styles spécifiques aux pages (optionnels)
     .addStyleEntry("home", "./assets/styles/pages/_home.scss")
     .addStyleEntry("legalnotice", "./assets/styles/pages/_legalnotice.scss")
     .addStyleEntry("privatepolicy", "./assets/styles/pages/_privatepolicy.scss")
@@ -134,7 +132,28 @@ Encore
                         ],
                         css: ["./assets/**/*.scss", "./assets/**/*.css"],
                         safelist: {
-                            standard: [/^is-/, /^has-/, /^js-/, /^fa-/, /^bi-/, /^text-bg-/, /^col-/],
+                            standard: [
+                                /^is-/,
+                                /^has-/,
+                                /^js-/,
+                                /^fa-/,
+                                /^bi-/,
+                                /^text-bg-/,
+                                /^col-/,
+                                /^navbar/,
+                                /^nav-/,
+                                /^dropdown/,
+                                /^collapsed/,
+                                /^collapse/,
+                                "navbar-custom",
+                                "scrolled",
+                                "navbar-brand",
+                                "navbar-nav",
+                                "nav-link",
+                                "dropdown-toggle",
+                                "dropdown-menu",
+                                "dropdown-item",
+                            ],
                             skippedContentGlobs: [
                                 "**/node_modules/**",
                                 "**/vendor/**",

@@ -9,46 +9,64 @@
  *
  * Merci de votre compréhension et de votre respect envers notre travail créatif et nos droits de propriété intellectuelle.
  */
-import { registerReactControllerComponents } from '@symfony/ux-react'
+import { registerReactControllerComponents } from "@symfony/ux-react";
+
+// Import Bootstrap JS components for front office functionality
+import "bootstrap/js/dist/collapse";
+import "bootstrap/js/dist/dropdown";
+import "bootstrap/js/dist/modal";
 
 // any CSS you import will output into a single css file (app.css in this case)
 // assets/app.js
-const $ = require('jquery') // import jQuery
+const $ = require("jquery"); // import jQuery
 
-require('bootstrap')
+require("bootstrap");
 
-//import './styles/app.scss' // import the main css file
-import './bootstrap.js'
+// Import the main CSS file - OBLIGATOIRE pour avoir les styles !
+import "./styles/app.scss";
+import "./bootstrap.js";
 
-import('./_layouts/modals')
-import('./_layouts/toasts')
+import("./_layouts/modals");
+import("./_layouts/toasts");
 
-function random() {
-    return Math.random()
-}
+// ===========================
+// FRONT OFFICE FUNCTIONALITY
+// ===========================
 
-/* Génère 50 bulles aléatoires */
-for (let i = 0; i < 10; i++) {
-    let bubble = document.createElement('div')
-    bubble.classList.add('bubble')
-    bubble.classList.add('bubble' + ((i % 5) + 1))
-    bubble.style.top = random() * 100 + '%'
-    bubble.style.left = random() * 100 + '%'
-    bubble.style.transform = 'scale(calc(0.5 + 5 * ' + random() + '))'
-    document.body.appendChild(bubble)
-}
+// Main DOMContentLoaded event
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Front Office JS loaded");
+
+    // Smooth scrolling pour les liens ancres
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach((link) => {
+        link.addEventListener("click", function (e) {
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start",
+                });
+            }
+        });
+    });
+});
 
 // Vérifiez si le navigateur supporte les services workers
-if ('serviceWorker' in navigator) {
+if ("serviceWorker" in navigator) {
     // Enregistrez le service worker
     navigator.serviceWorker
-        .register('/build/service-worker.js')
+        .register("/build/service-worker.js")
         .then(function (registration) {
-            console.debug('Service Worker enregistré avec succès')
+            console.debug("Service Worker enregistré avec succès");
         })
         .catch(function (err) {
-            console.debug("L'enregistrement du Service Worker a échoué : ", err)
-        })
+            console.debug("L'enregistrement du Service Worker a échoué : ", err);
+        });
 }
 
-registerReactControllerComponents(require.context('./react/controllers/app', true, /\.(j|t)sx?$/))
+registerReactControllerComponents(require.context("./react/controllers/app", true, /\.(j|t)sx?$/));

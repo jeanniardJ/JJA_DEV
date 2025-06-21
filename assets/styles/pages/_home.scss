@@ -1,5 +1,296 @@
 @import "../base/variables";
+@import "../variables";
 
-@import "../layouts/service";
-@import "../layouts/about";
-@import "../layouts/contact";
+// ===========================
+// STYLES SECTION STACK - ONGLETS
+// ===========================
+
+// Personnalisation des onglets de la section Stack
+#stack {
+    #stackTabs {
+        // Supprimer la bordure inférieure par défaut
+        border-bottom: 1px solid $jja-teal-light;
+
+        // Afficher les onglets en ligne mais serrés à gauche
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; // Aligner les onglets à gauche
+        width: 100%; // Le conteneur prend toute la largeur
+
+        // Styles pour les nav-item
+        .nav-item {
+            // Serrer les items à gauche sans espacement
+            margin-right: 0; // Pas d'espacement entre les onglets pour les serrer
+
+            // Onglets non actifs
+
+            .nav-link {
+                color: $jja-teal-light;
+                background-color: transparent;
+                border: none;
+                &:hover,
+                &:focus {
+                    color: $jja-white;
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+
+            // Onglet actif
+            .nav-link.active {
+                color: $jja-white;
+                background-color: transparent;
+                border: none;
+            }
+        }
+    }
+}
+
+// ===========================
+// Correction globale pour forcer le fond transparent sur les nav-tabs actifs
+// ===========================
+.nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+    background-color: transparent !important;
+    color: $jja-teal-primary !important;
+    border: none !important;
+}
+
+// ===========================
+// SECTION STACK - CARDS
+// ===========================
+#stack {
+    .card {
+        background-color: $jja-dark-tertiary !important;
+        border: 2px solid $jja-teal-primary !important;
+        color: $jja-white;
+        transition: $jja-transition-base;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: $jja-shadow-lg;
+            border-color: $jja-teal-light;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        h5 {
+            color: $jja-teal-light !important;
+        }
+
+        i {
+            color: $jja-teal-light !important;
+        }
+    }
+}
+
+// ===========================
+// NOUVELLES SECTIONS - CARDS AVEC COULEURS JJA
+// ===========================
+
+// Cards avec fond dark-tertiary et border teal-primary
+.jja-card {
+    background-color: $jja-dark-tertiary !important;
+    border: 2px solid $jja-teal-primary !important;
+    color: $jja-white;
+    transition: $jja-transition-base;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $jja-shadow-lg;
+        border-color: $jja-teal-light;
+    }
+
+    .card-body {
+        padding: 2rem;
+    }
+
+    h5,
+    h6 {
+        color: $jja-teal-light;
+    }
+
+    p,
+    .text-muted {
+        color: rgba($jja-white, 0.8);
+    }
+}
+
+// ===========================
+// SECTION MODULES
+// ===========================
+#modules {
+    .module-card {
+        // Supprimer le fond et la bordure, garder seulement transparent
+        background: transparent !important;
+        border: none !important;
+        color: $jja-white;
+        height: 100%;
+        transition: $jja-transition-base;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: none;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        h5 {
+            color: $jja-white !important;
+        }
+
+        p {
+            color: rgba($jja-white, 0.8);
+        }
+
+        .module-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, $jja-teal-primary, $jja-teal-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+
+            i {
+                font-size: 1.5rem;
+                color: $jja-white;
+            }
+        }
+    }
+}
+
+// ===========================
+// SECTION ROADMAP
+// ===========================
+#roadmap {
+    .roadmap-container {
+        // Supprimer le scroll, afficher tout le contenu
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
+    }
+
+    .roadmap-item {
+        @extend .jja-card;
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+
+        .roadmap-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+
+            &.status-open {
+                background: rgba($warning, 0.2);
+                color: $warning;
+            }
+
+            &.status-closed {
+                background: rgba($success, 0.2);
+                color: $success;
+            }
+
+            &.status-in-progress {
+                background: rgba($info, 0.2);
+                color: $info;
+            }
+        }
+    }
+}
+
+// ===========================
+// SECTION GITHUB COMMITS
+// ===========================
+#github-commits {
+    .commits-container {
+        // Supprimer le scroll, afficher tout le contenu
+        max-height: none;
+        overflow: visible;
+        padding-right: 0;
+    }
+
+    .commit-item {
+        @extend .jja-card;
+        margin-bottom: 1rem;
+        padding: 1.5rem;
+
+        .commit-hash {
+            font-family: "Courier New", monospace;
+            background: rgba($jja-teal-primary, 0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            color: $jja-teal-light;
+        }
+
+        .commit-author {
+            color: $jja-teal-light;
+            font-weight: 600;
+        }
+
+        .commit-date {
+            color: rgba($jja-white, 0.6);
+            font-size: 0.875rem;
+        }
+    }
+}
+
+// ===========================
+// RESPONSIVE POUR MODULES
+// ===========================
+@media (max-width: 767.98px) {
+    #modules {
+        .module-card {
+            .module-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 0.75rem;
+
+                i {
+                    font-size: 1.25rem;
+                }
+            }
+
+            h5 {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 0.875rem;
+            }
+
+            .card-body {
+                padding: 1.5rem 1rem;
+            }
+        }
+        .row {
+            .col-6 {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    // Ajustements pour les titres de section sur mobile
+    section h3.fw-bold {
+        font-size: 1.5rem !important; // 24px en rem pour mobile
+    }
+}
+
+// ===========================
+// STYLES GLOBAUX POUR LES TITRES DE SECTIONS
+// ===========================
+
+// Taille standard des titres de section (28px = 1.75rem)
+section h3.fw-bold {
+    font-size: 1.75rem !important; // 28px en rem
+    color: $jja-white !important;
+}

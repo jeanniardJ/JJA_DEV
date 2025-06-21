@@ -2,93 +2,81 @@
   "entrypoints": {
     "app": {
       "js": [
-        "/build/runtime.e76c1cd1.js",
-        "/build/32.72b14b0a.js",
-        "/build/747.8afc8845.js",
-        "/build/286.df7884d7.js",
-        "/build/556.2432d1ff.js",
-        "/build/71.8ab0def5.js",
-        "/build/app.0bd283c3.js"
+        "/build/runtime.js",
+        "/build/vendors-node_modules_bootstrap_dist_js_bootstrap_esm_js.js",
+        "/build/vendors-node_modules_popperjs_core_lib_index_js-node_modules_symfony_stimulus-bridge_dist_ind-c1a19c.js",
+        "/build/vendors-node_modules_bootstrap_js_dist_collapse_js-node_modules_bootstrap_js_dist_dropdown_js-b6afdb.js",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-vendor_sy-4f8c26.js",
+        "/build/app.js"
       ],
       "css": [
-        "/build/286.595ccfbc.css",
-        "/build/71.31d6cfe0.css"
+        "/build/vendors-node_modules_popperjs_core_lib_index_js-node_modules_symfony_stimulus-bridge_dist_ind-c1a19c.css",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-vendor_sy-4f8c26.css",
+        "/build/app.css"
       ]
     },
     "admin": {
       "js": [
-        "/build/runtime.e76c1cd1.js",
-        "/build/32.72b14b0a.js",
-        "/build/286.df7884d7.js",
-        "/build/961.63f6e525.js",
-        "/build/629.25401367.js",
-        "/build/71.8ab0def5.js",
-        "/build/admin.7ea5d528.js"
+        "/build/runtime.js",
+        "/build/vendors-node_modules_popperjs_core_lib_index_js-node_modules_symfony_stimulus-bridge_dist_ind-c1a19c.js",
+        "/build/vendors-node_modules_react-dom_index_js.js",
+        "/build/vendors-node_modules_bootstrap_dist_js_bootstrap_bundle_min_js-node_modules_bootstrap_js_src_-cef498.js",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-vendor_sy-4f8c26.js",
+        "/build/admin.js"
       ],
       "css": [
-        "/build/286.595ccfbc.css",
-        "/build/629.2d632a37.css",
-        "/build/71.31d6cfe0.css",
-        "/build/admin.aebc35d2.css"
-      ]
-    },
-    "frontoffice": {
-      "js": [
-        "/build/runtime.e76c1cd1.js",
-        "/build/32.72b14b0a.js",
-        "/build/217.077b1843.js",
-        "/build/frontoffice.06748eb8.js"
-      ],
-      "css": [
-        "/build/frontoffice.61bdef4f.css"
+        "/build/vendors-node_modules_popperjs_core_lib_index_js-node_modules_symfony_stimulus-bridge_dist_ind-c1a19c.css",
+        "/build/vendors-node_modules_bootstrap_dist_js_bootstrap_bundle_min_js-node_modules_bootstrap_js_src_-cef498.css",
+        "/build/node_modules_symfony_stimulus-bridge_dist_webpack_loader_js_assets_controllers_json-vendor_sy-4f8c26.css",
+        "/build/admin.css"
       ]
     },
     "home": {
       "js": [
-        "/build/runtime.e76c1cd1.js"
+        "/build/runtime.js"
       ],
       "css": [
-        "/build/home.42ac2c93.css"
+        "/build/home.css"
       ]
     },
     "legalnotice": {
       "js": [
-        "/build/runtime.e76c1cd1.js"
+        "/build/runtime.js"
       ],
       "css": [
-        "/build/legalnotice.f93f8010.css"
+        "/build/legalnotice.css"
       ]
     },
     "privatepolicy": {
       "js": [
-        "/build/runtime.e76c1cd1.js"
+        "/build/runtime.js"
       ],
       "css": [
-        "/build/privatepolicy.01ab9e87.css"
+        "/build/privatepolicy.css"
       ]
     },
     "sitemap": {
       "js": [
-        "/build/runtime.e76c1cd1.js"
+        "/build/runtime.js"
       ],
       "css": [
-        "/build/sitemap.56205f11.css"
+        "/build/sitemap.css"
       ]
     },
     "blog": {
       "js": [
-        "/build/runtime.e76c1cd1.js"
+        "/build/runtime.js"
       ],
       "css": [
-        "/build/blog.17d86d46.css"
+        "/build/blog.css"
       ]
     },
     "contact": {
       "js": [
-        "/build/runtime.e76c1cd1.js"
+        "/build/runtime.js"
       ],
       "css": [
-        "/build/contact.d48d1e0b.css"
+        "/build/contact.css"
       ]
     }
   }

@@ -14,18 +14,6 @@ body {
     color: #444;
     background: $purple;
     background: linear-gradient(to bottom, $purple 0%, #42275a 100%);
-
-    header {
-        min-height: 35em;
-    }
-
-    main {
-
-    }
-
-    footer {
-
-    }
 }
 
 @keyframes purple-effect {

@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkjja_dev=self.webpackChunkjja_dev||[]).push([[956],{956:function(e,a,t){t.r(a);var n=t(8747),s=document.getElementById("myModal");s&&n.Modal.getOrCreateInstance(s).show()}}]);
-//# sourceMappingURL=956.f3454049.js.map

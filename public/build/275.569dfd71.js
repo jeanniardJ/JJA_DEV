@@ -1,2 +1,0 @@
-(self.webpackChunkjja_dev=self.webpackChunkjja_dev||[]).push([[275],{2275:function(e,a,t){t(3418),t(6099),t(7764),t(3500),function(){"use strict";var e=document.querySelectorAll(".needs-validation");Array.from(e).forEach(function(e){e.addEventListener("submit",function(a){e.checkValidity()||(a.preventDefault(),a.stopPropagation()),e.classList.add("was-validated")},!1)})}()}}]);
-//# sourceMappingURL=275.569dfd71.js.map
