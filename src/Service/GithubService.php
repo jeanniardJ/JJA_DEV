@@ -24,59 +24,78 @@
 namespace App\Service;
 
 use Github\Client;
-use Github\Api\Repo;
-use Github\AuthMethod;
+use Psr\Log\LoggerInterface;
+use Github\Exception\RuntimeException;
 
-/**
- * Classe GithubService
- *
- * @catégorie Service
- * @paquet  App\Service
- * @auteur   JJA-DEV
- * @licence  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
- * Pour consulter une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @lien     https://jja-dev.fr
- */
 class GithubService
 {
+    private string $organization = 'JJA-DEV-FR';
     private Client $client;
+    private LoggerInterface $logger;
 
-    public function __construct()
+    public function __construct(Client $client, LoggerInterface $logger)
     {
-        $this->client = new Client();
-        $this->client->authenticate($_ENV['GITHUB_SECRET'], null, AuthMethod::ACCESS_TOKEN);
+        $this->client = $client;
+        $this->logger = $logger;
     }
 
     /**
-     * Get repositories from the JJA-DEV-FR organization
-     *
-     * @return array<mixed>
+     * Liste les repositories de l'organisation filtrés par "Bundle"
      * @param int $page
+     * @return array<mixed>
      */
-    public function getRepositoriesOrg($page = 0): array
+    public function getRepositoriesOrg(int $page = 1): array
     {
-        $repos = [];
-        $repos = $this->client->api('repos')->org('JJA-DEV-FR', ['page' => $page, 'per_page' => '10']);
-        $filteredRepos = [];
-
-        foreach ($repos as $repo) {
-            if (strpos($repo['name'], 'Bundle') !== false) {
-                $filteredRepos[] = $repo;
-            }
+        try {
+            $repos = $this->client->organization()->repositories($this->organization, 'all', $page);
+            $filtered = array_filter($repos, fn($repo) => str_contains($repo['name'], 'Bundle'));
+            return array_values($filtered);
+        } catch (RuntimeException $e) {
+            $this->logger->error('Erreur récupération repositories GitHub', ['exception' => $e]);
+            return [];
         }
-
-        return $filteredRepos;
     }
 
     /**
-     * Get the repository by its id
-     *
-     * @param int $id
-     *
+     * Détail d'un repository par nom
+     * @param string $repo
+     * @return array<mixed>|null
+     */
+    public function getRepositoryByName(string $repo): ?array
+    {
+        try {
+            return $this->client->repo()->show($this->organization, $repo);
+        } catch (RuntimeException $e) {
+            $this->logger->error('Erreur récupération repository GitHub', ['repo' => $repo, 'exception' => $e]);
+            return null;
+        }
+    }
+
+    /**
+     * Récupère les derniers commits d'un repo GitHub
+     * @param string $repo
+     * @param int $limit
      * @return array<mixed>
      */
-    public function getRepositoryById($id): array
+    public function getLastCommits(string $repo, int $limit = 10): array
     {
-        return $this->client->api('repos')->showById($id);
+        try {
+            $commits = $this->client->repo()->commits($this->organization, $repo, ['per_page' => $limit]);
+            $result = [];
+            foreach ($commits as $commit) {
+                $result[] = [
+                    'message' => $commit['commit']['message'] ?? '',
+                    'author' => $commit['commit']['author']['name'] ?? '',
+                    'date' => $commit['commit']['author']['date'] ?? '',
+                    'hash' => substr($commit['sha'], 0, 7),
+                    'description' => $commit['commit']['message'] ?? '',
+                    'url' => $commit['html_url'] ?? null,
+                ];
+            }
+            return $result;
+        } catch (RuntimeException $e) {
+            $this->logger->error('Erreur récupération commits GitHub', ['repo' => $repo, 'exception' => $e]);
+            return [];
+        }
     }
 }
