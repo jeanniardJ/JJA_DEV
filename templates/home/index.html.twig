@@ -13,8 +13,7 @@
             <div class="col-lg-4 col-md-5 text-center">
                 <div class="avatar-container mb-4">
                     <img src="{{ asset('images/avatar.jpg') }}" alt="Avatar JJA DEV"
-                        class="img-fluid rounded-circle shadow-lg"
-                        style="width: 250px; height: 250px; object-fit: cover; border: 4px solid var(--bs-primary);">
+                        class="img-fluid rounded-circle shadow-lg avatar-img">
                 </div>
             </div>
             <div class="col-lg-8 col-md-7">
@@ -27,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <div class="row align-items-center g-4 mt-5">
+        <div class="row align-items-center g-4">
             <div class="col-md-12">
                 <h3 class="fw-bold text-white mb-3">Philosophy</h3>
                 <p class="text-white mb-0">
@@ -43,38 +42,38 @@
 <!-- Section Stack -->
 <section id="stack" class="py-5">
     <div class="container">
-        <div class="text-left mb-5">
-            <h3 class="fw-bold text-white mb-3">Stack</h3>
+        <div class="text-left">
+            <h3 class="fw-bold text-white">Stack</h3>
         </div><!-- Onglets de navigation -->
-        <ul class="nav nav-tabs mb-5" id="stackTabs" role="tablist">
+        <ul class="nav nav-tabs mb-4" id="stackTabs" role="tablist">
             <li class="nav-item" role="presentation">
                 <a class="nav-link active fw-bold" id="backend-tab" data-bs-toggle="tab" data-bs-target="#backend"
                     href="#" role="tab" aria-controls="backend" aria-selected="true">
-                    <i class="fas fa-server me-2"></i>Backend
+                    Backend
                 </a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link fw-bold" id="frontend-tab" data-bs-toggle="tab" data-bs-target="#frontend" href="#"
                     role="tab" aria-controls="frontend" aria-selected="false">
-                    <i class="fas fa-paint-brush me-2"></i>Frontend
+                    Frontend
                 </a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link fw-bold" id="devops-tab" data-bs-toggle="tab" data-bs-target="#devops" href="#"
                     role="tab" aria-controls="devops" aria-selected="false">
-                    <i class="fas fa-cogs me-2"></i>DevOps
+                    DevOps
                 </a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link fw-bold" id="security-tab" data-bs-toggle="tab" data-bs-target="#security" href="#"
                     role="tab" aria-controls="security" aria-selected="false">
-                    <i class="fas fa-shield-alt me-2"></i>Sécurité
+                    Sécurité
                 </a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link fw-bold" id="tools-tab" data-bs-toggle="tab" data-bs-target="#tools" href="#"
                     role="tab" aria-controls="tools" aria-selected="false">
-                    <i class="fas fa-tools me-2"></i>Outils
+                    Outils
                 </a>
             </li>
         </ul>
@@ -85,34 +84,38 @@
             <div class="tab-pane fade show active" id="backend" role="tabpanel" aria-labelledby="backend-tab">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-php fa-3x text-primary mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-php text-primary me-2"></i>PHP</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-filetype-php stack-icon text-primary me-3" aria-label="PHP"
+                                    title="PHP"></i>
+                                <span class="fw-bold">PHP</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-cube fa-3x text-success mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-cube text-success me-2"></i>Symfony</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-box stack-icon text-success me-3" aria-label="Symfony"
+                                    title="Symfony"></i>
+                                <span class="fw-bold">Symfony</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-database fa-3x text-info mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-database text-info me-2"></i>MySQL</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-database stack-icon text-info me-3" aria-label="MySQL"
+                                    title="MySQL"></i>
+                                <span class="fw-bold">MySQL</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-wordpress fa-3x text-primary mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-wordpress text-primary me-2"></i>WordPress</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-wordpress stack-icon text-primary me-3" aria-label="WordPress"
+                                    title="WordPress"></i>
+                                <span class="fw-bold">WordPress</span>
                             </div>
                         </div>
                     </div>
@@ -123,34 +126,38 @@
             <div class="tab-pane fade" id="frontend" role="tabpanel" aria-labelledby="frontend-tab">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-js-square fa-3x text-warning mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-js-square text-warning me-2"></i>JavaScript</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-filetype-html stack-icon text-danger me-3" aria-label="HTML5"
+                                    title="HTML5"></i>
+                                <span class="fw-bold">HTML5</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-react fa-3x text-info mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-react text-info me-2"></i>React</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-filetype-css stack-icon text-primary me-3" aria-label="CSS3"
+                                    title="CSS3"></i>
+                                <span class="fw-bold">CSS3</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-bootstrap fa-3x text-purple mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-bootstrap text-purple me-2"></i>Bootstrap</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-filetype-js stack-icon text-warning me-3" aria-label="JavaScript"
+                                    title="JavaScript"></i>
+                                <span class="fw-bold">JavaScript</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-sass fa-3x text-danger mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-sass text-danger me-2"></i>SASS</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-bootstrap-fill stack-icon text-purple me-3" aria-label="Bootstrap"
+                                    title="Bootstrap"></i>
+                                <span class="fw-bold">Bootstrap</span>
                             </div>
                         </div>
                     </div>
@@ -161,35 +168,37 @@
             <div class="tab-pane fade" id="devops" role="tabpanel" aria-labelledby="devops-tab">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-docker fa-3x text-primary mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-docker text-primary me-2"></i>Docker</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-git stack-icon text-danger me-3" aria-label="Git" title="Git"></i>
+                                <span class="fw-bold">Git</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-git-alt fa-3x text-dark mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-git-alt text-dark me-2"></i>Git</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-github stack-icon text-dark me-3" aria-label="GitHub Actions"
+                                    title="GitHub Actions"></i>
+                                <span class="fw-bold">GitHub Actions</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-github fa-3x text-dark mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-github text-dark me-2"></i>GitHub Actions
-                                </h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-box-seam stack-icon text-info me-3" aria-label="Docker"
+                                    title="Docker"></i>
+                                <span class="fw-bold">Docker</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-cloud fa-3x text-info mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-cloud text-info me-2"></i>OVH Cloud</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-cloud stack-icon text-primary me-3" aria-label="OVH Cloud"
+                                    title="OVH Cloud"></i>
+                                <span class="fw-bold">OVH Cloud</span>
                             </div>
                         </div>
                     </div>
@@ -200,35 +209,47 @@
             <div class="tab-pane fade" id="security" role="tabpanel" aria-labelledby="security-tab">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-key fa-3x text-warning mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-key text-warning me-2"></i>JWT</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-shield-check stack-icon text-primary me-3" aria-label="Sécurité"
+                                    title="Sécurité"></i>
+                                <span class="fw-bold">Sécurité</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-lock fa-3x text-success mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-lock text-success me-2"></i>HTTPS/SSL</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-lock stack-icon text-secondary me-3" aria-label="Authentification"
+                                    title="Authentification"></i>
+                                <span class="fw-bold">Authentification</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-user-shield fa-3x text-primary mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-user-shield text-primary me-2"></i>OAuth</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-key stack-icon text-warning me-3" aria-label="Chiffrement"
+                                    title="Chiffrement"></i>
+                                <span class="fw-bold">Chiffrement</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-shield-virus fa-3x text-danger mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-shield-virus text-danger me-2"></i>CSRF Protection
-                                </h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-shield-lock stack-icon text-info me-3" aria-label="Outils Sécurité"
+                                    title="Outils Sécurité"></i>
+                                <span class="fw-bold">Outils Sécurité</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-person-check stack-icon text-success me-3" aria-label="Contrôle d'accès"
+                                    title="Contrôle d'accès"></i>
+                                <span class="fw-bold">Contrôle d'accès</span>
                             </div>
                         </div>
                     </div>
@@ -239,34 +260,44 @@
             <div class="tab-pane fade" id="tools" role="tabpanel" aria-labelledby="tools-tab">
                 <div class="row g-4">
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-code fa-3x text-primary mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-code text-primary me-2"></i>VS Code</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-gear stack-icon text-primary me-3" aria-label="Build" title="Build"></i>
+                                <span class="fw-bold">Build</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fab fa-figma fa-3x text-purple mb-3"></i>
-                                <h5 class="fw-bold"><i class="fab fa-figma text-purple me-2"></i>Figma</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-wrench stack-icon text-secondary me-3" aria-label="Configuration"
+                                    title="Configuration"></i>
+                                <span class="fw-bold">Configuration</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-bug fa-3x text-danger mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-bug text-danger me-2"></i>PHPUnit</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-bug stack-icon text-danger me-3" aria-label="Tests" title="Tests"></i>
+                                <span class="fw-bold">Tests</span>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3">
-                        <div class="card h-100 border-0 shadow-sm">
-                            <div class="card-body text-center p-4">
-                                <i class="fas fa-rocket fa-3x text-success mb-3"></i>
-                                <h5 class="fw-bold"><i class="fas fa-rocket text-success me-2"></i>Composer</h5>
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-cloud-arrow-up stack-icon text-success me-3" aria-label="Déploiement"
+                                    title="Déploiement"></i>
+                                <span class="fw-bold">Déploiement</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card border-0 shadow-sm card-stack-height">
+                            <div class="card-body d-flex align-items-center">
+                                <i class="bi bi-terminal stack-icon text-dark me-3" aria-label="CLI" title="CLI"></i>
+                                <span class="fw-bold">CLI</span>
                             </div>
                         </div>
                     </div>
@@ -279,63 +310,44 @@
 <!-- Section Modules -->
 <section id="modules" class="py-5 bg-dark-custom">
     <div class="container">
-        <div class="text-left mb-5">
+        <div class="text-left">
             <h3 class="fw-bold text-white mb-3">Modules</h3>
-            <p class="lead text-light">
-                Découvrez mes différents modules et outils de développement
-            </p>
         </div>
-        <div class="row g-4">
-            <div class="col-lg-3 col-md-6 col-6">
-                <div class="card module-card text-center">
-                    <div class="card-body">
-                        <div class="module-icon">
-                            <i class="fas fa-cube"></i>
-                        </div>
-                        <h5 class="fw-bold mb-3">Symfony Projects</h5>
-                        <p class="text-muted">
-                            Collection de projets Symfony avec CRM, CMS et solutions e-commerce
-                        </p>
-                    </div>
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <div class="module-card text-center">
+                    <img src="{{ asset('images/modules/symfony.png') }}" alt="Symfony Projects" />
+                    <h5 class="fw-bold mb-3">Symfony Projects</h5>
+                    <p>
+                        Collection de projets Symfony avec CRM, CMS et solutions e-commerce
+                    </p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-6">
-                <div class="card module-card text-center">
-                    <div class="card-body">
-                        <div class="module-icon">
-                            <i class="fas fa-shield-alt"></i>
-                        </div>
-                        <h5 class="fw-bold mb-3">Security Scans</h5>
-                        <p class="text-muted">
-                            Outils d'analyse et de sécurisation des applications web
-                        </p>
-                    </div>
+            <div class="col-12 col-lg-3">
+                <div class="module-card text-center">
+                    <img src="{{ asset('images/modules/security.png') }}" alt="Security Scans" />
+                    <h5 class="fw-bold mb-3">Security Scans</h5>
+                    <p>
+                        Outils d'analyse et de sécurisation des applications web
+                    </p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-6">
-                <div class="card module-card text-center">
-                    <div class="card-body">
-                        <div class="module-icon">
-                            <i class="fas fa-cogs"></i>
-                        </div>
-                        <h5 class="fw-bold mb-3">Automation Scripts</h5>
-                        <p class="text-muted">
-                            Scripts d'automatisation pour le déploiement et la maintenance
-                        </p>
-                    </div>
+            <div class="col-12 col-lg-3">
+                <div class="module-card text-center">
+                    <img src="{{ asset('images/modules/automation.png') }}" alt="Automation Scripts" />
+                    <h5 class="fw-bold mb-3">Automation Scripts</h5>
+                    <p>
+                        Scripts d'automatisation pour le déploiement et la maintenance
+                    </p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-6">
-                <div class="card module-card text-center">
-                    <div class="card-body">
-                        <div class="module-icon">
-                            <i class="fas fa-file-code"></i>
-                        </div>
-                        <h5 class="fw-bold mb-3">Technical Notes</h5>
-                        <p class="text-muted">
-                            Documentation technique et guides de bonnes pratiques
-                        </p>
-                    </div>
+            <div class="col-12 col-lg-3">
+                <div class="module-card text-center">
+                    <img src="{{ asset('images/modules/notes.png') }}" alt="Technical Notes" />
+                    <h5 class="fw-bold mb-3">Technical Notes</h5>
+                    <p>
+                        Documentation technique et guides de bonnes pratiques
+                    </p>
                 </div>
             </div>
         </div>
@@ -347,82 +359,84 @@
     <div class="container">
         <div class="text-left mb-5">
             <h3 class="fw-bold text-white mb-3">Roadmap</h3>
-            <p class="lead">
-                Suivez l'évolution de mes projets et les prochaines fonctionnalités
-            </p>
         </div>
 
         <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <div class="roadmap-container">
+            <div class="col-lg-12 mx-auto">
+                <div class="roadmap-container custom-scroll">
                     <!-- Ticket 1 -->
-                    <div class="roadmap-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h6 class="fw-bold mb-0">Implémentation du module CRM avancé</h6>
-                            <span class="roadmap-status status-in-progress">En cours</span>
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar d-flex align-items-center justify-content-center">
+                            <i class="bi bi-calendar3"></i>
                         </div>
-                        <p class="mb-2">
-                            Développement d'un système CRM complet avec gestion des prospects, devis et facturation.
-                        </p>
-                        <small class="text-muted">
-                            <i class="fas fa-calendar me-1"></i>Prévu pour Q1 2025
-                        </small>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">Implémentation du module CRM avancé</h6>
+                            </div>
+                            <p class="mb-2">
+                                Développement d'un système CRM complet avec gestion des prospects, devis et facturation.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Ticket 2 -->
-                    <div class="roadmap-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h6 class="fw-bold mb-0">Migration vers Symfony 7.0</h6>
-                            <span class="roadmap-status status-open">Planifié</span>
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar d-flex align-items-center justify-content-center">
+                            <i class="bi bi-calendar3"></i>
                         </div>
-                        <p class="mb-2">
-                            Mise à jour de tous les projets vers la dernière version LTS de Symfony.
-                        </p>
-                        <small class="text-muted">
-                            <i class="fas fa-calendar me-1"></i>Prévu pour Q2 2025
-                        </small>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">Migration vers Symfony 7.0</h6>
+                            </div>
+                            <p class="mb-2">
+                                Mise à jour de tous les projets vers la dernière version LTS de Symfony.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Ticket 3 -->
-                    <div class="roadmap-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h6 class="fw-bold mb-0">API REST complète pour le CMS</h6>
-                            <span class="roadmap-status status-open">Planifié</span>
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar d-flex align-items-center justify-content-center">
+                            <i class="bi bi-calendar3"></i>
                         </div>
-                        <p class="mb-2">
-                            Création d'une API REST complète pour l'administration et la gestion de contenu.
-                        </p>
-                        <small class="text-muted">
-                            <i class="fas fa-calendar me-1"></i>Prévu pour Q3 2025
-                        </small>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">API REST complète pour le CMS</h6>
+                            </div>
+                            <p class="mb-2">
+                                Création d'une API REST complète pour l'administration et la gestion de contenu.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Ticket 4 (visible après scroll) -->
-                    <div class="roadmap-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h6 class="fw-bold mb-0">Interface React pour l'administration</h6>
-                            <span class="roadmap-status status-open">Planifié</span>
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar">
+                            <i class="bi bi-calendar3"></i>
                         </div>
-                        <p class="mb-2">
-                            Développement d'une interface React moderne pour l'administration des projets.
-                        </p>
-                        <small class="text-muted">
-                            <i class="fas fa-calendar me-1"></i>Prévu pour Q4 2025
-                        </small>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">Interface React pour l'administration</h6>
+                            </div>
+                            <p class="mb-2">
+                                Développement d'une interface React moderne pour l'administration des projets.
+                            </p>
+                        </div>
                     </div>
 
                     <!-- Ticket 5 (visible après scroll) -->
-                    <div class="roadmap-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h6 class="fw-bold mb-0">Optimisation performance et cache</h6>
-                            <span class="roadmap-status status-closed">Terminé</span>
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar">
+                            <i class="bi bi-calendar3"></i>
                         </div>
-                        <p class="mb-2">
-                            Implémentation de systèmes de cache avancés et optimisation des performances.
-                        </p>
-                        <small class="text-muted">
-                            <i class="fas fa-calendar me-1"></i>Terminé en décembre 2024
-                        </small>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">Optimisation performance et cache</h6>
+                            </div>
+                            <p class="mb-2">
+                                Implémentation de systèmes de cache avancés et optimisation des performances.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -435,241 +449,58 @@
     <div class="container">
         <div class="text-left mb-5">
             <h3 class="fw-bold text-white mb-3">Latest GitHub Commits</h3>
-            <p class="lead text-light">
-                Mes dernières contributions et mises à jour de code
-            </p>
         </div>
-
         <div class="row">
             <div class="col-lg-10 mx-auto">
-                <div class="commits-container">
-                    <!-- Commit 1 -->
+                <div class="commits-container custom-scroll">
+                    {% for commit in commits|slice(0,10) %}
                     <div class="commit-item">
                         <div class="d-flex justify-content-between align-items-start mb-3">
                             <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">feat(crm): add customer management with advanced filtering</h6>
+                                <h6 class="fw-bold mb-2">{{ commit.message }}</h6>
                                 <div class="d-flex align-items-center gap-3 mb-2">
                                     <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
+                                        <i class="fas fa-user me-1"></i>{{ commit.author }}
                                     </span>
                                     <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 2 heures
+                                        <i class="fas fa-clock me-1"></i>{{ commit.date }}
                                     </span>
                                 </div>
                                 <p class="mb-0">
-                                    Implémentation du système de gestion client avec filtres avancés et pagination.
+                                    {{ commit.description }}
                                 </p>
                             </div>
-                            <span class="commit-hash">a7b2c3d</span>
+                            <span class="commit-hash">{{ commit.hash }}</span>
                         </div>
                     </div>
-
-                    <!-- Commit 2 -->
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">fix(auth): resolve session timeout issue</h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 5 heures
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Correction du problème de timeout de session dans l'administration.
-                                </p>
-                            </div>
-                            <span class="commit-hash">e4f5g6h</span>
-                        </div>
-                    </div>
-
-                    <!-- Commit 3 -->
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">style(frontend): update home page design with new color palette
-                                </h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 1 jour
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Mise à jour du design de la page d'accueil avec la nouvelle palette de couleurs.
-                                </p>
-                            </div>
-                            <span class="commit-hash">i7j8k9l</span>
-                        </div>
-                    </div>
-
-                    <!-- Commits supplémentaires (visibles après scroll) -->
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">docs(api): update API documentation with new endpoints</h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 2 jours
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Mise à jour de la documentation API avec les nouveaux endpoints CRM.
-                                </p>
-                            </div>
-                            <span class="commit-hash">m0n1o2p</span>
-                        </div>
-                    </div>
-
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">test(services): add unit tests for customer service</h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 3 jours
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Ajout des tests unitaires pour le service de gestion des clients.
-                                </p>
-                            </div>
-                            <span class="commit-hash">q3r4s5t</span>
-                        </div>
-                    </div>
-
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">refactor(database): optimize customer queries</h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 4 jours
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Optimisation des requêtes de base de données pour la gestion des clients.
-                                </p>
-                            </div>
-                            <span class="commit-hash">u6v7w8x</span>
-                        </div>
-                    </div>
-
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">feat(security): implement two-factor authentication</h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 5 jours
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Implémentation de l'authentification à deux facteurs pour renforcer la sécurité.
-                                </p>
-                            </div>
-                            <span class="commit-hash">y9z0a1b</span>
-                        </div>
-                    </div>
-
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">perf(cache): implement Redis caching for better performance
-                                </h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 6 jours
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Implémentation du cache Redis pour améliorer les performances de l'application.
-                                </p>
-                            </div>
-                            <span class="commit-hash">c2d3e4f</span>
-                        </div>
-                    </div>
-
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">fix(ui): resolve responsive issues on mobile devices</h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 1 semaine
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Correction des problèmes de responsive design sur les appareils mobiles.
-                                </p>
-                            </div>
-                            <span class="commit-hash">g5h6i7j</span>
-                        </div>
-                    </div>
-
-                    <div class="commit-item">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <div class="flex-grow-1">
-                                <h6 class="fw-bold mb-2">chore(deps): update Symfony to latest LTS version</h6>
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    <span class="commit-author">
-                                        <i class="fas fa-user me-1"></i>JJA-DEV
-                                    </span>
-                                    <span class="commit-date">
-                                        <i class="fas fa-clock me-1"></i>Il y a 1 semaine
-                                    </span>
-                                </div>
-                                <p class="mb-0">
-                                    Mise à jour de Symfony vers la dernière version LTS avec toutes les dépendances.
-                                </p>
-                            </div>
-                            <span class="commit-hash">k8l9m0n</span>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Section Call-to-Action Contact -->
-<section id="contact" class="py-5 bg-primary-custom text-white">
+<!-- Section Contact (uniformisée) -->
+<section id="contact" class="py-5 bg-dark-tertiary position-relative">
     <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8">
-                <h2 class="display-5 fw-bold mb-4">Restons en contact</h2>
-                <p class="lead mb-5">
-                    Vous avez une question ou souhaitez collaborer sur un projet ?
-                </p>
-
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-left mb-4 mb-md-5">
+                    <h3 class="fw-bold text-white mb-3">
+                        Restons en contact
+                    </h3>
+                    <p class="lead text-white mb-4 mb-md-5">
+                        Vous avez une question ou souhaitez collaborer sur un projet ? N'hésitez pas à me contacter
+                        !
+                    </p>
+                </div>
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                    <a href="{{ path('app_contact') }}" class="btn btn-light-custom btn-lg">
-                        <i class="fas fa-envelope me-2"></i>Me contacter
+                    <a href="{{ path('app_contact') }}" class="btn btn-teal-primary btn-lg px-4">
+                        <i class="bi bi-envelope-paper-fill me-2"></i>Me contacter
                     </a>
-                    <a href="https://github.com/JJA-DEV" target="_blank" class="btn btn-outline-light-custom btn-lg">
-                        <i class="fab fa-github me-2"></i>GitHub
+                    <a href="https://github.com/jeanniardJ" target="_blank"
+                        class="btn btn-outline-light-custom btn-lg px-4">
+                        <i class="bi bi-github me-2"></i>GitHub
                     </a>
                 </div>
             </div>

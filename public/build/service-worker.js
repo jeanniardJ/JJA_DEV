@@ -88,10 +88,10 @@ define(['./workbox-3380be71'], (function (workbox) { 'use strict';
     "revision": "9e3c5459ac4851269bf75c2e4676e3cc"
   }, {
     "url": "/build/app.css",
-    "revision": "aad9523d537cbf43abe3f12d98858952"
+    "revision": "c787d0b6e734791af291d0c0d7d7c266"
   }, {
     "url": "/build/app.js",
-    "revision": "f0791a04929b3fb5256725577a54bc2b"
+    "revision": "0df6c57b64a0684af89ea699d7135c4d"
   }, {
     "url": "/build/assets__layouts_modals_js.js",
     "revision": "ca59056df556b9f05cb10938eb4d0dd3"
@@ -115,7 +115,7 @@ define(['./workbox-3380be71'], (function (workbox) { 'use strict';
     "revision": null
   }, {
     "url": "/build/home.css",
-    "revision": "1da2f15a1febb9190ef4165a388d0161"
+    "revision": "eec56006945f56807de905bc2f270e75"
   }, {
     "url": "/build/images/Capture.png",
     "revision": "8ca76147bf1265fbe0e50c914278b62c"

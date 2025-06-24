@@ -35,8 +35,6 @@ import("./_layouts/toasts");
 
 // Main DOMContentLoaded event
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Front Office JS loaded");
-
     // Smooth scrolling pour les liens ancres
     const anchorLinks = document.querySelectorAll('a[href^="#"]');
     anchorLinks.forEach((link) => {
@@ -55,18 +53,32 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
+console.debug("Environnement : ", process.env.NODE_ENV);
 
 // Vérifiez si le navigateur supporte les services workers
-if ("serviceWorker" in navigator) {
-    // Enregistrez le service worker
-    navigator.serviceWorker
-        .register("/build/service-worker.js")
-        .then(function (registration) {
-            console.debug("Service Worker enregistré avec succès");
-        })
-        .catch(function (err) {
-            console.debug("L'enregistrement du Service Worker a échoué : ", err);
+if (process.env.NODE_ENV !== "development") {
+    console.debug("Enregistrement du Service Worker pour la production");
+
+    if ("serviceWorker" in navigator) {
+        // Enregistrez le service worker
+        navigator.serviceWorker
+            .register("/build/service-worker.js")
+            .then(function (registration) {
+                console.debug("Service Worker enregistré avec succès");
+            })
+            .catch(function (err) {
+                console.debug("L'enregistrement du Service Worker a échoué : ", err);
+            });
+    }
+} else {
+    // Désenregistrer les service workers en mode développement
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function (registrations) {
+            for (let registration of registrations) {
+                registration.unregister();
+            }
         });
+    }
 }
 
 registerReactControllerComponents(require.context("./react/controllers/app", true, /\.(j|t)sx?$/));

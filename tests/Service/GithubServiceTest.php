@@ -7,23 +7,70 @@ use Github\Client;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
 
+// Stub dynamique pour simuler les sous-APIs dynamiques de KnpLabs
+class GithubClientStub extends Client
+{
+    private array $apis;
+
+    public function __construct(array $apis)
+    {
+        $this->apis = $apis;
+    }
+
+    public function __call($name, $args): \Github\Api\AbstractApi
+    {
+        if (isset($this->apis[$name])) {
+            return $this->apis[$name];
+        }
+        throw new \BadMethodCallException("API '$name' non stubée");
+    }
+}
+
+class DummyLogger implements \Psr\Log\LoggerInterface
+{
+    public function emergency(string|\Stringable $message, array $context = []): void {}
+    public function alert(string|\Stringable $message, array $context = []): void {}
+    public function critical(string|\Stringable $message, array $context = []): void {}
+    public function error(string|\Stringable $message, array $context = []): void {}
+    public function warning(string|\Stringable $message, array $context = []): void {}
+    public function notice(string|\Stringable $message, array $context = []): void {}
+    public function info(string|\Stringable $message, array $context = []): void {}
+    public function debug(string|\Stringable $message, array $context = []): void {}
+    public function log($level, string|\Stringable $message, array $context = []): void {}
+}
+
 class GithubServiceTest extends TestCase
 {
     public function testGetRepositoriesOrgReturnsFilteredRepos()
     {
-        $orgApi = new class {
+        $fakeClient = new Client();
+        $orgApi = new class($fakeClient) extends \Github\Api\AbstractApi {
+            public function __construct($client)
+            {
+                parent::__construct($client);
+            }
             public function repositories($org, $type, $page)
             {
                 return [
                     ['name' => 'BlogBundle'],
-                    ['name' => 'NotABundle'],
+                    ['name' => 'NotABundleX'],
                     ['name' => 'InvoiceBundle'],
                 ];
             }
         };
-        $client = $this->createMock(Client::class);
-        $client->method('organization')->willReturn($orgApi);
-        $logger = $this->createMock(LoggerInterface::class);
+        $client = new class($orgApi) extends Client {
+            private $orgApi;
+            public function __construct($orgApi)
+            {
+                $this->orgApi = $orgApi;
+            }
+            public function __call($name, $args): \Github\Api\AbstractApi
+            {
+                if ($name === 'organization') return $this->orgApi;
+                throw new \BadMethodCallException();
+            }
+        };
+        $logger = new DummyLogger();
         $service = new GithubService($client, $logger);
         $repos = $service->getRepositoriesOrg();
         $this->assertCount(2, $repos);
@@ -33,7 +80,12 @@ class GithubServiceTest extends TestCase
 
     public function testGetRepositoryByNameReturnsRepo()
     {
-        $repoApi = new class {
+        $fakeClient = new Client();
+        $repoApi = new class($fakeClient) extends \Github\Api\AbstractApi {
+            public function __construct($client)
+            {
+                parent::__construct($client);
+            }
             public function show($org, $repo)
             {
                 return [
@@ -42,9 +94,8 @@ class GithubServiceTest extends TestCase
                 ];
             }
         };
-        $client = $this->createMock(Client::class);
-        $client->method('repo')->willReturn($repoApi);
-        $logger = $this->createMock(LoggerInterface::class);
+        $client = new GithubClientStub(['repo' => $repoApi]);
+        $logger = new DummyLogger();
         $service = new GithubService($client, $logger);
         $repo = $service->getRepositoryByName('BlogBundle');
         $this->assertEquals('BlogBundle', $repo['name']);
@@ -53,7 +104,12 @@ class GithubServiceTest extends TestCase
 
     public function testGetLastCommitsReturnsCommits()
     {
-        $repoApi = new class {
+        $fakeClient = new Client();
+        $repoApi = new class($fakeClient) extends \Github\Api\AbstractApi {
+            public function __construct($client)
+            {
+                parent::__construct($client);
+            }
             public function commits($org, $repo, $params)
             {
                 return [
@@ -71,9 +127,8 @@ class GithubServiceTest extends TestCase
                 ];
             }
         };
-        $client = $this->createMock(Client::class);
-        $client->method('repo')->willReturn($repoApi);
-        $logger = $this->createMock(LoggerInterface::class);
+        $client = new GithubClientStub(['repo' => $repoApi]);
+        $logger = new DummyLogger();
         $service = new GithubService($client, $logger);
         $commits = $service->getLastCommits('BlogBundle');
         $this->assertCount(1, $commits);

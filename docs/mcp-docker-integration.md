@@ -29,22 +29,22 @@ L'outil Docker a été intégré dans votre configuration MCP VS Code via le fic
 
 ### Gestion des Conteneurs
 
--   **Démarrage services** : `docker-compose up -d`
--   **Arrêt services** : `docker-compose down`
--   **État des services** : `docker-compose ps`
--   **Monitoring** : `docker stats`
+- **Démarrage services** : `docker-compose up -d`
+- **Arrêt services** : `docker-compose down`
+- **État des services** : `docker-compose ps`
+- **Monitoring** : `docker stats`
 
 ### Gestion Base de Données MySQL
 
--   **Accès MySQL** : `docker-compose exec database mysql -u JJA_DEV -p`
--   **Logs MySQL** : `docker-compose logs database`
--   **Sauvegarde** : `docker-compose exec database mysqldump`
+- **Accès MySQL** : `docker-compose exec database mysql -u JJA_DEV -p`
+- **Logs MySQL** : `docker-compose logs database`
+- **Sauvegarde** : `docker-compose exec database mysqldump`
 
 ### Logs et Debug
 
--   **Logs en temps réel** : `docker-compose logs -f [service]`
--   **Inspection conteneur** : `docker inspect [container]`
--   **Exécution commandes** : `docker exec -it [container] [command]`
+- **Logs en temps réel** : `docker-compose logs -f [service]`
+- **Inspection conteneur** : `docker inspect [container]`
+- **Exécution commandes** : `docker exec -it [container] [command]`
 
 ## Commandes Contextuelles JJA_DEV
 
@@ -78,22 +78,22 @@ docker-compose down -v
 
 ### Commandes Autorisées
 
--   ✅ `docker-compose` (gestion services)
--   ✅ `docker ps` (inspection conteneurs)
--   ✅ `docker logs` (consultation logs)
--   ✅ `docker exec` (exécution commandes)
+- ✅ `docker-compose` (gestion services)
+- ✅ `docker ps` (inspection conteneurs)
+- ✅ `docker logs` (consultation logs)
+- ✅ `docker exec` (exécution commandes)
 
 ### Restrictions
 
--   ❌ Accès direct au socket Docker (`/var/run/docker.sock`)
--   ❌ Commandes privilégiées sans validation
--   ❌ Modification configuration Docker système
+- ❌ Accès direct au socket Docker (`/var/run/docker.sock`)
+- ❌ Commandes privilégiées sans validation
+- ❌ Modification configuration Docker système
 
 ### Variables d'Environnement
 
--   `DOCKER_HOST=npipe:////./pipe/docker_engine` (Windows)
--   Pas d'exposition de credentials dans les commandes
--   Isolation des environnements dev/prod
+- `DOCKER_HOST=npipe:////./pipe/docker_engine` (Windows)
+- Pas d'exposition de credentials dans les commandes
+- Isolation des environnements dev/prod
 
 ## Intégration Workflow JJA_DEV
 
@@ -106,15 +106,15 @@ docker-compose down -v
 
 ### Synchronisation Équipe
 
--   Configuration MCP partagée via `settings.json`
--   Docker Compose standardisé pour tous les développeurs
--   Variables d'environnement cohérentes
+- Configuration MCP partagée via `settings.json`
+- Docker Compose standardisé pour tous les développeurs
+- Variables d'environnement cohérentes
 
 ## Commandes Rapides
 
 ### Copilot Chat avec MCP Docker
 
-```
+```cmd
 @docker ps                    # État des conteneurs
 @docker logs database         # Logs MySQL
 @docker exec database mysql   # Accès MySQL
@@ -179,10 +179,10 @@ Pour des besoins spécifiques, vous pouvez :
 
 ### Extensions Possibles
 
--   Intégration avec PHPStorm/VS Code
--   Monitoring automatique des performances
--   Alertes sur les erreurs MySQL
--   Sauvegarde automatique base de données
+- Intégration avec PHPStorm/VS Code
+- Monitoring automatique des performances
+- Alertes sur les erreurs MySQL
+- Sauvegarde automatique base de données
 
 ---
 

@@ -1,105 +1,94 @@
-<footer class="bg-dark text-white py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-6 col-md-3 mb-3">
-                <h4>Information du site</h4>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2">
-                        <a href="{{ path('app_sitemap_index') }}" title="Aller à la page 'Plan du site'">Plan du
+<footer class="footer">
+    <div class="footer__content container">
+        <div class="row gy-4">
+            <div class="col-12 col-md-4 col-lg-3">
+                <h4 class="footer__title">Informations</h4>
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item">
+                        <a href="{{ path('app_sitemap_index') }}" class="footer__link" title="Plan du site">Plan du
                             site</a>
                     </li>
-                    <li class="nav-item mb-2">
-                        <a href="{{ path('app_legalnotice_index') }}" title="Aller à la page 'Mentions Légales'">Mentions
-                            légales</a>
+                    <li class="footer-nav__item">
+                        <a href="{{ path('app_legalnotice_index') }}" class="footer__link"
+                            title="Mentions légales">Mentions légales</a>
                     </li>
-                    <li class="nav-item mb-2">
-                        <a href="{{ path('app_privacypolicy_index') }}"
-                           title="Aller à la page 'Politique de confidentialité'">Politique de confidentialité</a>
-                    </li>
-                </ul>
-            </div>            <div class="col-6 col-md-3 mb-3">
-                <h4>Navigation</h4>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="{{ path('app_home') }}" title="Retour à l\'accueil">Accueil</a>
-                    </li>
-                    <li class="nav-item mb-2"><a href="{{ url('app_home') ~ '#about' }}"
-                                                 title="Aller à la section 'À propos'">À propos</a></li>
-                    <li class="nav-item mb-2"><a href="https://github.com/JJA-DEV" target="_blank"
-                                                 title='Voir mes projets GitHub'>GitHub</a></li>
-                    <li class="nav-item mb-2"><a href="{{ path('app_contact') }}"
-                                                 title='Aller à la page Contact'>Contact</a></li>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="{{ path('app_adm_accueil') }}"
-                           title="Aller à l'espace d'administration">Administration</a>
+                    <li class="footer-nav__item">
+                        <a href="{{ path('app_privacypolicy_index') }}" class="footer__link"
+                            title="Politique de confidentialité">Politique de confidentialité</a>
                     </li>
                 </ul>
             </div>
-            <div class="col-md-5 offset-md-1 mb-3">
-                <h4>Contact</h4>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2">
-                        <i class="bi bi-house me-1"></i> Conliège 39570, Jura, France
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="mailto:{{ global.propriety.email }}" title="Mail de contact">
-                            <i class="bi bi-envelope-at-fill me-1"></i> {{ global.propriety.email }}
+            <div class="col-12 col-md-4 col-lg-3">
+                <h4 class="footer__title">Navigation</h4>
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item"><a href="{{ path('app_home') }}" class="footer__link"
+                            title="Accueil">Accueil</a></li>
+                    <li class="footer-nav__item"><a href="{{ url('app_home') ~ '#about' }}" class="footer__link"
+                            title="À propos">À propos</a></li>
+                    <li class="footer-nav__item"><a href="https://github.com/jeanniardJ" class="footer__link"
+                            target="_blank" rel="noopener" title="GitHub">GitHub</a></li>
+                    <li class="footer-nav__item"><a href="{{ path('app_contact') }}" class="footer__link"
+                            title="Contact">Contact</a></li>
+                    <li class="footer-nav__item"><a href="{{ path('app_adm_accueil') }}" class="footer__link"
+                            title="Administration">Administration</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 offset-lg-1">
+                <h4 class="footer__title">Contact</h4>
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item">
+                        <a href="mailto:{{ global.propriety.email }}" class="footer__link" title="Mail de contact">
+                            <i class="bi bi-envelope-at-fill me-1" aria-hidden="true"></i> {{ global.propriety.email }}
                         </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <a href="tel:+33646872307" title="Appeler le numéro 06 46 87 23 07">
-                            <i class="bi bi-telephone me-1"></i> 06 46 87 23 07
-                        </a>
-                    </li>
-                    <li class="nav-item mb-2">
-                        <i class="bi bi-clock me-1"></i> du lundi au vendredi de 9h à 17h30
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="d-flex flex-row border-top justify-content-between py-4 my-4 ">
-            <p class="align-self-center">&copy; {{ "now"|date('Y') }} {{ name_develop }} - Tous droits réservés</p>
-            <ul class="list-unstyled d-flex">
+        <div class="footer__bottom d-flex flex-column flex-md-row align-items-center justify-content-between mt-4 pt-4">
+            <p class="footer__copyright mb-2 mb-md-0">&copy; {{ "now"|date('Y') }} {{ name_develop }} - Tous droits
+                réservés</p>
+            <ul class="footer__social list-unstyled d-flex mb-0">
                 {% for key, social in global.social %}
-                    {% if social is not null %}
-                        <li class="fs-3">
-                            {% if key == 'TwitterUrl' %}
-                                <a href="{{ social }}" aria-label="Twitter"
-                                   title="Page Twitter de l'entreprise">
-                                    <i class="bi bi-twitter"></i>
-                                </a>
-                            {% endif %}
-                            {% if key == 'LinkedinUrl' %}
-                                <a href="{{ social }}" aria-label="Linkedin">
-                                    <i class="bi bi-linkedin"></i>
-                                </a>
-                            {% endif %}
-                            {% if key == 'FacebookUrl' %}
-                                <a href="{{ social }}" aria-label="Facebook"
-                                   title="Page Facebook de l'entreprise">
-                                    <i class="bi bi-facebook"></i>
-                                </a>
-                            {% endif %}
-                            {% if key == 'InstagramUrl' %}
-                                <a href="{{ social }}" aria-label="Instagram"
-                                   title="Page Instagram de l'entreprise">
-                                    <i class="bi bi-instagram"></i>
-                                </a>
-                            {% endif %}
-                            {% if key == 'YoutubeUrl' %}
-                                <a href="{{ social }}" aria-label="Youtube"
-                                   title="Page Youtube de l'entreprise">
-                                    <i class="bi bi-youtube"></i>
-                                </a>
-                            {% endif %}
-                            {% if key == 'WhatsappPhone' %}
-                                <a href="{{ social }}" aria-label="Whatsapp"
-                                   title="Page Whatsapp de l'entreprise">
-                                    <i class="bi bi-whatsapp"></i>
-                                </a>
-                            {% endif %}
-                        </li>
+                {% if social is not null %}
+                <li>
+                    {% if key == 'TwitterUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Twitter" title="Twitter"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-twitter" aria-hidden="true"></i>
+                    </a>
                     {% endif %}
+                    {% if key == 'LinkedinUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Linkedin" title="Linkedin"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-linkedin" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'FacebookUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Facebook" title="Facebook"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-facebook" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'InstagramUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Instagram" title="Instagram"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-instagram" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'YoutubeUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Youtube" title="Youtube"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-youtube" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'WhatsappPhone' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Whatsapp" title="Whatsapp"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                </li>
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>

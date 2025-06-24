@@ -74,6 +74,7 @@
         "@fullcalendar/react": "^6.1.11",
         "@fullcalendar/timegrid": "^6.1.11",
         "@kurkle/color": "^0.3.2",
+        "@modelcontextprotocol/server-memory": "^2025.4.25",
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.3",
         "bootstrap-colorpicker": "^3.4.0",

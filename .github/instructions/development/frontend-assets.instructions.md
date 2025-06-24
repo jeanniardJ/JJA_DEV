@@ -1,3 +1,6 @@
+---
+applyTo: 'JJA_DEV/**'
+---
 # Instructions - Frontend Assets : Bootstrap & React
 
 ## Technologies Frontend
@@ -464,7 +467,7 @@ export default class extends Controller {
             <div class="contact-card" data-contact-id="${contact.id}">
                 <input type="checkbox" class="contact-select" value="${contact.id}">
                 <div class="contact-card__avatar">
-                    <img src="${contact.avatarUrl || "/images/default-avatar.png"}" 
+                    <img src="${contact.avatarUrl || "/images/default-avatar.png"}"
                          alt="${contact.fullName}">
                     <div class="contact-card__status contact-card__status--${contact.status}"></div>
                 </div>

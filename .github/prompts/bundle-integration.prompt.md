@@ -6,10 +6,10 @@ Vous devez intégrer un nouveau bundle Symfony dans JJA_DEV en respectant l'arch
 
 ### 1. Préparation Bundle
 
--   [ ] Structure bundle complète et testée
--   [ ] Configuration bundle validée
--   [ ] Services bundle fonctionnels
--   [ ] Tests bundle passants
+- [ ] Structure bundle complète et testée
+- [ ] Configuration bundle validée
+- [ ] Services bundle fonctionnels
+- [ ] Tests bundle passants
 
 ### 2. Intégration dans JJA_DEV
 
@@ -56,9 +56,9 @@ docker-compose exec php bin/console doctrine:migrations:migrate
 
 #### Contraintes Référentielles
 
--   [ ] Vérifier relations avec entités CMS_SF existantes
--   [ ] Maintenir intégrité référentielle
--   [ ] Prévoir cascade appropriées
+- [ ] Vérifier relations avec entités CMS_SF existantes
+- [ ] Maintenir intégrité référentielle
+- [ ] Prévoir cascade appropriées
 
 ### 4. Intégration Interface
 
@@ -287,12 +287,12 @@ docker-compose exec php bin/console debug:router | grep your_bundle
 
 ## Checklist Final
 
--   [ ] **Bundle** : Activé et configuré correctement
--   [ ] **Base de données** : Migrations appliquées
--   [ ] **Interface** : Navigation intégrée CMS_SF
--   [ ] **Sécurité** : Rôles et permissions configurés
--   [ ] **Assets** : Webpack configuré et build OK
--   [ ] **Tests** : Tests d'intégration passants
--   [ ] **Documentation** : README et guides à jour
--   [ ] **Performance** : Pas de régression
--   [ ] **Compatibilité** : Respect architecture CMS_SF
+- [ ] **Bundle** : Activé et configuré correctement
+- [ ] **Base de données** : Migrations appliquées
+- [ ] **Interface** : Navigation intégrée CMS_SF
+- [ ] **Sécurité** : Rôles et permissions configurés
+- [ ] **Assets** : Webpack configuré et build OK
+- [ ] **Tests** : Tests d'intégration passants
+- [ ] **Documentation** : README et guides à jour
+- [ ] **Performance** : Pas de régression
+- [ ] **Compatibilité** : Respect architecture CMS_SF

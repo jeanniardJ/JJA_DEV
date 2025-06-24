@@ -2,6 +2,34 @@
 @import "../variables";
 
 // ===========================
+// NOUVELLES SECTIONS - CARDS AVEC COULEURS JJA
+// ===========================
+
+// Cards avec fond dark-tertiary et border teal-primary
+.jja-card {
+    background-color: $jja-dark-tertiary !important;
+    border: 2px solid $jja-teal-primary !important;
+    color: $jja-white;
+    transition: $jja-transition-base;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $jja-shadow-lg;
+        border-color: $jja-teal-light;
+    }
+
+    h5,
+    h6 {
+        color: $jja-teal-light;
+    }
+
+    p,
+    .text-muted {
+        color: rgba($jja-white, 0.8);
+    }
+}
+
+// ===========================
 // STYLES SECTION STACK - ONGLETS
 // ===========================
 
@@ -44,22 +72,11 @@
             }
         }
     }
-}
 
-// ===========================
-// Correction globale pour forcer le fond transparent sur les nav-tabs actifs
-// ===========================
-.nav-tabs .nav-link.active,
-.nav-tabs .nav-item.show .nav-link {
-    background-color: transparent !important;
-    color: $jja-teal-primary !important;
-    border: none !important;
-}
+    // ===========================
+    // SECTION STACK - CARDS
+    // ===========================
 
-// ===========================
-// SECTION STACK - CARDS
-// ===========================
-#stack {
     .card {
         background-color: $jja-dark-tertiary !important;
         border: 2px solid $jja-teal-primary !important;
@@ -73,48 +90,13 @@
         }
 
         .card-body {
-            padding: 2rem;
+            padding: 0.5rem;
         }
 
-        h5 {
-            color: $jja-teal-light !important;
+        .stack-icon {
+            font-size: 1.5em !important;
+            line-height: 1;
         }
-
-        i {
-            color: $jja-teal-light !important;
-        }
-    }
-}
-
-// ===========================
-// NOUVELLES SECTIONS - CARDS AVEC COULEURS JJA
-// ===========================
-
-// Cards avec fond dark-tertiary et border teal-primary
-.jja-card {
-    background-color: $jja-dark-tertiary !important;
-    border: 2px solid $jja-teal-primary !important;
-    color: $jja-white;
-    transition: $jja-transition-base;
-
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: $jja-shadow-lg;
-        border-color: $jja-teal-light;
-    }
-
-    .card-body {
-        padding: 2rem;
-    }
-
-    h5,
-    h6 {
-        color: $jja-teal-light;
-    }
-
-    p,
-    .text-muted {
-        color: rgba($jja-white, 0.8);
     }
 }
 
@@ -125,7 +107,7 @@
     .module-card {
         // Supprimer le fond et la bordure, garder seulement transparent
         background: transparent !important;
-        border: none !important;
+        border: none;
         color: $jja-white;
         height: 100%;
         transition: $jja-transition-base;
@@ -144,23 +126,16 @@
         }
 
         p {
-            color: rgba($jja-white, 0.8);
+            color: $info;
         }
 
-        .module-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, $jja-teal-primary, $jja-teal-light);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-
-            i {
-                font-size: 1.5rem;
-                color: $jja-white;
-            }
+        // IMAGE dans la carte module
+        img {
+            width: 13.9375em;
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 1.5rem;
         }
     }
 }
@@ -171,36 +146,58 @@
 #roadmap {
     .roadmap-container {
         // Supprimer le scroll, afficher tout le contenu
-        max-height: none;
-        overflow: visible;
-        padding-right: 0;
+        max-height: 24rem; // 3 items (ajuster selon la hauteur des cards)
+        overflow-y: auto;
+        scrollbar-width: none; // Firefox
     }
 
     .roadmap-item {
-        @extend .jja-card;
-        margin-bottom: 1rem;
-        padding: 1.5rem;
+        background: transparent !important;
+        border: none !important;
+        margin-bottom: 1.5rem;
+        padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
 
-        .roadmap-status {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            border-radius: 2rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
+        .roadmap-bar {
+            width: 0.125em; // 2px si 1em=16px
+            min-width: 0.125em;
+            max-width: 0.125em;
+            height: 100%;
+            background: $jja-teal-primary;
+            border-radius: 8px;
+            margin-right: 1.25rem;
+            position: absolute;
+            left: 2.5rem; // Aligné avec le padding gauche de la carte
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+            // Positionnement relatif pour l'icône
+            display: block;
 
-            &.status-open {
-                background: rgba($warning, 0.2);
-                color: $warning;
+            i.bi-calendar3 {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                // Alignement vertical sur le h6
+                top: calc(1.5rem + 0.15em); // 1.5rem = padding top, 0.15em = ajustement optique
+                color: $jja-white;
+                font-size: 1.35rem;
+                filter: drop-shadow(0 1px 2px rgba($jja-dark-tertiary, 0.25));
+                background: transparent;
+                pointer-events: none;
+                margin: 0;
+            }
+        }
+
+        .roadmap-content {
+            h6 {
+                color: $jja-white !important;
+                margin-bottom: 0;
             }
 
-            &.status-closed {
-                background: rgba($success, 0.2);
-                color: $success;
-            }
-
-            &.status-in-progress {
-                background: rgba($info, 0.2);
+            p {
                 color: $info;
             }
         }
@@ -211,17 +208,35 @@
 // SECTION GITHUB COMMITS
 // ===========================
 #github-commits {
+    background: transparent !important;
+    border: none !important;
+
+    .text-left.mb-5 h3 {
+        color: $jja-white !important;
+    }
+
     .commits-container {
-        // Supprimer le scroll, afficher tout le contenu
-        max-height: none;
-        overflow: visible;
+        background: transparent !important;
+        border: none !important;
+        max-height: 15rem; // 2 commits visibles (ajuster si besoin)
+        overflow-y: auto;
         padding-right: 0;
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE/Edge
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
     }
 
     .commit-item {
-        @extend .jja-card;
-        margin-bottom: 1rem;
-        padding: 1.5rem;
+        background: transparent !important;
+        border: none !important;
+        margin-bottom: 1.5rem;
+        padding: 1.25rem 0 1.25rem 0;
+        color: $info;
+        transition: background 0.3s, color 0.3s;
 
         .commit-hash {
             font-family: "Courier New", monospace;
@@ -240,6 +255,75 @@
         .commit-date {
             color: rgba($jja-white, 0.6);
             font-size: 0.875rem;
+        }
+
+        h6,
+        p,
+        span,
+        div {
+            color: $info !important;
+        }
+    }
+}
+
+// ===========================
+// SECTION CONTACT HOME (uniformisée)
+// ===========================
+#contact {
+    padding-bottom: 4rem;
+    position: relative;
+
+    .text-left {
+        text-align: left;
+        @media (max-width: 767.98px) {
+            text-align: center;
+        }
+    }
+    h3.fw-bold {
+        color: $jja-white !important;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        i {
+            color: $jja-teal-primary;
+        }
+    }
+    .lead {
+        color: $jja-white;
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+    .btn-teal-primary {
+        background: $jja-teal-primary;
+        color: $jja-white;
+        border: none;
+        border-radius: $jja-border-radius;
+        transition: $jja-transition-base;
+        &:hover,
+        &:focus {
+            background: $jja-teal-light;
+            color: $jja-dark-primary;
+        }
+    }
+    .btn-outline-light-custom {
+        background: transparent;
+        color: $jja-white;
+        border: 2px solid $jja-white;
+        border-radius: $jja-border-radius;
+        transition: $jja-transition-base;
+        &:hover,
+        &:focus {
+            background: $jja-white;
+            color: $jja-teal-primary;
+        }
+    }
+    @media (max-width: 767.98px) {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        h3.fw-bold {
+            font-size: 1.5rem !important;
+        }
+        .lead {
+            font-size: 1rem;
         }
     }
 }
@@ -293,4 +377,11 @@
 section h3.fw-bold {
     font-size: 1.75rem !important; // 28px en rem
     color: $jja-white !important;
+}
+
+.avatar-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 4px solid var(--bs-primary);
 }

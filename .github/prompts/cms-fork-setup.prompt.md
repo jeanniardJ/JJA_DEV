@@ -6,38 +6,38 @@ Vous devez configurer une nouvelle fonctionnalité CRM dans JJA_DEV en héritant
 
 ### 1. Vérification de l'Héritage
 
--   [ ] Confirmer que JJA_DEV est bien un fork de CMS_SF
--   [ ] Vérifier que le système d'authentification fonctionne
--   [ ] Tester l'accès BackOffice et FrontOffice
--   [ ] Valider la configuration Docker
+- [ ] Confirmer que JJA_DEV est bien un fork de CMS_SF
+- [ ] Vérifier que le système d'authentification fonctionne
+- [ ] Tester l'accès BackOffice et FrontOffice
+- [ ] Valider la configuration Docker
 
 ### 2. Structure CRM
 
--   [ ] Créer les entités CRM dans `src/Entity/`
--   [ ] Respecter les conventions de nommage CMS_SF
--   [ ] Utiliser les relations Doctrine appropriées
--   [ ] Ajouter les contraintes de validation
+- [ ] Créer les entités CRM dans `src/Entity/`
+- [ ] Respecter les conventions de nommage CMS_SF
+- [ ] Utiliser les relations Doctrine appropriées
+- [ ] Ajouter les contraintes de validation
 
 ### 3. Intégration Interface
 
--   [ ] Utiliser les templates CMS_SF comme base
--   [ ] Créer des sections CRM dans le BackOffice
--   [ ] Maintenir la cohérence visuelle
--   [ ] Ajouter la navigation CRM
+- [ ] Utiliser les templates CMS_SF comme base
+- [ ] Créer des sections CRM dans le BackOffice
+- [ ] Maintenir la cohérence visuelle
+- [ ] Ajouter la navigation CRM
 
 ### 4. Services et Logique Métier
 
--   [ ] Créer les services CRM dans `src/Service/`
--   [ ] Implémenter les interfaces pour la testabilité
--   [ ] Utiliser l'injection de dépendances Symfony
--   [ ] Respecter le principe de responsabilité unique
+- [ ] Créer les services CRM dans `src/Service/`
+- [ ] Implémenter les interfaces pour la testabilité
+- [ ] Utiliser l'injection de dépendances Symfony
+- [ ] Respecter le principe de responsabilité unique
 
 ### 5. Tests et Validation
 
--   [ ] Écrire les tests unitaires pour les services
--   [ ] Créer les tests fonctionnels pour les controllers
--   [ ] Valider la couverture de tests (80% minimum)
--   [ ] Tester la compatibilité avec CMS_SF
+- [ ] Écrire les tests unitaires pour les services
+- [ ] Créer les tests fonctionnels pour les controllers
+- [ ] Valider la couverture de tests (80% minimum)
+- [ ] Tester la compatibilité avec CMS_SF
 
 ## Template de Code
 

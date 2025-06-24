@@ -1,3 +1,6 @@
+---
+applyTo: 'JJA_DEV/**'
+---
 # Instructions - API et Intégrations
 
 ## Architecture API

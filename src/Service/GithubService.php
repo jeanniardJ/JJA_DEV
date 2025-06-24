@@ -48,7 +48,7 @@ class GithubService
     {
         try {
             $repos = $this->client->organization()->repositories($this->organization, 'all', $page);
-            $filtered = array_filter($repos, fn($repo) => str_contains($repo['name'], 'Bundle'));
+            $filtered = array_filter($repos, fn($repo) => substr($repo['name'], -6) === 'Bundle');
             return array_values($filtered);
         } catch (RuntimeException $e) {
             $this->logger->error('Erreur récupération repositories GitHub', ['exception' => $e]);

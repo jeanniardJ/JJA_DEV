@@ -1,5 +1,6 @@
 // Footer Component - Méthodologie BEM
-// Block: footer
+// Ce fichier centralise tous les styles du footer (ne pas dupliquer dans layouts/_footer.scss)
+// Block: .footer
 
 .footer {
     // Block base
@@ -26,7 +27,7 @@
             position: absolute;
             left: 0;
             bottom: -0.5rem;
-            width: 2rem;
+            width: 10rem;
             height: 2px;
             background: $jja-teal-light;
             border-radius: 2px;
@@ -49,9 +50,12 @@
 
     &__social {
         display: flex;
-        gap: 1rem;
+        gap: 1.25rem;
         justify-content: center;
-        margin-top: 2rem;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
 
         @include media-breakpoint-up(md) {
             justify-content: flex-start;
@@ -59,23 +63,27 @@
     }
 
     &__social-link {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
         color: $jja-gray-light;
         transition: $jja-transition-base;
+        display: inline-block;
+        line-height: 1;
 
-        &:hover {
+        &:hover,
+        &:focus {
             color: $jja-teal-light;
+            outline: none;
+            text-decoration: none;
             transform: translateY(-2px);
         }
     }
 
     &__copyright {
         text-align: center;
-        padding-top: 2rem;
         margin-top: 2rem;
-        border-top: 1px solid rgba($jja-teal-light, 0.3);
         color: rgba($jja-gray-light, 0.8);
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+        margin-bottom: 0;
     }
 
     &__brand {
@@ -97,6 +105,19 @@
             background-clip: text;
         }
     }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        @include media-breakpoint-up(md) {
+            flex-direction: row;
+            gap: 0;
+        }
+    }
 }
 
 // Footer navigation
@@ -109,7 +130,7 @@
     }
 
     &__item {
-        margin-bottom: 0.75rem;
+        margin-bottom: 0.5rem;
     }
 
     &__link {
@@ -145,3 +166,6 @@
         border-radius: $jja-border-radius;
     }
 }
+
+// Suppression des styles spécifiques liés à l'adresse, téléphone ou horaires : déjà supprimés
+// Ne pas ajouter de styles globaux dans layouts/_footer.scss

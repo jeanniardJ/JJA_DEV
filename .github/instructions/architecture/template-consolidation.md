@@ -1,3 +1,7 @@
+---
+applyTo: "JJA_DEV/**"
+---
+
 # Consolidation des Templates Front Office
 
 ## Problème Résolu

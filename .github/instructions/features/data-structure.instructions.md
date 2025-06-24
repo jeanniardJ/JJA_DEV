@@ -1,3 +1,6 @@
+---
+applyTo: 'JJA_DEV/**'
+---
 # Instructions - Structure des Données CRM
 
 ## Architecture des Entités

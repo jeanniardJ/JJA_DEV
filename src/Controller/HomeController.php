@@ -27,6 +27,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Service\GithubService;
+use App\Service\RoadmapService;
+use App\Repository\ModuleRepository;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 
 /**
  * Class HomeController
@@ -36,8 +40,24 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home', options: ['sitemap' => true])]
-    public function index(Request $request): Response
-    {
-        return $this->render('home/index.html.twig');
+    public function index(
+        Request $request,
+        GithubService $githubService,
+        RoadmapService $roadmapService,
+        ModuleRepository $moduleRepository,
+        ParameterBagInterface $params
+    ): Response {
+        // Commits GitHub (exemple: repo principal JJA_DEV)
+        $commits = $githubService->getLastCommits('JJA_DEV', 10);
+        // Roadmap (parser le markdown)
+        $roadmapPath = $params->get('kernel.project_dir') . '/.github/ROADMAP.md';
+        $roadmap = $roadmapService->getTopRoadmapItems($roadmapPath, 3);
+        // Modules (Doctrine)
+        $modules = $moduleRepository->findBy([], null, 4);
+        return $this->render('home/index.html.twig', [
+            'commits' => $commits,
+            'roadmap' => $roadmap,
+            'modules' => $modules,
+        ]);
     }
 }

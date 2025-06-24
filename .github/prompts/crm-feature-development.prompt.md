@@ -6,10 +6,10 @@ Vous devez développer une nouvelle fonctionnalité CRM dans JJA_DEV.
 
 ### 1. Analyse des Besoins
 
--   [ ] Identifier les entités CRM nécessaires
--   [ ] Définir les relations entre entités
--   [ ] Spécifier les règles métier
--   [ ] Planifier l'intégration dans le BackOffice CMS_SF
+- [ ] Identifier les entités CRM nécessaires
+- [ ] Définir les relations entre entités
+- [ ] Spécifier les règles métier
+- [ ] Planifier l'intégration dans le BackOffice CMS_SF
 
 ### 2. Développement Backend
 
@@ -32,17 +32,17 @@ class CrmEntity
 
 #### Services Métier
 
--   [ ] Créer dans `src/Service/CRM/`
--   [ ] Implémenter les interfaces
--   [ ] Utiliser l'injection de dépendances
--   [ ] Gérer les exceptions métier
+- [ ] Créer dans `src/Service/CRM/`
+- [ ] Implémenter les interfaces
+- [ ] Utiliser l'injection de dépendances
+- [ ] Gérer les exceptions métier
 
 #### Controllers Admin
 
--   [ ] Hériter de la structure BackOffice CMS_SF
--   [ ] Utiliser le préfixe de route `/admin/crm/`
--   [ ] Implémenter la pagination
--   [ ] Gérer les formulaires avec validation
+- [ ] Hériter de la structure BackOffice CMS_SF
+- [ ] Utiliser le préfixe de route `/admin/crm/`
+- [ ] Implémenter la pagination
+- [ ] Gérer les formulaires avec validation
 
 ### 3. Développement Frontend
 
@@ -64,10 +64,10 @@ class CrmEntity
 
 #### Assets et Styles
 
--   [ ] Utiliser les classes CSS CMS_SF
--   [ ] Créer des styles spécifiques dans `assets/admin/crm/`
--   [ ] Maintenir la cohérence visuelle
--   [ ] Optimiser pour le responsive
+- [ ] Utiliser les classes CSS CMS_SF
+- [ ] Créer des styles spécifiques dans `assets/admin/crm/`
+- [ ] Maintenir la cohérence visuelle
+- [ ] Optimiser pour le responsive
 
 ### 4. Base de Données
 
@@ -133,17 +133,17 @@ class CrmControllerTest extends WebTestCase
 
 #### Navigation BackOffice
 
--   [ ] Ajouter les liens dans le menu admin
--   [ ] Respecter la hiérarchie CMS_SF
--   [ ] Utiliser les icônes cohérentes
--   [ ] Gérer les permissions utilisateur
+- [ ] Ajouter les liens dans le menu admin
+- [ ] Respecter la hiérarchie CMS_SF
+- [ ] Utiliser les icônes cohérentes
+- [ ] Gérer les permissions utilisateur
 
 #### Sécurité
 
--   [ ] Utiliser le système d'authentification CMS_SF
--   [ ] Définir les rôles CRM appropriés
--   [ ] Sécuriser les routes admin
--   [ ] Valider les autorisations
+- [ ] Utiliser le système d'authentification CMS_SF
+- [ ] Définir les rôles CRM appropriés
+- [ ] Sécuriser les routes admin
+- [ ] Valider les autorisations
 
 ## Commandes de Développement
 
@@ -226,10 +226,10 @@ class CustomerController extends AbstractController
 
 ## Checklist Final
 
--   [ ] **Entités** : Relations correctes, validations complètes
--   [ ] **Services** : Interfaces, injection dépendances, tests unitaires
--   [ ] **Controllers** : Sécurité, validation, gestion erreurs
--   [ ] **Templates** : Cohérence CMS_SF, responsive, accessibilité
--   [ ] **Tests** : Couverture 80%+, fixtures, tests fonctionnels
--   [ ] **Integration** : Navigation, permissions, workflow
--   [ ] **Documentation** : PHPDoc, README, guide utilisateur
+- [ ] **Entités** : Relations correctes, validations complètes
+- [ ] **Services** : Interfaces, injection dépendances, tests unitaires
+- [ ] **Controllers** : Sécurité, validation, gestion erreurs
+- [ ] **Templates** : Cohérence CMS_SF, responsive, accessibilité
+- [ ] **Tests** : Couverture 80%+, fixtures, tests fonctionnels
+- [ ] **Integration** : Navigation, permissions, workflow
+- [ ] **Documentation** : PHPDoc, README, guide utilisateur
