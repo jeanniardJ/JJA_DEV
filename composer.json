@@ -72,7 +72,7 @@
         "symfony/ux-twig-component": "^2.12",
         "symfony/ux-typed": "^2.12",
         "symfony/validator": "6.4.*",
-        "symfony/web-link": "6.4.*",
+        "symfony/web-link": "7.3.*",
         "symfony/webpack-encore-bundle": "^2.1",
         "symfony/yaml": "6.4.*",
         "symfonycasts/reset-password-bundle": "^1.18",
