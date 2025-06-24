@@ -1,11 +1,11 @@
 {
     "type": "project",
-    "license": ["MIT"],
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "homepage": "https://jja-dev.fr",
-    "name": "jja-dev/cms",
-    "description": "CMS for JJADEV",
+    "name": "jeanniardj/jja-dev",
+    "description": "JJA-DEV.FR - Symfony 6.4 project",
     "repositories": [],
     "require": {
         "php": ">=8.2",
