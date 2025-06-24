@@ -1,8 +1,6 @@
 {
     "type": "project",
-    "license": [
-        "MIT"
-    ],
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "homepage": "https://jja-dev.fr",
