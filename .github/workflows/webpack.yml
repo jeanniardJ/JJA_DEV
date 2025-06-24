@@ -7,7 +7,7 @@ on:
 
 env:
     NODE_VERSION: "18"
-    PHP_VERSION: "8.1"
+    PHP_VERSION: "8.2"
 
 jobs:
     tests:
@@ -82,7 +82,7 @@ jobs:
         needs: tests
         # Uniquement pour les push vers master/main (production)
         if: |
-            github.event_name == 'push' && 
+            github.event_name == 'push' &&
             (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/main')
 
         strategy:
@@ -144,11 +144,9 @@ jobs:
                   echo "4. 🔄 OVH will run: composer install (PHP only)"
                   echo "5. 🔄 OVH will clear Symfony cache"
                   echo "6. ✅ No npm/node commands needed on OVH!"
-
-            # TODO: Activer quand webhook OVH configuré
-            # - name: Trigger OVH deployment
-            #   run: |
-            #     curl -X POST ${{ secrets.OVH_WEBHOOK_URL }} \
-            #       -H "Authorization: Bearer ${{ secrets.OVH_WEBHOOK_TOKEN }}" \
-            #       -H "Content-Type: application/json" \
-            #       -d '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "message": "Deploy with compiled assets"}'
+            - name: Notify success
+              run: |
+                  echo "🎉 Assets successfully built and pushed to master branch!"
+                  echo "📦 Assets are ready for OVH deployment."
+                  echo "🚀 Deployment process is streamlined and efficient."
+                  echo "🔄 No manual steps required on OVH!"
