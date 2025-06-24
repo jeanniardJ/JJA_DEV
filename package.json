@@ -58,7 +58,7 @@
         "workbox-cli": "^7.0.0",
         "workbox-webpack-plugin": "^7.0.0"
     },
-    "license": "UNLICENSED",
+    "license": "MIT",
     "private": false,
     "scripts": {
         "dev-server": "encore dev-server",
