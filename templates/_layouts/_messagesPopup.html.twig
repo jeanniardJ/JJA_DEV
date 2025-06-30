@@ -1,0 +1,43 @@
+{% for label, messages in app.flashes() %}
+    {% for message in messages %}
+        {% if message[0] == 'toast' %}
+            <div class="toast-container position-fixed bottom-0 end-0 p-4">
+                <div id="toast" class="toast align-items-end border-0 text-bg-{{ label }}"
+                role="alert"
+                aria-live="assertive"
+                aria-atomic="true">
+                    <div class="d-flex">
+                        <div class="toast-body">
+                            {{ message[1] }}
+                        </div>
+                        <button type="button" class="btn-close me-2 m-auto btn-close-white" data-bs-dismiss="toast"
+                                aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        {% elseif message[0] == 'modals' %}
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3 class="modal-title fs-5">{{ label|capitalize }}</h3>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    {{ message|raw }}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}

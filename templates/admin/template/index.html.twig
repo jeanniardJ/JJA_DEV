@@ -1,0 +1,28 @@
+{% extends "admin/template/_body.html.twig" %}
+{% trans_default_domain('template') %}
+{% block content %}
+{{ form_start(form) }}
+<div class="card-body">
+
+    {{ form_row(form.presentation) }}
+    {{ form_row(form.description) }}
+    <div class="d-flex justify-content-between flex-wrap">
+        {% for service in form.services %}
+        <div class="col-md-2 col-12">
+            {{ form_row(service) }}
+        </div>
+        {% endfor %}
+    </div>
+
+
+</div>
+<div class="card-footer">
+    
+    <div class="d-flex justify-content-between flex-wrap gap-3">
+        <div class="col-md-2 col-12"><a href="{{ path('app_adm_accueil') }}" class="btn btn-secondary w-100">{{ 'admin.template.return_home'|trans }}</a></div>
+        {{ form_row(form.submit) }}
+    </div>
+    {{ form_rest(form) }}
+    {{ form_end(form) }}
+</div>
+{% endblock %}

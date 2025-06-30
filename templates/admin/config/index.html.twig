@@ -1,0 +1,74 @@
+{% extends 'admin/config/_body.html.twig' %}
+{% block title %}
+    {{ parent() }} - {{ 'admin.settings.general'|trans({}, 'admin') }}
+{% endblock %}
+{% set navTabActive = 'general' %}
+{% set imgLogo = absolute_url(asset(imgLogo)) %}
+{% set imgFavicon = absolute_url(asset(imgFavicon)) %}
+
+{% block tabContent %}
+    <div class="tab-pane fade show active" id="general" role="tabpanel" aria-labelledby="general-tab">
+        {{ form_start(formGeneral) }}
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    {{ form_label(formGeneral.logo) }}
+                    {{ form_errors(formGeneral.logo) }}
+                    <div class="input-group">
+                        {{ form_widget(formGeneral.logo, {'attr': {'aria-describedby': 'basic-logo'}}) }}
+                        <span class="input-group-text" id="basic-logo">
+                        {% if imgLogo is not empty %}
+                            <source srcset="{{ imgLogo }}">
+                            <img src="{{ imgLogo }}" id="basic-logo" alt="Logo" height="24px">
+                        {% else %}
+                            <source srcset="{{ absolute_url(asset('build/images/blank/40x40.png')) }}">
+                            <img src="{{ absolute_url(asset('build/images/blank/40x40.png')) }}" alt="Logo vide"
+                                 width="50px"
+                                 height="50px">
+                        {% endif %}
+                        </span>
+                    </div>
+                    <small>{{ form_help(formGeneral.logo) }}</small>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    {{ form_label(formGeneral.favicon) }}
+                    {{ form_errors(formGeneral.favicon) }}
+                    <div class="input-group">
+                        {{ form_widget(formGeneral.favicon, {'attr': {'aria-describedby': 'basic-favicon'}}) }}
+                        <span class="input-group-text" id="basic-favicon">
+                        {% if imgFavicon is not empty %}
+                            <source srcset="{{ imgFavicon }}">
+                            <img src="{{ imgFavicon }}" id="basic-favicon" alt="Favicon" height="24px">
+                        {% else %}
+                            <source srcset="{{ absolute_url(asset('build/images/blank/40x40.png')) }}">
+                            <img src="{{ absolute_url(asset('build/images/blank/40x40.png')) }}" alt="Favicon vide"
+                                 width="50px"
+                                 height="50px">
+                        {% endif %}
+                        </span>
+                    </div>
+                    <small>{{ form_help(formGeneral.favicon) }}</small>
+                </div>
+            </div>
+            {{ form_row(formGeneral.name) }}
+            {{ form_row(formGeneral.title) }}
+
+            <div class="col-md-3">
+                <div class="mb-3">
+                    {{ form_label(formGeneral.url) }}
+
+                    <div class="input-group">
+                        <span class="input-group-text" id="basic-url">https://</span>
+                        {{ form_widget(formGeneral.url) }}
+                    </div>
+                    {{ form_errors(formGeneral.url) }}
+                </div>
+            </div>
+            {{ form_rest(formGeneral) }}
+        </div>
+
+        {{ form_end(formGeneral) }}
+    </div>
+{% endblock %}

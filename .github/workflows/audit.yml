@@ -1,0 +1,41 @@
+name: Audit sécurité & qualité JJA_DEV
+
+on:
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
+
+jobs:
+    audit:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: "8.2"
+            - name: Install Composer dependencies
+              run: composer install --no-interaction --prefer-dist
+            - name: Install Node dependencies
+              run: npm install
+            - name: Audit Composer
+              run: composer audit || true
+            - name: Audit npm
+              run: npm audit --audit-level=moderate || true
+            - name: Analyse PHPStan
+              run: vendor/bin/phpstan analyse --level=8 || true
+            - name: Analyse PHPCS
+              run: vendor/bin/phpcs src/ || true
+            - name: Générer rapport markdown
+              run: |
+                  echo '## Rapport d’audit automatique' > audit-report.md
+                  composer audit >> audit-report.md
+                  npm audit --audit-level=moderate >> audit-report.md
+                  vendor/bin/phpstan analyse --level=8 >> audit-report.md
+                  vendor/bin/phpcs src/ >> audit-report.md
+            - name: Upload rapport d’audit
+              uses: actions/upload-artifact@v4
+              with:
+                  name: audit-report
+                  path: audit-report.md

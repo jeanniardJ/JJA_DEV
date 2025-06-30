@@ -1,0 +1,171 @@
+// Footer Component - Méthodologie BEM
+// Ce fichier centralise tous les styles du footer (ne pas dupliquer dans layouts/_footer.scss)
+// Block: .footer
+
+.footer {
+    // Block base
+    background: linear-gradient(135deg, $jja-dark-primary 0%, $jja-dark-secondary 100%);
+    color: $jja-white;
+    padding: 3rem 0 1rem;
+    border-top: 1px solid $jja-teal-light;
+
+    // Elements
+    &__content {
+        position: relative;
+        z-index: 2;
+    }
+
+    &__title {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: $jja-white;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            width: 10rem;
+            height: 2px;
+            background: $jja-teal-light;
+            border-radius: 2px;
+        }
+    }
+
+    &__link {
+        color: $jja-gray-light;
+        text-decoration: none;
+        transition: $jja-transition-base;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+
+        &:hover {
+            color: $jja-teal-light;
+            text-decoration: none;
+            transform: translateX(5px);
+        }
+    }
+
+    &__social {
+        display: flex;
+        gap: 1.25rem;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @include media-breakpoint-up(md) {
+            justify-content: flex-start;
+        }
+    }
+
+    &__social-link {
+        font-size: 1.5rem;
+        color: $jja-gray-light;
+        transition: $jja-transition-base;
+        display: inline-block;
+        line-height: 1;
+
+        &:hover,
+        &:focus {
+            color: $jja-teal-light;
+            outline: none;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+    }
+
+    &__copyright {
+        text-align: center;
+        margin-top: 2rem;
+        color: rgba($jja-gray-light, 0.8);
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+
+    &__brand {
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: $jja-teal-light;
+        text-decoration: none;
+        transition: $jja-transition-base;
+
+        &:hover {
+            color: $jja-white;
+            transform: translateY(-1px);
+        }
+
+        span {
+            background: linear-gradient(135deg, $jja-teal-light, $jja-white);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+
+        @include media-breakpoint-up(md) {
+            flex-direction: row;
+            gap: 0;
+        }
+    }
+}
+
+// Footer navigation
+.footer-nav {
+    // Block
+    &__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__item {
+        margin-bottom: 0.5rem;
+    }
+
+    &__link {
+        @extend .footer__link;
+    }
+}
+
+// Footer CTA
+.footer-cta {
+    // Block
+    background: rgba($jja-teal-primary, 0.1);
+    border-radius: $jja-border-radius-lg;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: $jja-white;
+        margin-bottom: 1rem;
+    }
+
+    &__text {
+        color: rgba($jja-white, 0.9);
+        margin-bottom: 1.5rem;
+    }
+
+    &__btn {
+        @include jja-button-variant($jja-teal-light, $jja-dark-primary);
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        border-radius: $jja-border-radius;
+    }
+}
+
+// Suppression des styles spécifiques liés à l'adresse, téléphone ou horaires : déjà supprimés
+// Ne pas ajouter de styles globaux dans layouts/_footer.scss

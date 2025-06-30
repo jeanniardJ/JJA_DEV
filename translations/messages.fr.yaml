@@ -1,0 +1,44 @@
+Email: "Adresse e-mail *"
+Password: "Mot de passe"
+Agree terms: "J'accepte les conditions d'utilisation."
+delete: "Supprimer"
+Name: "Nom complet *"
+Number phone: "Numéro de téléphone *"
+Sujet: "Sujet *"
+Text: "Message *"
+contact:
+    email:
+        noValide: "L'email n'est pas valide"
+Return:
+    home: "Retourner à l'accueil"
+    return: "Retour"
+maintenance:
+    construction:
+        title: "Site en construction"
+        message: "Ce site est en construction."
+    maintenance:
+        title: "Site en maintenance"
+        message: "Ce site est en maintenance."
+error:
+    not_found:
+        title: "Page non trouvée"
+        message: "La page demandée n'a pas pu être trouver. Vérifiez toute erreur d'orthographe dans l'URL."
+    essential_service:
+        title: "Erreur interne"
+        message: "Une erreur interne est survenue."
+
+    default:
+        title: "Erreur"
+        message: "Une erreur est survenue."
+    forbidden: # 403
+        title: "Accès refusé"
+        message: "Vous n'avez pas les droits d'accès à cette page."
+    unauthorized: # 401  # Unauthorized
+        title: "Non authentifié"
+        message: "Vous n'êtes pas authentifié."
+    not_allowed: # 405
+        title: "Méthode non autorisée"
+        message: "La méthode HTTP que vous utilisez n'est pas autorisée."
+    not_acceptable: # 406   # Not Acceptable
+        title: "Format non accepté"
+        message: "Le format que vous utilisez n'est pas accepté."

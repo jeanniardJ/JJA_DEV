@@ -1,0 +1,428 @@
+@import "../base/variables";
+@import "../variables";
+
+// ===========================
+// NOUVELLES SECTIONS - CARDS AVEC COULEURS JJA
+// ===========================
+
+// Cards avec fond dark-tertiary et border teal-primary
+.jja-card {
+    background-color: $jja-dark-tertiary !important;
+    border: 2px solid $jja-teal-primary !important;
+    color: $jja-white;
+    transition: $jja-transition-base;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: $jja-shadow-lg;
+        border-color: $jja-teal-light;
+    }
+
+    h5,
+    h6 {
+        color: $jja-teal-light;
+    }
+
+    p,
+    .text-muted {
+        color: rgba($jja-white, 0.8);
+    }
+}
+
+// ===========================
+// STYLES SECTION STACK - ONGLETS
+// ===========================
+
+// Personnalisation des onglets de la section Stack
+#stack {
+    #stackTabs {
+        // Supprimer la bordure inférieure par défaut
+        border-bottom: 1px solid $jja-teal-light;
+
+        // Afficher les onglets en ligne mais serrés à gauche
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start; // Aligner les onglets à gauche
+        width: 100%; // Le conteneur prend toute la largeur
+
+        // Styles pour les nav-item
+        .nav-item {
+            // Serrer les items à gauche sans espacement
+            margin-right: 0; // Pas d'espacement entre les onglets pour les serrer
+
+            // Onglets non actifs
+
+            .nav-link {
+                color: $jja-teal-light;
+                background-color: transparent;
+                border: none;
+                &:hover,
+                &:focus {
+                    color: $jja-white;
+                    background-color: transparent;
+                    border: none;
+                }
+            }
+
+            // Onglet actif
+            .nav-link.active {
+                color: $jja-white;
+                background-color: transparent;
+                border: none;
+            }
+        }
+    }
+
+    // ===========================
+    // SECTION STACK - CARDS
+    // ===========================
+
+    .card {
+        background-color: $jja-dark-tertiary !important;
+        border: 2px solid $jja-teal-primary !important;
+        color: $jja-white;
+        transition: $jja-transition-base;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: $jja-shadow-lg;
+            border-color: $jja-teal-light;
+        }
+
+        .card-body {
+            padding: 0.5rem;
+        }
+
+        .stack-icon {
+            font-size: 1.5em !important;
+            line-height: 1;
+        }
+    }
+}
+
+// ===========================
+// SECTION MODULES
+// ===========================
+#modules {
+    .module-card {
+        // Supprimer le fond et la bordure, garder seulement transparent
+        background: transparent !important;
+        border: none;
+        color: $jja-white;
+        height: 100%;
+        transition: $jja-transition-base;
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: none;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        h5 {
+            color: $jja-white !important;
+        }
+
+        p {
+            color: $info;
+        }
+
+        // IMAGE dans la carte module
+        img {
+            width: 13.9375em;
+            height: 13.9375em;
+            max-width: 100%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 1.5rem;
+            border-radius: 8px;
+        }
+    }
+}
+
+// ===========================
+// SECTION ROADMAP
+// ===========================
+#roadmap {
+    .roadmap-container {
+        // Supprimer le scroll, afficher tout le contenu
+        max-height: 24rem; // 3 items (ajuster selon la hauteur des cards)
+        overflow-y: auto;
+        scrollbar-width: none; // Firefox
+    }
+
+    .roadmap-item {
+        background: transparent !important;
+        border: none !important;
+        margin-bottom: 0.5rem;
+        padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+
+        .roadmap-bar {
+            width: 0.125em; // 2px si 1em=16px
+            min-width: 0.125em;
+            max-width: 0.125em;
+            height: 100%;
+            background: $jja-teal-primary;
+            border-radius: 8px;
+            margin-right: 1.25rem;
+            position: absolute;
+            left: 2.5rem; // Aligné avec le padding gauche de la carte
+            top: 0;
+            bottom: 0;
+            z-index: 2;
+            // Positionnement relatif pour l'icône
+            display: block;
+
+            i.bi-calendar3 {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                // Alignement vertical sur le h6
+                top: 1rem; // 1.5rem = padding top, 0.15em = ajustement optique
+                color: $jja-white;
+                font-size: 1.35rem;
+                filter: drop-shadow(0 1px 2px rgba($jja-dark-tertiary, 0.25));
+                background: transparent;
+                pointer-events: none;
+                margin: 0;
+            }
+        }
+
+        .roadmap-content {
+            h6 {
+                color: $jja-white !important;
+                margin-bottom: 0;
+                a {
+                    text-decoration: none !important;
+                    color: $jja-white !important;
+                    transition: color 0.3s;
+                }
+            }
+
+            p {
+                color: $info;
+            }
+        }
+    }
+}
+
+// ===========================
+// SECTION GITHUB COMMITS
+// ===========================
+#github-commits {
+    background: transparent !important;
+    border: none !important;
+
+    .text-left.mb-5 h3 {
+        color: $jja-white !important;
+    }
+
+    .commits-container {
+        background: transparent !important;
+        border: none !important;
+        max-height: 15rem; // 2 commits visibles (ajuster si besoin)
+        overflow-y: auto;
+        padding-right: 0;
+        scrollbar-width: none; // Firefox
+        -ms-overflow-style: none; // IE/Edge
+        transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    .commit-item {
+        background: transparent !important;
+        border: none !important;
+        margin-bottom: 1.5rem;
+        padding: 1.25rem 0 1.25rem 0;
+        color: $info;
+        transition: background 0.3s, color 0.3s;
+
+        .commit-hash {
+            font-family: "Courier New", monospace;
+            background: rgba($jja-teal-primary, 0.2);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            color: $jja-teal-light;
+        }
+
+        .commit-author {
+            color: $jja-teal-light;
+            font-weight: 600;
+        }
+
+        .commit-date {
+            color: rgba($jja-white, 0.6);
+            font-size: 0.875rem;
+        }
+
+        // Icône commit dans un carré avec fond et bords arrondis
+        .commit-icon-container {
+            flex-shrink: 0;
+        }
+
+        .commit-icon-square {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, $jja-teal-primary, $jja-teal-light);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba($jja-teal-primary, 0.2);
+            transition: all 0.3s ease;
+
+            i {
+                color: $jja-white;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 12px rgba($jja-teal-primary, 0.3);
+                background: linear-gradient(135deg, $jja-teal-light, $jja-teal-primary);
+            }
+        }
+
+        h6,
+        p,
+        span,
+        div {
+            color: $info !important;
+        }
+    }
+}
+
+// ===========================
+// SECTION CONTACT HOME (uniformisée)
+// ===========================
+#contact {
+    padding-bottom: 4rem;
+    position: relative;
+
+    .text-left {
+        text-align: left;
+        @media (max-width: 767.98px) {
+            text-align: center;
+        }
+    }
+    h3.fw-bold {
+        color: $jja-white !important;
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+        i {
+            color: $jja-teal-primary;
+        }
+    }
+    .lead {
+        color: $jja-white;
+        font-size: 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+    .btn-teal-primary {
+        background: $jja-teal-primary;
+        color: $jja-white;
+        border: none;
+        border-radius: $jja-border-radius;
+        transition: $jja-transition-base;
+        &:hover,
+        &:focus {
+            background: $jja-teal-light;
+            color: $jja-dark-primary;
+        }
+    }
+    .btn-outline-light-custom {
+        background: transparent;
+        color: $jja-white;
+        border: 2px solid $jja-white;
+        border-radius: $jja-border-radius;
+        transition: $jja-transition-base;
+        &:hover,
+        &:focus {
+            background: $jja-white;
+            color: $jja-teal-primary;
+        }
+    }
+    @media (max-width: 767.98px) {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+        h3.fw-bold {
+            font-size: 1.5rem !important;
+        }
+        .lead {
+            font-size: 1rem;
+        }
+    }
+}
+
+// ===========================
+// RESPONSIVE POUR MODULES
+// ===========================
+@media (max-width: 767.98px) {
+    #modules {
+        .module-card {
+            img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 1rem;
+            }
+
+            .module-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 0.75rem;
+
+                i {
+                    font-size: 1.25rem;
+                }
+            }
+
+            h5 {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 0.875rem;
+            }
+
+            .card-body {
+                padding: 1.5rem 1rem;
+            }
+        }
+        .row {
+            .col-6 {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    // Ajustements pour les titres de section sur mobile
+    section h3.fw-bold {
+        font-size: 1.5rem !important; // 24px en rem pour mobile
+    }
+}
+
+// ===========================
+// STYLES GLOBAUX POUR LES TITRES DE SECTIONS
+// ===========================
+
+// Taille standard des titres de section (28px = 1.75rem)
+section h3.fw-bold {
+    font-size: 1.75rem !important; // 28px en rem
+    color: $jja-white !important;
+}
+
+.avatar-img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+}

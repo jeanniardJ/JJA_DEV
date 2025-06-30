@@ -1,0 +1,93 @@
+{% extends 'admin/module/_body.html.twig' %}
+{% trans_default_domain('module') %}
+{% block title %}
+    {{ parent() }} - {{ 'admin.module.show'|trans() }} - {{ module.name }}
+{% endblock %}
+{% block module_content %}
+{% if module.idGithub is defined %}
+    {% set idModule = module.idGithub %}
+{% else %}
+    {% set idModule = module.id %}
+{% endif %}
+
+<div class="card-header">
+    <h3 class="card-title">{{ 'admin.module.show'|trans() }} {{ module.name }}</h3>
+</div>
+<div class="card-body">
+    
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>{{ 'admin.module.id'|trans() }}</th>
+                <td>{{ module.id }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'admin.module.name'|trans() }}</th>
+                <td>{{ module.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'admin.module.descsModule'|trans() }}</th>
+                <td>{{ module.description }}</td>
+            </tr>
+            {% if module.isInstall is defined %}
+                <tr>
+                    <th>{{ 'admin.module.isInstall'|trans() }}</th>
+                    <td>{{ module.isInstall ? '<span class="badge text-bg-success">Oui</span>' : '<span class="badge text-bg-danger">Non</span>' }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <th>{{ 'admin.module.isInstall'|trans() }}</th>
+                    <td><span class="badge text-bg-danger">Non</span></td>
+                </tr>
+            {% endif %}
+            {% if module.url is defined %}
+            <tr>
+                <th>{{ 'admin.module.url'|trans() }}</th>
+                <td><a href="{{ module.url }}">{{ module.url }}</a></td>
+            </tr>
+            {% else %}
+            <tr>
+                <th>{{ 'admin.module.url'|trans() }}</th>
+                <td><a href="{{ module.html_url }}">{{ module.html_url }}</a></td>
+            </tr>
+            {% endif %}
+            {% if module.created_at is defined %}
+            <tr>
+                <th>{{ 'admin.module.createdAt'|trans() }}</th>
+                <td>{{ module.created_at|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <th>{{ 'admin.module.createdAt'|trans() }}</th>
+                <td>{{ module.createdAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            {% endif %}
+            {% if module.updated_at is defined %}
+            <tr>
+                <th>{{ 'admin.module.updateAt'|trans() }}</th>
+                <td>{{ module.updated_at|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <th>{{ 'admin.module.updateAt'|trans() }}</th>
+                <td>{{ module.updateAt|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <div class="d-flex justify-content-md-between flex-md-row flex-column gap-3">
+        <a class="btn btn-secondary" href="{{ path('app_module_admin') }}">
+            {{ 'admin.module.back_to_list'|trans() }}
+        </a>
+        <a class="btn btn-primary" href="{{ path('app_module_admin_install', {'idGithub': idModule}) }}">
+            {{ 'admin.module.install'|trans() }}
+        </a>
+        <a class="btn btn-danger" href="{{ path('app_module_admin_uninstall', {'idGithub': idModule}) }}">
+            {{ 'admin.module.uninstall'|trans() }}
+        </a>
+        <a class="btn btn-warning" href="{{ path('app_module_admin_update', {'idGithub': idModule}) }}">
+            {{ 'admin.module.update'|trans() }}
+        </a>
+    </div>
+</div>
+{% endblock %}

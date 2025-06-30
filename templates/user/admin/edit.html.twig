@@ -1,0 +1,18 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain 'user' %}
+{% block title %}{{ parent() }} - {{ 'admin.edited.user'|trans }}{% endblock %}
+{% set menuActive = 'user' %}
+{% block body %}
+    <h1>{{ 'admin.edited.user'|trans }}</h1>
+    <div class="shadow bg-white p-2 rounded w-50">
+        <div class="float-end">{{ include('user/admin/_delete_form.html.twig') }}</div>
+        <div class="mt-5">
+            {{ include('/user/admin/_form.html.twig', {'button_label': 'admin.updated'|trans}) }}
+        </div>
+        <div><a class="btn btn-info text-white" href="{{ path('app_user_adm_index') }}"><i
+                        class="bi bi-arrow-counterclockwise"></i> {{ 'admin.BackToListUser'|trans }}</a>
+        </div>
+
+
+    </div>
+{% endblock %}

@@ -1,0 +1,69 @@
+<!-- Meta -->
+
+<meta name="keywords" content="{{ global.site.keywords }}">
+<meta name="application-name" content="{{ global.site.name }}">
+<meta name="referrer" content="always">
+<meta name="mobile-web-app-capable" content="yes">
+<!-- Canonical -->
+<link rel="canonical" href="{{ global.site.url }}">
+<meta name="author" content="{{ global.propriety.name }}">
+<meta name="publisher" content="{{ global.propriety.name }}">
+<meta name="language" content="fr">
+<meta name="distribution" content="global">
+<meta name="sitemap" content="{{ absolute_url('sitemap.xml') }}">
+<!-- Open Graph -->
+<!-- Facebook -->
+<meta property="og:title" content="{{ global.site.name }} | {{ global.site.title }}"> <meta property="og:description" content="{{ global.site.description }}">
+<meta property="og:image" content="{{ absolute_url(asset(global.site.logo)) }}">
+<meta property="og:url" content="{{ global.site.url }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{{ global.site.name }}">
+<meta
+property="og:locale" content="fr_FR">
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@JJeanniard">
+<meta name="twitter:title" content="{{ global.site.title }}">
+<meta name="twitter:description" content="{{ global.site.description }}">
+<meta name="twitter:image" content="{{ absolute_url(asset(global.site.logo)) }}">
+<meta name="twitter:url" content="{{ global.site.url }}">
+<meta
+name="twitter:creator" content="@JJeanniard">
+<!-- Android -->
+<meta name="theme-color" content="#ffffff">
+<link rel="manifest" href="{{ absolute_url(asset('/manifest.json')) }}">
+<link rel="mask-icon" href="{{ absolute_url(asset(global.site.logo)) }}" color="#5bbad5">
+<link rel="shortcut icon" href="{{ absolute_url(asset(global.site.logo)) }}">
+
+<link rel="preconnect" href="https://www.google-analytics.com">
+<link
+rel="preconnect" href="https://cdn.jsdelivr.net">
+
+<!-- Google tag (gtag.js) -->
+<script defer src="https://www.googletagmanager.com/gtag/js?id={{ gtag }}"></script>
+<script defer>
+	// Google Tag Manager
+(function (w, d, s, l, i) {
+w[l] = w[l] || []
+w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js'})
+var f = d.getElementsByTagName(s)[0],
+j = d.createElement(s),
+dl = l != 'dataLayer' ? '&l=' + l : ''
+j.async = true
+j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+f.parentNode.insertBefore(j, f)
+})(window, document, 'script', 'dataLayer', '{{ gtm }}')
+</script>
+{% if has_user_consent() %}
+	<script defer>
+		window.dataLayer = window.dataLayer || []
+
+function gtag() {
+dataLayer.push(arguments)
+}
+
+gtag('js', new Date())
+
+gtag('config', '{{ gtag }}', {'debug_mode': false})
+	</script>
+{% endif %}

@@ -1,0 +1,37 @@
+{
+    "symfony": {
+        "tools": ["symfony-cli", "phpunit", "phpstan", "phpcs"],
+        "description": "Outils pour le développement Symfony, incluant CLI, tests et analyse de code.",
+        "icon": "symfony"
+    },
+    "docker": {
+        "tools": ["docker-compose", "docker"],
+        "description": "Outils pour la gestion des conteneurs Docker et des services associés.",
+        "icon": "docker"
+    },
+    "crm-development": {
+        "tools": ["symfony-cli", "phpunit", "phpstan", "phpcs", "knp-paginator"],
+        "description": "Outils pour le développement CRM, incluant gestion des entités, services et tests.",
+        "icon": "crm"
+    },
+    "frontend": {
+        "tools": ["npm", "webpack-encore", "bootstrap"],
+        "description": "Outils pour le développement frontend, incluant gestion des assets et styles.",
+        "icon": "frontend"
+    },
+    "deployment": {
+        "tools": ["github-actions", "ovh-webhooks"],
+        "description": "Outils pour le déploiement CI/CD vers OVH.",
+        "icon": "deployment"
+    },
+    "testing": {
+        "tools": ["phpunit", "mockery", "doctrine-fixtures"],
+        "description": "Outils pour les tests unitaires, fonctionnels et d'intégration.",
+        "icon": "testing"
+    },
+    "mcp": {
+        "tools": ["mcp-cli", "mcp-server", "mcp-docker"],
+        "description": "Outils pour la gestion des serveurs MCP locaux et en ligne, incluant CLI et Docker.",
+        "icon": "mcp"
+    }
+}

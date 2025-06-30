@@ -1,0 +1,10 @@
+calendar:
+    admin:
+        action: Action(s)
+        date: Date
+        description: Description
+        end: Fin
+        name: Nom
+        start: Début
+        title:
+            menu: 'Calendrier'

@@ -1,0 +1,50 @@
+login:
+    title: "Page de connexion"
+    second-title: "Veuillez vous connecter"
+    email-placeholder: "Votre adresse e-mail"
+    password: "Mot de passe"
+    password-placeholder: "Votre mot de passe"
+    username-placeholder: "Votre nom d'utilisateur"
+    password-forgot: "Mot de passe oublié ?"
+    remember: "Se souvenir de moi ?"
+    button: "Connexion"
+    compte: "Créer un compte?"
+    compte-btn: "S'enregistrer"
+    reset-password:
+        title: "Réinitialiser le mot de passe"
+        title-page: "Réinitialiser votre mot de passe"
+        btn: "Réinitialiser"
+        message: "Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe."
+        send-btn: "Envoyer"
+
+return:
+    home: "Retourner à l'accueil "
+
+register:
+    title: "Créer un compte"
+    title-page: "Créer un compte"
+    email-placeholder: "Votre adresse e-mail"
+    password: "Mot de passe"
+    password-placeholder: "Votre mot de passe"
+    password-confirm: "Confirmer le mot de passe"
+    password-confirm-placeholder: "Confirmez votre mot de passe"
+    button: "Créer un compte"
+    compte: "Déjà inscrit?"
+    message: "Vous avez déjà un compte? Connectez-vous."
+    username: "Nom d'utilisateur"
+    subject: "Confirmer votre email"
+    error:
+        open_register: "L'enregistrement est temporairement suspendu."
+
+resetPass:
+    title: "E-mail de réinitialisation du mot de passe envoyé"
+    message_1: "Si un compte correspondant à votre e-mail existe, un e-mail vient d'être envoyé contenant un lien que vous pouvez utiliser pour réinitialiser votre mot de passe."
+    message_2: "Ce lien expirera dans"
+    message_3: "Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou"
+    message_4: "réessayer"
+    newPass: "Nouveau mot de passe"
+    repeatPass: "Confirmer le mot de passe"
+    subject: "E-mail de réinitialisation du mot de passe"
+
+Email: "Adresse email"
+Agree terms: "J'accepte les conditions d'utilisation"

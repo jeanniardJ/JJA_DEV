@@ -1,0 +1,27 @@
+{% trans_default_domain 'login' %}
+{% extends './login_base.html.twig' %}
+
+{% block title %}{{ 'login.reset-password.title'|trans }}{% endblock %}
+
+{% block body %}
+    <section class="vh-100">
+        <div class="container-fluid d-flex justify-content-center align-items-center h-100">
+            <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <h1>{{ 'login.reset-password.title-page'|trans }}</h1>
+
+                    {{ form_start(resetForm) }}
+                    <div class="mb-3">
+                        {{ form_row(resetForm.plainPassword.first) }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form_row(resetForm.plainPassword.second) }}
+                    </div>
+                    <button class="btn btn-primary">{{ 'login.reset-password.btn'|trans }}</button>
+                    {{ form_end(resetForm) }}
+
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

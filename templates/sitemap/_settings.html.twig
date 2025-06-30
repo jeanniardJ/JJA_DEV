@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain('sitemap') %}
+{% block title %}
+Plan du site
+{% endblock %}
+{% block description_page %}
+{% trans %}Découvrez la structure complète de notre site et naviguez facilement entre les différentes pages et sections.{% endtrans %}
+{% endblock %}
+{% block stylesheets %}
+    {{parent()}}
+    {{ encore_entry_link_tags('sitemap') }}
+{% endblock %}

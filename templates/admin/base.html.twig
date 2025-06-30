@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr" data-bs-theme="light">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex, nofollow">
+        <title>
+            {% block title %}
+                {{ 'admin.title'|trans({}, 'admin') }}
+            {% endblock %}
+        </title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('admin') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('admin') }}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="d-flex flex-column flex-md-row">
+            {# menu general #}
+            <div id="menuOffcan" class="offcanvas-md offcanvas-start" tabindex="-1">{{ include('admin/nav.html.twig') }}</div>
+            {# end menu #}
+            <div class="col-md col-sm-12">
+                <div class="d-flex flex-column min-vh-100 bg-body">
+                    <nav id="navbar-top" class="col-12 shadow bg-light navbar navbar-light navbar-expand-lg">
+                        <div class="container-fluid">
+                            <!-- Bouton pour ouvrir le menu -->
+                            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuOffcan" aria-controls="menuOffcan">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <a class="navbar-brand" href="{{ path('app_home') }}">{{'admin.return.site'|trans({}, 'admin')}}</a>
+                            <!-- Bouton pour changer de thème -->
+                            <div id="dark-mode-switch" {{ react_component('DarkModeSwitch') }}>
+                                Loading...
+                                <i class="fas fa-cog fa-spin fa-3x"></i>
+                            </div>
+                        </div>
+                    </nav>
+                    <div class="col-12 d-flex flex-column flex-grow-1 pb-5">
+                        <main class="container-fluid">
+                            <div class="d-flex justify-content-between align-items-center mt-3">
+                                <div><h2>{% block subTitle %}{% endblock %}</h2></div>
+                                {% if breadCrumbs is defined %}
+                                <div class="my-auto pe-3">
+                                    {{ component('BreadCrumb', {breadCrumbs: breadCrumbs})}}
+                                </div>
+                                {% endif %}
+                            </div>
+                            {% block body %}{% endblock %}
+                        </main>
+                    </div>
+                    <footer class="col-12 bg-light">
+                        <p class="m-0 p-2">&copy; {{ "now"|date('Y') }}{{ name_develop }} - Tous droits
+                            réservés
+                        </p>
+                    </footer>
+                </div>
+            </div>
+        </div>
+        {{ include('_layouts/_messagesPopup.html.twig') }}
+        </body>
+    </html>

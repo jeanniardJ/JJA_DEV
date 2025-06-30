@@ -1,0 +1,54 @@
+{
+    "name": "Jja Dev",
+    "short_name": "Jja Dev",
+    "id": "/?homescreen=1",
+    "start_url": "/?homescreen=1",
+    "display": "standalone",
+    "icons": [
+        {
+            "src": "build/images/logo_jjadev.png",
+            "type": "image/png",
+            "sizes": "500x500"
+        },
+        {
+            "src": "build/images/logo_jjadev_512x512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        },
+        {
+            "src": "build/images/maskable_icon.png",
+            "type": "image/png",
+            "sizes": "47x47",
+            "purpose": "maskable"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "build/images/Capture.png",
+            "type": "image/png",
+            "sizes": "877x995",
+            "label": "Jja Dev"
+        },
+        {
+            "src": "build/images/Capture.png",
+            "type": "image/png",
+            "sizes": "877x995",
+            "label": "Jja Dev",
+            "form_factor": "wide"
+        }
+    ],
+    "background_color": "#6f4a8e",
+    "scope": "/",
+    "theme_color": "#6f4a8e",
+    "description": "Jja Dev is a web development company that specializes in creating web applications and websites for small businesses and startups.",
+    "form_factor": "handheld, tablet, desktop",
+    "form_factor_description": "This web app can be installed on any device, regardless of form factor or screen size.",
+    "orientation": "portrait",
+    "prefer_related_applications": false,
+    "related_applications": [],
+    "serviceworker": {
+        "src": "build/service-worker.js",
+        "scope": "/",
+        "use_cache": "true"
+    }
+}

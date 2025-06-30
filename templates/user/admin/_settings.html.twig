@@ -1,0 +1,9 @@
+{% extends "admin/base.html.twig" %}
+{% trans_default_domain 'user' %}
+{% block title %}{{ parent() }} - {{ 'admin.user'|trans() }}{% endblock %}
+{% block subTitle %}{{ 'admin.user'|trans() }}{% endblock %}
+{% set menuActive = 'user' %}
+{% set breadCrumbs = [
+    {'name': 'admin.title'|trans({}, 'admin'), 'url': 'app_adm_accueil'},
+    {'name': 'admin.user'|trans(), 'url': 'app_adm_user'},
+] %}

@@ -1,0 +1,35 @@
+Email: Email
+Password: Password
+Agree terms: I agree to the terms and conditions
+Return:
+    home: Return to home
+maintenance:
+    construction:
+        title: Site is under construction
+        message: We are working on the site. Please come back later.
+    maintenance:
+        title: Site is under maintenance
+        message: We are working on the site. Please come back later.
+error:
+    not_found:
+        title: Page not found
+        message: The requested page couldn't be located. Checkout for any URL misspelling.
+    essential_service:
+        title: Internal error
+        message: An internal error has occurred.
+
+    default:
+        title: Error
+        message: An error has occurred.
+        forbidden: # 403
+            title: Access denied
+            message: You do not have access rights to this page.
+        unauthorized: # 401  # Unauthorized
+            title: Not authenticated"
+            message: You are not authenticated.
+        not_allowed: # 405
+            title: Method not allowed
+            message: The HTTP method you are using is not allowed.
+        not_acceptable: # 406   # Not Acceptable
+            title: Format not accepted
+            message: The format you use is not accepted.

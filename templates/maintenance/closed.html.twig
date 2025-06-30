@@ -1,0 +1,30 @@
+{% extends './maintenance/base.html.twig' %}
+{% trans_default_domain 'maintenance' %}
+{% block title %}
+    {{ 'maintenance.closed.title'|trans }}
+{% endblock %}
+
+
+{% block body %}
+<main class="h-100">
+    <section class="information vh-100">
+        <div class="container-fluid d-flex justify-content-center align-items-center h-100">
+            <div class="bg-light p-5 rounded shadow">
+                <div class="d-flex justify-content-center align-items-center">
+                    <div class="me-5">
+                        <h1>{{ 'maintenance.closed.title'|trans }}</h1>
+                        <p>{{ 'maintenance.closed.message'|trans }}</p>
+                    </div>
+                    <i class="fas fa-tools fa-10x"></i>
+                </div>
+                <!-- closed message -->
+                <div class="mt-5 bg-white p-5 shadow rounded" id="info_contact">
+                    <p><strong><a class="link-dark" href="http://jja-dev.fr">JJA Dev</a></strong> est fermé.</p>
+                    <a href="mailto:contact@jja-dev.fr">contact@jja-dev.fr</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

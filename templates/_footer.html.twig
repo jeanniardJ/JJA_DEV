@@ -1,0 +1,96 @@
+<footer class="footer">
+    <div class="footer__content container">
+        <div class="row gy-4">
+            <div class="col-12 col-md-4 col-lg-3">
+                <h4 class="footer__title">Informations</h4>
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item">
+                        <a href="{{ path('app_sitemap_index') }}" class="footer__link" title="Plan du site">Plan du
+                            site</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="{{ path('app_legalnotice_index') }}" class="footer__link"
+                            title="Mentions légales">Mentions légales</a>
+                    </li>
+                    <li class="footer-nav__item">
+                        <a href="{{ path('app_privacypolicy_index') }}" class="footer__link"
+                            title="Politique de confidentialité">Politique de confidentialité</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 col-lg-3">
+                <h4 class="footer__title">Navigation</h4>
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item"><a href="{{ path('app_home') }}" class="footer__link"
+                            title="Accueil">Accueil</a></li>
+                    <li class="footer-nav__item"><a href="{{ url('app_home') ~ '#about' }}" class="footer__link"
+                            title="À propos">À propos</a></li>
+                    <li class="footer-nav__item"><a href="https://github.com/jeanniardJ" class="footer__link"
+                            target="_blank" rel="noopener" title="GitHub">GitHub</a></li>
+                    <li class="footer-nav__item"><a href="{{ path('app_contact') }}" class="footer__link"
+                            title="Contact">Contact</a></li>
+                    <li class="footer-nav__item"><a href="{{ path('app_adm_accueil') }}" class="footer__link"
+                            title="Administration">Administration</a></li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-4 col-lg-4 offset-lg-1">
+                <h4 class="footer__title">Contact</h4>
+                <ul class="footer-nav__list">
+                    <li class="footer-nav__item">
+                        <a href="mailto:{{ global.propriety.email }}" class="footer__link" title="Mail de contact">
+                            <i class="bi bi-envelope-at-fill me-1" aria-hidden="true"></i> {{ global.propriety.email }}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom d-flex flex-column flex-md-row align-items-center justify-content-between mt-4 pt-4">
+            <p class="footer__copyright mb-2 mb-md-0">&copy; {{ "now"|date('Y') }} {{ name_develop }} - Tous droits
+                réservés</p>
+            <ul class="footer__social list-unstyled d-flex mb-0">
+                {% for key, social in global.social %}
+                {% if social is not null %}
+                <li>
+                    {% if key == 'TwitterUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Twitter" title="Twitter"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-twitter" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'LinkedinUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Linkedin" title="Linkedin"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-linkedin" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'FacebookUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Facebook" title="Facebook"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-facebook" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'InstagramUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Instagram" title="Instagram"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-instagram" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'YoutubeUrl' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Youtube" title="Youtube"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-youtube" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                    {% if key == 'WhatsappPhone' %}
+                    <a href="{{ social }}" class="footer__social-link" aria-label="Whatsapp" title="Whatsapp"
+                        target="_blank" rel="noopener">
+                        <i class="bi bi-whatsapp" aria-hidden="true"></i>
+                    </a>
+                    {% endif %}
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</footer>

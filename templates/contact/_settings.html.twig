@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+{% trans_default_domain('contact') %}
+{% block stylesheets %}
+    {{ parent() }}
+    {{ encore_entry_link_tags('contact') }}
+{% endblock %}
+{% block title %}{{ 'contact.title'|trans }}{% endblock %}
+{% block description_page %}Contactez-moi pour toute question ou information supplémentaire. Je suis prêt à vous aider et à répondre à vos demandes dans les plus brefs délais. Votre satisfaction est ma priorité.{% endblock %}

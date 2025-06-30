@@ -1,0 +1,16 @@
+prospect:
+    admin:
+        action: Action(s)
+        address: Adresse
+        city: Ville
+        company: Société
+        country: Pays
+        date: Date
+        description: Description
+        email: Email
+        end: Fin
+        name: Nom
+        phone: Téléphone
+        start: Début
+        title:
+            menu: 'Prospects'

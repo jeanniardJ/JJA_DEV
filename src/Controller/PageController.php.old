@@ -1,0 +1,23 @@
+<?php
+
+namespace App\Controller;
+
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Cmf\Component\Routing\RouteObjectInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Annotation\Route;
+
+class PageController extends AbstractController
+{
+    #[Route('/{slug}', name: 'app_page_show')]
+    public function show(Request $request): Response
+    {
+        $route = $request->attributes->get(RouteObjectInterface::ROUTE_OBJECT);
+        $page = $route->getPage();
+
+        return $this->render('page/index.html.twig', [
+            'page' => $page,
+        ]);
+    }
+}

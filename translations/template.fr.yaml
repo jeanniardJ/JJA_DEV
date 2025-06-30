@@ -1,0 +1,23 @@
+admin:
+    template:
+        title: 'Gestion du template'
+        home: 'Accueil du template'
+        description: 'Gestion du template'
+        return_home: Retour à l'accueil
+        save: 'Enregistrer'
+        success: 'Les paramétres a été enregistré avec succès'
+        error: Une erreur est survenue lors de l'enregistrement des paramétres
+        presentation:
+            fields: 'Présentation'
+            title: 'Titre de la présentation'
+            description: 'Présentation du template'
+        descrOfSite:
+            fields: 'Description'
+            title: 'Titre de la description'
+            description: 'Description du template'
+        service:
+            fields: 'Services'
+            title: 'Titre du service'
+            description: 'Services du service'
+            price: 'Prix du service'
+            icon: 'Icône'

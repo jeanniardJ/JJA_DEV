@@ -1,0 +1,29 @@
+$dark-mode-colors: (
+        'white': 'dark',
+        'light': 'secondary',
+  // ... ajoutez d'autres correspondances si nécessaire
+);
+
+body, a, button, input, select, textarea {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: aliceblue;
+}
+
+footer {
+  height: 40px;
+}
+
+@include color-mode(dark) {
+  @each $color, $dark-color in $dark-mode-colors {
+    .bg-#{$color} {
+      background-color: map-get($theme-colors, $dark-color) !important;
+    }
+    // Si vous souhaitez également ajuster les couleurs de texte, ajoutez :
+    /*.text-#{$color} {
+      color: map-get($theme-colors, $dark-color) !important;
+    }*/
+  }
+}

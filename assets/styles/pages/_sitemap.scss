@@ -1,0 +1,57 @@
+@import '../../../assets/styles/base/variables';
+/**
+* Plan du site
+*/
+#sitemap {
+    background-color: $color-bg-layout;
+    padding: 80px 0;
+
+    #sitemap-bg {
+        background-color: $white;
+        padding: 1em;
+        border-radius: 5px;
+    }
+
+    .section-title {
+        h2 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 50px;
+            border-bottom: 3px solid $orange;
+        }
+    }
+
+    .section-subtitle {
+        font-size: 24px;
+        color: #666;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .list-group {
+        margin-bottom: 30px;
+    }
+
+    .list-group-item {
+        background-color: $white;
+        border: none;
+        border-radius: 0;
+        padding: 20px;
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .list-group-item:hover {
+        background-color: #f8f9fa;
+        color: #007bff;
+    }
+
+    .list-group-item.active {
+        background-color: #007bff;
+        color: $white;
+    }
+}

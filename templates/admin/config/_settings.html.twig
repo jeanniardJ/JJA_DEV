@@ -1,0 +1,25 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain('admin') %}
+{% set menuActive = 'config' %}
+{% set subMenuActive ='general' %}
+{% set breadCrumbs = [
+    {'name': 'admin.title'|trans({}, 'admin'), 'url': 'app_adm_accueil'},
+    {'name': 'admin.settings.general'|trans({}, 'admin'), 'url': 'app_adm_config'},
+] %}
+{% set navTabsconfig = {
+    'general':{
+        'id': 'general',
+        'name': 'admin.settings.general'|trans(),
+        'route': path('app_config_adm_index')
+    },
+    'propriete':{
+        'id': 'propriete',
+        'name': 'admin.settings.propriete'|trans(),
+        'route': path('app_config_adm_propriety')
+    },
+    'social':{
+        'id': 'social',
+        'name': 'admin.settings.social'|trans(),
+        'route': path('app_config_adm_social')
+    },
+} %}

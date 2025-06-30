@@ -1,0 +1,42 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain "admin" %}
+{% block title %}Prospect{% endblock %}
+{% set menuActive = "prospect" %}
+{% block body %}
+    <h1>Prospect</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ prospect.id }}</td>
+        </tr>
+        <tr>
+            <th>Firstname</th>
+            <td>{{ prospect.firstname }}</td>
+        </tr>
+        <tr>
+            <th>Lastname</th>
+            <td>{{ prospect.lastname }}</td>
+        </tr>
+        <tr>
+            <th>Position</th>
+            <td>{{ prospect.position }}</td>
+        </tr>
+        <tr>
+            <th>Location</th>
+            <td>{{ prospect.location }}</td>
+        </tr>
+        <tr>
+            <th>Website</th>
+            <td>{{ prospect.website }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_prospect_adm_index') }}">back to list</a>
+
+    <a href="{{ path('app_prospect_adm_edit', {'id': prospect.id}) }}">edit</a>
+
+    {{ include('prospect/admin/_delete_form.html.twig') }}
+{% endblock %}

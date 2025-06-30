@@ -1,0 +1,76 @@
+{% set perm = is_granted('ROLE_DEV') %}
+
+<nav class="bg-dark border-end shadow-lg h-100" {{ react_component('Nav', {
+    'admin': {
+        'path': path('app_adm_accueil'),
+        'icon': 'bi bi-tools',
+        'trans': {
+            'title': 'admin.title'|trans({}, 'admin'),
+            'home': 'admin.home'|trans({}, 'admin'),
+        }
+    },
+    'dashboard': {
+        'icon': 'bi bi-house',
+    },
+    'user': {
+        'path': path('app_user_adm_index'),
+        'icon': 'bi bi-users',
+        'trans': {
+            'title': 'admin.user'|trans({}, 'user'),
+        }
+    },
+    'contact': {
+        'path': path('app_contact_adm_index'),
+        'icon': 'bi bi-envelope',
+        'trans': {
+            'title': 'admin.title'|trans({}, 'contact'),
+        }
+    },
+    'setting': {
+        'icon': 'bi bi-gear',
+        'trans': {
+            'title': 'admin.settings.title'|trans({}, 'admin'),
+        }
+    },
+    'settings': {
+        'general': {
+            'name': 'general',
+            'path': path('app_config_adm_index'),
+            'icon': 'bi bi-gear',
+            'isGranted': true,
+            'trans': {
+                'title': 'admin.settings.general'|trans({}, 'admin'),
+            }
+        },
+        'template': {
+            'name': 'template',
+            'path': path('app_config_template_admin'),
+            'icon': 'bi bi-file-earmark-code',
+            'isGranted': true,
+            'trans': {
+                'title': 'admin.template.title'|trans({}, 'template'),
+            }
+        },
+        'module': {
+            'name': 'module',
+            'path': path('app_module_admin'),
+            'icon': 'bi bi-puzzle',
+            'isGranted': perm,
+            'trans': {
+                'title': 'admin.module.params.title'|trans({}, 'module'),
+            }
+        },
+    },
+    'module':{
+        'icon': 'bi bi-puzzle',
+        'trans': {
+            'title': 'admin.module.title'|trans({}, 'admin'),
+        }
+    },
+    'modules': {
+    },
+
+    'menuActive': menuActive,
+    'subMenuActive': subMenuActive|default(''),
+})}}>
+</nav>

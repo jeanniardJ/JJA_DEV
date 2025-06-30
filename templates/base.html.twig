@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+{% set title_page %}
+{% block title %}
+{{ global.site.title }}
+{% endblock %}
+{% endset %}
+
+{% set someAsLdJson %}
+{% for social in global.social %}
+"{{ social }}"{% if not loop.last %}, {% endif %}
+{% endfor %}
+{% endset %}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="{{ absolute_url(asset(global.site.logo)) }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <title>
+        {{ global.site.name }} | {{ title_page }}
+    </title>
+    <meta name="title" content="{{ global.site.name }} | {{ title_page }}" />
+    <meta name="description" content="{% block description_page %}{{ global.site.description }}{% endblock %}" />
+    <meta name="robots" content="index, follow" />
+    {{ include("_head.html.twig") }}
+    {{ jsonLd() | raw }}
+
+    {% block stylesheets %}
+    {{ encore_entry_link_tags("app") }}
+    {% endblock %}
+
+    {% block javascripts %}
+    {{ encore_entry_script_tags("app") }}
+    {% endblock %}
+
+    <link rel="preload" href="{{ asset('build/images/about.jpg') | imagine_filter('my_thumb_webp') }}" as="image" />
+    <link rel="preload" href="{{ asset('build/images/code.jpg') | imagine_filter('code_webp') }}" as="image" />
+</head>
+
+<body class="d-flex flex-column">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm }}" height="0" width="0"
+            style="display: none; visibility: hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <header>
+        <!-- Barre de navigation -->
+        {{ include("nav.html.twig") }}
+    </header>
+    <!-- Section principale -->
+    <main>{% block body %}{% endblock %}</main>
+    {{ include("_footer.html.twig") }}
+    {{ include("_layouts/_messagesPopup.html.twig") }}
+</body>
+
+</html>

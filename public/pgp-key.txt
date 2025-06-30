@@ -1,0 +1,21 @@
+-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: ID utilisateur:	jonathan jeanniard <jonathan@jja-dev.fr>
+Comment: Valide à partir de:	12/03/2024 10:13
+Comment: Valide jusqu'à:	12/03/2027 12:00
+Comment: Type:	255-bit EdDSA (certificat secret disponible)
+Comment: Utilisation:	Signature, Chiffrement, Certification des identifiants utilisateur
+Comment: Empreinte:	D15838B7DF2886D31966DBA618BD4F692003794B
+
+
+mDMEZfAcwBYJKwYBBAHaRw8BAQdAzuQXNM+v5+bONXIuLyKXJ3Ck773lAYY29Ie7
+ROOJdqi0KGpvbmF0aGFuIGplYW5uaWFyZCA8am9uYXRoYW5AamphLWRldi5mcj6I
+mQQTFgoAQRYhBNFYOLffKIbTGWbbphi9T2kgA3lLBQJl8BzAAhsDBQkFo7NwBQsJ
+CAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEBi9T2kgA3lLNO0A/Ax9ZJ7iNIpo
+JUA6b3NHzwhZb3DRW8d67uThO2OVKco+AQC4nfjLNoIJf1WQI/D+7FMCleWW/dr6
+qLdAYpEyXKAhCbg4BGXwHMASCisGAQQBl1UBBQEBB0BQ/c/OpuJ3sU8zEv+xmZ0G
+l8RZiXP0ZEQe1JT2NhG7BgMBCAeIfgQYFgoAJhYhBNFYOLffKIbTGWbbphi9T2kg
+A3lLBQJl8BzAAhsMBQkFo7NwAAoJEBi9T2kgA3lL/OMBAO37QigpsEgMqzjFCS4p
+Wp5of+dqVJ6aywsG/mxTozw6AP47SY2LWOxJ5l+1SgwnraSovSzuWsdXxKmKy+xx
+SGEFBQ==
+=S1s8
+-----END PGP PUBLIC KEY BLOCK-----

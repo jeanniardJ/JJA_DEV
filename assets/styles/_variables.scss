@@ -1,0 +1,213 @@
+// Variables Bootstrap Surcharge JJA_DEV
+// Importé AVANT Bootstrap pour surcharger les valeurs par défaut
+
+// ===========================
+// NOTE IMPORTANTE: TOUJOURS UTILISER REM/EM POUR LES TAILLES
+// ===========================
+// Toujours privilégier les unités rem/em pour les tailles de police,
+// espacements, marges et paddings afin d'assurer l'accessibilité
+// et la cohérence responsive du design. Éviter les pixels (px) sauf
+// pour les bordures et ombres où la précision est critique.
+
+// ===========================
+// PALETTE DE COULEURS JJA_DEV
+// ===========================
+
+$jja-white: #ffffff !default;
+$jja-teal-light: #8fccbd !default;
+$jja-teal-primary: #306959 !default;
+$jja-gray-light: #e5e8eb !default;
+$jja-gray-medium: #9ca3af !default;
+$jja-dark-primary: #0f241f !default;
+$jja-dark-secondary: #17332e !default;
+$jja-dark-tertiary: #214a40 !default;
+
+// Variables fonctionnelles JJA_DEV
+$jja-text-primary: $jja-dark-primary !default;
+$jja-text-secondary: $jja-dark-secondary !default;
+
+// Dégradés
+$jja-gradient-primary: linear-gradient(
+    135deg,
+    $jja-dark-primary 0%,
+    $jja-dark-secondary 25%,
+    $jja-dark-tertiary 50%,
+    $jja-teal-primary 75%,
+    $jja-teal-light 100%
+) !default;
+$jja-gradient-hero: linear-gradient(
+    135deg,
+    $jja-dark-primary 0%,
+    $jja-dark-secondary 30%,
+    $jja-dark-tertiary 60%,
+    $jja-teal-primary 80%,
+    $jja-teal-light 100%
+) !default;
+
+// Ombres
+$jja-shadow-sm: 0 1px 2px 0 rgba($jja-dark-primary, 0.05) !default;
+$jja-shadow-md: 0 4px 6px -1px rgba($jja-dark-primary, 0.1), 0 2px 4px -2px rgba($jja-dark-primary, 0.1) !default;
+$jja-shadow-lg: 0 10px 15px -3px rgba($jja-dark-primary, 0.1), 0 4px 6px -4px rgba($jja-dark-primary, 0.1) !default;
+
+// Transitions et animations
+$jja-transition-base: all 0.3s ease !default;
+$jja-transition-fast: all 0.15s ease !default;
+$jja-transition-slow: all 0.6s ease !default;
+
+// Espacements
+$jja-section-padding: 5rem !default;
+$jja-section-padding-sm: 3rem !default;
+
+// Border radius
+$jja-border-radius: 0.5rem !default;
+$jja-border-radius-lg: 1rem !default;
+$jja-border-radius-xl: 1.5rem !default;
+
+// Z-index
+$jja-zindex-navbar: 1030 !default;
+$jja-zindex-modal: 1050 !default;
+$jja-zindex-tooltip: 1070 !default;
+
+// ===========================
+// SURCHARGE VARIABLES BOOTSTRAP
+// ===========================
+
+// Couleurs principales Bootstrap
+$primary: $jja-teal-primary !default;
+$secondary: $jja-teal-light !default;
+$success: $jja-teal-primary !default;
+$info: $jja-teal-light !default;
+$warning: #f59e0b !default; // Garde une couleur warning distincte
+$danger: #ef4444 !default; // Garde une couleur danger distincte
+$light: $jja-gray-light !default;
+$dark: $jja-dark-primary !default;
+
+// Couleurs de texte
+$body-color: $jja-text-primary !default;
+$text-primary: $jja-text-primary !default;
+$text-secondary: $jja-text-secondary !default;
+
+// Couleurs de lien
+$link-color: $jja-teal-primary !default;
+$link-hover-color: $jja-dark-tertiary !default;
+
+// Variables de background
+$body-bg: $jja-white !default;
+
+// Variables de border
+$border-color: $jja-gray-light !default;
+$border-radius: $jja-border-radius !default;
+$border-radius-lg: $jja-border-radius-lg !default;
+
+// Variables de navbar
+$navbar-padding-y: 1rem !default;
+$navbar-brand-font-size: 1.5rem !default;
+$navbar-nav-link-padding-x: 1rem !default;
+
+// Variables de boutons
+$btn-border-radius: $jja-border-radius !default;
+$btn-border-radius-lg: $jja-border-radius-lg !default;
+$btn-padding-y: 0.75rem !default;
+$btn-padding-x: 1.5rem !default;
+$btn-font-weight: 600 !default;
+
+// Variables de cards
+$card-border-radius: $jja-border-radius-lg !default;
+$card-border-color: $jja-teal-primary !default;
+$card-bg: $jja-dark-tertiary !default;
+$card-box-shadow: $jja-shadow-sm !default;
+
+// Variables de form
+$input-border-radius: $jja-border-radius !default;
+$input-border-color: $jja-gray-light !default;
+$input-focus-border-color: $jja-teal-primary !default;
+
+// Variables de transition
+$transition-base: $jja-transition-base !default;
+
+// Variables d'ombres
+$box-shadow-sm: $jja-shadow-sm !default;
+$box-shadow: $jja-shadow-md !default;
+$box-shadow-lg: $jja-shadow-lg !default;
+$body-color: $jja-dark-primary !default;
+$text-muted: $jja-dark-secondary !default;
+$headings-color: $jja-dark-primary !default;
+
+// Couleurs de fond
+$body-bg: $jja-white !default;
+$border-color: $jja-gray-light !default;
+
+// Variables de thème
+$theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+    "light": $light,
+    "dark": $dark,
+    "jja-primary": $jja-teal-primary,
+    "jja-secondary": $jja-teal-light,
+    "jja-dark": $jja-dark-primary,
+    "light-custom": $jja-gray-light,
+    "dark-custom": $jja-dark-primary,
+    "primary-custom": $jja-teal-primary,
+) !default;
+
+// ===========================
+// VARIABLES COMPOSANTS
+// ===========================
+
+// Navigation
+$navbar-light-color: $jja-dark-primary !default;
+$navbar-light-hover-color: $jja-teal-primary !default;
+$navbar-light-active-color: $jja-teal-primary !default;
+$navbar-light-brand-color: $jja-teal-primary !default;
+$navbar-light-brand-hover-color: $jja-dark-tertiary !default;
+
+// Boutons
+$btn-border-radius: 0.5rem !default;
+$btn-border-radius-sm: 0.375rem !default;
+$btn-border-radius-lg: 0.625rem !default;
+
+// Cartes
+$card-border-radius: 0.75rem !default;
+$card-border-color: $jja-gray-light !default;
+$card-cap-bg: rgba($jja-teal-light, 0.1) !default;
+
+// Formulaires
+$input-border-color: $jja-gray-light !default;
+$input-focus-border-color: $jja-teal-primary !default;
+$input-focus-box-shadow: 0 0 0 0.2rem rgba($jja-teal-primary, 0.25) !default;
+
+// ===========================
+// VARIABLES PERSONNALISÉES JJA_DEV
+// ===========================
+
+// Dégradés
+$jja-gradient-primary: linear-gradient(135deg, $jja-teal-primary 0%, $jja-dark-tertiary 100%);
+$jja-gradient-hero: linear-gradient(
+    135deg,
+    $jja-dark-primary 0%,
+    $jja-dark-secondary 30%,
+    $jja-dark-tertiary 60%,
+    $jja-teal-primary 80%,
+    $jja-teal-light 100%
+);
+$jja-gradient-accent: linear-gradient(90deg, $jja-teal-light 0%, $jja-teal-primary 100%);
+
+// Ombres personnalisées
+$jja-shadow-sm: 0 1px 2px 0 rgba($jja-dark-primary, 0.05);
+$jja-shadow-md: 0 4px 6px -1px rgba($jja-dark-primary, 0.1), 0 2px 4px -2px rgba($jja-dark-primary, 0.1);
+$jja-shadow-lg: 0 10px 15px -3px rgba($jja-dark-primary, 0.1), 0 4px 6px -4px rgba($jja-dark-primary, 0.1);
+
+// Transitions
+$jja-transition-base: all 0.3s ease;
+$jja-transition-fast: all 0.15s ease;
+$jja-transition-slow: all 0.5s ease;
+
+// Z-index
+$jja-zindex-navbar: 1030;
+$jja-zindex-dropdown: 1000;
+$jja-zindex-modal: 1050;

@@ -1,0 +1,131 @@
+{% extends "contact/_settings.html.twig" %}
+{% trans_default_domain('contact') %}
+
+{% block body %}
+<section id="contact" class="contact section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact__title section-title text-center mb-5">
+                    <h2 class="text-primary-custom">Contactez-moi</h2>
+                    <p class="contact__subtitle section-subtitle text-secondary-custom">
+                        Une question sur mes projets ou souhaitez-vous collaborer ? N'hésitez pas à me contacter !
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-8">
+                <div class="card card-custom contact__form">
+                    <div class="card-body p-5">
+                        {{ form_start(form, {'attr': {'class': 'needs-validation', 'novalidate': 'novalidate'}}) }}
+                        {{ form_errors(form) }}
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                {{ form_row(form.name, {'label_attr': {'class': 'form-label contact__label'} }) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.email, {'label_attr': {'class': 'form-label contact__label'} }) }}
+                            </div>
+                        </div>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                {{ form_row(form.phone, {'label_attr': {'class': 'form-label contact__label'} }) }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form_row(form.objet, {'label_attr': {'class': 'form-label contact__label'} }) }}
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            {{ form_row(form.sujet, {'label_attr': {'class': 'form-label contact__label'} }) }}
+                        </div>
+                        {{ form_rest(form) }}
+                        <div class="text-center mt-4">
+                            <button class="btn contact__btn btn-lg">
+                                <i class="bi bi-send me-2"></i>{{ button_label|default('Envoyer le message') }}
+                            </button>
+                        </div>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-custom contact__info">
+                    <div class="card-body p-4">
+                        <h4 class="card-title mb-4 text-primary-custom">Informations de contact</h4>
+                        <div class="contact-info mb-4">
+                            <div class="contact__item mb-3">
+                                <div class="contact__icon text-primary-custom">
+                                    <i class="bi bi-envelope"></i>
+                                </div>
+                                <div class="contact__details">
+                                    <h6 class="mb-1 text-dark-custom">Email</h6>
+                                    <a href="mailto:{{ global.propriety.email }}" class="text-muted">
+                                        {{ global.propriety.email }}
+                                    </a>
+                                </div>
+                            </div>
+                            {% if global.propriety.phone %}
+                            <div class="contact__item mb-3">
+                                <div class="contact__icon text-primary-custom">
+                                    <i class="bi bi-telephone"></i>
+                                </div>
+                                <div class="contact__details">
+                                    <h6 class="mb-1 text-dark-custom">Téléphone</h6>
+                                    <a href="tel:{{ global.propriety.phone }}" class="text-muted">
+                                        {{ global.propriety.phone|slice(0, 2) ~ '.' ~ global.propriety.phone|slice(2, 2)
+                                        ~ '.' ~ global.propriety.phone|slice(4, 2) ~ '.' ~
+                                        global.propriety.phone|slice(6, 2) ~ '.' ~ global.propriety.phone|slice(8, 2) }}
+                                    </a>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="contact__item mb-3">
+                                <div class="contact__icon text-accent-custom">
+                                    <i class="bi bi-github"></i>
+                                </div>
+                                <div class="contact__details">
+                                    <h6 class="mb-1 text-dark-custom">GitHub</h6>
+                                    <a href="https://github.com/jeanniardJ" target="_blank" class="text-muted">
+                                        jeanniardJ
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="availability__note">
+                            <div class="alert alert-info">
+                                <i class="bi bi-info-circle me-2"></i>
+                                <small>Je réponds généralement sous 24-48h. Pour les projets urgents, n'hésitez pas à le
+                                    préciser dans votre message.</small>
+                            </div>
+                        </div>
+                        {% if global.social is defined and global.social is not empty %}
+                        <div class="social__links">
+                            <h6 class="mb-3">Réseaux sociaux</h6>
+                            <div class="d-flex gap-3">
+                                {% for key, social in global.social %}
+                                {% if social is not null %}
+                                {% if key == 'FacebookUrl' %}
+                                <a href="{{ social }}" class="social__link" aria-label="Facebook" title="Page Facebook"
+                                    target="_blank">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                {% endif %}
+                                {% if key == 'WhatsappPhone' %}
+                                <a href="{{ social }}" class="social__link" aria-label="WhatsApp" title="WhatsApp"
+                                    target="_blank">
+                                    <i class="bi bi-whatsapp"></i>
+                                </a>
+                                {% endif %}
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

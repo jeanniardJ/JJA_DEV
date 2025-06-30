@@ -1,0 +1,31 @@
+{% extends './maintenance/base.html.twig' %}
+
+{% block title %}
+    {{ 'maintenance.construction.title' | trans }}
+{% endblock %}
+
+{% block body %}
+    <main class="h-100">
+        <section class="information vh-100">
+            <div class="container-fluid d-flex justify-content-center align-items-center h-100">
+                <div class="bg-light p-5 rounded shadow">
+                    <div class="d-flex justify-content-center align-items-center">
+                        <div class="me-5">
+                            <h1>{{ 'maintenance.construction.title' | trans }}</h1>
+                            <p><strong>{{ 'maintenance.construction.message' | trans }}</strong></p>
+                        </div>
+                        <i class="fas fa-tools fa-10x"></i>
+                    </div>
+
+                    <div id="info_contact" class="mt-5 bg-white p-5 shadow rounded">
+                        <p><strong><a href="http://jja-dev.fr" class="link-dark">JJA Dev</a></strong> réalise
+                            actuellement
+                            ce site web. Pour prendre contact avec moi, je suis disponible par mail :
+                            <a href="mailto:contact@jja-dev.fr">contact@jja-dev.fr</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

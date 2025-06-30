@@ -1,0 +1,8 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain 'admin' %}
+{% block title %}{{ parent() }} - {{ 'admin.page'|trans }}{% endblock %}
+{% set menuActive = "Page" %}
+{% block body %}
+    <h1>{{ 'admin.page'|trans }}</h1>
+    {{ form(form) }}
+{% endblock %}

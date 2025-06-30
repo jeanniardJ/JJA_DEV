@@ -1,0 +1,39 @@
+@import "../base/variables";
+@import "../layouts/contact";
+
+#contact {
+    background-color: $color-bg-layout;
+
+    .section-title {
+        margin-bottom: 1em;
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: $jja-teal-primary;
+            border-bottom: 3px solid $jja-teal-light;
+        }
+    }
+
+    .card {
+        .card-body {
+            p {
+                strong {
+                    color: $jja-teal-primary;
+                }
+                a {
+                    text-decoration: none;
+                    color: $jja-teal-primary;
+                }
+            }
+            ol {
+                list-style-type: none;
+
+                li {
+                    margin-bottom: 1rem;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+}

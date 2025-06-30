@@ -1,0 +1,9 @@
+**/vendor
+**/node_modules
+
+**/var/*
+
+# Ignore all files in the root of the project
+!**/composer.json
+!**/package.json
+!**/webpack.config.js

@@ -1,0 +1,32 @@
+{% extends 'admin/config/_body.html.twig' %}
+{% block title %}
+    {{ parent() }} - {{ 'admin.settings.propriete'|trans({}, 'admin') }}
+{% endblock %}
+{% set navTabActive = 'propriete' %}
+{% block tabContent %}
+    <div class="tab-pane fade show active" id="propriete" role="tabpanel" aria-labelledby="propriete-tab">
+        {{ form_start(formPropriety) }}
+        {{ form_row(formPropriety.name) }}
+        <div class="mb-3">
+            <label class="form-label">{{ 'config.propriety.coordinates'|trans({}, 'admin') }}</label>
+            {{ form_errors(formPropriety.address) }}
+            {{ form_errors(formPropriety.city) }}
+            {{ form_errors(formPropriety.zipCode) }}
+            {{ form_errors(formPropriety.country) }}
+            <div class="input-group">
+                <span class="input-group-text">{{ field_label(formPropriety.address) }}</span>
+                {{ form_widget(formPropriety.address) }}
+                <span class="input-group-text">{{ field_label(formPropriety.city) }}</span>
+                {{ form_widget(formPropriety.city) }}
+                <span class="input-group-text">{{ field_label(formPropriety.zipCode) }}</span>
+                {{ form_widget(formPropriety.zipCode) }}
+                <span class="input-group-text">{{ field_label(formPropriety.country) }}</span>
+                {{ form_widget(formPropriety.country) }}
+            </div>
+        </div>
+        {{ form_row(formPropriety) }}
+        {{ form_rest(formPropriety) }}
+        {{ form_end(formPropriety) }}
+    </div>
+{% endblock %}
+

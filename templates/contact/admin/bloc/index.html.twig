@@ -1,0 +1,10 @@
+<div class="col-md-4">
+    <div class="row g-0 border rounded-4 overflow-hidden flex-md-row mb-4 shadow bg-white">
+        <div class="p-4">
+            <h3 class="mb-0">Nombre de contact : {{ contacts|length }}</h3>
+            <p class="card-text">{% if contacts|length > 0 %}{{ contacts|last.email }}
+                - {{ contacts|last.sujet|u.truncate(30, '...') }}{% else %}{{ 'contact.notFound'|trans({}, 'contact') }}{% endif %}
+            </p>
+        </div>
+    </div>
+</div>

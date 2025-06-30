@@ -1,0 +1,12 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain('module') %}
+{% set menuActive = 'config' %}
+{% set subMenuActive ='module' %}
+{% block title %}
+    {{ parent() }} - {{ 'admin.module.home'|trans() }}
+{% endblock %}
+{% block subTitle %}<h2>{{ 'admin.module.home'|trans() }}</h2>{% endblock %}
+{% set breadCrumbs = [
+    {'name': 'admin.title'|trans({}, 'admin'), 'url': 'app_adm_accueil'},
+    {'name': 'admin.module.title'|trans, 'url': 'app_adm_module'},
+] %}

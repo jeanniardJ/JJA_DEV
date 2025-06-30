@@ -1,0 +1,28 @@
+Name: Nom *
+Email: Adresse mail *
+Objet: Objet du message *
+Sujet: Message *
+dataNotFound: Aucune données
+contact:
+    title: Formulaire de contact
+    name: Contact
+    notFound: Pas de prise de contact
+    numberPhone: Numéro de téléphone *
+    placeholder:
+        name: John Doe
+        email: johndoe@john.doe
+        phone: 0123456789
+    message:
+        success: 'Message envoyé avec succès!'
+admin:
+    show: Voir
+    name: Nom
+    email: Email
+    phone: Numéro de téléphone
+    sujet: Sujet
+    action: Action(s)
+    repondre: Répondre
+    objet: Objet du message *
+    title: 'Contact'
+Return:
+    BackToListContact: 'Retour'

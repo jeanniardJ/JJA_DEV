@@ -1,0 +1,14 @@
+{% extends 'admin/config/_settings.html.twig' %}
+{% block body %}
+    <div class="col-12">
+        <div class="card card-primary shadow">
+            <div class="card-body">
+                <div {{ react_component('NavTabs', {'navTabs': navTabsconfig, navTabActive: navTabActive}) }}></div>
+                <div class="tab-content">
+                    {% block tabContent %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

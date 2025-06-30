@@ -1,0 +1,44 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain 'admin' %}
+{% block title %}Prospect index{% endblock %}
+{% set menuActive = "prospect" %}
+{% block body %}
+    <h1>Prospect index</h1>
+    {{ render(controller('App\\Controller\\ProspectAdminController::importCsv')) }}
+    <table class="table">
+
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Firstname</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th>Location</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for prospect in prospects %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ prospect.firstname }}</td>
+                <td>{{ prospect.email }}</td>
+                <td>{{ prospect.position|u.truncate(50, '...') }}</td>
+                <td>{{ prospect.status.name }}</td>
+                <td>{{ prospect.location }}</td>
+                <td>
+                    <a href="{{ path('app_prospect_adm_show', {'id': prospect.id}) }}">show</a>
+                    <a href="{{ path('app_prospect_adm_edit', {'id': prospect.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_prospect_adm_new') }}">Create new</a>
+{% endblock %}

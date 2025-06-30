@@ -1,0 +1,41 @@
+{% extends 'admin/base.html.twig' %}
+{% trans_default_domain 'contact' %}
+{% block title %}Contact{% endblock %}
+{% set menuActive = 'contact' %}
+{% block body %}
+    <h1>Contact</h1>
+    <div class="shadow bg-white p-2 rounded w-50">
+        <div class="float-end">{{ include('contact/admin/_delete_form.html.twig') }}</div>
+        <table class="table">
+            <tbody>
+            <tr>
+                <th>{{ 'admin.name'|trans }}</th>
+                <td>{{ contact.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'admin.email'|trans }}</th>
+                <td>{{ contact.email }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'admin.phone'|trans }}</th>
+                <td>{{ contact.phone }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'admin.objet'|trans }}</th>
+                <td>{{ contact.objet }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'admin.sujet'|trans }}</th>
+                <td>{{ contact.sujet }}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-between">
+            <a class="btn btn-info text-white" href="{{ path('app_contact_adm_index') }}"><i
+                        class="bi bi-arrow-counterclockwise"></i> {{ 'Return.BackToListContact'|trans({}, 'contact') }}
+            </a>
+            <a href="mailto:{{ contact.email }}" class="btn btn-primary">{{ 'admin.repondre'|trans }}</a>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+services:
+    Github\Client:
+        arguments:
+            - '@Github\HttpClient\Builder'
+        # Authentification activée
+        calls:
+            - ['authenticate', ['%env(GITHUB_SECRET)%', null, '%env(GITHUB_AUTH_METHOD)%']]
+
+    Github\HttpClient\Builder:
+        arguments:
+            - '@?Http\Client\HttpClient'
+            - '@?Http\Message\RequestFactory'
+            - '@?Http\Message\StreamFactory'
