@@ -1,0 +1,22 @@
+name: Phpunit
+on:
+    pull_request:
+        branches: [ develop ]
+jobs:
+    phpunit:
+        runs-on: ubuntu-latest
+        steps:
+            #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,
+            # change this to (see https://github.com/shivammathur/setup-php#bookmark-versioning):
+            -   uses: shivammathur/setup-php@2.26.0
+                with:
+                    php-version: '8.2'
+            -   uses: actions/checkout@v4
+            -   name: Create Database & run phpunit
+                run: |
+                    if [ -d "data" ]; then
+                      rm -rf data
+                    fi
+                    mkdir -p data
+                    touch data/data.db
+                    composer test-github-phpunit
