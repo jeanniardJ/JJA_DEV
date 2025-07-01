@@ -41,6 +41,6 @@ phpstan.neon
 ###< phpstan/phpstan ###
 
 *.session.sql
-/public/assets
+
 /public/build
 /public/uploads/images
