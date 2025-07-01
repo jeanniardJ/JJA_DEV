@@ -28,7 +28,7 @@
         "mlocati/ip-lib": "^1.18",
         "nelmio/cors-bundle": "^2.4",
         "nelmio/security-bundle": "^3.4",
-        "openai-php/client": "^0.3.5",
+        "openai-php/client": "^0.14.0",
         "php-http/curl-client": "^2.3",
         "php-http/message": "^1.16",
         "phpdocumentor/reflection-docblock": "^5.3",
