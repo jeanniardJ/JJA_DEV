@@ -14,6 +14,7 @@ use App\Service\LinkedInContactImporter;
 use Doctrine\ORM\EntityManagerInterface;
 use OpenAI;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
@@ -181,14 +182,13 @@ class ProspectAdminController extends AbstractController
     public function generatePrompt(Request $request): Response
     {
         $yourApiKey = getenv('OPENAI_API_KEY');
-        $yourOrgId = getenv('OPENAI_ORG_ID');
-
         if (!$yourApiKey) {
-            throw new \Exception('OPENAI_API_KEY environment variable is required');
+            return new JsonResponse(['error' => 'OpenAI API key not configured'], 500);
         }
 
-        $client = OpenAI::client($yourApiKey, $yourOrgId);
-        var_dump($client);
+        $orgId = getenv('OPENAI_ORG_ID');
+        $client = OpenAI::client($yourApiKey, $orgId);
+
         $result = $client->completions()->create([
             'model' => 'gpt-3.5-turbo-instruct',
             'prompt' => 'PHP is',

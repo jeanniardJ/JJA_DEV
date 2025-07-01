@@ -4,10 +4,6 @@ applyTo: 'JJA_DEV/**'
 
 # Workflow de Développement JJA_DEV
 
-## Repository
-
-**URL** : https://github.com/jeanniardJ/JJA_DEV.git
-
 ## Stratégie de Branches
 
 ### Structure Git

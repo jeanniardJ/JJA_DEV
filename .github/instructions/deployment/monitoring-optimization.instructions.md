@@ -1,3 +1,6 @@
+---
+applyTo: 'JJA_DEV/**'
+---
 # Instructions - Optimisation et Monitoring
 
 ## Architecture de Monitoring

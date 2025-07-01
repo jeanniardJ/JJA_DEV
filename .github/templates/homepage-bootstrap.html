@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JJA DEV - Laboratoire de développement CRM</title>
+
+        <!-- Bootstrap 5.x CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+        <!-- Font Awesome pour les icônes -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+            rel="stylesheet"
+        />
+
+        <style>
+            :root {
+                --jja-primary: #0d6efd;
+                --jja-secondary: #6c757d;
+                --jja-success: #198754;
+                --jja-info: #0dcaf0;
+                --jja-warning: #ffc107;
+                --jja-danger: #dc3545;
+                --jja-dark: #212529;
+                --jja-light: #f8f9fa;
+                --jja-bg-dark: #10231e;
+                --jja-bg-card: #18342d;
+                --jja-border: #22493f;
+                --jja-text-muted: #90cbbc;
+                --jja-accent: #0bdaa6;
+            }
+
+            body {
+                font-family: "Inter", sans-serif;
+                background-color: var(--jja-bg-dark);
+                color: white;
+                min-height: 100vh;
+            }
+
+            .navbar-brand {
+                font-family: "Space Grotesk", sans-serif;
+                font-weight: 700;
+                font-size: 1.25rem;
+            }
+
+            .bg-jja-dark {
+                background-color: var(--jja-bg-dark) !important;
+            }
+
+            .bg-jja-card {
+                background-color: var(--jja-bg-card) !important;
+            }
+
+            .border-jja {
+                border-color: var(--jja-border) !important;
+            }
+
+            .text-jja-muted {
+                color: var(--jja-text-muted) !important;
+            }
+
+            .text-jja-accent {
+                color: var(--jja-accent) !important;
+            }
+
+            .btn-jja-primary {
+                background-color: var(--jja-accent);
+                border-color: var(--jja-accent);
+                color: var(--jja-dark);
+                font-weight: 600;
+            }
+
+            .btn-jja-primary:hover {
+                background-color: #08b892;
+                border-color: #08b892;
+                color: var(--jja-dark);
+            }
+
+            .card-jja {
+                background-color: var(--jja-bg-card);
+                border: 1px solid var(--jja-border);
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .card-jja:hover {
+                transform: translateY(-2px);
+            }
+
+            .avatar-lg {
+                width: 120px;
+                height: 120px;
+                object-fit: cover;
+            }
+
+            .nav-tabs .nav-link {
+                color: var(--jja-text-muted);
+                border: none;
+                border-bottom: 3px solid transparent;
+            }
+
+            .nav-tabs .nav-link.active {
+                color: white;
+                background: none;
+                border-bottom-color: var(--jja-accent);
+            }
+
+            .timeline-item {
+                border-left: 2px solid var(--jja-border);
+                padding-left: 1.5rem;
+                margin-left: 0.75rem;
+                position: relative;
+            }
+
+            .timeline-item::before {
+                content: "";
+                position: absolute;
+                left: -6px;
+                top: 0.5rem;
+                width: 10px;
+                height: 10px;
+                background-color: var(--jja-accent);
+                border-radius: 50%;
+            }
+
+            .commit-card {
+                background-color: var(--jja-bg-card);
+                border-left: 3px solid var(--jja-accent);
+            }
+        </style>
+    </head>
+    <body class="bg-jja-dark">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-jja-dark border-bottom border-jja">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand d-flex align-items-center" href="#">
+                    <i class="fas fa-flag me-2 text-jja-accent"></i>
+                    JJA DEV
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto me-4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#accueil">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#apropos">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projets">Projets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+
+                    <a href="https://github.com/JJA-DEV" class="btn btn-outline-light btn-sm" target="_blank">
+                        <i class="fab fa-github me-1"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Contenu principal -->
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-10">
+                    <!-- Hero Section -->
+                    <section id="accueil" class="py-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-3 text-center mb-4 mb-md-0">
+                                <img
+                                    src="https://via.placeholder.com/120x120/0bdaa6/212529?text=JJA"
+                                    alt="JJA DEV Avatar"
+                                    class="rounded-circle avatar-lg border border-2 border-jja-accent"
+                                />
+                            </div>
+                            <div class="col-md-9">
+                                <h1 class="display-5 fw-bold mb-3">Bienvenue sur JJA DEV</h1>
+                                <p class="lead text-jja-muted">
+                                    Un laboratoire de développement personnel et un environnement CRM expérimental.
+                                    Explorez mes projets, expériences et perspectives en développement logiciel.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Philosophie -->
+                    <section id="apropos" class="py-4">
+                        <h2 class="h3 fw-bold mb-3">Philosophie</h2>
+                        <p class="text-light">
+                            Chez JJA DEV, je crois en l'apprentissage continu, l'expérimentation et le dépassement des
+                            limites de ce qui est possible en développement logiciel. Ce laboratoire est un espace pour
+                            explorer de nouvelles technologies, construire des solutions innovantes et partager des
+                            connaissances avec la communauté.
+                        </p>
+                    </section>
+
+                    <!-- Stack Technique -->
+                    <section class="py-4">
+                        <h2 class="h3 fw-bold mb-4">Stack Technique</h2>
+
+                        <!-- Nav tabs Bootstrap -->
+                        <ul class="nav nav-tabs border-0 mb-4" id="stackTabs" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link active"
+                                    id="backend-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#backend"
+                                    type="button"
+                                >
+                                    <i class="fas fa-server me-1"></i> Backend
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="frontend-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#frontend"
+                                    type="button"
+                                >
+                                    <i class="fas fa-laptop-code me-1"></i> Frontend
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="devops-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#devops"
+                                    type="button"
+                                >
+                                    <i class="fas fa-cogs me-1"></i> DevOps
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button
+                                    class="nav-link"
+                                    id="tools-tab"
+                                    data-bs-toggle="tab"
+                                    data-bs-target="#tools"
+                                    type="button"
+                                >
+                                    <i class="fas fa-tools me-1"></i> Outils
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab content -->
+                        <div class="tab-content" id="stackTabContent">
+                            <div class="tab-pane fade show active" id="backend" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fab fa-php fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">PHP 8.2+</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fas fa-leaf fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">Symfony 6.4</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fas fa-database fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">MySQL</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="frontend" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fab fa-bootstrap fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">Bootstrap 5.x</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fab fa-react fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">Symfony UX React</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fab fa-js-square fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">Stimulus</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="devops" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fab fa-docker fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">Docker</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fab fa-github-alt fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">GitHub Actions</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fas fa-cloud fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">OVH</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tools" role="tabpanel">
+                                <div class="row g-3">
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fas fa-code-branch fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">Git</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fas fa-vial fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">PHPUnit</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card card-jja h-100">
+                                            <div class="card-body d-flex align-items-center">
+                                                <i class="fas fa-search fa-2x text-jja-accent me-3"></i>
+                                                <h5 class="card-title mb-0">PHPStan</h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Modules CRM -->
+                    <section id="projets" class="py-4">
+                        <h2 class="h3 fw-bold mb-4">Modules CRM</h2>
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card card-jja h-100">
+                                    <div
+                                        class="card-img-top bg-jja-card d-flex align-items-center justify-content-center"
+                                        style="height: 200px"
+                                    >
+                                        <i class="fas fa-file-invoice fa-4x text-jja-accent"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bundle Devis & Factures</h5>
+                                        <p class="card-text text-jja-muted">
+                                            Gestion complète des devis et factures avec génération PDF et workflow
+                                            automatisé.
+                                        </p>
+                                        <span class="badge bg-success">En développement</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card card-jja h-100">
+                                    <div
+                                        class="card-img-top bg-jja-card d-flex align-items-center justify-content-center"
+                                        style="height: 200px"
+                                    >
+                                        <i class="fas fa-user-tie fa-4x text-jja-accent"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bundle Prospects</h5>
+                                        <p class="card-text text-jja-muted">
+                                            Pipeline commercial avec scoring automatique et gestion des campagnes
+                                            marketing.
+                                        </p>
+                                        <span class="badge bg-warning text-dark">Planifié</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4">
+                                <div class="card card-jja h-100">
+                                    <div
+                                        class="card-img-top bg-jja-card d-flex align-items-center justify-content-center"
+                                        style="height: 200px"
+                                    >
+                                        <i class="fas fa-calendar-alt fa-4x text-jja-accent"></i>
+                                    </div>
+                                    <div class="card-body">
+                                        <h5 class="card-title">Bundle Rendez-vous</h5>
+                                        <p class="card-text text-jja-muted">
+                                            Calendrier intégré avec booking en ligne et synchronisation externe.
+                                        </p>
+                                        <span class="badge bg-secondary">À venir</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Roadmap -->
+                    <section class="py-4">
+                        <h2 class="h3 fw-bold mb-4">Feuille de route</h2>
+                        <div class="timeline-item mb-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-calendar text-jja-accent me-2"></i>
+                                <h5 class="mb-0">T3 2024: Bundle Devis & Factures</h5>
+                            </div>
+                            <p class="text-jja-muted mb-0">
+                                Développement du module de facturation avec génération PDF et workflow automatisé.
+                            </p>
+                        </div>
+                        <div class="timeline-item mb-4">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-calendar text-jja-accent me-2"></i>
+                                <h5 class="mb-0">T4 2024: Bundle Prospects</h5>
+                            </div>
+                            <p class="text-jja-muted mb-0">
+                                Intégration du pipeline commercial avec scoring et gestion des campagnes.
+                            </p>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-calendar text-jja-accent me-2"></i>
+                                <h5 class="mb-0">T1 2025: Bundle Rendez-vous</h5>
+                            </div>
+                            <p class="text-jja-muted mb-0">
+                                Déploiement du système de calendrier intégré avec booking en ligne.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Derniers commits -->
+                    <section class="py-4">
+                        <h2 class="h3 fw-bold mb-4">Derniers commits GitHub</h2>
+
+                        <div class="card commit-card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-jja-card rounded p-2 me-3">
+                                        <i class="fab fa-github fa-lg text-jja-accent"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="card-title mb-1">
+                                            feat: implémenter l'authentification utilisateur
+                                        </h6>
+                                        <p class="card-text text-jja-muted small mb-1">Il y a 2 jours</p>
+                                        <p class="card-text text-jja-muted small">
+                                            Ajout d'une nouvelle fonctionnalité au module d'authentification utilisateur
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card commit-card">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <div class="bg-jja-card rounded p-2 me-3">
+                                        <i class="fab fa-github fa-lg text-jja-accent"></i>
+                                    </div>
+                                    <div class="flex-grow-1">
+                                        <h6 class="card-title mb-1">
+                                            fix: résoudre le problème de traitement des données
+                                        </h6>
+                                        <p class="card-text text-jja-muted small mb-1">Il y a 5 jours</p>
+                                        <p class="card-text text-jja-muted small">
+                                            Correction d'un bug dans le script de traitement des données
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CTA Section -->
+                    <section id="contact" class="py-5 text-center">
+                        <div class="card card-jja">
+                            <div class="card-body py-5">
+                                <h3 class="card-title mb-3">Intéressé par le projet ?</h3>
+                                <p class="card-text text-jja-muted mb-4">
+                                    Découvrez le code source, contribuez au développement ou suivez l'évolution du
+                                    projet.
+                                </p>
+                                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                                    <a href="https://github.com/JJA-DEV" class="btn btn-jja-primary" target="_blank">
+                                        <i class="fab fa-github me-1"></i>
+                                        Voir sur GitHub
+                                    </a>
+                                    <a href="#" class="btn btn-outline-light">
+                                        <i class="fas fa-book me-1"></i>
+                                        Documentation
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="border-top border-jja mt-5 py-4">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p class="text-jja-muted mb-0">© 2024 JJA DEV. Laboratoire de développement personnel.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <div class="d-flex justify-content-md-end gap-3">
+                            <a href="https://github.com/JJA-DEV" class="text-jja-muted" target="_blank">
+                                <i class="fab fa-github fa-lg"></i>
+                            </a>
+                            <a href="#" class="text-jja-muted">
+                                <i class="fab fa-linkedin fa-lg"></i>
+                            </a>
+                            <a href="#" class="text-jja-muted">
+                                <i class="fas fa-envelope fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Custom JS pour les animations -->
+        <script>
+            // Animation smooth scroll pour les liens de navigation
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute("href"));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
+                });
+            });
+
+            // Animation des cartes au hover
+            document.querySelectorAll(".card-jja").forEach((card) => {
+                card.addEventListener("mouseenter", function () {
+                    this.style.transform = "translateY(-4px)";
+                });
+
+                card.addEventListener("mouseleave", function () {
+                    this.style.transform = "translateY(0)";
+                });
+            });
+        </script>
+    </body>
+</html>

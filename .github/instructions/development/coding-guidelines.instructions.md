@@ -1,8 +1,11 @@
-# Instructions - Directives de Codage JJA_DEV
+---
+applyTo: "JJA_DEV/**"
+description: Directives de codage spécifiques JJA_DEV, complétant les standards Symfony et Copilot.
+---
 
-## Vue d'ensemble
+# Directives de Codage JJA_DEV
 
-Ce document définit les directives de codage spécifiques au projet JJA_DEV, complétant les standards Symfony de base.
+Ce document définit les conventions de codage spécifiques au projet JJA_DEV, en complément des standards Symfony et des instructions globales Copilot.
 
 ## Structure du Code
 
@@ -30,11 +33,11 @@ class ContactController extends AbstractController
 
 ### Conventions de Nommage
 
--   **Entités CRM** : Préfixe `Crm\` dans le namespace
--   **Services** : Suffixe `Manager` ou `Service`
--   **Repositories** : Suffixe `Repository`
--   **Events** : Suffixe `Event`
--   **Listeners** : Suffixe `Listener`
+- **Entités CRM** : Préfixe `Crm\` dans le namespace
+- **Services** : Suffixe `Manager` ou `Service`
+- **Repositories** : Suffixe `Repository`
+- **Events** : Suffixe `Event`
+- **Listeners** : Suffixe `Listener`
 
 ### Organisation des Fichiers
 
@@ -57,7 +60,7 @@ src/
 
 ### Annotations et Attributs
 
-Utiliser les attributs PHP 8+ plutôt que les annotations :
+Utiliser les attributs PHP 8+ plutôt que les annotations :
 
 ```php
 // ✅ Recommandé
@@ -164,204 +167,14 @@ export default class extends Controller {
 ### Organisation des Styles
 
 ```scss
-// assets/styles/crm/
-├── _variables.scss      # Variables CRM spécifiques
-├── _mixins.scss        # Mixins réutilisables
-├── components/
-│   ├── _contact-card.scss
-│   ├── _prospect-list.scss
-│   └── _deal-pipeline.scss
-└── pages/
-    ├── _dashboard.scss
-    └── _contact-detail.scss
-```
-
-### Conventions de Nommage BEM
-
-```scss
-// ✅ Structure BEM pour les composants CRM
+// assets/styles/crm/_contact.scss
 .crm-contact {
-    &__header {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    &__avatar {
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-    }
-
-    &__name {
-        font-weight: 600;
-
-        &--vip {
-            color: $crm-vip-color;
-        }
-    }
+  // Styles spécifiques CRM
 }
 ```
 
-## Tests
+## Liens utiles
 
-### Tests Unitaires
-
-```php
-// tests/Unit/Service/Crm/CrmManagerTest.php
-class CrmManagerTest extends TestCase
-{
-    private CrmManager $crmManager;
-    private MockObject $entityManager;
-
-    protected function setUp(): void
-    {
-        $this->entityManager = $this->createMock(EntityManagerInterface::class);
-        $this->crmManager = new CrmManager($this->entityManager);
-    }
-
-    public function testCreateContactWithValidData(): void
-    {
-        $contactData = [
-            'firstName' => 'John',
-            'lastName' => 'Doe',
-            'email' => 'john@example.com'
-        ];
-
-        $contact = $this->crmManager->createContact($contactData);
-
-        $this->assertInstanceOf(Contact::class, $contact);
-        $this->assertEquals('John', $contact->getFirstName());
-    }
-}
-```
-
-### Tests Fonctionnels
-
-```php
-// tests/Functional/Controller/Crm/ContactControllerTest.php
-class ContactControllerTest extends WebTestCase
-{
-    public function testContactListRequiresAuthentication(): void
-    {
-        $client = static::createClient();
-        $client->request('GET', '/crm/contacts');
-
-        $this->assertResponseRedirects('/login');
-    }
-
-    public function testContactListForCrmUser(): void
-    {
-        $client = static::createClient();
-        $this->loginAs($client, 'crm_user');
-
-        $client->request('GET', '/crm/contacts');
-
-        $this->assertResponseIsSuccessful();
-        $this->assertSelectorExists('.crm-contact');
-    }
-}
-```
-
-## Documentation du Code
-
-### Commentaires PHP
-
-```php
-/**
- * Gestionnaire principal des opérations CRM.
- *
- * Ce service centralise la logique métier pour la gestion
- * des contacts, prospects et opportunités.
- */
-class CrmManager
-{
-    /**
-     * Crée un nouveau contact à partir des données fournies.
-     *
-     * @param array $data Données du contact (firstName, lastName, email requis)
-     * @return Contact Le contact créé
-     * @throws ValidationException Si les données sont invalides
-     * @throws CrmException Si la création échoue
-     */
-    public function createContact(array $data): Contact
-    {
-        // Implementation...
-    }
-}
-```
-
-### Documentation JavaScript
-
-```javascript
-/**
- * Gestionnaire des interactions de contacts CRM.
- *
- * @class ContactManager
- * @example
- * const manager = new ContactManager('/api/crm');
- * await manager.loadContacts();
- */
-export class ContactManager {
-    /**
-     * Charge la liste des contacts depuis l'API.
-     *
-     * @async
-     * @param {Object} filters - Filtres de recherche
-     * @param {string} filters.search - Terme de recherche
-     * @param {string} filters.status - Statut du contact
-     * @returns {Promise<Contact[]>} Liste des contacts
-     */
-    async loadContacts(filters = {}) {
-        // Implementation...
-    }
-}
-```
-
-## Checklist de Qualité
-
-### Avant Commit
-
--   [ ] Code formaté avec PHP-CS-Fixer
--   [ ] Analyse statique PHPStan passée
--   [ ] Tests unitaires et fonctionnels verts
--   [ ] Documentation mise à jour
--   [ ] Variables d'environnement documentées
--   [ ] Migrations de base de données testées
-
-### Code Review
-
--   [ ] Respect des conventions de nommage
--   [ ] Injection de dépendances appropriée
--   [ ] Gestion d'erreurs robuste
--   [ ] Tests couvrant les cas critiques
--   [ ] Sécurité validée (authorization, sanitization)
--   [ ] Performance acceptable
--   [ ] Compatibilité avec CMS_SF maintenue
-
-## Outils de Développement
-
-### Configuration IDE
-
-```json
-// .vscode/settings.json
-{
-    "php.suggest.basic": false,
-    "php.validate.executablePath": "./vendor/bin/php",
-    "phpcs.standard": "./phpcs.xml",
-    "phpstan.configFile": "./phpstan.neon"
-}
-```
-
-### Scripts Composer Utiles
-
-```json
-{
-    "scripts": {
-        "cs-fix": "php-cs-fixer fix",
-        "cs-check": "php-cs-fixer fix --dry-run --diff",
-        "stan": "phpstan analyse",
-        "test": "phpunit",
-        "test-coverage": "phpunit --coverage-html coverage/"
-    }
-}
-```
+- [Standards Symfony](../base/symfony-standards.instructions.md)
+- [Sécurité & Authentification](../base/security-authentication.instructions.md)
+- [Stratégie de tests](./testing-strategy.instructions.md)

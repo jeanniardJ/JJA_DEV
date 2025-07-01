@@ -52,5 +52,7 @@
   "build/images/modules/symfony.svg": "/build/images/modules/symfony.svg",
   "build/images/svg/wave-haikei.svg": "/build/images/svg/wave-haikei.svg",
   "build/images/svg/wave-haikei-top.svg": "/build/images/svg/wave-haikei-top.svg",
-  "build/images/blank/40x40.png": "/build/images/blank/40x40.png"
+  "build/images/blank/40x40.png": "/build/images/blank/40x40.png",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_bootstrap_dist_js_boo-dfa054.css": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_bootstrap_dist_js_boo-dfa054.css",
+  "build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_bootstrap_dist_js_boo-dfa054.js": "/build/vendors-node_modules_symfony_stimulus-bridge_dist_index_js-node_modules_bootstrap_dist_js_boo-dfa054.js"
 }

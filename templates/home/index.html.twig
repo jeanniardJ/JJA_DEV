@@ -455,4 +455,204 @@
     </div>
 </section>
 
+<!-- Section Modules -->
+<section id="modules" class="py-5 bg-dark-custom">
+    <div class="container">
+        <div class="text-left">
+            <h3 class="fw-bold text-white mb-3">Modules</h3>
+        </div>
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <div class="module-card text-center">
+                    <img src="{{ asset('images/modules/symfony.png') }}" alt="Symfony Projects" />
+                    <h5 class="fw-bold mb-3">Symfony Projects</h5>
+                    <p>
+                        Collection de projets Symfony avec CRM, CMS et solutions e-commerce
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="module-card text-center">
+                    <img src="{{ asset('images/modules/security.png') }}" alt="Security Scans" />
+                    <h5 class="fw-bold mb-3">Security Scans</h5>
+                    <p>
+                        Outils d'analyse et de sécurisation des applications web
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="module-card text-center">
+                    <img src="{{ asset('images/modules/automation.png') }}" alt="Automation Scripts" />
+                    <h5 class="fw-bold mb-3">Automation Scripts</h5>
+                    <p>
+                        Scripts d'automatisation pour le déploiement et la maintenance
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-3">
+                <div class="module-card text-center">
+                    <img src="{{ asset('images/modules/notes.png') }}" alt="Technical Notes" />
+                    <h5 class="fw-bold mb-3">Technical Notes</h5>
+                    <p>
+                        Documentation technique et guides de bonnes pratiques
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Roadmap -->
+<section id="roadmap" class="py-5 bg-light-custom">
+    <div class="container">
+        <div class="text-left mb-5">
+            <h3 class="fw-bold text-white mb-3">Roadmap</h3>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 mx-auto">
+                <div class="roadmap-container custom-scroll">
+                    <!-- Ticket 1 -->
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar d-flex align-items-center justify-content-center">
+                            <i class="bi bi-calendar3"></i>
+                        </div>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">Implémentation du module CRM avancé</h6>
+                            </div>
+                            <p class="mb-2">
+                                Développement d'un système CRM complet avec gestion des prospects, devis et facturation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Ticket 2 -->
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar d-flex align-items-center justify-content-center">
+                            <i class="bi bi-calendar3"></i>
+                        </div>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">Migration vers Symfony 7.0</h6>
+                            </div>
+                            <p class="mb-2">
+                                Mise à jour de tous les projets vers la dernière version LTS de Symfony.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Ticket 3 -->
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar d-flex align-items-center justify-content-center">
+                            <i class="bi bi-calendar3"></i>
+                        </div>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">API REST complète pour le CMS</h6>
+                            </div>
+                            <p class="mb-2">
+                                Création d'une API REST complète pour l'administration et la gestion de contenu.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Ticket 4 (visible après scroll) -->
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar">
+                            <i class="bi bi-calendar3"></i>
+                        </div>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">Interface React pour l'administration</h6>
+                            </div>
+                            <p class="mb-2">
+                                Développement d'une interface React moderne pour l'administration des projets.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Ticket 5 (visible après scroll) -->
+                    <div class="roadmap-item d-flex">
+                        <div class="roadmap-bar">
+                            <i class="bi bi-calendar3"></i>
+                        </div>
+                        <div class="roadmap-content flex-grow-1 ms-5">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <h6 class="fw-bold mb-0">Optimisation performance et cache</h6>
+                            </div>
+                            <p class="mb-2">
+                                Implémentation de systèmes de cache avancés et optimisation des performances.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Latest GitHub Commits -->
+<section id="github-commits" class="py-5 bg-dark-custom">
+    <div class="container">
+        <div class="text-left mb-5">
+            <h3 class="fw-bold text-white mb-3">Latest GitHub Commits</h3>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <div class="commits-container custom-scroll">
+                    {% for commit in commits|slice(0,10) %}
+                    <div class="commit-item">
+                        <div class="d-flex justify-content-between align-items-start mb-3">
+                            <div class="flex-grow-1">
+                                <h6 class="fw-bold mb-2">{{ commit.message }}</h6>
+                                <div class="d-flex align-items-center gap-3 mb-2">
+                                    <span class="commit-author">
+                                        <i class="fas fa-user me-1"></i>{{ commit.author }}
+                                    </span>
+                                    <span class="commit-date">
+                                        <i class="fas fa-clock me-1"></i>{{ commit.date }}
+                                    </span>
+                                </div>
+                                <p class="mb-0">
+                                    {{ commit.description }}
+                                </p>
+                            </div>
+                            <span class="commit-hash">{{ commit.hash }}</span>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section Contact (uniformisée) -->
+<section id="contact" class="py-5 bg-dark-tertiary position-relative">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="text-left mb-4 mb-md-5">
+                    <h3 class="fw-bold text-white mb-3">
+                        Restons en contact
+                    </h3>
+                    <p class="lead text-white mb-4 mb-md-5">
+                        Vous avez une question ou souhaitez collaborer sur un projet ? N'hésitez pas à me contacter
+                        !
+                    </p>
+                </div>
+                <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+                    <a href="{{ path('app_contact') }}" class="btn btn-teal-primary btn-lg px-4">
+                        <i class="bi bi-envelope-paper-fill me-2"></i>Me contacter
+                    </a>
+                    <a href="https://github.com/jeanniardJ" target="_blank"
+                        class="btn btn-outline-light-custom btn-lg px-4">
+                        <i class="bi bi-github me-2"></i>GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}

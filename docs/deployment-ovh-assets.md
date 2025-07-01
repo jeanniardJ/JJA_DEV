@@ -76,7 +76,6 @@ php bin/console doctrine:migrations:migrate --no-interaction
     ```
 
 3. **Copier le script de déploiement :**
-
     ```bash
     # Copier deploy.sh dans le répertoire racine
     # Adapter les chemins dans le script

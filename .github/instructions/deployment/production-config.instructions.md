@@ -1,3 +1,6 @@
+---
+applyTo: 'JJA_DEV/**'
+---
 # Instructions - Configuration et Performance
 
 ## Configuration de Production
