@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Twig\Components\BreadCrumb;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,8 +12,10 @@ class AdminController extends AbstractController
     #[Route('/', name: 'app_adm_accueil')]
     public function index(): Response
     {
+        $user = $this->getUser();
+
         return $this->render('admin/index.html.twig', [
-            'user' => $this->getUser()->getUserIdentifier(),
+            'user' => $user ? $user->getUserIdentifier() : null,
         ]);
     }
 }

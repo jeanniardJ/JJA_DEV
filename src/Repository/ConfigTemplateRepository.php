@@ -1,24 +1,12 @@
 <?php
 
 /**
- * Copyright (c) 2023. Tous droits réservés.
- * Aucun élément de ce site ne peut être reproduit sans permission écrite préalable.
- * Ce site, son contenu et tous les produits créés par JJA DEV sont protégés par les droits d'auteur.
- * Tous les droits sont réservés à JJA DEV.
- *
- * L'utilisation non autorisée de tout élément de ce site peut constituer une violation des lois applicables.
- * Cela peut entraîner des poursuites judiciaires.
- *
- * Pour utiliser du contenu de ce site, contactez JJA DEV.
- *
- * Merci de respecter notre travail créatif et nos droits de propriété intellectuelle.
- *
  * @category Controller
- * @package  App\Controller
+ *
  * @author   JJA-DEV
- * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
- * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ * @license  MIT
+ *
+ * @see     https://jja-dev.fr
  */
 
 namespace App\Repository;
@@ -28,8 +16,18 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * class ConfigTemplateRepository
+ * class ConfigTemplateRepository.
+ *
  * @extends ServiceEntityRepository<ConfigTemplate>
+ *
+ * @method ConfigTemplate|null find($id, $lockMode = null, $lockVersion = null)
+ * @method ConfigTemplate|null findOneBy(array $criteria, array $orderBy = null)
+ * @method ConfigTemplate[]    findAll()
+ * @method ConfigTemplate[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method ConfigTemplate[]    findByName(string $name)
+ * @method ConfigTemplate[]    findOneByName(string $name)
+ *
+ * @category Repository
  */
 class ConfigTemplateRepository extends ServiceEntityRepository
 {
@@ -38,6 +36,9 @@ class ConfigTemplateRepository extends ServiceEntityRepository
         parent::__construct($registry, ConfigTemplate::class);
     }
 
+    /**
+     * @return array<string, string>
+     */
     public function findTemplateConfig(): array
     {
         $presentation = $this->createQueryBuilder('c')
@@ -64,15 +65,21 @@ class ConfigTemplateRepository extends ServiceEntityRepository
         $configTemplate = [];
 
         foreach ($presentation as $item) {
-            $configTemplate[$item['name']] = $item['value'];
+            if (is_array($item) && isset($item['name'], $item['value'])) {
+                $configTemplate[$item['name']] = $item['value'];
+            }
         }
 
         foreach ($description as $item) {
-            $configTemplate[$item['name']] = $item['value'];
+            if (is_array($item) && isset($item['name'], $item['value'])) {
+                $configTemplate[$item['name']] = $item['value'];
+            }
         }
 
         foreach ($services as $item) {
-            $configTemplate[$item['name']] = $item['value'];
+            if (is_array($item) && isset($item['name'], $item['value'])) {
+                $configTemplate[$item['name']] = $item['value'];
+            }
         }
 
         return $configTemplate;

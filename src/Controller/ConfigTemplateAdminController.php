@@ -14,34 +14,37 @@
  * Merci de respecter notre travail créatif et nos droits de propriété intellectuelle.
  *
  * @category Controller
- * @package  App\Controller
+ *
  * @author   JJA-DEV
  * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ *
+ * @see     https://jja-dev.fr
  */
 
 namespace App\Controller;
 
 use App\Form\ConfigTemplateType;
 use App\Model\ConfigTemplateDesc;
-use App\Model\ConfigTemplateService;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Model\ConfigTemplatePresentation;
+use App\Model\ConfigTemplateService;
 use App\Repository\ConfigTemplateRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * Class ConfigTemplateAdminController
- * @package App\Controller
+ * Class ConfigTemplateAdminController.
+ *
  * @autor JJA-DEV
+ *
  * @license JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link https://jja-dev.fr
+ *
+ * @see https://jja-dev.fr
  */
 #[Route('/admin/config/template')]
 class ConfigTemplateAdminController extends AbstractController
@@ -49,14 +52,22 @@ class ConfigTemplateAdminController extends AbstractController
     #[Route('/', name: 'app_config_template_admin')]
     public function index(ConfigTemplateRepository $configTemplateRepository, Request $request, EntityManagerInterface $entityManagerInterface, SerializerInterface $serializerInterface): Response
     {
+        $presentation = $configTemplateRepository->findOneBy(['name' => 'presentation']);
+        $description = $configTemplateRepository->findOneBy(['name' => 'description']);
+        $servicesDatas = $configTemplateRepository->findOneBy(['name' => 'services']);
 
-        $presentation = $configTemplateRepository->findOneByName('presentation');
-        $description = $configTemplateRepository->findOneByName('description');
-        $servicesDatas = $configTemplateRepository->findOneByName('services');
-
-        $presentationUnserialise = $serializerInterface->deserialize(json_encode($presentation->getValue()), ConfigTemplatePresentation::class, 'json');
-        $descriptionUnserialise = $serializerInterface->deserialize(json_encode($description->getValue()), ConfigTemplateDesc::class, 'json');
-        $servicesUnserialise = $serializerInterface->deserialize(json_encode($servicesDatas->getValue()), ConfigTemplateService::class . '[]', 'json');
+        $presentationUnserialise = null;
+        $descriptionUnserialise = null;
+        $servicesUnserialise = null;
+        if (null !== $presentation) {
+            $presentationUnserialise = $serializerInterface->deserialize(json_encode($presentation->getValue()), ConfigTemplatePresentation::class, 'json');
+        }
+        if (null !== $description) {
+            $descriptionUnserialise = $serializerInterface->deserialize(json_encode($description->getValue()), ConfigTemplateDesc::class, 'json');
+        }
+        if (null !== $servicesDatas) {
+            $servicesUnserialise = $serializerInterface->deserialize(json_encode($servicesDatas->getValue()), ConfigTemplateService::class.'[]', 'json');
+        }
 
         $form = $this->createForm(ConfigTemplateType::class, [
             'presentation' => $presentationUnserialise,
@@ -71,17 +82,26 @@ class ConfigTemplateAdminController extends AbstractController
             $descriptionSubmit = $form->get('description')->getData();
             $servicesSubmit = $form->get('services')->getData();
 
-            $presentation->setValue(json_decode($serializerInterface->serialize($presentationSubmit, 'json'), true));
-            $description->setValue(json_decode($serializerInterface->serialize($descriptionSubmit, 'json'), true));
-            $servicesDatas->setValue(json_decode($serializerInterface->serialize($servicesSubmit, 'json'), true));
-
-            $entityManagerInterface->persist($presentation);
-            $entityManagerInterface->persist($description);
-            $entityManagerInterface->persist($servicesDatas);
+            if (null !== $presentation) {
+                $decoded = json_decode($serializerInterface->serialize($presentationSubmit, 'json'), true);
+                $presentation->setValue(is_array($decoded) ? $decoded : []);
+                $entityManagerInterface->persist($presentation);
+            }
+            if (null !== $description) {
+                $decoded = json_decode($serializerInterface->serialize($descriptionSubmit, 'json'), true);
+                $description->setValue(is_array($decoded) ? $decoded : []);
+                $entityManagerInterface->persist($description);
+            }
+            if (null !== $servicesDatas) {
+                $decoded = json_decode($serializerInterface->serialize($servicesSubmit, 'json'), true);
+                $servicesDatas->setValue(is_array($decoded) ? $decoded : []);
+                $entityManagerInterface->persist($servicesDatas);
+            }
 
             $entityManagerInterface->flush();
 
             $this->addFlash('success', ['toast', 'admin.template.success']);
+
             return $this->redirectToRoute('app_config_template_admin');
         }
 

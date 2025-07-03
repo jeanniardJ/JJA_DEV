@@ -198,6 +198,12 @@
         "pre-update-cmd": [],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "phpstan": [
+            "vendor/bin/phpstan analyse"
+        ],
+        "phpcs": [
+            "vendor/bin/phpcs src/"
         ]
     },
     "conflict": {

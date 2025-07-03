@@ -51,7 +51,10 @@ class MockLogger implements LoggerInterface
 class GithubServiceUnitTest extends TestCase
 {
     /**
-     * @return \PHPUnit\Framework\MockObject\MockObject&Client
+     * @param array<int, array<string, mixed>> $issuesData
+     * @param array<int, array<string, mixed>> $commitsData
+     *
+     * @return \PHPUnit\Framework\MockObject\MockObject|Client
      */
     private function createMockClient(array $issuesData = [], array $commitsData = [])
     {
@@ -141,9 +144,11 @@ class GithubServiceUnitTest extends TestCase
     }
 
     public function testGetRoadmapIssuesHandlesError(): void
-    {        /** @var Client $client */
+    {
         $client = $this->createMock(Client::class);
-        $client->method('issues')->willThrowException(new \Exception('API Error'));
+        $client->expects($this->any())
+            ->method('issues')
+            ->will($this->throwException(new \Exception('API Error')));
         $client->method('authenticate')->willReturn(null);
 
         $logger = new MockLogger();

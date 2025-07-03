@@ -13,6 +13,8 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Config|null findOneBy(array $criteria, array $orderBy = null)
  * @method Config[]    findAll()
  * @method Config[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Config[]    findByName(string $name)
+ * @method Config|null findOneByName(string $name)
  */
 class ConfigRepository extends ServiceEntityRepository
 {
@@ -46,6 +48,9 @@ class ConfigRepository extends ServiceEntityRepository
     //        ;
     //    }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function findGlobalConfig(): array
     {
         $configGeneral = $this->createQueryBuilder('c')
@@ -72,15 +77,21 @@ class ConfigRepository extends ServiceEntityRepository
         $config = [];
 
         foreach ($configGeneral as $item) {
-            $config[$item['name']] = $item['value'];
+            if (is_array($item) && isset($item['name'], $item['value'])) {
+                $config[$item['name']] = $item['value'];
+            }
         }
 
         foreach ($configProperties as $item) {
-            $config[$item['name']] = $item['value'];
+            if (is_array($item) && isset($item['name'], $item['value'])) {
+                $config[$item['name']] = $item['value'];
+            }
         }
 
         foreach ($configSocial as $item) {
-            $config[$item['name']] = $item['value'];
+            if (is_array($item) && isset($item['name'], $item['value'])) {
+                $config[$item['name']] = $item['value'];
+            }
         }
 
         return $config;
