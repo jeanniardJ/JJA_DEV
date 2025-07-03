@@ -6,7 +6,12 @@
     "homepage": "https://jja-dev.fr",
     "name": "jeanniardj/jja-dev",
     "description": "JJA-DEV.FR - Symfony 6.4 project",
-    "repositories": [],
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jeanniardJ"
+        }
+    ],
     "require": {
         "php": ">=8.2",
         "ext-ctype": "*",
