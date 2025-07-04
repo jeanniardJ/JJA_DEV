@@ -115,6 +115,7 @@ class ModuleAdminController extends AbstractController
             }
             $moduleData = $repoData;
         }
+
         return $this->render('admin/module/show.html.twig', [
             'module' => $moduleData,
         ]);
@@ -135,13 +136,14 @@ class ModuleAdminController extends AbstractController
         }
         if (!$module) {
             $this->addFlash('danger', ['toast', 'admin.module.install_error']);
+
             return $this->redirectToRoute('app_module_admin');
         }
         $moduleExist = $moduleRepository->findOneBy(['idGithub' => $module['id']]);
 
         if (null === $moduleExist) {
             $moduleObj = new Module();
-            $moduleObj->setIdGithub(is_numeric($module['id']) ? (int)$module['id'] : 0);
+            $moduleObj->setIdGithub(is_numeric($module['id']) ? (int) $module['id'] : 0);
             $moduleObj->setName($module['name'] ?? '');
             $moduleObj->setDescription($module['description'] ?? '');
             $moduleObj->setUrl($module['html_url'] ?? '');
@@ -189,6 +191,7 @@ class ModuleAdminController extends AbstractController
         }
         if (!$module) {
             $this->addFlash('danger', ['toast', 'admin.module.uninstall_error']);
+
             return $this->redirectToRoute('app_module_admin');
         }
         $moduleExist = $moduleRepository->findOneBy(['idGithub' => $module['id']]);
@@ -239,6 +242,7 @@ class ModuleAdminController extends AbstractController
                 break;
             }
         }
+
         // Ici, on pourrait faire une action de mise à jour si besoin
         return $this->redirectToRoute('app_module_admin');
     }

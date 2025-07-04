@@ -14,13 +14,11 @@
 namespace App\Import;
 
 use App\Entity\Contact;
-use SplFileObject;
 
 interface ImporterInterface
 {
     /**
-     * @param string|Contact|SplFileObject $source
-     * @return mixed
+     * @param string|Contact|\SplFileObject $source
      */
     public function import(mixed $source): mixed;
 }

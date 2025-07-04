@@ -14,11 +14,12 @@
  * Merci de respecter notre travail créatif et nos droits de propriété intellectuelle.
  *
  * @category Security
- * @package  App\Security
+ *
  * @author   JJA-DEV
  * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ *
+ * @see     https://jja-dev.fr
  */
 
 namespace App\Security;
@@ -32,13 +33,17 @@ use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use SymfonyCasts\Bundle\VerifyEmail\VerifyEmailHelperInterface;
 
 /**
- * Classe EmailVerifier
+ * Classe EmailVerifier.
  *
  * @catégorie Security
+ *
  * @paquet  App\Security
+ *
  * @auteur   JJA-DEV
+ *
  * @licence  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour consulter une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
+ *
  * @lien     https://jja-dev.fr
  */
 class EmailVerifier

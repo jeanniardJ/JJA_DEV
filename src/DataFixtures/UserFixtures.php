@@ -3,18 +3,18 @@
  * Copyright (c) 2023. Tous droits réservés.
  * Aucun élément de ce site web ne peut être reproduit, affiché, modifié ou distribué sans la permission écrite préalable du titulaire du droit d'auteur.
  * Ce site web, son contenu et tous les produits créés par JJA DEV sont protégés par les lois sur les droits d'auteur et la propriété intellectuelle. Tous les droits sont réservés à JJA DEV.
- *  
+ *
  * L'utilisation non autorisée de tout élément de ce site, y compris, mais sans s'y limiter, le texte, les images, les dessins, les graphiques, les logos et les marques de commerce, peut constituer une violation des lois sur le droit d'auteur, des lois sur les marques de commerce ou d'autres lois applicables et peut entraîner des poursuites judiciaires.
- *  
+ *
  * Pour obtenir la permission d'utiliser du contenu de ce site, veuillez contacter JJA DEV.
- *  
+ *
  * Merci de votre compréhension et de votre respect envers notre travail créatif et nos droits de propriété intellectuelle.
  */
 
 namespace App\DataFixtures;
 
-use App\Entity\User;
 use App\Entity\Role;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Persistence\ObjectManager;
@@ -70,7 +70,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             ['username' => 'William', 'email' => 'william@email.com', 'password' => 'Will!@123', 'isVerified' => true],
             ['username' => 'XenaWarrior', 'email' => 'xena@email.com', 'password' => 'Xen@123', 'isVerified' => true],
             ['username' => 'YasmineT', 'email' => 'yasmine@email.com', 'password' => 'Y@smine123', 'isVerified' => true],
-            ['username' => 'ZackAttack', 'email' => 'zack@email.com', 'password' => 'Z@ck123', 'isVerified' => true]
+            ['username' => 'ZackAttack', 'email' => 'zack@email.com', 'password' => 'Z@ck123', 'isVerified' => true],
         ];
 
         foreach ($usersData as $user) {
@@ -82,7 +82,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
             $manager->persist($user2);
         }
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 100; ++$i) {
             $user2 = new User();
             $user2->setUsername($faker->userName);
             $user2->setEmail($faker->email);
@@ -98,7 +98,7 @@ class UserFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies(): array
     {
         return [
-            RoleFixtures::class
+            RoleFixtures::class,
         ];
     }
 }

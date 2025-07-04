@@ -24,7 +24,7 @@ class PageType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Page::class,
-            'translation_domain' => 'Page'
+            'translation_domain' => 'Page',
         ]);
     }
 }

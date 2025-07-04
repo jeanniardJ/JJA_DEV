@@ -14,11 +14,12 @@
  * Merci de respecter notre travail créatif et nos droits de propriété intellectuelle.
  *
  * @category Service
- * @package  App\Service
+ *
  * @author   JJA-DEV
  * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ *
+ * @see     https://jja-dev.fr
  */
 
 namespace App\Service;
@@ -27,16 +28,19 @@ use App\Entity\Prospect;
 use App\Entity\Status;
 use App\Import\ImporterInterface;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
- * Classe CsvImporter
+ * Classe CsvImporter.
  *
  * @catégorie Service
+ *
  * @paquet  App\Service
+ *
  * @auteur   JJA-DEV
+ *
  * @licence  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour consulter une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
+ *
  * @lien     https://jja-dev.fr
  */
 class CsvImporter implements ImporterInterface
@@ -86,6 +90,7 @@ class CsvImporter implements ImporterInterface
         $prospect->setLocation($data['location']);
         $prospect->setWebsite($data['linkedinUrl']);
         $prospect->setStatus($this->entityManager->getRepository(Status::class)->find(1));
+
         return $prospect;
     }
 }

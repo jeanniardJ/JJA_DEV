@@ -2,11 +2,9 @@
 
 namespace App\Repository;
 
-use DateTime;
-use DateTimeInterface;
 use App\Entity\RecurringEvent;
-use Doctrine\Persistence\ManagerRegistry;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 /**
  * @extends ServiceEntityRepository<RecurringEvent>
@@ -28,8 +26,8 @@ class RecurringEventRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('r')
             ->andWhere('r.start <= :end')
             ->andWhere('r.end >= :start')
-            ->setParameter('start', new DateTime($start))
-            ->setParameter('end', new DateTime($end))
+            ->setParameter('start', new \DateTime($start))
+            ->setParameter('end', new \DateTime($end))
             ->getQuery()
             ->getResult();
     }

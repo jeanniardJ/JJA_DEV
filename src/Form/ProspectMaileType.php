@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Prospect;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -19,10 +18,10 @@ class ProspectMaileType extends AbstractType
         $builder
             ->add('sendTo', EmailType::class, [
                 'disabled' => true,
-                'data' => $options['email_prospect']
+                'data' => $options['email_prospect'],
             ])
             ->add('subject', TextType::class)
-            //->add('generatePrompt', ButtonType::class, ['attr' => ['id' => 'generate-prompt-button']])
+            // ->add('generatePrompt', ButtonType::class, ['attr' => ['id' => 'generate-prompt-button']])
             ->add('content', TextareaType::class)
             ->add('submit', SubmitType::class);
     }
@@ -31,7 +30,7 @@ class ProspectMaileType extends AbstractType
     {
         $resolver->setDefaults([
             'email_prospect' => 'joedoe@mail.fr',
-            'translation_domain' => 'prospect'
+            'translation_domain' => 'prospect',
         ]);
     }
 }

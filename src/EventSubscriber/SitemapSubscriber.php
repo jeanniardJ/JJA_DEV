@@ -15,17 +15,15 @@ namespace App\EventSubscriber;
 
 use Presta\SitemapBundle\Event\SitemapPopulateEvent;
 use Presta\SitemapBundle\Service\UrlContainerInterface;
-use Presta\SitemapBundle\Sitemap\Url\UrlConcrete;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class SitemapSubscriber implements EventSubscriberInterface
 {
-    public function __construct() {}
+    public function __construct()
+    {
+    }
 
-    /**
-     * @inheritdoc
-     */
     public static function getSubscribedEvents(): array
     {
         return [
@@ -38,5 +36,7 @@ class SitemapSubscriber implements EventSubscriberInterface
         $this->registerBlogPostsUrls($event->getUrlContainer(), $event->getUrlGenerator());
     }
 
-    public function registerBlogPostsUrls(UrlContainerInterface $urls, UrlGeneratorInterface $router): void {}
+    public function registerBlogPostsUrls(UrlContainerInterface $urls, UrlGeneratorInterface $router): void
+    {
+    }
 }

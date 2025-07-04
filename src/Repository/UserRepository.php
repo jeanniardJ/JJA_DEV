@@ -14,11 +14,12 @@
  * Merci de respecter notre travail créatif et nos droits de propriété intellectuelle.
  *
  * @category Repository
- * @package  App\Repository
+ *
  * @author   JJA-DEV
  * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ *
+ * @see     https://jja-dev.fr
  */
 
 namespace App\Repository;
@@ -31,8 +32,10 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
- * Class UserRepository
+ * Class UserRepository.
+ *
  * @extends ServiceEntityRepository<User>
+ *
  * @implements PasswordUpgraderInterface<User>
  *
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -70,25 +73,25 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
 
         if (!empty($search)) {
             $users->andWhere('u.username LIKE :username')
-                ->setParameter('username', '%' . $search . '%');
+                ->setParameter('username', '%'.$search.'%');
         }
 
         if (!empty($sort)) {
-            if ($sort == 'isVerified' && $order == 'desc') {
+            if ('isVerified' == $sort && 'desc' == $order) {
                 $users->orderBy('u.isVerified', 'DESC');
-            } elseif ($sort == 'isVerified' && $order == 'asc') {
+            } elseif ('isVerified' == $sort && 'asc' == $order) {
                 $users->orderBy('u.isVerified', 'ASC');
             }
 
-            if ($sort == 'email' && $order == 'desc') {
+            if ('email' == $sort && 'desc' == $order) {
                 $users->orderBy('u.email', 'DESC');
-            } elseif ($sort == 'email' && $order == 'asc') {
+            } elseif ('email' == $sort && 'asc' == $order) {
                 $users->orderBy('u.email', 'ASC');
             }
 
-            if ($sort == 'username' && $order == 'desc') {
+            if ('username' == $sort && 'desc' == $order) {
                 $users->orderBy('u.username', 'DESC');
-            } elseif ($sort == 'username' && $order == 'asc') {
+            } elseif ('username' == $sort && 'asc' == $order) {
                 $users->orderBy('u.username', 'ASC');
             }
         } else {
@@ -98,8 +101,6 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         return $users->getQuery()
             ->getArrayResult();
     }
-
-
 
     //    /**
     //     * @return User[] Returns an array of User objects

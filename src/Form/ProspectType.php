@@ -2,16 +2,12 @@
 
 namespace App\Form;
 
-use App\Entity\Note;
 use App\Entity\Prospect;
 use App\Entity\Status;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -22,33 +18,31 @@ class ProspectType extends AbstractType
     {
         $builder
             ->add('firstname', TextType::class, [
-
             ])
             ->add('lastname', TextType::class, [
-                'required' => false
+                'required' => false,
             ])
             ->add('phone', TelType::class, [
-                'required' => false
+                'required' => false,
             ])
             ->add('email', EmailType::class, [
-
             ])
             ->add('position', TextType::class, [
-                'required' => false
+                'required' => false,
             ])
             ->add('location', TextType::class, [
-                'required' => false
+                'required' => false,
             ])
             ->add('website', TextType::class, [
-                'required' => false
+                'required' => false,
             ])
             ->add('note', NoteType::class, [
                 'required' => false,
-                'label' => false
+                'label' => false,
             ])
             ->add('status', EntityType::class, [
                 'class' => Status::class,
-                'choice_label' => 'name'
+                'choice_label' => 'name',
             ]);
     }
 

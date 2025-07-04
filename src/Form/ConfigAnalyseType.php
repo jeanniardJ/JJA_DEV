@@ -17,50 +17,50 @@ class ConfigAnalyseType extends AbstractType
             ->add('analyseGoogle', TextType::class, [
                 'label' => 'config.analyse.googleId',
                 'attr' => [
-                    'placeholder' => 'config.analyse.placeholder.googleId'
+                    'placeholder' => 'config.analyse.placeholder.googleId',
                 ],
-                'required' => false
+                'required' => false,
             ])
             ->add('analyseFacebook', TextType::class, [
                 'label' => 'config.analyse.facebookPixel',
                 'attr' => [
-                    'placeholder' => 'config.analyse.placeholder.facebookPixel'
+                    'placeholder' => 'config.analyse.placeholder.facebookPixel',
                 ],
-                'required' => false
+                'required' => false,
             ])
             ->add('analyseInstagram', TextType::class, [
                 'label' => 'config.analyse.instagramId',
                 'attr' => [
-                    'placeholder' => 'config.analyse.placeholder.instagramId'
+                    'placeholder' => 'config.analyse.placeholder.instagramId',
                 ],
-                'required' => false
+                'required' => false,
             ])
             ->add('analyseLinkedin', TextType::class, [
                 'label' => 'config.analyse.linkedinId',
                 'attr' => [
-                    'placeholder' => 'config.analyse.placeholder.linkedinId'
+                    'placeholder' => 'config.analyse.placeholder.linkedinId',
                 ],
-                'required' => false
+                'required' => false,
             ])
             ->add('analyseYoutube', TextType::class, [
                 'label' => 'config.analyse.youtubeId',
                 'attr' => [
-                    'placeholder' => 'config.analyse.placeholder.youtubeId'
+                    'placeholder' => 'config.analyse.placeholder.youtubeId',
                 ],
-                'required' => false
+                'required' => false,
             ])
             ->add('analyseWhatsapp', TextType::class, [
                 'label' => 'config.analyse.whatsappId',
                 'attr' => [
-                    'placeholder' => 'config.analyse.placeholder.whatsapp'
+                    'placeholder' => 'config.analyse.placeholder.whatsapp',
                 ],
-                'required' => false
+                'required' => false,
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'config.submit',
                 'attr' => [
-                    'class' => 'btn btn-primary'
-                ]
+                    'class' => 'btn btn-primary',
+                ],
             ])
         ;
     }
@@ -70,7 +70,7 @@ class ConfigAnalyseType extends AbstractType
         $resolver->setDefaults([
             // Configure your form options here
             'data_class' => ConfigAnalyse::class,
-            'translation_domain' => 'admin'
+            'translation_domain' => 'admin',
         ]);
     }
 }

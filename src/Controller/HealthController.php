@@ -17,7 +17,7 @@ class HealthController extends AbstractController
             'status' => 'ok',
             'timestamp' => (new \DateTime())->format('c'),
             'environment' => $this->getParameter('kernel.environment'),
-            'checks' => []
+            'checks' => [],
         ];
 
         try {
@@ -25,7 +25,7 @@ class HealthController extends AbstractController
             $em->getConnection()->connect();
             $status['checks']['database'] = 'ok';
         } catch (\Exception $e) {
-            $status['checks']['database'] = 'error: ' . $e->getMessage();
+            $status['checks']['database'] = 'error: '.$e->getMessage();
             $status['status'] = 'error';
         }
 
@@ -39,12 +39,12 @@ class HealthController extends AbstractController
                 $status['status'] = 'error';
             }
         } catch (\Exception $e) {
-            $status['checks']['cache'] = 'error: ' . $e->getMessage();
+            $status['checks']['cache'] = 'error: '.$e->getMessage();
             $status['status'] = 'error';
         }
 
         // Vérification assets
-        $buildDir = $this->getParameter('kernel.project_dir') . '/public/build';
+        $buildDir = $this->getParameter('kernel.project_dir').'/public/build';
         if (is_dir($buildDir)) {
             $status['checks']['assets'] = 'ok';
         } else {
@@ -57,10 +57,10 @@ class HealthController extends AbstractController
             'symfony_version' => $this->getParameter('kernel.symfony_version') ?? 'unknown',
             'memory_usage' => memory_get_usage(true),
             'memory_limit' => ini_get('memory_limit'),
-            'load_average' => function_exists('sys_getloadavg') ? sys_getloadavg()[0] : 'unknown'
+            'load_average' => function_exists('sys_getloadavg') ? sys_getloadavg()[0] : 'unknown',
         ];
 
-        $responseCode = $status['status'] === 'ok' ? Response::HTTP_OK : Response::HTTP_SERVICE_UNAVAILABLE;
+        $responseCode = 'ok' === $status['status'] ? Response::HTTP_OK : Response::HTTP_SERVICE_UNAVAILABLE;
 
         return $this->json($status, $responseCode);
     }

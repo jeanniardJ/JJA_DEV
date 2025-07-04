@@ -7,7 +7,7 @@ http:
 
 workers:
     docker_compose_up:
-        cmd: ["docker-compose", "-p", "jjadev", "--profile", "jjadev", "up", "-d", "--build"]
+        cmd: ["docker-compose", "-p", "jja_dev", "--profile", "jja_dev", "up", "-d", "--build"]
 
     npm_encore_watch:
         cmd: ["npx", "encore", "dev", "--watch"]

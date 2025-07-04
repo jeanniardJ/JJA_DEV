@@ -9,7 +9,7 @@ class BreadCrumb
 {
     public array $breadCrumbs = [];
 
-    public function addItem(string $name, string $url = null): array
+    public function addItem(string $name, ?string $url = null): array
     {
         return $this->breadCrumbs[] = ['name' => $name, 'url' => $url];
     }

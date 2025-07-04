@@ -63,7 +63,7 @@ class StatusAdminController extends AbstractController
     #[Route('/{id}', name: 'app_status_adm_delete', methods: ['POST'])]
     public function delete(Request $request, Status $status, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $status->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$status->getId(), $request->request->get('_token'))) {
             $entityManager->remove($status);
             $entityManager->flush();
         }

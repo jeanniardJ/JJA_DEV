@@ -28,17 +28,17 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'attr' => ['placeholder' => 'contact.placeholder.name']
+                'attr' => ['placeholder' => 'contact.placeholder.name'],
             ])
             ->add('email', EmailType::class, [
-                'attr' => ['placeholder' => 'contact.placeholder.email']
+                'attr' => ['placeholder' => 'contact.placeholder.email'],
             ])
             ->add('phone', TelType::class, [
                 'label' => 'contact.numberPhone',
                 'attr' => [
                     'placeholder' => 'contact.placeholder.phone',
-                    'pattern' => '0[1-9][0-9]{8}'
-                ]
+                    'pattern' => '0[1-9][0-9]{8}',
+                ],
             ])
             ->add('objet', TextType::class)
             ->add('sujet', TextareaType::class);
@@ -48,7 +48,7 @@ class ContactType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Contact::class,
-            'translation_domain' => 'contact'
+            'translation_domain' => 'contact',
         ]);
     }
 }

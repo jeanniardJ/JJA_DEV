@@ -18,49 +18,49 @@ class ConfigSocialType extends AbstractType
                 'label' => 'Facebook',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'https://www.facebook.com/...'
-                ]
+                    'placeholder' => 'https://www.facebook.com/...',
+                ],
             ])
             ->add('TwitterUrl', UrlType::class, [
                 'label' => 'Twitter',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'https://twitter.com/...'
-                ]
+                    'placeholder' => 'https://twitter.com/...',
+                ],
             ])
             ->add('InstagramUrl', UrlType::class, [
                 'label' => 'Instagram',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'https://www.instagram.com/...'
-                ]
+                    'placeholder' => 'https://www.instagram.com/...',
+                ],
             ])
             ->add('LinkedinUrl', UrlType::class, [
                 'label' => 'Linkedin',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'https://www.linkedin.com/...'
-                ]
+                    'placeholder' => 'https://www.linkedin.com/...',
+                ],
             ])
             ->add('YoutubeUrl', UrlType::class, [
                 'label' => 'Youtube',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'https://www.youtube.com/...'
-                ]
+                    'placeholder' => 'https://www.youtube.com/...',
+                ],
             ])
             ->add('WhatsappPhone', UrlType::class, [
                 'label' => 'Whatsapp',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'https://www.whatsapp.com/...'
-                ]
+                    'placeholder' => 'https://www.whatsapp.com/...',
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'config.submit',
                 'attr' => [
-                    'class' => 'btn btn-primary'
-                ]
+                    'class' => 'btn btn-primary',
+                ],
             ]);
     }
 
@@ -69,7 +69,7 @@ class ConfigSocialType extends AbstractType
         $resolver->setDefaults([
             // Configure your form options here
             'data_class' => ConfigSocial::class,
-            'translation_domain' => 'admin'
+            'translation_domain' => 'admin',
         ]);
     }
 }

@@ -17,11 +17,11 @@ class UserAdminType extends AbstractType
     {
         $builder
             ->add('username', TextType::class, [
-                'label' => 'admin.username'
+                'label' => 'admin.username',
             ])
             ->add('email', EmailType::class, [
                 'label' => 'admin.mail',
-                'required' => true
+                'required' => true,
             ])
             ->add('roleEntities', EntityType::class, [
                 'class' => Role::class,
@@ -36,7 +36,7 @@ class UserAdminType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => User::class,
-            'translation_domain' => 'user'
+            'translation_domain' => 'user',
         ]);
     }
 }

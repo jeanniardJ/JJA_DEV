@@ -26,17 +26,43 @@ class GithubClientStub extends Client
     }
 }
 
-class DummyLogger implements \Psr\Log\LoggerInterface
+class DummyLogger implements LoggerInterface
 {
-    public function emergency(string|\Stringable $message, array $context = []): void {}
-    public function alert(string|\Stringable $message, array $context = []): void {}
-    public function critical(string|\Stringable $message, array $context = []): void {}
-    public function error(string|\Stringable $message, array $context = []): void {}
-    public function warning(string|\Stringable $message, array $context = []): void {}
-    public function notice(string|\Stringable $message, array $context = []): void {}
-    public function info(string|\Stringable $message, array $context = []): void {}
-    public function debug(string|\Stringable $message, array $context = []): void {}
-    public function log($level, string|\Stringable $message, array $context = []): void {}
+    public function emergency(string|\Stringable $message, array $context = []): void
+    {
+    }
+
+    public function alert(string|\Stringable $message, array $context = []): void
+    {
+    }
+
+    public function critical(string|\Stringable $message, array $context = []): void
+    {
+    }
+
+    public function error(string|\Stringable $message, array $context = []): void
+    {
+    }
+
+    public function warning(string|\Stringable $message, array $context = []): void
+    {
+    }
+
+    public function notice(string|\Stringable $message, array $context = []): void
+    {
+    }
+
+    public function info(string|\Stringable $message, array $context = []): void
+    {
+    }
+
+    public function debug(string|\Stringable $message, array $context = []): void
+    {
+    }
+
+    public function log($level, string|\Stringable $message, array $context = []): void
+    {
+    }
 }
 
 class GithubServiceTest extends TestCase
@@ -49,6 +75,7 @@ class GithubServiceTest extends TestCase
             {
                 parent::__construct($client);
             }
+
             public function repositories($org, $type, $page)
             {
                 return [
@@ -60,13 +87,17 @@ class GithubServiceTest extends TestCase
         };
         $client = new class($orgApi) extends Client {
             private $orgApi;
+
             public function __construct($orgApi)
             {
                 $this->orgApi = $orgApi;
             }
+
             public function __call($name, $args): \Github\Api\AbstractApi
             {
-                if ($name === 'organization') return $this->orgApi;
+                if ('organization' === $name) {
+                    return $this->orgApi;
+                }
                 throw new \BadMethodCallException();
             }
         };
@@ -86,6 +117,7 @@ class GithubServiceTest extends TestCase
             {
                 parent::__construct($client);
             }
+
             public function show($org, $repo)
             {
                 return [
@@ -110,6 +142,7 @@ class GithubServiceTest extends TestCase
             {
                 parent::__construct($client);
             }
+
             public function commits($org, $repo, $params)
             {
                 return [
@@ -119,11 +152,11 @@ class GithubServiceTest extends TestCase
                             'message' => 'Initial commit',
                             'author' => [
                                 'name' => 'John',
-                                'date' => '2024-01-01T00:00:00Z'
-                            ]
+                                'date' => '2024-01-01T00:00:00Z',
+                            ],
                         ],
-                        'html_url' => 'https://github.com/JJA-DEV-FR/BlogBundle/commit/abcdef1'
-                    ]
+                        'html_url' => 'https://github.com/JJA-DEV-FR/BlogBundle/commit/abcdef1',
+                    ],
                 ];
             }
         };

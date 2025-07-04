@@ -14,11 +14,12 @@
  * Merci de respecter notre travail créatif et nos droits de propriété intellectuelle.
  *
  * @category Repository
- * @package  App\Repository
+ *
  * @author   JJA-DEV
  * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ *
+ * @see     https://jja-dev.fr
  */
 
 namespace App\Repository;

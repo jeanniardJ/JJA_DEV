@@ -5,9 +5,8 @@ namespace App\Service;
 class RoadmapService
 {
     /**
-     * Parse le fichier .github/ROADMAP.md et retourne les 3 premiers tickets structurés
-     * @param string $roadmapPath
-     * @param int $limit
+     * Parse le fichier .github/ROADMAP.md et retourne les 3 premiers tickets structurés.
+     *
      * @return array<mixed>
      */
     public function getTopRoadmapItems(string $roadmapPath, int $limit = 3): array
@@ -40,6 +39,7 @@ class RoadmapService
                 'objectifs' => $objectifs,
             ];
         }
+
         return array_slice($items, 0, $limit);
     }
 }

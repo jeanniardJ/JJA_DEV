@@ -14,11 +14,12 @@
  * Merci de respecter notre travail créatif et nos droits de propriété intellectuelle.
  *
  * @category Model
- * @package  App\Model
+ *
  * @author   JJA-DEV
  * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ *
+ * @see     https://jja-dev.fr
  */
 
 namespace App\Model;
@@ -26,13 +27,17 @@ namespace App\Model;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Classe ConfigPropriety
+ * Classe ConfigPropriety.
  *
  * @catégorie Model
+ *
  * @paquet  App\Model
+ *
  * @auteur   JJA-DEV
+ *
  * @licence  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour consulter une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
+ *
  * @lien     https://jja-dev.fr
  */
 class ConfigPropriety
@@ -78,129 +83,81 @@ class ConfigPropriety
     #[Assert\Type('integer')]
     private int $siret;
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     */
     public function setName(string $name): void
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string
-     */
     public function getAddress(): string
     {
         return $this->address;
     }
 
-    /**
-     * @param string $address
-     */
     public function setAddress(string $address): void
     {
         $this->address = $address;
     }
 
-    /**
-     * @return string
-     */
     public function getCity(): string
     {
         return $this->city;
     }
 
-    /**
-     * @param string $city
-     */
     public function setCity(string $city): void
     {
         $this->city = $city;
     }
 
-    /**
-     * @return string
-     */
     public function getZipCode(): string
     {
         return $this->zipCode;
     }
 
-    /**
-     * @param string $zipCode
-     */
     public function setZipCode(string $zipCode): void
     {
         $this->zipCode = $zipCode;
     }
 
-    /**
-     * @return string
-     */
     public function getCountry(): string
     {
         return $this->country;
     }
 
-    /**
-     * @param string $country
-     */
     public function setCountry(string $country): void
     {
         $this->country = $country;
     }
 
-    /**
-     * @return string
-     */
     public function getPhone(): string
     {
         return $this->phone;
     }
 
-    /**
-     * @param string $phone
-     */
     public function setPhone(string $phone): void
     {
         $this->phone = $phone;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     */
     public function setEmail(string $email): void
     {
         $this->email = $email;
     }
 
-    /**
-     * @return int
-     */
     public function getSiret(): int
     {
         return $this->siret;
     }
 
-    /**
-     * @param int $siret
-     */
     public function setSiret(int $siret): void
     {
         $this->siret = $siret;

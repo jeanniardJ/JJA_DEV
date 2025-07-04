@@ -14,11 +14,12 @@
  * Merci de respecter notre travail créatif et nos droits de propriété intellectuelle.
  *
  * @category Controller
- * @package  App\Controller
+ *
  * @author   JJA-DEV
  * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ *
+ * @see     https://jja-dev.fr
  */
 
 namespace App\Controller;
@@ -27,21 +28,22 @@ use App\Entity\User;
 use App\Form\UserAdminType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
- * Class UserAdminController
+ * Class UserAdminController.
  *
  * @category Controller
- * @package  App\Controller
+ *
  * @author   JJA-DEV
  * @license  JJA DEV © 2021 par Jeanniard Jonathan sous licence CC BY-NC-ND 4.0.
  * Pour voir une copie de cette licence, visitez https://creativecommons.org/licenses/by-nc-nd/4.0/
- * @link     https://jja-dev.fr
+ *
+ * @see     https://jja-dev.fr
  */
 #[Route('/admin/user')]
 class UserAdminController extends AbstractController
@@ -55,14 +57,13 @@ class UserAdminController extends AbstractController
     public function userBlock(UserRepository $userRepository)
     {
         return $this->render('user/admin/block/index.html.twig', [
-            'users' => $userRepository->findAll()
+            'users' => $userRepository->findAll(),
         ]);
     }
 
     #[Route('/json/{search?}{offset?}{limit?}', name: 'app_user_adm_index_json')]
     public function dataUser(Request $request, UserRepository $userRepository, TranslatorInterface $translator): Response
     {
-
         if (!$request->isXmlHttpRequest()) {
             return $this->redirectToRoute('app_user_adm_index');
         }
@@ -89,7 +90,7 @@ class UserAdminController extends AbstractController
                 'email' => $user['email'],
                 'isVerified' => $user['isVerified'],
                 'actions' => "<a class=\"shadow-sm btn btn-secondary btn-sm\"
-                           href='$urlEdit'><i class=\"bi bi-pen-fill\"></i> $transEdit</a>"
+                           href='$urlEdit'><i class=\"bi bi-pen-fill\"></i> $transEdit</a>",
             ];
         }
 
@@ -113,6 +114,7 @@ class UserAdminController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->flush();
             $this->addFlash('success', ['toast', 'admin.update.success']);
+
             return $this->redirectToRoute('app_user_adm_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -129,10 +131,11 @@ class UserAdminController extends AbstractController
 
         if (!$user) {
             $this->addFlash('danger', ['toast', 'admin.delete.noexit']);
+
             return $this->redirectToRoute('app_user_adm_index');
         }
 
-        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
             $this->addFlash('warning', ['toast', 'admin.delete.success']);
             $entityManager->remove($user);
             $entityManager->flush();

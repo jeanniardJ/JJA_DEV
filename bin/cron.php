@@ -11,7 +11,6 @@
  * Merci de votre compréhension et de votre respect envers notre travail créatif et nos droits de propriété intellectuelle.
  */
 
-
 $command = 'php bin/console messenger:consume async --time-limit=55 -vv';
 $output = shell_exec($command);
-file_put_contents('./var/log/cron.log', $output . PHP_EOL, FILE_APPEND);
+file_put_contents('./var/log/cron.log', $output.PHP_EOL, FILE_APPEND);

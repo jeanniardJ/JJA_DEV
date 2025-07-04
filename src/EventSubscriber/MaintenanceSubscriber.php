@@ -40,20 +40,20 @@ class MaintenanceSubscriber implements EventSubscriberInterface
         $address = Factory::parseAddressString($currentIP);
         $range = Factory::parseRangeString('2a01:cb10:878e:3e00::/56');
 
-        $debug = $this->kernel->getEnvironment() === 'dev';
+        $debug = 'dev' === $this->kernel->getEnvironment();
 
-        //&& !$debug && !(in_array($currentIP, $this->ips) && $address->toString() === '127.0.0.1' || $address->matches($range))
-        if ($this->isMaintenance && !$this->isClosed && !$debug && !(in_array($currentIP, $this->ips) && $address->toString() === '127.0.0.1' || $address->matches($range))) {
+        // && !$debug && !(in_array($currentIP, $this->ips) && $address->toString() === '127.0.0.1' || $address->matches($range))
+        if ($this->isMaintenance && !$this->isClosed && !$debug && !(in_array($currentIP, $this->ips) && '127.0.0.1' === $address->toString() || $address->matches($range))) {
             $template = $this->twig->render('maintenance/maintenance.html.twig');
             // We send our response with a 503 response code (service unavailable)
             $event->setResponse(new Response($template, Response::HTTP_SERVICE_UNAVAILABLE));
             $event->stopPropagation();
-        } elseif ($debug && !(in_array($currentIP, $this->ips) && $address->toString() === '127.0.0.1' || $address->matches($range))) {
+        } elseif ($debug && !(in_array($currentIP, $this->ips) && '127.0.0.1' === $address->toString() || $address->matches($range))) {
             $template = $this->twig->render('maintenance/construction.html.twig');
             // We send our response with a 503 response code (service unavailable)
             $event->setResponse(new Response($template, Response::HTTP_SERVICE_UNAVAILABLE));
             $event->stopPropagation();
-        } elseif ($this->isClosed && !$this->isMaintenance && !$debug && !(in_array($currentIP, $this->ips) && $address->toString() === '127.0.0.1' || $address->matches($range))) {
+        } elseif ($this->isClosed && !$this->isMaintenance && !$debug && !(in_array($currentIP, $this->ips) && '127.0.0.1' === $address->toString() || $address->matches($range))) {
             $template = $this->twig->render('maintenance/closed.html.twig');
             // We send our response with a 503 response code (service unavailable)
             $event->setResponse(new Response($template, Response::HTTP_SERVICE_UNAVAILABLE));

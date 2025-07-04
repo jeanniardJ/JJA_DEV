@@ -53,13 +53,13 @@ class ConfigProprietyType extends ConfigType
                     'placeholder' => 'config.propriety.placeholder.phone',
                 ],
                 'row_attr' => [
-                    'class' => 'col-md-6 mb-3'
+                    'class' => 'col-md-6 mb-3',
                 ],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'config.propriety.email',
                 'attr' => [
-                    'placeholder' => 'config.propriety.placeholder.email'
+                    'placeholder' => 'config.propriety.placeholder.email',
                 ],
                 'row_attr' => [
                     'class' => 'col-md-6 mb-3',

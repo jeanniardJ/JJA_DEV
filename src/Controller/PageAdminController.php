@@ -16,7 +16,6 @@ class PageAdminController extends AbstractController
     public function index(): Response
     {
         return $this->render('page/admin/index.html.twig', [
-
         ]);
     }
 
@@ -27,21 +26,18 @@ class PageAdminController extends AbstractController
         $form = $this->createForm(PageType::class, $page);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
         }
 
         return $this->render('page/admin/new.html.twig', [
-            'form' => $form
+            'form' => $form,
         ]);
     }
 
     public function edit()
     {
-
     }
 
     public function delete()
     {
-
     }
 }

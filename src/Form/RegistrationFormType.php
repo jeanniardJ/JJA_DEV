@@ -33,15 +33,15 @@ class RegistrationFormType extends AbstractType
         $builder
             ->add('username', TextType::class, [
                 'constraints' => [
-                    new NotBlank(['message' => 'empty.username'])
-                ]
+                    new NotBlank(['message' => 'empty.username']),
+                ],
             ])
             ->add('email', EmailType::class, [
                 'constraints' => [
                     new NotBlank([
                         'message' => 'empty.email',
-                    ])
-                ]
+                    ]),
+                ],
             ])
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
@@ -56,20 +56,18 @@ class RegistrationFormType extends AbstractType
                         ]),
                         new Length([
                             'min' => 6,
-                            //TODO: translate v2
+                            // TODO: translate v2
                             'minMessage' => 'Votre mot de passe doit être au moins {{ limit }} characters',
                             // max length allowed by Symfony for security reasons
                             'max' => 4096,
                         ]),
-
                     ],
                     'label' => 'resetPass.newPass',
                 ],
                 'second_options' => [
                     'attr' => ['autocomplete' => 'new-password'],
                     'label' => 'resetPass.repeatPass',
-                ]
-
+                ],
             ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -86,7 +84,7 @@ class RegistrationFormType extends AbstractType
         $resolver->setDefaults([
             'data_class' => User::class,
             'translation_domain' => 'login',
-            'validation_groups' => ['Default', 'registration']
+            'validation_groups' => ['Default', 'registration'],
         ]);
     }
 }

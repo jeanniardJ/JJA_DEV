@@ -10,7 +10,6 @@ class RoleFixtures extends Fixture
 {
     public function load(ObjectManager $manager): void
     {
-
         $rolesData = [
             ['name' => 'Utilisateur', 'secondName' => 'ROLE_USER'],
             ['name' => 'Administrateur', 'secondName' => 'ROLE_ADMIN'],
@@ -24,7 +23,7 @@ class RoleFixtures extends Fixture
 
             $manager->persist($role);
 
-            $this->addReference('roleUser-' . $index, $role);
+            $this->addReference('roleUser-'.$index, $role);
         }
 
         $manager->flush();

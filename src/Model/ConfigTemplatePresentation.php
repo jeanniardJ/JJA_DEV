@@ -17,7 +17,7 @@ class ConfigTemplatePresentation
     public string $description;
 
     /**
-     * Get the value of title
+     * Get the value of title.
      */
     public function getTitle()
     {
@@ -25,9 +25,9 @@ class ConfigTemplatePresentation
     }
 
     /**
-     * Set the value of title
+     * Set the value of title.
      *
-     * @return  self
+     * @return self
      */
     public function setTitle($title)
     {
@@ -37,7 +37,7 @@ class ConfigTemplatePresentation
     }
 
     /**
-     * Get the value of description
+     * Get the value of description.
      */
     public function getDescription(): string
     {
@@ -45,9 +45,7 @@ class ConfigTemplatePresentation
     }
 
     /**
-     * Set the value of description
-     *
-     * @return  self
+     * Set the value of description.
      */
     public function setDescription($description): self
     {

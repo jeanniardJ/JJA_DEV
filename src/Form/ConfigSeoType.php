@@ -18,14 +18,14 @@ class ConfigSeoType extends AbstractType
                 'label' => 'Mots-clés',
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Mots-clés'
-                ]
+                    'placeholder' => 'Mots-clés',
+                ],
             ])
             ->add('submit', SubmitType::class, [
                 'label' => 'Enregistrer',
                 'attr' => [
-                    'class' => 'btn btn-primary'
-                ]
+                    'class' => 'btn btn-primary',
+                ],
             ])
         ;
     }

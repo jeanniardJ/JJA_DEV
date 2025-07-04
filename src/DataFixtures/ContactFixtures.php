@@ -19,7 +19,6 @@ use Doctrine\Persistence\ObjectManager;
 
 class ContactFixtures extends Fixture
 {
-
     public function load(ObjectManager $manager): void
     {
         // Créez un tableau de données de contact
@@ -30,7 +29,6 @@ class ContactFixtures extends Fixture
                 'phone' => '123-456-7890',
                 'objet' => 'Demande d\'information',
                 'sujet' => 'Bonjour, je souhaite obtenir des informations supplémentaires.',
-
             ],
             [
                 'name' => 'Jane Smith',
@@ -38,7 +36,6 @@ class ContactFixtures extends Fixture
                 'phone' => '987-654-3210',
                 'objet' => 'Support technique',
                 'sujet' => 'J\'ai un problème avec votre service, pouvez-vous m\'aider ?',
-
             ],
             // Ajoutez d'autres contacts selon vos besoins
         ];

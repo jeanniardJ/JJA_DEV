@@ -5,25 +5,30 @@
 
 version: 2
 updates:
-    -   package-ecosystem: "npm" # See documentation for possible values
-        directory: "/" # Location of package manifests
-        schedule:
-            interval: "daily"
-        labels:
-            - "dependencies"
-        target-branch: "develop"
-    -   package-ecosystem: "composer" # See documentation for possible values
-        directory: "/" # Location of package manifests
-        schedule:
-            interval: "daily"
-        labels:
-            - "dependencies"
-        target-branch: "develop"
-    # Maintain dependencies for GitHub Actions
-    -   package-ecosystem: "github-actions"
-        directory: "/"
-        schedule:
-            interval: "daily"
-        labels:
-            - "dependencies"
-        target-branch: "develop"
+    - package-ecosystem: "composer" # Gestionnaire de dépendances pour Symfony
+      directory: "/" # Emplacement des fichiers composer.json
+      schedule:
+          interval: "daily" # Vérification quotidienne des mises à jour
+      labels:
+          - "dependencies"
+          - "symfony"
+      target-branch: "develop"
+      ignore:
+          - dependency-name: "symfony/*"
+            versions: ["<6.0"] # Ignorer les versions inférieures à Symfony 6.0
+    - package-ecosystem: "github-actions" # Actions GitHub
+      directory: "/" # Emplacement des workflows GitHub Actions
+      schedule:
+          interval: "daily"
+      labels:
+          - "dependencies"
+          - "ci"
+      target-branch: "develop"
+    - package-ecosystem: "npm" # Gestionnaire de dépendances pour les assets
+      directory: "/" # Emplacement des fichiers package.json
+      schedule:
+          interval: "daily"
+      labels:
+          - "dependencies"
+          - "frontend"
+      target-branch: "develop"

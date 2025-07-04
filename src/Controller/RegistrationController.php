@@ -15,10 +15,8 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\RegistrationFormType;
-use App\Form\RegistrationLinkedFormType;
 use App\Security\EmailVerifier;
 use App\Security\LoginFormAuthenticator;
-use Cassandra\Type\UserType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -45,6 +43,7 @@ class RegistrationController extends AbstractController
     {
         if (!$this->getParameter('app.open_register')) {
             $this->addFlash('warning', ['toast', $translator->trans('register.error.open_register', [], 'login')]);
+
             return $this->redirectToRoute('app_home');
         }
 
@@ -103,6 +102,4 @@ class RegistrationController extends AbstractController
 
         return $this->redirectToRoute('app_register');
     }
-
-
 }

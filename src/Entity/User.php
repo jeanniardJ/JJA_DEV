@@ -21,7 +21,6 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
-
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['username'], message: 'There is already an account with this username')]
 #[ORM\HasLifecycleCallbacks]
@@ -35,8 +34,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 180, unique: true)]
     private ?string $username = null;
 
-    #[ORM\ManyToMany(targetEntity: Role::class, inversedBy: "users")]
-    #[ORM\JoinTable(name: "user_roles")]
+    #[ORM\ManyToMany(targetEntity: Role::class, inversedBy: 'users')]
+    #[ORM\JoinTable(name: 'user_roles')]
     private Collection $roleEntities;
 
     /**
@@ -83,12 +82,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getUserIdentifier(): string
     {
-        return (string)$this->username;
+        return (string) $this->username;
     }
 
-    /**
-     * @return Collection
-     */
     public function getRoleEntities(): Collection
     {
         return $this->roleEntities;
@@ -114,7 +110,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-
     public function getRoles(): array
     {
         $roles = $this->roleEntities->map(function (Role $role) {
@@ -126,7 +121,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return array_unique($roles);
     }
-
 
     /**
      * @see PasswordAuthenticatedUserInterface
@@ -188,5 +182,4 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-
 }

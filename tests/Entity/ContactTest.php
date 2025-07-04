@@ -18,8 +18,8 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
-//TODO: Testé la longueur minimum du nombre de characters
-//TODO: Testé le numéro de téléphone
+// TODO: Testé la longueur minimum du nombre de characters
+// TODO: Testé le numéro de téléphone
 class ContactTest extends KernelTestCase
 {
     private ValidatorInterface $validator;
@@ -65,6 +65,7 @@ class ContactTest extends KernelTestCase
             /** @var ConstraintViolation $violation */
             if ($violation->getPropertyPath() === $propertyPath && $violation->getMessage() === $message) {
                 $this->addToAssertionCount(1);
+
                 return;
             }
         }
