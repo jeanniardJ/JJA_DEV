@@ -33,11 +33,11 @@ class PageAdminController extends AbstractController
         ]);
     }
 
-    public function edit()
+    public function edit(): Response
     {
     }
 
-    public function delete()
+    public function delete(): Response
     {
     }
 }

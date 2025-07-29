@@ -1,15 +1,15 @@
 {
     "type": "project",
     "license": "MIT",
-    "minimum-stability": "stable",
-    "prefer-stable": true,
     "homepage": "https://jja-dev.fr",
-    "name": "jeanniardj/jja-dev",
+    "name": "jeanniard/jja-dev",
     "description": "JJA-DEV.FR - Symfony 6.4 project",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "repositories": [
         {
-            "type": "vcs",
-            "url": "https://github.com/jeanniardJ"
+            "type": "path",
+            "url": "../jja-dev-quote-invoice-bundle"
         }
     ],
     "require": {
@@ -46,9 +46,9 @@
         "symfony/console": "6.4.*",
         "symfony/doctrine-messenger": "6.4.*",
         "symfony/dotenv": "6.4.*",
-        "symfony/expression-language": "^7.3.0",
+        "symfony/expression-language": "6.4.*",
         "symfony/flex": "^2",
-        "symfony/form": "7.3.*",
+        "symfony/form": "6.4.*",
         "symfony/framework-bundle": "6.4.*",
         "symfony/http-client": "6.4.*",
         "symfony/http-foundation": "6.4.*",
@@ -203,9 +203,6 @@
         "pre-update-cmd": [],
         "post-update-cmd": [
             "@auto-scripts"
-        ],
-        "phpstan": [
-            "vendor/bin/phpstan analyse"
         ],
         "phpcs": [
             "vendor/bin/phpcs src/"

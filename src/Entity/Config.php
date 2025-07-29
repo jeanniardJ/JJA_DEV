@@ -17,6 +17,9 @@ class Config
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
+    /**
+     * @var array<mixed>
+     */
     #[ORM\Column(type: Types::JSON)]
     private array $value = [];
 
@@ -37,11 +40,17 @@ class Config
         return $this;
     }
 
+    /**
+     * @return array<mixed>
+     */
     public function getValue(): array
     {
         return $this->value;
     }
 
+    /**
+     * @param array<mixed> $value
+     */
     public function setValue(array $value): static
     {
         $this->value = $value;

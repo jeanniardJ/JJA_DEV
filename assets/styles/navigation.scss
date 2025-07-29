@@ -1,0 +1,28 @@
+.nav {
+    &.flex-column {
+        .nav-item {
+            .nav-link {
+                color: #fff;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+
+                &:hover {
+                    background-color: #343a40;
+                }
+
+                i {
+                    margin-right: 8px;
+                }
+            }
+
+            .submenu {
+                display: none;
+
+                &.show {
+                    display: block;
+                }
+            }
+        }
+    }
+}

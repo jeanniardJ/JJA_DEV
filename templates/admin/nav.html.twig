@@ -1,76 +1,53 @@
 {% set perm = is_granted('ROLE_DEV') %}
+{% set menuActive = app.request.attributes.get('_route') %}
+{% set subMenuActive = app.request.attributes.get('_route') %}
 
-<nav class="bg-dark border-end shadow-lg h-100" {{ react_component('Nav', {
-    'admin': {
-        'path': path('app_adm_accueil'),
-        'icon': 'bi bi-tools',
-        'trans': {
-            'title': 'admin.title'|trans({}, 'admin'),
-            'home': 'admin.home'|trans({}, 'admin'),
-        }
-    },
-    'dashboard': {
-        'icon': 'bi bi-house',
-    },
-    'user': {
-        'path': path('app_user_adm_index'),
-        'icon': 'bi bi-users',
-        'trans': {
-            'title': 'admin.user'|trans({}, 'user'),
-        }
-    },
-    'contact': {
-        'path': path('app_contact_adm_index'),
-        'icon': 'bi bi-envelope',
-        'trans': {
-            'title': 'admin.title'|trans({}, 'contact'),
-        }
-    },
-    'setting': {
-        'icon': 'bi bi-gear',
-        'trans': {
-            'title': 'admin.settings.title'|trans({}, 'admin'),
-        }
-    },
-    'settings': {
-        'general': {
-            'name': 'general',
-            'path': path('app_config_adm_index'),
-            'icon': 'bi bi-gear',
-            'isGranted': true,
-            'trans': {
-                'title': 'admin.settings.general'|trans({}, 'admin'),
-            }
-        },
-        'template': {
-            'name': 'template',
-            'path': path('app_config_template_admin'),
-            'icon': 'bi bi-file-earmark-code',
-            'isGranted': true,
-            'trans': {
-                'title': 'admin.template.title'|trans({}, 'template'),
-            }
-        },
-        'module': {
-            'name': 'module',
-            'path': path('app_module_admin'),
-            'icon': 'bi bi-puzzle',
-            'isGranted': perm,
-            'trans': {
-                'title': 'admin.module.params.title'|trans({}, 'module'),
-            }
-        },
-    },
-    'module':{
-        'icon': 'bi bi-puzzle',
-        'trans': {
-            'title': 'admin.module.title'|trans({}, 'admin'),
-        }
-    },
-    'modules': {
-    },
+<nav class="d-flex flex-column flex-shrink-0 p-3 shadow-lg h-100 bg-dark border-end">
+    <div class="d-flex align-items-center">
+        <a href="{{ path('app_adm_accueil') }}" class="col-10 mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <i class="bi bi-tools fs-4 me-2"></i>
+            <span class="fs-4">{{ 'admin.title'|trans({}, 'admin') }}</span>
+        </a>
+    </div>
+    <hr class="text-bg-dark" />
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li class="nav-item">
+            <a class="nav-link text-white {{ menuActive == 'app_user_adm_index' ? 'active' }}"
+                href="{{ path('app_user_adm_index') }}">
+                <i class="bi bi-users pe-1"></i> {{ 'admin.user'|trans({}, 'user') }}
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-white {{ menuActive == 'app_contact_adm_index' ? 'active' }}"
+                href="{{ path('app_contact_adm_index') }}">
+                <i class="bi bi-envelope-at"></i> {{ 'admin.title'|trans({}, 'contact') }}
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white {{ menuActive == 'app_module_admin' ? 'active' }}" href="#"
+                id="modulesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-puzzle"></i> {{ 'admin.module.title'|trans({}, 'admin') }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="modulesDropdown">
 
-    'menuActive': menuActive,
-    'subMenuActive': subMenuActive|default(''),
-})}}>
+            </ul>
+        </li>
+        <hr class="text-bg-dark" />
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white {{ menuActive starts with 'app_config' ? 'active' }}" href="#"
+                id="settingsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-gear"></i> {{ 'admin.settings.title'|trans({}, 'admin') }}
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="settingsDropdown">
+                <li><a class="dropdown-item" href="{{ path('app_config_adm_index') }}">{{
+                        'admin.settings.general'|trans({}, 'admin') }}</a></li>
+                <li><a class="dropdown-item" href="{{ path('app_config_template_admin') }}">{{
+                        'admin.template.title'|trans({}, 'template') }}</a></li>
+                {% if perm %}
+                <li><a class="dropdown-item" href="{{ path('app_module_admin') }}">{{
+                        'admin.module.params.title'|trans({}, 'module') }}</a></li>
+                {% endif %}
+            </ul>
+        </li>
+    </ul>
 </nav>

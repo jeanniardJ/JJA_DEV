@@ -1,0 +1,6 @@
+{
+    "name": "navigation-controller",
+    "version": "1.0.0",
+    "description": "Stimulus controller for admin navigation",
+    "main": "navigation_controller.js"
+}
