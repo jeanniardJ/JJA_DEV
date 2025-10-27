@@ -35,7 +35,7 @@ jobs:
                   vendor/bin/phpstan analyse --level=8 >> audit-report.md
                   vendor/bin/phpcs src/ >> audit-report.md
             - name: Upload rapport d’audit
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v5
               with:
                   name: audit-report
                   path: audit-report.md
